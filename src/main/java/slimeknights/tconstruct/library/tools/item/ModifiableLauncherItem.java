@@ -2,16 +2,15 @@ package slimeknights.tconstruct.library.tools.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import io.github.fabricators_of_create.porting_lib.common.util.ToolAction;
 import io.github.fabricators_of_create.porting_lib.enchant.CustomEnchantingBehaviorItem;
 import io.github.fabricators_of_create.porting_lib.item.CustomMaxCountItem;
 import io.github.fabricators_of_create.porting_lib.item.DamageableItem;
 import io.github.fabricators_of_create.porting_lib.item.ShieldBlockItem;
+import io.github.fabricators_of_create.porting_lib.util.ToolAction;
 import lombok.Getter;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -72,7 +71,6 @@ public abstract class ModifiableLauncherItem extends ProjectileWeaponItem implem
     super(properties);
     this.toolDefinition = toolDefinition;
     ((FabricItemSettings)properties).customDamage(this::damageItem);
-    ItemGroupEvents.modifyEntriesEvent(tab).register(this::fillItemCategory);
   }
 
 
@@ -278,16 +276,14 @@ public abstract class ModifiableLauncherItem extends ProjectileWeaponItem implem
     TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
   }
 
-  @Override
-  public int getDefaultTooltipHideFlags(ItemStack stack) {
-    return TooltipUtil.getModifierHideFlags(getToolDefinition());
-  }
-
 
   /* Display items */
 
-  public void fillItemCategory(FabricItemGroupEntries items) {
-    ToolBuildHandler.addDefaultSubItems(this, items);
+  @Override
+  public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> nonNullList) {
+    if (this.allowedIn(creativeModeTab)) {
+      ToolBuildHandler.addDefaultSubItems(this, nonNullList);
+    }
   }
 
   @Override

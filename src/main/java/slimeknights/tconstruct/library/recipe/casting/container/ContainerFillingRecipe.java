@@ -4,7 +4,6 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
@@ -98,7 +97,7 @@ public abstract class ContainerFillingRecipe implements ICastingRecipe, IMultiRe
   public List<DisplayCastingRecipe> getRecipes() {
     if (displayRecipes == null) {
       List<ItemStack> casts = Collections.singletonList(new ItemStack(container));
-      displayRecipes = BuiltInRegistries.FLUID.stream()
+      displayRecipes = Registry.FLUID.stream()
                                              .filter(fluid -> fluid.getBucket() != Items.AIR && fluid.isSource(fluid.defaultFluidState()))
                                              .map(fluid -> {
                                                FluidStack fluidStack = new FluidStack(fluid, fluidAmount);

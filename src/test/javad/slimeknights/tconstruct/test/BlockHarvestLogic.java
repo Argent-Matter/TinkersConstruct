@@ -33,12 +33,12 @@ public class BlockHarvestLogic implements IHarvestLogic {
   private static class Loader implements IGenericLoader<BlockHarvestLogic> {
     @Override
     public BlockHarvestLogic deserialize(JsonObject json) {
-      return new BlockHarvestLogic(ForgeRegistries.BLOCKS.getValue(JsonHelper.getResourceLocation(json, "block")));
+      return new BlockHarvestLogic(ForgeRegistry.BLOCKS.getValue(JsonHelper.getResourceLocation(json_REGISTRY, "block")));
     }
 
     @Override
     public BlockHarvestLogic fromNetwork(FriendlyByteBuf buffer) {
-      return new BlockHarvestLogic(buffer.readRegistryIdUnsafe(ForgeRegistries.BLOCKS));
+      return new BlockHarvestLogic(buffer.readRegistryIdUnsafe(ForgeRegistry.BLOCKS_REGISTRY));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class BlockHarvestLogic implements IHarvestLogic {
 
     @Override
     public void toNetwork(BlockHarvestLogic object, FriendlyByteBuf buffer) {
-      buffer.writeRegistryIdUnsafe(ForgeRegistries.BLOCKS, object.block);
+      buffer.writeRegistryIdUnsafe(ForgeRegistry.BLOCKS_REGISTRY, object.block);
     }
   }
 }

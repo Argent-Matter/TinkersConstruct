@@ -28,10 +28,10 @@ public class MaterialItemFixture {
     MATERIAL_ITEM_HEAD = new ToolPartItem(new Item.Properties(), HeadMaterialStats.ID);
     MATERIAL_ITEM_HANDLE = new ToolPartItem(new Item.Properties(), HandleMaterialStats.ID);
     MATERIAL_ITEM_EXTRA = new ToolPartItem(new Item.Properties(), ExtraMaterialStats.ID);
-    ForgeRegistries.ITEMS.register(MATERIAL_ITEM.setRegistryName(new ResourceLocation("test", "test_material")));
-    ForgeRegistries.ITEMS.register(MATERIAL_ITEM_2.setRegistryName(new ResourceLocation("test", "test_material_2")));
-    ForgeRegistries.ITEMS.register(MATERIAL_ITEM_HEAD.setRegistryName(new ResourceLocation("test", "test_head")));
-    ForgeRegistries.ITEMS.register(MATERIAL_ITEM_HANDLE.setRegistryName(new ResourceLocation("test", "test_handle")));
-    ForgeRegistries.ITEMS.register(MATERIAL_ITEM_EXTRA.setRegistryName(new ResourceLocation("test", "test_extra")));
+    ForgeRegistry.ITEMS.register(MATERIAL_ITEM.setRegistryName(new ResourceLocation("test"_REGISTRY, "test_material")));
+    ForgeRegistry.ITEMS.register(MATERIAL_ITEM_2.setRegistryName(new ResourceLocation("test"_REGISTRY, "test_material_2")));
+    ForgeRegistry.ITEMS.register(MATERIAL_ITEM_HEAD.setRegistryName(new ResourceLocation("test"_REGISTRY, "test_head")));
+    ForgeRegistry.ITEMS.register(MATERIAL_ITEM_HANDLE.setRegistryName(new ResourceLocation("test"_REGISTRY, "test_handle")));
+    ForgeRegistry.ITEMS.register(MATERIAL_ITEM_EXTRA.setRegistryName(new ResourceLocation("test"_REGISTRY, "test_extra")));
   }
 }

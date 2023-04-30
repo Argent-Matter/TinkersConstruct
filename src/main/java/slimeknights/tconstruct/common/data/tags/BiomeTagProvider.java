@@ -1,12 +1,12 @@
 package slimeknights.tconstruct.common.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.impl.datagen.FabricTagBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -31,12 +31,12 @@ import static net.minecraft.world.level.biome.Biomes.SMALL_END_ISLANDS;
 @SuppressWarnings("unchecked")
 public class BiomeTagProvider extends FabricTagProvider<Biome> {
 
-  public BiomeTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-    super(output, Registries.BIOME, registriesFuture/*, "worldgen.biome.islands", "Tinkers' Biomes"*/);
+  public BiomeTagProvider(FabricDataGenerator output) {
+    super(output, BuiltinRegistries.BIOME/*, "worldgen.biome.islands", "Tinkers' Biomes"*/);
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {
+  protected void generateTags() {
     this.tag(TinkerTags.Biomes.CLAY_ISLANDS).forceAddTag(IS_DEEP_OCEAN).forceAddTag(IS_OCEAN).forceAddTag(IS_BEACH).forceAddTag(IS_RIVER).forceAddTag(IS_MOUNTAIN).forceAddTag(IS_BADLANDS).forceAddTag(IS_HILL);
     this.tag(TinkerTags.Biomes.EARTHSLIME_ISLANDS).forceAddTag(IS_DEEP_OCEAN).forceAddTag(IS_OCEAN);
     this.tag(TinkerTags.Biomes.SKYSLIME_ISLANDS).forceAddTag(IS_DEEP_OCEAN).forceAddTag(IS_OCEAN).forceAddTag(IS_BEACH).forceAddTag(IS_RIVER).forceAddTag(IS_MOUNTAIN).forceAddTag(IS_BADLANDS).forceAddTag(IS_HILL).forceAddTag(IS_TAIGA).forceAddTag(IS_FOREST);

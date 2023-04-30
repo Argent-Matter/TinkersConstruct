@@ -9,12 +9,10 @@ import io.github.fabricators_of_create.porting_lib.util.TrueCondition;
 import io.github.tropheusj.milk.Milk;
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
 import me.alphamode.forgetags.Tags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -83,7 +81,7 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("removal")
 public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
-  public SmelteryRecipeProvider(FabricDataOutput output) {
+  public SmelteryRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 
@@ -589,7 +587,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                        .pattern("BbB")
                        .pattern("BbB")
                        .unlockedBy("has_item", has(TinkerSmeltery.scorchedBricks))
-                       .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(TinkerSmeltery.scorchedBricks.getFence()), folder));
+                       .save(consumer, prefix(Registry.BLOCK.getKey(TinkerSmeltery.scorchedBricks.getFence()), folder));
 
     // tanks
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TinkerSmeltery.scorchedTank.get(TankType.FUEL_TANK))
@@ -1018,7 +1016,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
       ItemCastingRecipeBuilder.basinRecipe(block)
                               .setFluidAndTime(new FluidStack(Fluids.WATER, FluidConstants.BUCKET / 10))
                               .setCast(powder, true)
-                              .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(block), waterFolder));
+                              .save(consumer, prefix(Registry.BLOCK.getKey(block), waterFolder));
     concreteCasting.accept(Blocks.WHITE_CONCRETE_POWDER,      Blocks.WHITE_CONCRETE);
     concreteCasting.accept(Blocks.ORANGE_CONCRETE_POWDER,     Blocks.ORANGE_CONCRETE);
     concreteCasting.accept(Blocks.MAGENTA_CONCRETE_POWDER,    Blocks.MAGENTA_CONCRETE);
@@ -1153,15 +1151,15 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     ItemCastingRecipeBuilder.basinRecipe(Blocks.ANDESITE)
                             .setFluidAndTime(TinkerFluids.moltenQuartz, false, FluidValues.GEM / 2)
                             .setCast(Tags.Items.COBBLESTONE, true)
-                            .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(Blocks.ANDESITE), folder + "quartz/"));
+                            .save(consumer, prefix(Registry.BLOCK.getKey(Blocks.ANDESITE), folder + "quartz/"));
     ItemCastingRecipeBuilder.basinRecipe(Blocks.DIORITE)
                             .setFluidAndTime(TinkerFluids.moltenQuartz, false, FluidValues.GEM / 2)
                             .setCast(Blocks.ANDESITE, true)
-                            .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(Blocks.DIORITE), folder + "quartz/"));
+                            .save(consumer, prefix(Registry.BLOCK.getKey(Blocks.DIORITE), folder + "quartz/"));
     ItemCastingRecipeBuilder.basinRecipe(Blocks.GRANITE)
                             .setFluidAndTime(TinkerFluids.moltenQuartz, false, FluidValues.GEM)
                             .setCast(Blocks.DIORITE, true)
-                            .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(Blocks.GRANITE), folder + "quartz/"));
+                            .save(consumer, prefix(Registry.BLOCK.getKey(Blocks.GRANITE), folder + "quartz/"));
   }
 
   private void addMeltingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -1646,36 +1644,36 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                       .addInput(TinkerFluids.moltenIron.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.skySlime.getLocalTag(), FluidValues.SLIMEBALL)
                       .addInput(TinkerFluids.searedStone.getLocalTag(), FluidValues.BRICK)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenSlimesteel.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenSlimesteel.get()), folder));
 
     // amethyst bronze: 1 copper + 1 amethyst = 1
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenAmethystBronze.get(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenAmethyst.getLocalTag(), FluidValues.GEM)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenAmethystBronze.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenAmethystBronze.get()), folder));
 
     // rose gold: 1 copper + 1 gold = 2
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenRoseGold.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenGold.getForgeTag(), FluidValues.INGOT)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenRoseGold.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenRoseGold.get()), folder));
     // pig iron: 1 iron + 2 blood + 1 honey = 2
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenPigIron.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenIron.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.blood.getLocalTag(), FluidValues.SLIMEBALL * 2)
                       .addInput(TinkerFluids.honey.getForgeTag(), FluidValues.BOTTLE)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenPigIron.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenPigIron.get()), folder));
     // obsidian: 1 water + 1 lava = 2
     // note this is not a progression break, as the same tier lets you combine glass and copper for same mining level
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenObsidian.get(), FluidValues.GLASS_BLOCK / 10)
                       .addInput(Fluids.WATER, FluidConstants.BUCKET / 20)
                       .addInput(Fluids.LAVA, FluidConstants.BUCKET / 10)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenObsidian.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenObsidian.get()), folder));
     // nether obsidian recipe: when water is rare, use the soup
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenObsidian.get(), FluidValues.GLASS_BLOCK / 4)
                       .addInput(TinkerFluids.mushroomStew.getForgeTag(), FluidValues.BOWL)
                       .addInput(Fluids.LAVA, FluidConstants.BUCKET / 4)
-                      .save(consumer, wrap(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenObsidian.get()), folder, "_from_soup"));
+                      .save(consumer, wrap(Registry.FLUID.getKey(TinkerFluids.moltenObsidian.get()), folder, "_from_soup"));
 
     // tier 4
 
@@ -1684,20 +1682,20 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                       .addInput(TinkerFluids.moltenCobalt.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenGold.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.magma.getForgeTag(), FluidValues.SLIMEBALL)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenQueensSlime.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenQueensSlime.get()), folder));
 
     // manyullyn: 3 cobalt + 1 debris = 3
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenManyullyn.get(), FluidValues.INGOT * 4)
                       .addInput(TinkerFluids.moltenCobalt.getForgeTag(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenDebris.getLocalTag(), FluidValues.INGOT)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenManyullyn.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenManyullyn.get()), folder));
 
     // heptazion: 2 copper + 1 cobalt + 1/4 obsidian = 2
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenHepatizon.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenCobalt.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM * 4)
-                      .save(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenHepatizon.get()), folder));
+                      .save(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenHepatizon.get()), folder));
 
     // netherrite: 4 debris + 4 gold = 1 (why is this so dense vanilla?)
     ConditionalRecipe.builder()
@@ -1711,7 +1709,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                        AlloyRecipeBuilder.alloy(TinkerFluids.moltenNetherite.get(), FluidValues.NUGGET)
                                          .addInput(TinkerFluids.moltenDebris.getLocalTag(), FluidValues.NUGGET * 4)
                                          .addInput(TinkerFluids.moltenGold.getForgeTag(), FluidValues.NUGGET * 4)::save)
-                     .build(consumer, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenNetherite.get()), folder));
+                     .build(consumer, prefix(Registry.FLUID.getKey(TinkerFluids.moltenNetherite.get()), folder));
 
 
     // tier 3 compat
@@ -1722,35 +1720,35 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenTin.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenBronze.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenBronze.get()), folder));
 
     // brass
     wrapped = withCondition(consumer, tagCondition("ingots/brass"), tagCondition("ingots/zinc"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenBrass.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenZinc.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenBrass.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenBrass.get()), folder));
 
     // electrum
     wrapped = withCondition(consumer, tagCondition("ingots/electrum"), tagCondition("ingots/silver"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenElectrum.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenGold.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenSilver.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenElectrum.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenElectrum.get()), folder));
 
     // invar
     wrapped = withCondition(consumer, tagCondition("ingots/invar"), tagCondition("ingots/nickel"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenInvar.get(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenIron.getForgeTag(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenNickel.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenInvar.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenInvar.get()), folder));
 
     // constantan
     wrapped = withCondition(consumer, tagCondition("ingots/constantan"), tagCondition("ingots/nickel"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenConstantan.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT)
                       .addInput(TinkerFluids.moltenNickel.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenConstantan.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenConstantan.get()), folder));
 
     // pewter
     wrapped = withCondition(consumer, tagCondition("ingots/pewter"), tagCondition("ingots/lead"));
@@ -1769,32 +1767,32 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                        AlloyRecipeBuilder.alloy(TinkerFluids.moltenPewter.get(), FluidValues.INGOT * 2)
                                          .addInput(TinkerFluids.moltenIron.getForgeTag(), FluidValues.INGOT)
                                          .addInput(TinkerFluids.moltenLead.getForgeTag(), FluidValues.INGOT)::save)
-                     .build(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenPewter.get()), folder));
+                     .build(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenPewter.get()), folder));
 
     // thermal alloys
-    Function<String,ConditionJsonProvider> fluidTagLoaded = name -> DefaultResourceConditions.fluidTagsPopulated(TagKey.create(Registries.FLUID, new ResourceLocation("c", name)));
-    Function<String,TagKey<Fluid>> fluidTag = name -> TagKey.create(Registries.FLUID, new ResourceLocation("c", name));
+    Function<String,ConditionJsonProvider> fluidTagLoaded = name -> DefaultResourceConditions.fluidTagsPopulated(TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation("c", name)));
+    Function<String,TagKey<Fluid>> fluidTag = name -> TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation("c", name));
     // enderium
     wrapped = withCondition(consumer, tagCondition("ingots/enderium"), tagCondition("ingots/lead"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenEnderium.get(), FluidValues.INGOT * 2)
                       .addInput(TinkerFluids.moltenLead.getForgeTag(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenDiamond.getLocalTag(), FluidValues.GEM)
                       .addInput(TinkerFluids.moltenEnder.getForgeTag(), FluidValues.SLIMEBALL * 2)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenEnderium.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenEnderium.get()), folder));
     // lumium
     wrapped = withCondition(consumer, tagCondition("ingots/lumium"), tagCondition("ingots/tin"), tagCondition("ingots/silver"), fluidTagLoaded.apply("glowstone"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenLumium.get(), FluidValues.INGOT * 4)
                       .addInput(TinkerFluids.moltenTin.getForgeTag(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenSilver.getForgeTag(), FluidValues.INGOT)
                       .addInput(FluidIngredient.of(fluidTag.apply("glowstone"), FluidValues.SLIMEBALL * 2))
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenLumium.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenLumium.get()), folder));
     // signalum
     wrapped = withCondition(consumer, tagCondition("ingots/signalum"), tagCondition("ingots/copper"), tagCondition("ingots/silver"), fluidTagLoaded.apply("redstone"));
     AlloyRecipeBuilder.alloy(TinkerFluids.moltenSignalum.get(), FluidValues.INGOT * 4)
                       .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
                       .addInput(TinkerFluids.moltenSilver.getForgeTag(), FluidValues.INGOT)
                       .addInput(FluidIngredient.of(fluidTag.apply("redstone"), 400))
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenSignalum.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenSignalum.get()), folder));
 
     // refined obsidian, note glowstone is done as a composite
     wrapped = withCondition(consumer, tagCondition("ingots/refined_obsidian"), tagCondition("ingots/osmium"));
@@ -1802,7 +1800,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                       .addInput(TinkerFluids.moltenObsidian.getLocalTag(), FluidValues.GLASS_PANE)
                       .addInput(TinkerFluids.moltenDiamond.getLocalTag(), FluidValues.GEM)
                       .addInput(TinkerFluids.moltenOsmium.getForgeTag(), FluidValues.INGOT)
-                      .save(wrapped, prefix(BuiltInRegistries.FLUID.getKey(TinkerFluids.moltenRefinedObsidian.get()), folder));
+                      .save(wrapped, prefix(Registry.FLUID.getKey(TinkerFluids.moltenRefinedObsidian.get()), folder));
   }
 
   private void addEntityMeltingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -1812,74 +1810,74 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     // zombies give less blood, they lost a lot already
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.ZOMBIE, EntityType.HUSK, EntityType.ZOMBIFIED_PIGLIN, EntityType.ZOGLIN, EntityType.ZOMBIE_HORSE),
                                        new FluidStack(TinkerFluids.blood.get(), FluidValues.SLIMEBALL / 10), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.ZOMBIE), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.ZOMBIE), folder));
     MeltingRecipeBuilder.melting(Ingredient.of(Items.ZOMBIE_HEAD, TinkerWorld.heads.get(TinkerHeadType.HUSK), TinkerWorld.heads.get(TinkerHeadType.PIGLIN), TinkerWorld.heads.get(TinkerHeadType.PIGLIN_BRUTE), TinkerWorld.heads.get(TinkerHeadType.ZOMBIFIED_PIGLIN)), TinkerFluids.blood.get(), FluidValues.SLIMEBALL * 2)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.ZOMBIE), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.ZOMBIE), headFolder));
     // drowned are weird, there is water flowing through their veins
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.DROWNED),
                                        new FluidStack(Fluids.WATER, FluidConstants.BUCKET / 50), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.DROWNED), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.DROWNED), folder));
     MeltingRecipeBuilder.melting(Ingredient.of(TinkerWorld.heads.get(TinkerHeadType.DROWNED)), Fluids.WATER, FluidConstants.BUCKET / 4)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.DROWNED), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.DROWNED), headFolder));
     // melt spiders into venom
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.SPIDER, EntityType.CAVE_SPIDER),
                                        new FluidStack(TinkerFluids.venom.get(), FluidValues.BOTTLE / 10), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SPIDER), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SPIDER), folder));
     MeltingRecipeBuilder.melting(Ingredient.of(TinkerWorld.heads.get(TinkerHeadType.SPIDER), TinkerWorld.heads.get(TinkerHeadType.CAVE_SPIDER)), TinkerFluids.venom.get(), FluidValues.SLIMEBALL * 2)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SPIDER), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SPIDER), headFolder));
 
     // creepers are based on explosives, tnt is explosive, tnt is made from sand, sand melts into glass. therefore, creepers melt into glass
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.CREEPER),
                                        new FluidStack(TinkerFluids.moltenGlass.get(), FluidValues.GLASS_BLOCK / 20), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.CREEPER), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.CREEPER), folder));
     MeltingRecipeBuilder.melting(Ingredient.of(Items.CREEPER_HEAD), TinkerFluids.moltenGlass.get(), FluidConstants.BUCKET / 4)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.CREEPER), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.CREEPER), headFolder));
 
     // melt skeletons to get the milk out
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityIngredient.of(EntityTypeTags.SKELETONS), EntityIngredient.of(EntityType.SKELETON_HORSE)),
                                        new FluidStack(Milk.STILL_MILK, FluidConstants.BUCKET / 10))
                               .save(consumer, modResource(folder + "skeletons"));
     MeltingRecipeBuilder.melting(Ingredient.of(Items.SKELETON_SKULL, Items.WITHER_SKELETON_SKULL, TinkerWorld.heads.get(TinkerHeadType.STRAY)), Milk.STILL_MILK, FluidConstants.BUCKET / 4)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SKELETON), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SKELETON), headFolder));
 
     // slimes melt into slime, shocker
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.SLIME, TinkerWorld.earthSlimeEntity.get()), new FluidStack(TinkerFluids.earthSlime.get(), FluidValues.SLIMEBALL / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SLIME), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SLIME), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(TinkerWorld.skySlimeEntity.get()), new FluidStack(TinkerFluids.skySlime.get(), FluidValues.SLIMEBALL / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(TinkerWorld.skySlimeEntity.get()), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(TinkerWorld.skySlimeEntity.get()), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(TinkerWorld.enderSlimeEntity.get()), new FluidStack(TinkerFluids.enderSlime.get(), FluidValues.SLIMEBALL / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(TinkerWorld.enderSlimeEntity.get()), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(TinkerWorld.enderSlimeEntity.get()), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(TinkerWorld.terracubeEntity.get()), new FluidStack(TinkerFluids.moltenClay.get(), FluidValues.SLIMEBALL / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(TinkerWorld.terracubeEntity.get()), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(TinkerWorld.terracubeEntity.get()), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.MAGMA_CUBE), new FluidStack(TinkerFluids.magma.get(), FluidValues.SLIMEBALL / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.MAGMA_CUBE), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.MAGMA_CUBE), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.BEE), new FluidStack(TinkerFluids.honey.get(), FluidValues.BOTTLE / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BEE), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.BEE), folder));
 
     // iron golems can be healed using an iron ingot 25 health
     // 4 * 9 gives 36, which is larger
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.IRON_GOLEM), new FluidStack(TinkerFluids.moltenIron.get(), FluidValues.NUGGET), 4)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.IRON_GOLEM), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.IRON_GOLEM), folder));
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.SNOW_GOLEM), new FluidStack(Fluids.WATER, FluidConstants.BUCKET / 10))
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SNOW_GOLEM), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SNOW_GOLEM), folder));
 
     // "melt" blazes to get fuel
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.BLAZE), new FluidStack(TinkerFluids.blazingBlood.get(), FluidConstants.BUCKET / 50), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BLAZE), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.BLAZE), folder));
     MeltingRecipeBuilder.melting(Ingredient.of(TinkerWorld.heads.get(TinkerHeadType.BLAZE)), new FluidStack(TinkerFluids.blazingBlood.get(), FluidConstants.BUCKET / 10), 1000, IMeltingRecipe.calcTime(1500, 1.0f))
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BLAZE), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.BLAZE), headFolder));
 
     // guardians are rock, seared stone is rock, don't think about it too hard
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.GUARDIAN, EntityType.ELDER_GUARDIAN), new FluidStack(TinkerFluids.searedStone.get(), FluidValues.BRICK / 5), 4)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.GUARDIAN), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.GUARDIAN), folder));
     // silverfish also seem like rock, sorta?
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.SILVERFISH), new FluidStack(TinkerFluids.searedStone.get(), FluidValues.BRICK / 5), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.SILVERFISH), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.SILVERFISH), folder));
 
     // villagers melt into emerald, but they die quite quick
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(TinkerTags.EntityTypes.VILLAGERS),
                                        new FluidStack(TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD), 5)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.VILLAGER), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.VILLAGER), folder));
     // illagers are more resistant, they resist the villager culture afterall
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(TinkerTags.EntityTypes.ILLAGERS),
                                        new FluidStack(TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD), 2)
@@ -1890,14 +1888,14 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                                        new FluidStack(TinkerFluids.moltenEnder.get(), FluidValues.SLIMEBALL / 10), 2)
                               .save(consumer, modResource(folder + "ender"));
     MeltingRecipeBuilder.melting(Ingredient.of(TinkerWorld.heads.get(TinkerHeadType.ENDERMAN)), TinkerFluids.moltenEnder.get(), FluidValues.SLIMEBALL * 2)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.ENDERMAN), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.ENDERMAN), headFolder));
     MeltingRecipeBuilder.melting(Ingredient.of(Items.DRAGON_HEAD), TinkerFluids.moltenEnder.get(), FluidValues.SLIMEBALL * 4)
-                        .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.ENDER_DRAGON), headFolder));
+                        .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.ENDER_DRAGON), headFolder));
 
     // if you can get him to stay, wither is a source of free liquid soul
     EntityMeltingRecipeBuilder.melting(EntityIngredient.of(EntityType.WITHER),
                                        new FluidStack(TinkerFluids.liquidSoul.get(), FluidValues.GLASS_BLOCK / 20), 2)
-                              .save(consumer, prefix(BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.WITHER), folder));
+                              .save(consumer, prefix(Registry.ENTITY_TYPE.getKey(EntityType.WITHER), folder));
   }
 
   private void addCompatRecipes(Consumer<FinishedRecipe> consumer) {
@@ -1917,7 +1915,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     // immersive engineering - casting treated wood
     ItemCastingRecipeBuilder.basinRecipe(ItemNameOutput.fromName(new ResourceLocation("immersiveengineering", "treated_wood_horizontal")))
                             .setCast(ItemTags.PLANKS, true)
-                            .setFluid(TagKey.create(Registries.FLUID, new ResourceLocation("c", "creosote")), 125)
+                            .setFluid(TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation("c", "creosote")), 125)
                             .setCoolingTime(100)
                             .save(withCondition(consumer, DefaultResourceConditions.allModsLoaded("immersiveengineering")), modResource(folder + "immersiveengineering/treated_wood"));
 
@@ -1925,7 +1923,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     String ceramics = "ceramics";
     String ceramicsFolder = folder + ceramics + "/";
     Function<String,ResourceLocation> ceramicsId = name -> new ResourceLocation(ceramics, name);
-    Function<String,TagKey<Item>> ceramicsTag = name -> TagKey.create(Registries.ITEM, new ResourceLocation(ceramics, name));
+    Function<String,TagKey<Item>> ceramicsTag = name -> TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(ceramics, name));
     Consumer<FinishedRecipe> ceramicsConsumer = withCondition(consumer, DefaultResourceConditions.allModsLoaded(ceramics));
 
     // fill clay and cracked clay buckets

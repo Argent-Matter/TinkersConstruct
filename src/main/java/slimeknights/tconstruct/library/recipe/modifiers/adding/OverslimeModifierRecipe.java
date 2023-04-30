@@ -3,7 +3,6 @@ package slimeknights.tconstruct.library.recipe.modifiers.adding;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -144,7 +143,7 @@ public class OverslimeModifierRecipe implements ITinkerStationRecipe, IDisplayMo
   @Override
   public List<ItemStack> getToolWithoutModifier() {
     if (toolWithoutModifier == null) {
-      toolWithoutModifier = RegistryHelper.getTagValueStream(BuiltInRegistries.ITEM, TinkerTags.Items.DURABILITY).map(MAP_TOOL_FOR_RENDERING).toList();
+      toolWithoutModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY).map(MAP_TOOL_FOR_RENDERING).toList();
     }
     return toolWithoutModifier;
   }
@@ -153,7 +152,7 @@ public class OverslimeModifierRecipe implements ITinkerStationRecipe, IDisplayMo
   public List<ItemStack> getToolWithModifier() {
     if (toolWithModifier == null) {
       OverslimeModifier overslime = TinkerModifiers.overslime.get();
-      toolWithModifier = RegistryHelper.getTagValueStream(BuiltInRegistries.ITEM, TinkerTags.Items.DURABILITY)
+      toolWithModifier = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.DURABILITY)
                                        .map(MAP_TOOL_FOR_RENDERING)
                                        .map(stack -> IDisplayModifierRecipe.withModifiers(stack, null, RESULT, data -> overslime.setShield(data, restoreAmount)))
                                        .toList();

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "mantle",
+  "version": "${version}",
+
+  "name": "Mantle",
+  "description": "Shared code for Slime Knights mods and others.",
+  "authors": [
+    "Slime Knights",
+    "AlphaMode"
+  ],
+  "contact": {
+    "sources": "https://github.com/Alpha-s-Stuff/Mantle"
+  },
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "slimeknights.mantle.Mantle"
+    ],
+    "client": [
+      "slimeknights.mantle.client.ClientEvents"
+    ],
+    "fabric-datagen": [
+      "slimeknights.mantle.MantleData"
+    ],
+    "cardinal-components": [
+      "slimeknights.mantle.util.OffhandCooldownTracker"
+    ],
+    "jei_mod_plugin": [
+      "slimeknights.mantle.plugin.jei.JEIPlugin"
+    ]
+  },
+  "accessWidener": "mantle.accesswidener",
+  "mixins": [
+    "mantle.mixins.json"
+  ],
+  "custom": {
+    "cardinal-components": [
+      "mantle:offhand_cooldown"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": ">=0.44.0",
+    "minecraft": ">=1.19.2"
+  }
+}

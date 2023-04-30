@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.tools.data;
 
 import io.github.fabricators_of_create.porting_lib.attributes.PortingLibAttributes;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -45,7 +45,7 @@ import slimeknights.tconstruct.tools.modifiers.slotless.OverslimeModifier;
 import static slimeknights.tconstruct.common.TinkerTags.Items.ARMOR;
 
 public class ModifierProvider extends AbstractModifierProvider {
-  public ModifierProvider(FabricDataOutput output) {
+  public ModifierProvider(FabricDataGenerator output) {
     super(output);
   }
 

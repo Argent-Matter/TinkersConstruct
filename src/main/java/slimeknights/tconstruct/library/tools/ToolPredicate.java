@@ -9,8 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -112,7 +110,7 @@ public class ToolPredicate extends ItemPredicate {
     JsonObject json = new JsonObject();
     json.addProperty("type", ID.toString());
     if (this.item != null) {
-      json.addProperty("item", Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)).toString());
+      json.addProperty("item", Objects.requireNonNull(Registry.ITEM.getKey(item)).toString());
     }
     if (this.tag != null) {
       json.addProperty("tag", this.tag.location().toString());
@@ -145,7 +143,7 @@ public class ToolPredicate extends ItemPredicate {
     // tag
     TagKey<Item> tag = null;
     if (json.has("tag")) {
-      tag = TagKey.create(Registries.ITEM, JsonHelper.getResourceLocation(json, "tag"));
+      tag = TagKey.create(Registry.ITEM_REGISTRY, JsonHelper.getResourceLocation(json, "tag"));
     }
     // materials
     List<MaterialId> materials = Collections.emptyList();

@@ -2,7 +2,6 @@ package slimeknights.tconstruct.common;
 
 import lombok.Getter;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -73,13 +72,13 @@ public enum Sounds {
 
   Sounds(String name) {
     ResourceLocation registryName = TConstruct.getResource(name);
-    sound = Registry.register(BuiltInRegistries.SOUND_EVENT, registryName, SoundEvent.createVariableRangeEvent(registryName));
+    sound = Registry.register(Registry.SOUND_EVENT, registryName, SoundEvent.createVariableRangeEvent(registryName));
   }
 
   Sounds() {
     String name = name().toLowerCase(Locale.US);
     ResourceLocation registryName = TConstruct.getResource(name);
-    sound = Registry.register(BuiltInRegistries.SOUND_EVENT, registryName, SoundEvent.createVariableRangeEvent(registryName));
+    sound = Registry.register(Registry.SOUND_EVENT, registryName, SoundEvent.createVariableRangeEvent(registryName));
   }
 
   /** Makes sound type for crystals */

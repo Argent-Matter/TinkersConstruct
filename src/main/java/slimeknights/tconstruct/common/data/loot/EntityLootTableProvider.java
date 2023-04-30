@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.common.data.loot;
 
 import io.github.fabricators_of_create.porting_lib.data.ModdedEntityLootSubProvider;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
@@ -30,9 +30,9 @@ public class EntityLootTableProvider extends ModdedEntityLootSubProvider {
 
   @Override
   protected Stream<EntityType<?>> getKnownEntityTypes() {
-    return BuiltInRegistries.ENTITY_TYPE.stream()
+    return Registry.ENTITY_TYPE.stream()
       // remove earth slime entity, we redirect to the vanilla loot table
-      .filter((entity) -> TConstruct.MOD_ID.equals(BuiltInRegistries.ENTITY_TYPE.getKey(entity).getNamespace())
+      .filter((entity) -> TConstruct.MOD_ID.equals(Registry.ENTITY_TYPE.getKey(entity).getNamespace())
         && entity != TinkerWorld.earthSlimeEntity.get());
   }
 

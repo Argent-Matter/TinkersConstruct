@@ -2,7 +2,7 @@ package slimeknights.tconstruct.world.data;
 
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -24,7 +24,7 @@ import slimeknights.tconstruct.world.TinkerWorld;
 import java.util.function.Consumer;
 
 public class WorldRecipeProvider extends BaseRecipeProvider implements ICommonRecipeHelper {
-  public WorldRecipeProvider(FabricDataOutput output) {
+  public WorldRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 

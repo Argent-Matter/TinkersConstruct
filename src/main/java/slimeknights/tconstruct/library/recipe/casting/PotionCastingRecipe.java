@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -88,7 +87,7 @@ public class PotionCastingRecipe implements ICastingRecipe, IMultiRecipe<Display
     if (displayRecipes == null) {
       // create a subrecipe for every potion variant
       List<ItemStack> bottles = List.of(bottle.getItems());
-      displayRecipes = BuiltInRegistries.POTION.stream()
+      displayRecipes = Registry.POTION.stream()
         .map(potion -> {
           ItemStack result = PotionUtils.setPotion(new ItemStack(this.result), potion);
           return new DisplayCastingRecipe(type, bottles, fluid.getFluids().stream()
@@ -124,7 +123,7 @@ public class PotionCastingRecipe implements ICastingRecipe, IMultiRecipe<Display
       String group = GsonHelper.getAsString(json, "group", "");
       Ingredient bottle = Ingredient.fromJson(JsonHelper.getElement(json, "bottle"));
       FluidIngredient fluid = FluidIngredient.deserialize(json, "fluid");
-      Item result = JsonHelper.getAsEntry(BuiltInRegistries.ITEM, json, "result");
+      Item result = JsonHelper.getAsEntry(Registry.ITEM, json, "result");
       int coolingTime = GsonHelper.getAsInt(json, "cooling_time");
       return new PotionCastingRecipe(type.get(), this, id, group, bottle, fluid, result, coolingTime);
     }
@@ -135,7 +134,7 @@ public class PotionCastingRecipe implements ICastingRecipe, IMultiRecipe<Display
       String group = buffer.readUtf(Short.MAX_VALUE);
       Ingredient bottle = Ingredient.fromNetwork(buffer);
       FluidIngredient fluid = FluidIngredient.read(buffer);
-      Item result = BuiltInRegistries.ITEM.get(buffer.readResourceLocation());
+      Item result = Registry.ITEM.get(buffer.readResourceLocation());
       int coolingTime = buffer.readVarInt();
       return new PotionCastingRecipe(type.get(), this, id, group, bottle, fluid, result, coolingTime);
     }
@@ -145,7 +144,7 @@ public class PotionCastingRecipe implements ICastingRecipe, IMultiRecipe<Display
       buffer.writeUtf(recipe.group);
       recipe.bottle.toNetwork(buffer);
       recipe.fluid.write(buffer);
-      buffer.writeResourceLocation(BuiltInRegistries.ITEM.getKey(recipe.result));
+      buffer.writeResourceLocation(Registry.ITEM.getKey(recipe.result));
       buffer.writeVarInt(recipe.coolingTime);
     }
   }

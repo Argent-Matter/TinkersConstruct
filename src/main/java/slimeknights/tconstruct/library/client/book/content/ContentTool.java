@@ -7,7 +7,6 @@ import io.github.fabricators_of_create.porting_lib.mixin.accessors.common.access
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -104,7 +103,7 @@ public class ContentTool extends PageContent {
   @SuppressWarnings("unused")
   public ContentTool(IModifiableDisplay tool) {
     this.tool = tool;
-    this.toolName = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(tool.asItem())).toString();
+    this.toolName = Objects.requireNonNull(Registry.ITEM.getKey(tool.asItem())).toString();
   }
 
   public IModifiableDisplay getTool() {
@@ -112,7 +111,7 @@ public class ContentTool extends PageContent {
       if (this.toolName == null) {
         this.toolName = this.parent.name;
       }
-      Item tool = BuiltInRegistries.ITEM.get(new ResourceLocation(this.toolName));
+      Item tool = Registry.ITEM.get(new ResourceLocation(this.toolName));
       if (tool instanceof IModifiableDisplay) {
         this.tool = (IModifiableDisplay) tool;
       } else {

@@ -11,7 +11,6 @@ import me.shedaniel.rei.api.common.entry.type.EntryDefinition;
 import me.shedaniel.rei.api.common.entry.type.EntryType;
 import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -47,7 +46,7 @@ public class EntityEntryDefinition implements EntryDefinition<EntityType> {
 
   @Override
   public ResourceLocation getIdentifier(EntryStack<EntityType> entry, EntityType type) {
-    return Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(type));
+    return Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(type));
   }
 
   @Override
@@ -72,7 +71,7 @@ public class EntityEntryDefinition implements EntryDefinition<EntityType> {
 
   @Override
   public long hash(EntryStack<EntityType> entry, EntityType type, ComparisonContext context) {
-    return hashCode(Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(type)).toString());
+    return hashCode(Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(type)).toString());
   }
 
   private static long hashCode(String id) {
@@ -85,7 +84,7 @@ public class EntityEntryDefinition implements EntryDefinition<EntityType> {
 
   @Override
   public boolean equals(EntityType type1, EntityType type2, ComparisonContext context) {
-    return Objects.equals(Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(type1)).toString(), Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(type2)).toString());
+    return Objects.equals(Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(type1)).toString(), Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(type2)).toString());
   }
 
   @Override

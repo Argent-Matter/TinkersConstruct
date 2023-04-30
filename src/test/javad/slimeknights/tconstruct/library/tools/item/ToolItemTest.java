@@ -28,7 +28,7 @@ public abstract class ToolItemTest extends BaseMcTest {
         .stacksTo(1);
       tool = new ModifiableItem(properties, ToolDefinitionFixture.getStandardToolDefinition());
       tool.setRegistryName("test:toolcore");
-      ForgeRegistries.ITEMS.register(tool);
+      ForgeRegistry.ITEMS.register(tool_REGISTRY);
     }
   }
 

@@ -1,9 +1,7 @@
 package slimeknights.tconstruct.library.tools.part;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -33,9 +31,7 @@ public class MaterialItem extends Item implements IMaterialItem {
   private static final String ADDED_BY = TConstruct.makeTranslationKey("tooltip", "part.added_by");
 
   public MaterialItem(Properties properties, @Nullable CreativeModeTab tab) {
-    super(properties);
-    if (tab != null)
-      ItemGroupEvents.modifyEntriesEvent(tab).register(this::fillItemCategory);
+    super(properties.tab(tab));
   }
 
   /** Gets the material ID for the given NBT compound */
@@ -57,27 +53,30 @@ public class MaterialItem extends Item implements IMaterialItem {
     return getMaterialId(stack.getTag());
   }
 
-  public void fillItemCategory(FabricItemGroupEntries items) {
-    if (MaterialRegistry.isFullyLoaded()) {
-      // if a specific material is set in the config, try adding that
-      String showOnlyId = Config.COMMON.showOnlyPartMaterial.get();
-      boolean added = false;
-      if (!showOnlyId.isEmpty()) {
-        MaterialVariantId materialId = MaterialVariantId.tryParse(showOnlyId);
-        if (materialId != null && canUseMaterial(materialId.getId())) {
-          items.accept(this.withMaterialForDisplay(materialId));
-          added = true;
+  @Override
+  public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> items) {
+    if (this.allowedIn(creativeModeTab)) {
+      if (MaterialRegistry.isFullyLoaded()) {
+        // if a specific material is set in the config, try adding that
+        String showOnlyId = Config.COMMON.showOnlyPartMaterial.get();
+        boolean added = false;
+        if (!showOnlyId.isEmpty()) {
+          MaterialVariantId materialId = MaterialVariantId.tryParse(showOnlyId);
+          if (materialId != null && canUseMaterial(materialId.getId())) {
+            items.add(this.withMaterialForDisplay(materialId));
+            added = true;
+          }
         }
-      }
-      // if no material is set or we failed to find it, iterate all materials
-      if (!added) {
-        for (IMaterial material : MaterialRegistry.getInstance().getVisibleMaterials()) {
-          MaterialId id = material.getIdentifier();
-          if (this.canUseMaterial(id)) {
-            items.accept(this.withMaterial(id));
-            // if a specific material was requested and not found, stop after first
-            if (!showOnlyId.isEmpty()) {
-              break;
+        // if no material is set or we failed to find it, iterate all materials
+        if (!added) {
+          for (IMaterial material : MaterialRegistry.getInstance().getVisibleMaterials()) {
+            MaterialId id = material.getIdentifier();
+            if (this.canUseMaterial(id)) {
+              items.add(this.withMaterial(id));
+              // if a specific material was requested and not found, stop after first
+              if (!showOnlyId.isEmpty()) {
+                break;
+              }
             }
           }
         }
@@ -137,7 +136,7 @@ public class MaterialItem extends Item implements IMaterialItem {
     if (!IMaterial.UNKNOWN_ID.equals(material)) {
       return material.getId().getNamespace();
     }
-    ResourceLocation id = BuiltInRegistries.ITEM.getKey(this);
+    ResourceLocation id = Registry.ITEM.getKey(this);
     return id == null ? null : id.getNamespace();
   }
 

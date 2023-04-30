@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.tools.data.material;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
@@ -12,7 +12,7 @@ import static slimeknights.tconstruct.library.materials.MaterialRegistry.MELEE_H
 import static slimeknights.tconstruct.library.materials.MaterialRegistry.RANGED;
 
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
-  public MaterialTraitsDataProvider(FabricDataOutput output, AbstractMaterialDataProvider materials) {
+  public MaterialTraitsDataProvider(FabricDataGenerator output, AbstractMaterialDataProvider materials) {
     super(output, materials);
   }
 

@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.common.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import slimeknights.mantle.datagen.MantleTags;
@@ -14,12 +14,12 @@ import java.util.concurrent.CompletableFuture;
 @SuppressWarnings("unchecked")
 public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
 
-  public FluidTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-    super(output, registriesFuture);
+  public FluidTagProvider(FabricDataGenerator output) {
+    super(output);
   }
 
   @Override
-  public void addTags(HolderLookup.Provider provider) {
+  public void generateTags() {
     // first, register common tags
     // slime
     tagLocal(TinkerFluids.blood);

@@ -5,7 +5,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -95,14 +94,14 @@ public class ModifiedHarvestLogic extends TagHarvestLogic {
   private static class Loader implements IGenericLoader<ModifiedHarvestLogic> {
     @Override
     public ModifiedHarvestLogic deserialize(JsonObject json) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, JsonHelper.getResourceLocation(json, "effective"));
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, JsonHelper.getResourceLocation(json, "effective"));
       SpeedModifier[] modifiers = JsonHelper.parseList(json, "modifiers", SpeedModifier::fromJson).toArray(new SpeedModifier[0]);
       return new ModifiedHarvestLogic(tag, modifiers);
     }
 
     @Override
     public ModifiedHarvestLogic fromNetwork(FriendlyByteBuf buffer) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, buffer.readResourceLocation());
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, buffer.readResourceLocation());
       SpeedModifier[] modifiers = new SpeedModifier[buffer.readVarInt()];
       for (int i = 0; i < modifiers.length; i++) {
         modifiers[i] = SpeedModifier.fromNetwork(buffer);

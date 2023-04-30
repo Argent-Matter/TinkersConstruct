@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -31,7 +31,7 @@ public class GeneratorPartTextureJsonGenerator extends GenericDataProvider {
 
   private final String modId;
   private final AbstractPartSpriteProvider spriteProvider;
-  public GeneratorPartTextureJsonGenerator(FabricDataOutput output, String modId, AbstractPartSpriteProvider spriteProvider) {
+  public GeneratorPartTextureJsonGenerator(FabricDataGenerator output, String modId, AbstractPartSpriteProvider spriteProvider) {
     super(output, PackType.CLIENT_RESOURCES, "tinkering", GSON);
     this.modId = modId;
     this.spriteProvider = spriteProvider;

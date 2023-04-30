@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.common;
 
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -156,15 +155,15 @@ public class TinkerTags {
     public static final TagKey<Block> CHRYSOPHILITE_ORES = tag("chrysophilite_ores");
 
     // ceramics compat
-    public static final TagKey<Block> CISTERN_CONNECTIONS = TagKey.create(Registries.BLOCK, new ResourceLocation("ceramics", "cistern_connections"));
+    public static final TagKey<Block> CISTERN_CONNECTIONS = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("ceramics", "cistern_connections"));
 
     /** Makes a tag in the tinkers domain */
     public static TagKey<Block> tag(String name) {
-      return TagKey.create(Registries.BLOCK, TConstruct.getResource(name));
+      return TagKey.create(Registry.BLOCK_REGISTRY, TConstruct.getResource(name));
     }
 
     private static TagKey<Block> forgeTag(String name) {
-      return TagKey.create(Registries.BLOCK, new ResourceLocation("c", name));
+      return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("c", name));
     }
   }
 
@@ -397,12 +396,12 @@ public class TinkerTags {
 
     /** Makes a tag in the tinkers domain */
     private static TagKey<Item> tag(String name) {
-      return TagKey.create(Registries.ITEM, TConstruct.getResource(name));
+      return TagKey.create(Registry.ITEM_REGISTRY, TConstruct.getResource(name));
     }
 
     /** Makes a tag in the forge domain */
     public static TagKey<Item> forgeTag(String name) {
-      return TagKey.create(Registries.ITEM, new ResourceLocation("c", name));
+      return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", name));
     }
   }
 
@@ -437,11 +436,11 @@ public class TinkerTags {
     public static final TagKey<Fluid> POTION = forgeTag("potion");
 
     private static TagKey<Fluid> tag(String name) {
-      return TagKey.create(Registries.FLUID, TConstruct.getResource(name));
+      return TagKey.create(Registry.FLUID_REGISTRY, TConstruct.getResource(name));
     }
 
     private static TagKey<Fluid> forgeTag(String name) {
-      return TagKey.create(Registries.FLUID, new ResourceLocation("c", name));
+      return TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation("c", name));
     }
   }
 
@@ -471,11 +470,11 @@ public class TinkerTags {
     public static final TagKey<EntityType<?>> REFLECTING_PRESERVE_OWNER = forgeTag("reflecting/preserve_owner");
 
     private static TagKey<EntityType<?>> tag(String name) {
-      return TagKey.create(Registries.ENTITY_TYPE, TConstruct.getResource(name));
+      return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, TConstruct.getResource(name));
     }
 
     private static TagKey<EntityType<?>> forgeTag(String name) {
-      return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("c", name));
+      return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("c", name));
     }
   }
 
@@ -484,7 +483,7 @@ public class TinkerTags {
     public static final TagKey<BlockEntityType<?>> CRAFTING_STATION_BLACKLIST = tag("crafting_station_blacklist");
 
     private static TagKey<BlockEntityType<?>> tag(String name) {
-      return TagKey.create(Registries.BLOCK_ENTITY_TYPE, TConstruct.getResource(name));
+      return TagKey.create(Registry.BLOCK_ENTITY_TYPE_REGISTRY, TConstruct.getResource(name));
     }
   }
 
@@ -503,7 +502,7 @@ public class TinkerTags {
     public static final TagKey<Biome> ENDERSLIME_ISLANDS = tag("islands/enderslime");
 
     private static TagKey<Biome> tag(String name) {
-      return TagKey.create(Registries.BIOME, TConstruct.getResource(name));
+      return TagKey.create(Registry.BIOME_REGISTRY, TConstruct.getResource(name));
     }
   }
 

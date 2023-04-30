@@ -5,7 +5,6 @@ import io.github.fabricators_of_create.porting_lib.common.util.Lazy;
 import lombok.Getter;
 import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -51,7 +50,7 @@ public abstract class RetexturedTableBlockEntity extends TableBlockEntity implem
     if (texture == Blocks.AIR) {
       return "";
     }
-    return Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(texture)).toString();
+    return Objects.requireNonNull(Registry.BLOCK.getKey(texture)).toString();
   }
 
   private void textureUpdated() {
@@ -82,7 +81,7 @@ public abstract class RetexturedTableBlockEntity extends TableBlockEntity implem
   public void saveSynced(CompoundTag tags) {
     super.saveSynced(tags);
     if (texture != Blocks.AIR) {
-      tags.putString(TAG_TEXTURE, Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(texture)).toString());
+      tags.putString(TAG_TEXTURE, Objects.requireNonNull(Registry.BLOCK.getKey(texture)).toString());
     }
   }
 

@@ -5,7 +5,7 @@ import io.github.fabricators_of_create.porting_lib.crafting.DifferenceIngredient
 import io.github.fabricators_of_create.porting_lib.crafting.IntersectionIngredient;
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -43,7 +43,7 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class ToolsRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
-  public ToolsRecipeProvider(FabricDataOutput output) {
+  public ToolsRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 

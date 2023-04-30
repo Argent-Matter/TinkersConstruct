@@ -2,7 +2,6 @@ package slimeknights.tconstruct.library.modifiers.dynamic;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.GsonHelper;
@@ -80,7 +79,7 @@ public class LootModifier extends Modifier implements LootingModifierHook, Harve
       int enchantmentLevel = 0;
       if (json.has("enchantment")) {
         JsonObject enchantmentJson = GsonHelper.getAsJsonObject(json, "enchantment");
-        enchantment = JsonHelper.getAsEntry(BuiltInRegistries.ENCHANTMENT, enchantmentJson, "name");
+        enchantment = JsonHelper.getAsEntry(Registry.ENCHANTMENT, enchantmentJson, "name");
         enchantmentLevel = GsonHelper.getAsInt(enchantmentJson, "level", 1);
       }
       int looting = GsonHelper.getAsInt(json, "looting", 0);
@@ -93,7 +92,7 @@ public class LootModifier extends Modifier implements LootingModifierHook, Harve
       json.add("level_display", ModifierLevelDisplay.LOADER.serialize(object.levelDisplay));
       if (object.enchantmentLevel > 0 && object.enchantment != null) {
         JsonObject enchantment = new JsonObject();
-        enchantment.addProperty("name", Objects.requireNonNull(BuiltInRegistries.ENCHANTMENT.getKey(object.enchantment)).toString());
+        enchantment.addProperty("name", Objects.requireNonNull(Registry.ENCHANTMENT.getKey(object.enchantment)).toString());
         enchantment.addProperty("level", object.enchantmentLevel);
         json.add("enchantment", enchantment);
       }
@@ -107,7 +106,7 @@ public class LootModifier extends Modifier implements LootingModifierHook, Harve
       int enchantmentLevel = buffer.readVarInt();
       Enchantment enchantment = null;
       if (enchantmentLevel > 0) {
-        enchantment = BuiltInRegistries.ENCHANTMENT.get(buffer.readResourceLocation());
+        enchantment = Registry.ENCHANTMENT.get(buffer.readResourceLocation());
       }
       int lootingLevel = buffer.readVarInt();
       ModifierLevelDisplay display = ModifierLevelDisplay.LOADER.fromNetwork(buffer);
@@ -118,7 +117,7 @@ public class LootModifier extends Modifier implements LootingModifierHook, Harve
     public void toNetwork(LootModifier object, FriendlyByteBuf buffer) {
       if (object.enchantmentLevel > 0 && object.enchantment != null) {
         buffer.writeVarInt(object.enchantmentLevel);
-        buffer.writeResourceLocation(BuiltInRegistries.ENCHANTMENT.getKey(object.enchantment));
+        buffer.writeResourceLocation(Registry.ENCHANTMENT.getKey(object.enchantment));
       } else {
         buffer.writeVarInt(0);
       }

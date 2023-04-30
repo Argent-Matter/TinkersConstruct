@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AllArgsConstructor;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -41,7 +40,7 @@ public class MeltingFuelBuilder extends AbstractRecipeBuilder<MeltingFuelBuilder
     if (input.getFluids().isEmpty()) {
       throw new IllegalStateException("Must have at least one fluid for dynamic input");
     }
-    save(consumer, BuiltInRegistries.FLUID.getKey(input.getFluids().get(0).getFluid()));
+    save(consumer, Registry.FLUID.getKey(input.getFluids().get(0).getFluid()));
   }
 
   @Override

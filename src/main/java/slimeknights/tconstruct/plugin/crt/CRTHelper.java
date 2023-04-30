@@ -68,10 +68,10 @@ public class CRTHelper {
     if (resultId == null) {
       throw new IllegalArgumentException("Invalid ResourceLocation provided! Provided: " + modifierId);
     }
-    if (!TinkerRegistries.MODIFIERS.containsKey(resultId)) {
+    if (!TinkerRegistry.MODIFIERS.containsKey(resultId_REGISTRY)) {
       throw new IllegalArgumentException("Modifier does not exist! Provided: " + resultId);
     }
-    Modifier resultModifier = TinkerRegistries.MODIFIERS.getValue(resultId);
+    Modifier resultModifier = TinkerRegistry.MODIFIERS.getValue(resultId_REGISTRY);
     if (resultModifier == null) {
       throw new IllegalArgumentException("Modifier does not exist! Provided: " + resultId);
     }
@@ -103,7 +103,7 @@ public class CRTHelper {
     event.registerDump("ticMaterialItems", "Lists the different items that are valid Material Items", commandContext -> {
 
       CraftTweakerAPI.logDump("List of all Items that can be used as a Material Item: ");
-      ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof IMaterialItem).forEach(item -> {
+      ForgeRegistry.ITEMS.getValues(_REGISTRY).stream().filter(item -> item instanceof IMaterialItem).forEach(item -> {
         CraftTweakerAPI.logDump(ExpandItem.getDefaultInstance(item).getCommandString());
       });
       final TextComponent message = Component.literal(ChatFormatting.GREEN + "Material Items written to the log" + ChatFormatting.RESET);
@@ -115,7 +115,7 @@ public class CRTHelper {
     event.registerDump("ticModifiers", "Lists the different Tinkers Construct Modifiers", commandContext -> {
 
       CraftTweakerAPI.logDump("List of all Tinkers Construct Modifiers: ");
-      TinkerRegistries.MODIFIERS.getValues().forEach(modifier -> {
+      TinkerRegistry.MODIFIERS.getValues(_REGISTRY).forEach(modifier -> {
         StringBuilder builder = new StringBuilder();
         builder.append("Modifier: `").append(modifier.getId()).append("` {");
         builder.append("\n\tDisplay Name: `").append(modifier.getDisplayName().getString()).append("`");
@@ -137,7 +137,7 @@ public class CRTHelper {
 
       // CraftTweaker currently doesn't have a nice way to print just the item registry name in our format without the nbt tag attached.
       CraftTweakerAPI.logDump("List of all Items that can be used as a modifiable tool (remove the withTag, you just want the actual item): ");
-      ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof IModifiable).forEach(item -> {
+      ForgeRegistry.ITEMS.getValues(_REGISTRY).stream().filter(item -> item instanceof IModifiable).forEach(item -> {
         CraftTweakerAPI.logDump(ExpandItem.getDefaultInstance(item).getCommandString());
       });
       final TextComponent message = Component.literal(ChatFormatting.GREEN + "Tool Core Items written to the log" + ChatFormatting.RESET);

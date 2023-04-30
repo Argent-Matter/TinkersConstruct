@@ -69,7 +69,7 @@ public class ClientGeneratePartTexturesCommand {
     long time = System.nanoTime();
     ResourceManager manager = Minecraft.getInstance().getResourceManager();
     // the forge mod bus is annoying, but stuck using it due to the normal bus not existing at datagen time
-    MaterialPartTextureGenerator.runCallbacks(null, manager);
+    MaterialPartTextureGenerator.runCallbacks(manager);
 
     Player player = Minecraft.getInstance().player;
 
@@ -96,7 +96,7 @@ public class ClientGeneratePartTexturesCommand {
     }
 
     // prepare the output directory
-    Path path = Minecraft.getInstance().getResourcePackDirectory().resolve(PACK_NAME);
+    Path path = Minecraft.getInstance().getResourcePackDirectory().toPath().resolve(PACK_NAME);
     BiConsumer<ResourceLocation,NativeImage> saver = (outputPath, image) -> saveImage(path, outputPath, image);
 
     // create a pack.mcmeta so its a valid resource pack
@@ -125,7 +125,7 @@ public class ClientGeneratePartTexturesCommand {
     for (MaterialSpriteInfo material : materialSprites) {
       for (PartSpriteInfo part : partSprites) {
         if (material.supportStatType(part.getStatType())) {
-          MaterialPartTextureGenerator.generateSprite(spriteReader, material, part, shouldGenerate, saver);
+          MaterialPartTextureGenerator.generateSprite(spriteReader, material, part, saver);
         }
       }
     }
@@ -135,7 +135,7 @@ public class ClientGeneratePartTexturesCommand {
     // success message
     long deltaTime = System.nanoTime() - time;
     int count = generated.getValue();
-    MaterialPartTextureGenerator.runCallbacks(null, null);
+    MaterialPartTextureGenerator.runCallbacks(null);
     log.info("Finished generating {} textures in {} ms", count, deltaTime / 1000000f);
     if (Minecraft.getInstance().player != null) {
       Minecraft.getInstance().player.displayClientMessage(Component.translatable(SUCCESS_KEY, count, (deltaTime / 1000000) / 1000f, getOutputComponent(path.toFile())), false);

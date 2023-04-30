@@ -93,7 +93,7 @@
 //      boolean dyeable = GsonHelper.getAsBoolean(data, "dyeable", false);
 //      boolean hasGolden = GsonHelper.getAsBoolean(data, "has_golden", true);
 //      ArmorSlotType slot = JsonHelper.getAsEnum(data, "slot", ArmorSlotType.class);
-//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistries.SOUND_EVENTS, data, "equip_sound");
+//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistry.SOUND_EVENTS_REGISTRY, data, "equip_sound");
 //      IToolStatProvider statProvider = data.has("stat_provider") ? ToolStatProviders.REGISTRY.deserialize(data, "stat_provider") : ToolStatProviders.NO_PARTS;
 //      return (props, builder) -> new FlexBasicArmorItem(new DummyArmorMaterial(name, equipSound), slot.getEquipmentSlot(), props, ToolDefinition.builder(builder.getRegistryName()).setStatsProvider(statProvider).build(), name, dyeable, hasGolden);
 //    });
@@ -102,7 +102,7 @@
 //    register("layered_embellished_armor", data -> {
 //      ResourceLocation name = JsonHelper.getResourceLocation(data, "texture_name");
 //      ArmorSlotType slot = JsonHelper.getAsEnum(data, "slot", ArmorSlotType.class);
-//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistries.SOUND_EVENTS, data, "equip_sound");
+//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistry.SOUND_EVENTS_REGISTRY, data, "equip_sound");
 //      IToolStatProvider statProvider = data.has("stat_provider") ? ToolStatProviders.REGISTRY.deserialize(data, "stat_provider") : ToolStatProviders.NO_PARTS;
 //      return (props, builder) -> new FlexLayeredEmbellishedArmor(new DummyArmorMaterial(name, equipSound), slot.getEquipmentSlot(), props, ToolDefinition.builder(builder.getRegistryName()).setStatsProvider(statProvider).build(), name);
 //    });
@@ -113,7 +113,7 @@
 //      MaterialId defaultMaterial = new MaterialId(JsonHelper.getResourceLocation(data, "default_material"));
 //      boolean dyeable = GsonHelper.getAsBoolean(data, "dyeable", false);
 //      ArmorSlotType slot = JsonHelper.getAsEnum(data, "slot", ArmorSlotType.class);
-//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistries.SOUND_EVENTS, data, "equip_sound");
+//      SoundEvent equipSound = JsonHelper.getAsEntry(ForgeRegistry.SOUND_EVENTS_REGISTRY, data, "equip_sound");
 //      IToolStatProvider statProvider = data.has("stat_provider") ? ToolStatProviders.REGISTRY.deserialize(data, "stat_provider") : ToolStatProviders.NO_PARTS;
 //      return (props, builder) -> new FlexFlatEmbellishedArmor(new DummyArmorMaterial(name, equipSound), slot.getEquipmentSlot(), props, ToolDefinition.builder(builder.getRegistryName()).setStatsProvider(statProvider).build(), name, defaultMaterial, dyeable);
 //    });

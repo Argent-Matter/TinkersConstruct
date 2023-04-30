@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.library.tools.helper;
 
-import io.github.fabricators_of_create.porting_lib.common.util.ToolAction;
+import io.github.fabricators_of_create.porting_lib.util.ToolAction;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import net.minecraft.nbt.CompoundTag;

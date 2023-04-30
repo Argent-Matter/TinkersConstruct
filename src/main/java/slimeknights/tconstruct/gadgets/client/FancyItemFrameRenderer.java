@@ -13,7 +13,7 @@ import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemTransforms.TransformType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
@@ -111,7 +111,7 @@ public class FancyItemFrameRenderer<T extends FancyItemFrameEntity> extends Item
           float scale = frameType == FrameType.CLEAR ? 0.75f : 0.5f;
           matrices.scale(scale, scale, scale);
           int light = frameType == FrameType.MANYULLYN ? 0x00F000F0 : packedLight;
-          this.itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, light, OverlayTexture.NO_OVERLAY, matrices, bufferIn, frame.level, frame.getId());
+          this.itemRenderer.renderStatic(stack, ItemTransforms.TransformType.FIXED, light, OverlayTexture.NO_OVERLAY, matrices, bufferIn, frame.level, frame.getId());
         }
 //      }
     }

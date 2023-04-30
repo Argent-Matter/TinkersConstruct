@@ -586,11 +586,11 @@ public final class TinkerModifiers extends TinkerModule {
     EntityModifierCapability.registerEntityPredicate(entity -> entity instanceof Projectile);
   }
 
-  public static void gatherData(final FabricDataGenerator.Pack pack, ExistingFileHelper helper) {
+  public static void gatherData(final FabricDataGenerator pack) {
     pack.addProvider(ModifierProvider::new);
     pack.addProvider(ModifierRecipeProvider::new);
     pack.addProvider(SpillingFluidProvider::new);
-    pack.addProvider((output, registriesFuture) -> new ModifierTagProvider(output, helper));
+    pack.addProvider((output, registriesFuture) -> new ModifierTagProvider(output));
     pack.addProvider(EnchantmentToModifierProvider::new);
   }
 }

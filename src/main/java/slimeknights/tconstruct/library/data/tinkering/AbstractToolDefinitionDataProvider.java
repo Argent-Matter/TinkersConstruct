@@ -1,8 +1,7 @@
 package slimeknights.tconstruct.library.data.tinkering;
 
 import com.google.common.collect.ImmutableList;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -42,7 +41,7 @@ public abstract class AbstractToolDefinitionDataProvider extends GenericDataProv
   /** Mod ID to filter definitions we care about */
   private final String modId;
 
-  public AbstractToolDefinitionDataProvider(FabricDataOutput output, String modId) {
+  public AbstractToolDefinitionDataProvider(FabricDataGenerator output, String modId) {
     super(output, PackType.SERVER_DATA, ToolDefinitionLoader.FOLDER, ToolDefinitionLoader.GSON);
     this.modId = modId;
   }
@@ -59,7 +58,7 @@ public abstract class AbstractToolDefinitionDataProvider extends GenericDataProv
 
   /** Defines the given ID as a tool definition */
   protected ToolDefinitionDataBuilder define(ItemLike item) {
-    return define(BuiltInRegistries.ITEM.getKey(item.asItem()));
+    return define(Registry.ITEM.getKey(item.asItem()));
   }
 
   /** Defines the given ID as a tool definition */

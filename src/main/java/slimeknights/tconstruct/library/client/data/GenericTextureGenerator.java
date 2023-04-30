@@ -5,9 +5,9 @@ import com.google.common.hash.HashingOutputStream;
 import com.mojang.blaze3d.platform.NativeImage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import org.lwjgl.stb.STBImage;
@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 @RequiredArgsConstructor
 @Log4j2
 public abstract class GenericTextureGenerator implements DataProvider {
-  private final PackOutput output;
+  private final FabricDataGenerator output;
   private final String folder;
 
   /** Saves the given image to the given location */

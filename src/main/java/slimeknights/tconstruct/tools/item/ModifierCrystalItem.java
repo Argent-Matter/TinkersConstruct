@@ -1,7 +1,5 @@
 package slimeknights.tconstruct.tools.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -26,8 +24,7 @@ public class ModifierCrystalItem extends Item {
   private static final Component TOOLTIP_APPLY = TConstruct.makeTranslation("item", "modifier_crystal.tooltip").withStyle(ChatFormatting.GRAY);
   private static final String TAG_MODIFIER = "modifier";
   public ModifierCrystalItem(Properties props, CreativeModeTab tab) {
-    super(props);
-    ItemGroupEvents.modifyEntriesEvent(tab).register(this::fillItemCategory);
+    super(props.tab(tab));
   }
 
   @Override
@@ -84,7 +81,10 @@ public class ModifierCrystalItem extends Item {
     return null;
   }
 
-  public void fillItemCategory(FabricItemGroupEntries items) {
-    ModifierRecipeLookup.getRecipeModifierList().forEach(modifier -> items.accept(withModifier(modifier.getId())));
+  @Override
+  public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> items) {
+    if (this.allowedIn(creativeModeTab)) {
+      ModifierRecipeLookup.getRecipeModifierList().forEach(modifier -> items.add(withModifier(modifier.getId())));
+    }
   }
 }

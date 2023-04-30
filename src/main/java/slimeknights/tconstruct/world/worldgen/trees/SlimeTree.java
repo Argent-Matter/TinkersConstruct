@@ -2,7 +2,6 @@ package slimeknights.tconstruct.world.worldgen.trees;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -38,15 +37,15 @@ public class SlimeTree extends AbstractTreeGrower {
   private ConfiguredFeature<?, ?> getSlimeTreeFeature(RegistryAccess registryAccess) {
     switch (this.foliageType) {
       case EARTH:
-        return registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TinkerStructures.earthSlimeTree);
+        return registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TinkerStructures.earthSlimeTree);
       case SKY:
-        return registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TinkerStructures.skySlimeTree);
+        return registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TinkerStructures.skySlimeTree);
       case ENDER:
-        return registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TinkerStructures.enderSlimeTree);
+        return registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TinkerStructures.enderSlimeTree);
       case BLOOD:
-        return registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TinkerStructures.bloodSlimeFungus);
+        return registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TinkerStructures.bloodSlimeFungus);
       case ICHOR:
-        return registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TinkerStructures.ichorSlimeFungus);
+        return registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TinkerStructures.ichorSlimeFungus);
     }
 
     return null;

@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.tools.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.enchantment.Enchantments;
 import slimeknights.tconstruct.TConstruct;
@@ -9,7 +9,7 @@ import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 
 public class EnchantmentToModifierProvider extends AbstractEnchantmentToModifierProvider {
-  public EnchantmentToModifierProvider(FabricDataOutput output) {
+  public EnchantmentToModifierProvider(FabricDataGenerator output) {
     super(output);
   }
 

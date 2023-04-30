@@ -1,9 +1,8 @@
 package slimeknights.tconstruct.library.data.material;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -59,7 +58,7 @@ public abstract class AbstractMaterialDataProvider extends GenericDataProvider {
   /** Boolean just in case material stats run first */
   private boolean addMaterialsRun = false;
 
-  public AbstractMaterialDataProvider(FabricDataOutput output) {
+  public AbstractMaterialDataProvider(FabricDataGenerator output) {
     super(output, MaterialManager.FOLDER, MaterialManager.GSON);
   }
 
@@ -120,7 +119,7 @@ public abstract class AbstractMaterialDataProvider extends GenericDataProvider {
 
   /** Conditions on a forge tag existing */
   protected static ConditionJsonProvider tagExistsCondition(String name) {
-    return DefaultResourceConditions.itemTagsPopulated(TagKey.create(Registries.ITEM, new ResourceLocation("c", name)));
+    return DefaultResourceConditions.itemTagsPopulated(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", name)));
   }
 
   /** Creates a normal material with a condition and a redirect */

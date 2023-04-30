@@ -18,8 +18,6 @@ import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.Container;
@@ -126,7 +124,7 @@ public class REIPlugin implements REIClientPlugin {
     registry.addWorkstations(TConstructREIConstants.FOUNDRY, EntryStacks.of(TinkerSmeltery.foundryController));
 
     // modifiers
-    for (Holder<Item> item : Objects.requireNonNull(BuiltInRegistries.ITEM.getTagOrEmpty(TinkerTags.Items.MELEE))) {
+    for (Holder<Item> item : Objects.requireNonNull(Registry.ITEM.getTagOrEmpty(TinkerTags.Items.MELEE))) {
       registry.addWorkstations(TConstructREIConstants.SEVERING, EntryStacks.of(IModifiableDisplay.getDisplayStack(item.value())));
     }
   }
@@ -257,12 +255,12 @@ public class REIPlugin implements REIClientPlugin {
 
   /** Helper to get an item tag */
   private static Iterable<Holder<Item>> getTag(ResourceLocation name) {
-    return getTag(TagKey.create(Registries.ITEM, name));
+    return getTag(TagKey.create(Registry.ITEM_REGISTRY, name));
   }
 
   /** Helper to get an item tag */
   private static Iterable<Holder<Item>> getTag(TagKey<Item> name) {
-    return Objects.requireNonNull(BuiltInRegistries.ITEM.getTagOrEmpty(name));
+    return Objects.requireNonNull(Registry.ITEM.getTagOrEmpty(name));
   }
 
   /**

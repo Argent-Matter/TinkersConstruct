@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -93,7 +92,7 @@ public class MaterialCastingRecipeBuilder extends AbstractRecipeBuilder<Material
 
   @Override
   public void save(Consumer<FinishedRecipe> consumer) {
-    this.save(consumer, BuiltInRegistries.ITEM.getKey(this.result.asItem()));
+    this.save(consumer, Registry.ITEM.getKey(this.result.asItem()));
   }
 
   @Override
@@ -130,7 +129,7 @@ public class MaterialCastingRecipeBuilder extends AbstractRecipeBuilder<Material
         json.addProperty("switch_slots", true);
       }
       json.addProperty("item_cost", itemCost);
-      json.addProperty("result", BuiltInRegistries.ITEM.getKey(result.asItem()).toString());
+      json.addProperty("result", Registry.ITEM.getKey(result.asItem()).toString());
     }
   }
 }

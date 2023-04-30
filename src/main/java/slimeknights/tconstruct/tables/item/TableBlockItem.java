@@ -1,7 +1,5 @@
 package slimeknights.tconstruct.tables.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.NonNullList;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,11 +20,13 @@ public class TableBlockItem extends RetexturedBlockItem {
   }
 
   @Override
-  public void fillItemCategory(FabricItemGroupEntries items) {
-    if (showAllCondition.getAsBoolean()) {
-      addTagVariants(this.getBlock(), this.textureTag, items, true);
-    } else {
-      items.accept(new ItemStack(this));
+  public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> nonNullList) {
+    if (this.allowedIn(creativeModeTab)) {
+      if (showAllCondition.getAsBoolean()) {
+        addTagVariants(this.getBlock(), this.textureTag, nonNullList, true);
+      } else {
+        nonNullList.add(new ItemStack(this));
+      }
     }
   }
 }

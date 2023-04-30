@@ -9,7 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
@@ -160,7 +159,7 @@ public class TabbedContainerMenu<TILE extends BlockEntity> extends TriggeringMul
    */
   private static boolean isUsable(BlockEntity tileEntity, Player player) {
     // must not be blacklisted and be usable
-    return !RegistryHelper.contains(BuiltInRegistries.BLOCK_ENTITY_TYPE, TinkerTags.TileEntityTypes.CRAFTING_STATION_BLACKLIST, tileEntity.getType())
+    return !RegistryHelper.contains(Registry.BLOCK_ENTITY_TYPE, TinkerTags.TileEntityTypes.CRAFTING_STATION_BLACKLIST, tileEntity.getType())
            && (!(tileEntity instanceof Container) || ((Container)tileEntity).stillValid(player));
   }
 

@@ -4,7 +4,6 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
@@ -178,7 +177,7 @@ public class CastingFluidHandler implements IFluidHandler {
       setFluid(FluidStack.loadFluidStackFromNBT(nbt.getCompound(TAG_FLUID)));
     }
     if (nbt.contains(TAG_FILTER, Tag.TAG_STRING)) {
-      Fluid fluid = BuiltInRegistries.FLUID.get(new ResourceLocation(nbt.getString(TAG_FILTER)));
+      Fluid fluid = Registry.FLUID.get(new ResourceLocation(nbt.getString(TAG_FILTER)));
       if (fluid != null) {
         filter = fluid;
       }
@@ -192,7 +191,7 @@ public class CastingFluidHandler implements IFluidHandler {
       nbt.put(TAG_FLUID, fluid.writeToNBT(new CompoundTag()));
     }
     if (filter != Fluids.EMPTY) {
-      nbt.putString(TAG_FILTER, Objects.requireNonNull(BuiltInRegistries.FLUID.getKey(filter)).toString());
+      nbt.putString(TAG_FILTER, Objects.requireNonNull(Registry.FLUID.getKey(filter)).toString());
     }
     return nbt;
   }

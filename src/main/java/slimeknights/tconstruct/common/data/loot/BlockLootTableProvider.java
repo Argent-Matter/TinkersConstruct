@@ -6,7 +6,6 @@ import io.github.fabricators_of_create.porting_lib.loot.CanToolPerformAction;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlags;
@@ -63,8 +62,8 @@ public class BlockLootTableProvider extends ModdedBlockLootSubProvider {
   @Nonnull
   @Override
   protected Iterable<Block> getKnownBlocks() {
-    return BuiltInRegistries.BLOCK.stream()
-      .filter((block) -> TConstruct.MOD_ID.equals(BuiltInRegistries.BLOCK.getKey(block).getNamespace()))
+    return Registry.BLOCK.stream()
+      .filter((block) -> TConstruct.MOD_ID.equals(Registry.BLOCK.getKey(block).getNamespace()))
       .collect(Collectors.toList());
   }
 

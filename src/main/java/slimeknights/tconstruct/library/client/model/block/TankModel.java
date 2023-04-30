@@ -6,10 +6,10 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.datafixers.util.Pair;
-import io.github.fabricators_of_create.porting_lib.models.TransformTypeDependentItemBakedModel;
-import io.github.fabricators_of_create.porting_lib.models.geometry.IGeometryLoader;
-import io.github.fabricators_of_create.porting_lib.models.geometry.IUnbakedGeometry;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.IUnbakedGeometry;
+import io.github.fabricators_of_create.porting_lib.render.TransformTypeDependentItemBakedModel;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -23,11 +23,11 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.block.model.BlockElement;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.ModelBaker;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.SimpleBakedModel;
@@ -39,10 +39,10 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.model.data.SinglePropertyData;
 import slimeknights.mantle.client.model.util.ColoredBlockModel;
 import slimeknights.mantle.client.model.util.ExtraTextureConfiguration;
@@ -54,7 +54,6 @@ import slimeknights.tconstruct.library.client.model.ModelProperties;
 import slimeknights.tconstruct.smeltery.block.entity.ChannelBlockEntity;
 import slimeknights.tconstruct.smeltery.item.TankItem;
 
-import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -82,15 +81,7 @@ public class TankModel implements IUnbakedGeometry<TankModel> {
   protected final boolean forceModelFluid;
 
   @Override
-  public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, BlockModel owner) {
-    model.resolveParents(modelGetter, owner);
-    if (gui != null) {
-      gui.resolveParents(modelGetter, owner);
-    }
-  }
-
-  @Override
-  public BakedModel bake(BlockModel owner, ModelBaker baker, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+  public BakedModel bake(IGeometryBakingContext owner, ModelBakery baker, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
     BakedModel baked = model.bakeModel(owner, transform, overrides, spriteGetter, location);
     // bake the GUI model if present
     BakedModel bakedGui = baked;
@@ -134,10 +125,10 @@ public class TankModel implements IUnbakedGeometry<TankModel> {
     /* Swap out GUI model if needed */
 
     @Override
-    public BakedModel applyTransform(ItemDisplayContext cameraTransformType, PoseStack mat, boolean leftHanded) {
+    public BakedModel applyTransform(ItemTransforms.TransformType cameraTransformType, PoseStack mat, boolean leftHanded) {
       if(!(gui instanceof TransformTypeDependentItemBakedModel) || !(wrapped instanceof TransformTypeDependentItemBakedModel))
         return wrapped;
-      if (cameraTransformType == ItemDisplayContext.GUI) {
+      if (cameraTransformType == ItemTransforms.TransformType.GUI) {
         return ((TransformTypeDependentItemBakedModel)gui).applyTransform(cameraTransformType, mat, leftHanded);
       }
       return ((TransformTypeDependentItemBakedModel)wrapped).applyTransform(cameraTransformType, mat, leftHanded);

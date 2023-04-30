@@ -3,7 +3,7 @@ package slimeknights.tconstruct.library.data;
 import com.google.common.collect.Maps;
 import com.mojang.serialization.JsonOps;
 import lombok.extern.log4j.Log4j2;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.impl.datagen.FabricTagBuilder;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
@@ -36,43 +36,31 @@ public abstract class AbstractTagProvider<T> extends GenericDataProvider {
   private final Predicate<ResourceLocation> staticValuePredicate;
   /** Function to get a key from a value */
   private final Function<T,ResourceLocation> keyGetter;
-  /** Checks for tags in other datapacks */
-  protected final ExistingFileHelper existingFileHelper;
-  /** Resource type for the existing file helper */
-  private final ExistingFileHelper.IResourceType resourceType;
 
   protected final Map<ResourceLocation, TagBuilder> builders = Maps.newLinkedHashMap();
 
-  protected AbstractTagProvider(FabricDataOutput output, String modId, String folder, Function<T,ResourceLocation> keyGetter, Predicate<ResourceLocation> staticValuePredicate, ExistingFileHelper existingFileHelper) {
+  protected AbstractTagProvider(FabricDataGenerator output, String modId, String folder, Function<T,ResourceLocation> keyGetter, Predicate<ResourceLocation> staticValuePredicate) {
     super(output, PackType.SERVER_DATA, folder);
     this.modId = modId;
     this.keyGetter = keyGetter;
     this.staticValuePredicate = staticValuePredicate;
-    this.existingFileHelper = existingFileHelper;
-    this.resourceType = new ExistingFileHelper.ResourceType(net.minecraft.server.packs.PackType.SERVER_DATA, ".json", folder);
   }
 
   /** Creates all tag instances */
   protected abstract void addTags();
 
   @Override
-  public CompletableFuture<?> run(CachedOutput cache) {
+  public void run(CachedOutput cache) {
     this.builders.clear();
     this.addTags();
-    List<CompletableFuture<?>> futures = new ArrayList<>();
     this.builders.forEach((id, builder) -> {
       List<TagEntry> tags = builder.build();
       List<TagEntry> list = tags.stream()
                                        .filter((value) -> !value.verifyIfPresent(staticValuePredicate, this.builders::containsKey))
                                        .filter(this::missing)
                                        .toList();
-//      if (!list.isEmpty()) { TODO: PORT?
-//        throw new IllegalArgumentException(String.format("Couldn't define tag %s as it is missing following references: %s", id, list.stream().map(Objects::toString).collect(Collectors.joining(","))));
-//      } else {
-        futures.add(saveThing(cache, id, TagFile.CODEC.encodeStart(JsonOps.INSTANCE, new TagFile(tags, false)).getOrThrow(false, LOGGER::error)));
-//      }
+      saveThing(cache, id, TagFile.CODEC.encodeStart(JsonOps.INSTANCE, new TagFile(tags, false)).getOrThrow(false, LOGGER::error));
     });
-    return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
   }
 
   /** Checks if a given reference exists in another data pack */

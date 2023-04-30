@@ -2,20 +2,22 @@ package slimeknights.tconstruct.library.client.model.block;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
-import io.github.fabricators_of_create.porting_lib.models.geometry.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.BlockGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.ModelBaker;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.model.inventory.ModelItem;
 import slimeknights.mantle.client.model.util.SimpleBlockModel;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Function;
 
@@ -34,14 +36,15 @@ public class MelterModel extends TankModel {
   }
 
   @Override
-  public BakedModel bake(BlockModel owner, ModelBaker baker, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
-    BakedModel baked = model.bakeModel(owner, transform, overrides, spriteGetter, location);
+  public BakedModel bake(IGeometryBakingContext owner, ModelBakery baker, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+    BlockModel blockModel = ((BlockGeometryBakingContext)owner).owner;
+    BakedModel baked = model.bakeModel(blockModel, transform, overrides, spriteGetter, location);
     // bake the GUI model if present
     BakedModel bakedGui = baked;
     if (gui != null) {
-      bakedGui = gui.bakeModel(owner, transform, overrides, spriteGetter, location);
+      bakedGui = gui.bakeModel(blockModel, transform, overrides, spriteGetter, location);
     }
-    return new Baked(owner, transform, baked, bakedGui, this);
+    return new Baked(blockModel, transform, baked, bakedGui, this);
   }
 
   /** Baked variant to allow access to items */

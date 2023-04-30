@@ -5,9 +5,8 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -41,7 +40,7 @@ public abstract class AbstractSpillingFluidProvider extends GenericDataProvider 
   private final String modId;
   private final Map<ResourceLocation,Builder> entries = new HashMap<>();
 
-  public AbstractSpillingFluidProvider(FabricDataOutput output, String modId) {
+  public AbstractSpillingFluidProvider(FabricDataGenerator output, String modId) {
     super(output, PackType.SERVER_DATA, SpillingFluidManager.FOLDER, SpillingFluidManager.GSON);
     this.modId = modId;
   }
@@ -76,12 +75,12 @@ public abstract class AbstractSpillingFluidProvider extends GenericDataProvider 
 
   /** Creates a builder for a fluid stack */
   protected Builder addFluid(FluidStack fluid) {
-    return addFluid(Objects.requireNonNull(BuiltInRegistries.FLUID.getKey(fluid.getFluid())).getPath(), FluidIngredient.of(fluid));
+    return addFluid(Objects.requireNonNull(Registry.FLUID.getKey(fluid.getFluid())).getPath(), FluidIngredient.of(fluid));
   }
 
   /** Creates a builder for a fluid and amount */
   protected Builder addFluid(Fluid fluid, long amount) {
-    return addFluid(Objects.requireNonNull(BuiltInRegistries.FLUID.getKey(fluid)).getPath(), FluidIngredient.of(fluid, amount));
+    return addFluid(Objects.requireNonNull(Registry.FLUID.getKey(fluid)).getPath(), FluidIngredient.of(fluid, amount));
   }
 
   /** Creates a builder for a tag and amount */

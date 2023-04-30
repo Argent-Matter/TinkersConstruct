@@ -1,12 +1,12 @@
 package slimeknights.tconstruct.tools.data.material;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 
 public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
-  public MaterialRenderInfoProvider(FabricDataOutput output, AbstractMaterialSpriteProvider spriteProvider) {
+  public MaterialRenderInfoProvider(FabricDataGenerator output, AbstractMaterialSpriteProvider spriteProvider) {
     super(output, spriteProvider);
   }
 

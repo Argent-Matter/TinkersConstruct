@@ -2,7 +2,6 @@ package slimeknights.tconstruct.library.modifiers.dynamic;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.GsonHelper;
@@ -89,7 +88,7 @@ public class ConditionalDamageModifier extends IncrementalModifier {
       int level = 0;
       if (json.has("effect")) {
         JsonObject effectJson = GsonHelper.getAsJsonObject(json, "effect");
-        effect = JsonHelper.getAsEntry(BuiltInRegistries.MOB_EFFECT, effectJson, "name");
+        effect = JsonHelper.getAsEntry(Registry.MOB_EFFECT, effectJson, "name");
         level = JsonUtils.getIntMin(effectJson, "level", 1);
       }
       return new ConditionalDamageModifier(predicate, damage, effect, level);
@@ -101,7 +100,7 @@ public class ConditionalDamageModifier extends IncrementalModifier {
       json.addProperty("damage", object.damageBonus);
       if (object.effect != null && object.effectLevel > 0) {
         JsonObject effectJson = new JsonObject();
-        effectJson.addProperty("name", Objects.requireNonNull(BuiltInRegistries.MOB_EFFECT.getKey(object.effect)).toString());
+        effectJson.addProperty("name", Objects.requireNonNull(Registry.MOB_EFFECT.getKey(object.effect)).toString());
         effectJson.addProperty("level", object.effectLevel);
         json.add("effect", effectJson);
       }
@@ -114,7 +113,7 @@ public class ConditionalDamageModifier extends IncrementalModifier {
       MobEffect effect = null;
       int level = buffer.readVarInt();
       if (level > 0) {
-        effect = BuiltInRegistries.MOB_EFFECT.get(buffer.readResourceLocation());
+        effect = Registry.MOB_EFFECT.get(buffer.readResourceLocation());
       }
       return new ConditionalDamageModifier(predicate, damage, effect, level);
     }
@@ -125,7 +124,7 @@ public class ConditionalDamageModifier extends IncrementalModifier {
       buffer.writeFloat(object.damageBonus);
       if (object.effectLevel > 0 && object.effect != null) {
         buffer.writeVarInt(object.effectLevel);
-        buffer.writeResourceLocation(BuiltInRegistries.MOB_EFFECT.getKey(object.effect));
+        buffer.writeResourceLocation(Registry.MOB_EFFECT.getKey(object.effect));
       } else {
         buffer.writeVarInt(0);
       }

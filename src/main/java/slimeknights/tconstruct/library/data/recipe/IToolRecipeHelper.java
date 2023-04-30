@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.library.data.recipe;
 
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -31,7 +30,7 @@ public interface IToolRecipeHelper extends ICastCreationHelper {
    */
   default void toolBuilding(Consumer<FinishedRecipe> consumer, IModifiable tool, String folder) {
     ToolBuildingRecipeBuilder.toolBuildingRecipe(tool)
-                             .save(consumer, modResource(folder + Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(tool.asItem())).getPath()));
+                             .save(consumer, modResource(folder + Objects.requireNonNull(Registry.ITEM.getKey(tool.asItem())).getPath()));
   }
 
   /**
@@ -53,7 +52,7 @@ public interface IToolRecipeHelper extends ICastCreationHelper {
    * @param partFolder   Folder for recipes
    */
   default void partRecipes(Consumer<FinishedRecipe> consumer, IMaterialItem part, CastItemObject cast, int cost, String partFolder, String castFolder) {
-    String name = Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(part.asItem())).getPath();
+    String name = Objects.requireNonNull(Registry.ITEM.getKey(part.asItem())).getPath();
 
     // Part Builder
     PartRecipeBuilder.partRecipe(part)
@@ -77,7 +76,7 @@ public interface IToolRecipeHelper extends ICastCreationHelper {
 
     // Cast Casting
     MaterialIngredient ingredient = MaterialIngredient.fromItem(part);
-    castCreation(consumer, ingredient, cast, castFolder, Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(part.asItem())).getPath());
+    castCreation(consumer, ingredient, cast, castFolder, Objects.requireNonNull(Registry.ITEM.getKey(part.asItem())).getPath());
   }
 
   /**

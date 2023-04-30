@@ -58,7 +58,7 @@ public final class TinkerGadgets extends TinkerModule {
 //    slimeSling.values(); // Force enums to register
   }
   /** Tab for all special tools added by the mod */
-  public static final CreativeModeTab TAB_GADGETS = SupplierCreativeTab.create(TConstruct.MOD_ID, "gadgets", () -> new ItemStack(TinkerGadgets.slimeSling.get(SlimeType.EARTH))).displayItems(TinkerGadgets::buildGadgetTab).build();
+  public static final CreativeModeTab TAB_GADGETS = SupplierCreativeTab.create(TConstruct.MOD_ID, "gadgets", () -> new ItemStack(TinkerGadgets.slimeSling.get(SlimeType.EARTH))).displayItems(TinkerGadgets::buildGadgetTab);
   static final Logger log = Util.getLogger("tinker_gadgets");
 
   /*
@@ -163,20 +163,7 @@ public final class TinkerGadgets extends TinkerModule {
 //    });
   }
 
-  public static void gatherData(final FabricDataGenerator.Pack pack) {
+  public static void gatherData(final FabricDataGenerator pack) {
     pack.addProvider(GadgetRecipeProvider::new);
-  }
-
-  public static void buildGadgetTab(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) {
-    output.accept(punji);
-    cake.forEach((slimeType, foodCakeBlock) -> output.accept(foodCakeBlock));
-    output.accept(magmaCake);
-    output.accept(piggyBackpack);
-    itemFrame.forEach((frameType, fancyItemFrameItem) -> output.accept(fancyItemFrameItem));
-    slimeSling.forEach((slimeType, baseSlimeSlingItem) -> output.accept(baseSlimeSlingItem));
-    output.accept(glowBall);
-    output.accept(efln);
-    output.accept(quartzShuriken);
-    output.accept(flintShuriken);
   }
 }

@@ -3,7 +3,6 @@ package slimeknights.tconstruct.library.tools.definition.harvest;
 import com.google.gson.JsonObject;
 import io.github.fabricators_of_create.porting_lib.util.TierSortingRegistry;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -39,13 +38,13 @@ public class TagHarvestLogic implements IHarvestLogic {
   private static class Loader implements IGenericLoader<TagHarvestLogic> {
     @Override
     public TagHarvestLogic deserialize(JsonObject json) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, JsonHelper.getResourceLocation(json, "effective"));
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, JsonHelper.getResourceLocation(json, "effective"));
       return new TagHarvestLogic(tag);
     }
 
     @Override
     public TagHarvestLogic fromNetwork(FriendlyByteBuf buffer) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, buffer.readResourceLocation());
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, buffer.readResourceLocation());
       return new TagHarvestLogic(tag);
     }
 

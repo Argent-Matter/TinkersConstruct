@@ -2,7 +2,6 @@ package slimeknights.tconstruct.library.recipe;
 
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import slimeknights.tconstruct.TConstruct;
@@ -23,7 +22,7 @@ import slimeknights.tconstruct.library.recipe.worktable.IModifierWorktableRecipe
  */
 public class TinkerRecipeTypes {
   /** Deferred instance */
-  private static final LazyRegistrar<RecipeType<?>> TYPES = LazyRegistrar.create(Registries.RECIPE_TYPE, TConstruct.MOD_ID);
+  private static final LazyRegistrar<RecipeType<?>> TYPES = LazyRegistrar.create(Registry.RECIPE_TYPE_REGISTRY, TConstruct.MOD_ID);
 
   public static final RegistryObject<RecipeType<IPartBuilderRecipe>> PART_BUILDER = register("part_builder");
   public static final RegistryObject<RecipeType<MaterialRecipe>> MATERIAL = register("material");

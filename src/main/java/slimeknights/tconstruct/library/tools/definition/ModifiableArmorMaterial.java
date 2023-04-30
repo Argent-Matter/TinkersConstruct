@@ -71,16 +71,6 @@ public class ModifiableArmorMaterial implements ArmorMaterial {
   }
 
   @Override
-  public int getDurabilityForType(ArmorItem.Type slotIn) {
-    return (int)getStat(ToolStats.DURABILITY, ArmorSlotType.fromType(slotIn));
-  }
-
-  @Override
-  public int getDefenseForType(ArmorItem.Type slotIn) {
-    return (int)getStat(ToolStats.ARMOR, ArmorSlotType.fromType(slotIn));
-  }
-
-  @Override
   public float getToughness() {
     return getStat(ToolStats.ARMOR_TOUGHNESS, ArmorSlotType.CHESTPLATE);
   }
@@ -88,6 +78,16 @@ public class ModifiableArmorMaterial implements ArmorMaterial {
   @Override
   public float getKnockbackResistance() {
     return getStat(ToolStats.KNOCKBACK_RESISTANCE, ArmorSlotType.CHESTPLATE);
+  }
+
+  @Override
+  public int getDurabilityForSlot(EquipmentSlot equipmentSlot) {
+    return (int)getStat(ToolStats.DURABILITY, ArmorSlotType.fromType(equipmentSlot));
+  }
+
+  @Override
+  public int getDefenseForSlot(EquipmentSlot equipmentSlot) {
+    return (int)getStat(ToolStats.ARMOR, ArmorSlotType.fromType(equipmentSlot));
   }
 
   @Override

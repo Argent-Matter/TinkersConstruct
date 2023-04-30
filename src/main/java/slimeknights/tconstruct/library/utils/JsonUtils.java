@@ -6,7 +6,6 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSyntaxException;
 import io.github.fabricators_of_create.porting_lib.crafting.CraftingHelper;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.resources.Resource;
@@ -144,7 +143,7 @@ public class JsonUtils {
    */
   public static JsonElement serializeItemStack(ItemStack result) {
     // if the item has NBT, write both, else write just the name
-    String itemName = BuiltInRegistries.ITEM.getKey(result.getItem()).toString();
+    String itemName = Registry.ITEM.getKey(result.getItem()).toString();
     if (result.hasTag()) {
       JsonObject jsonResult = new JsonObject();
       jsonResult.addProperty("item", itemName);

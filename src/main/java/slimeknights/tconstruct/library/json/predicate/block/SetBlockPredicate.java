@@ -5,7 +5,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -41,7 +40,7 @@ class SetBlockPredicate implements BlockPredicate {
     public SetBlockPredicate deserialize(JsonObject json) {
       Set<Block> blocks = ImmutableSet.copyOf(JsonHelper.parseList(json, "blocks", (element, key) -> {
         ResourceLocation name = JsonHelper.convertToResourceLocation(element, key);
-        return BuiltInRegistries.BLOCK.getOptional(name).orElseThrow(() -> new JsonSyntaxException("Unknown block '" + name + "'"));
+        return Registry.BLOCK.getOptional(name).orElseThrow(() -> new JsonSyntaxException("Unknown block '" + name + "'"));
       }));
       return new SetBlockPredicate(blocks);
     }
@@ -51,7 +50,7 @@ class SetBlockPredicate implements BlockPredicate {
       ImmutableSet.Builder<Block> blocks = ImmutableSet.builder();
       int max = buffer.readVarInt();
       for (int i = 0; i < max; i++) {
-        blocks.add(BuiltInRegistries.BLOCK.get(buffer.readResourceLocation()));
+        blocks.add(Registry.BLOCK.get(buffer.readResourceLocation()));
       }
       return new SetBlockPredicate(blocks.build());
     }
@@ -60,7 +59,7 @@ class SetBlockPredicate implements BlockPredicate {
     public void serialize(SetBlockPredicate object, JsonObject json) {
       JsonArray blocksJson = new JsonArray();
       for (Block block : object.blocks) {
-        blocksJson.add(Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(block)).toString());
+        blocksJson.add(Objects.requireNonNull(Registry.BLOCK.getKey(block)).toString());
       }
       json.add("blocks", blocksJson);
     }
@@ -69,7 +68,7 @@ class SetBlockPredicate implements BlockPredicate {
     public void toNetwork(SetBlockPredicate object, FriendlyByteBuf buffer) {
       buffer.writeVarInt(object.blocks.size());
       for (Block block : object.blocks) {
-        buffer.writeResourceLocation(BuiltInRegistries.BLOCK.getKey(block));
+        buffer.writeResourceLocation(Registry.BLOCK.getKey(block));
       }
     }
   };

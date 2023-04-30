@@ -8,10 +8,13 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.math.Transformation;
-import io.github.fabricators_of_create.porting_lib.models.TransformTypeDependentItemBakedModel;
-import io.github.fabricators_of_create.porting_lib.models.geometry.IGeometryLoader;
-import io.github.fabricators_of_create.porting_lib.models.geometry.IUnbakedGeometry;
+import com.mojang.math.Vector3f;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.IUnbakedGeometry;
+import io.github.fabricators_of_create.porting_lib.render.TransformTypeDependentItemBakedModel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
@@ -28,18 +31,17 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.ModelBaker;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelState;
+import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
-import org.joml.Vector3f;
 import slimeknights.mantle.client.model.util.BakedItemModel;
 import slimeknights.mantle.client.model.util.MantleItemLayerModel;
 import slimeknights.mantle.util.ItemLayerPixels;
@@ -60,7 +62,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
-import javax.annotation.Nullable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -178,6 +180,16 @@ public class ToolModel implements IUnbakedGeometry<ToolModel> {
         }
       }
     }
+  }
+
+  @Override
+  public BakedModel bake(IGeometryBakingContext context, ModelBakery bakery, Function<Material, TextureAtlasSprite> spriteGetter, ModelState modelState, ItemOverrides overrides, ResourceLocation modelLocation) {
+    return null;
+  }
+
+  @Override
+  public Collection<Material> getMaterials(IGeometryBakingContext context, Function<ResourceLocation, UnbakedModel> modelGetter, Set<Pair<String, String>> missingTextureErrors) {
+    return null;
   }
 
   /** Record for a first modifier in the model */
@@ -498,8 +510,8 @@ public class ToolModel implements IUnbakedGeometry<ToolModel> {
     }
 
     @Override
-    public BakedModel applyTransform(ItemDisplayContext type, PoseStack mat, boolean leftHanded) {
-      if (type == ItemDisplayContext.GUI) {
+    public BakedModel applyTransform(ItemTransforms.TransformType type, PoseStack mat, boolean leftHanded) {
+      if (type == ItemTransforms.TransformType.GUI) {
         return ((TransformTypeDependentItemBakedModel)this.guiModel).applyTransform(type, mat, leftHanded);
       }
       return TransformTypeDependentItemBakedModel.super.applyTransform(type, mat, leftHanded);
@@ -546,7 +558,7 @@ public class ToolModel implements IUnbakedGeometry<ToolModel> {
     }
 
     @Override
-    public BakedModel applyTransform(ItemDisplayContext transform, PoseStack mat, boolean leftHanded) {
+    public BakedModel applyTransform(ItemTransforms.TransformType transform, PoseStack mat, boolean leftHanded) {
       ((BakedLargeToolModel)wrapped).transforms.getTransform(transform).apply(leftHanded, mat);
       return this;
     }

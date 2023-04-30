@@ -1,9 +1,7 @@
 package slimeknights.tconstruct.library.data.tinkering;
 
 import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -23,7 +21,7 @@ public abstract class AbstractEnchantmentToModifierProvider extends GenericDataP
   /** Compiled JSON to save, no need to do anything fancier, it already does merging for us */
   private final JsonObject enchantmentMap = new JsonObject();
 
-  public AbstractEnchantmentToModifierProvider(FabricDataOutput output) {
+  public AbstractEnchantmentToModifierProvider(FabricDataGenerator output) {
     super(output, PackType.SERVER_DATA, "tinkering");
   }
 
@@ -43,7 +41,7 @@ public abstract class AbstractEnchantmentToModifierProvider extends GenericDataP
 
   /** Adds the given enchantment */
   protected void add(Enchantment enchantment, ModifierId modifierId) {
-    String key = Objects.requireNonNull(BuiltInRegistries.ENCHANTMENT.getKey(enchantment)).toString();
+    String key = Objects.requireNonNull(Registry.ENCHANTMENT.getKey(enchantment)).toString();
     if (enchantmentMap.has(key)) {
       throw new IllegalArgumentException("Duplicate enchantment " + key);
     }
@@ -61,6 +59,6 @@ public abstract class AbstractEnchantmentToModifierProvider extends GenericDataP
 
   /** Adds the given enchantment tag */
   protected void add(ResourceLocation tag, ModifierId modifierId) {
-    add(TagKey.create(Registries.ENCHANTMENT, tag), modifierId);
+    add(TagKey.create(Registry.ENCHANTMENT_REGISTRY, tag), modifierId);
   }
 }

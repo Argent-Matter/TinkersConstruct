@@ -4,7 +4,7 @@ import io.github.fabricators_of_create.porting_lib.crafting.DifferenceIngredient
 import io.github.fabricators_of_create.porting_lib.crafting.NBTIngredient;
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
 import me.alphamode.forgetags.Tags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -30,7 +30,7 @@ import java.util.function.Consumer;
 
 public class TableRecipeProvider extends BaseRecipeProvider {
 
-  public TableRecipeProvider(FabricDataOutput output) {
+  public TableRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 

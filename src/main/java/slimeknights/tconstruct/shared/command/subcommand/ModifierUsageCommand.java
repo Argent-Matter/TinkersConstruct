@@ -6,7 +6,6 @@ import io.github.fabricators_of_create.porting_lib.util.TablePrinter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import slimeknights.mantle.command.MantleCommand;
 import slimeknights.mantle.util.RegistryHelper;
@@ -77,7 +76,7 @@ public class ModifierUsageCommand {
                                          .map(ModifierEntry::getModifier)
                                          .collect(Collectors.toSet());
     // finally, tool traits we limit to anything in the modifiable tag
-    Set<Modifier> toolTraits = RegistryHelper.getTagValueStream(BuiltInRegistries.ITEM, TinkerTags.Items.MODIFIABLE)
+    Set<Modifier> toolTraits = RegistryHelper.getTagValueStream(Registry.ITEM, TinkerTags.Items.MODIFIABLE)
                                              .filter(item -> item instanceof IModifiable)
                                              .flatMap(item -> ((IModifiable) item).getToolDefinition().getData().getTraits().stream())
                                              .map(ModifierEntry::getModifier)

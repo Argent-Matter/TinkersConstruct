@@ -16,7 +16,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -232,8 +231,8 @@ public final class TinkerWorld extends TinkerModule {
     Function<SlimeType,BlockBehaviour.Properties> props = type -> builder(Material.PLANT, type.getMapColor(), type.isNether() ? SoundType.FUNGUS : SoundType.GRASS).instabreak().noCollission();
     return new EnumObject.Builder<SlimeType,Block>(SlimeType.class)
       .putAll(BLOCKS.registerEnum(SlimeType.OVERWORLD, "slime_sapling", (type) -> new SlimeSaplingBlock(new SlimeTree(type), type, props.apply(type).randomTicks()), TOOLTIP_BLOCK_ITEM))
-      .put(SlimeType.BLOOD, BLOCKS.register("blood_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.BLOOD), ResourceKey.create(Registries.CONFIGURED_FEATURE, TConstruct.getResource("blood_slime_fungus"))), TOOLTIP_BLOCK_ITEM))
-      .put(SlimeType.ICHOR, BLOCKS.register("ichor_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.ICHOR), ResourceKey.create(Registries.CONFIGURED_FEATURE, TConstruct.getResource("ichor_slime_fungus"))), HIDDEN_BLOCK_ITEM))
+      .put(SlimeType.BLOOD, BLOCKS.register("blood_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.BLOOD), ResourceKey.create(Registry.CONFIGURED_FEATURE_REGISTRY, TConstruct.getResource("blood_slime_fungus"))), TOOLTIP_BLOCK_ITEM))
+      .put(SlimeType.ICHOR, BLOCKS.register("ichor_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.ICHOR), ResourceKey.create(Registry.CONFIGURED_FEATURE_REGISTRY, TConstruct.getResource("ichor_slime_fungus"))), HIDDEN_BLOCK_ITEM))
       .build();
   });
   public static final EnumObject<SlimeType,FlowerPotBlock> pottedSlimeSapling = BLOCKS.registerPottedEnum(SlimeType.values(), "slime_sapling", slimeSapling);
@@ -322,16 +321,16 @@ public final class TinkerWorld extends TinkerModule {
   public static ResourceKey<PlacedFeature> placedLargeCobaltOreKey = placed("cobalt_ore_large");
 
   public static ResourceKey<ConfiguredFeature<?, ?>> configured(String id) {
-    return ResourceKey.create(Registries.CONFIGURED_FEATURE, TConstruct.getResource(id));
+    return ResourceKey.create(Registry.CONFIGURED_FEATURE_REGISTRY, TConstruct.getResource(id));
   }
 
   public static ResourceKey<PlacedFeature> placed(String id) {
-    return ResourceKey.create(Registries.PLACED_FEATURE, TConstruct.getResource(id));
+    return ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, TConstruct.getResource(id));
   }
 
   public static void bootstrapConfigured(BootstapContext<ConfiguredFeature<?, ?>> bootstapContext) {
     RuleTest netherrack = new BlockMatchTest(Blocks.NETHERRACK);
-    HolderGetter<ConfiguredFeature<?, ?>> lookup = bootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+    HolderGetter<ConfiguredFeature<?, ?>> lookup = bootstapContext.lookup(Registry.CONFIGURED_FEATURE_REGISTRY);
     FeatureUtils.register(bootstapContext, smallCobaltOreKey, Feature.ORE, new OreConfiguration(netherrack, cobaltOre.get().defaultBlockState(), 4));
     FeatureUtils.register(bootstapContext, largeCobaltOreKey, Feature.ORE, new OreConfiguration(netherrack, cobaltOre.get().defaultBlockState(), 6));
 
@@ -348,7 +347,7 @@ public final class TinkerWorld extends TinkerModule {
   }
 
   public static void bootstrap(BootstapContext<PlacedFeature> bootstapContext) {
-    HolderGetter<ConfiguredFeature<?, ?>> lookup = bootstapContext.lookup(Registries.CONFIGURED_FEATURE);
+    HolderGetter<ConfiguredFeature<?, ?>> lookup = bootstapContext.lookup(Registry.CONFIGURED_FEATURE_REGISTRY);
     PlacementUtils.register(bootstapContext, placedSmallCobaltOreKey, lookup.getOrThrow(smallCobaltOreKey), CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.RANGE_8_8, BiomeFilter.biome());
     PlacementUtils.register(bootstapContext, placedLargeCobaltOreKey, lookup.getOrThrow(largeCobaltOreKey), CountPlacement.of(3), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(8), VerticalAnchor.absolute(32)), BiomeFilter.biome());
 

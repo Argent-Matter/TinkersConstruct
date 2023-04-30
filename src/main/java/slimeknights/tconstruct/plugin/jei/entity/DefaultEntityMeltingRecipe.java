@@ -2,7 +2,6 @@ package slimeknights.tconstruct.plugin.jei.entity;
 
 import com.google.common.collect.ImmutableList;
 import io.github.fabricators_of_create.porting_lib.common.util.Lazy;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import slimeknights.mantle.recipe.ingredient.EntityIngredient;
@@ -27,7 +26,7 @@ public class DefaultEntityMeltingRecipe extends EntityMeltingRecipe {
   private static List<EntityType> getEntityList(List<EntityMeltingRecipe> recipes) {
     List<EntityType> unusedTypes = new ArrayList<>();
     typeLoop:
-    for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
+    for (EntityType<?> type : Registry.ENTITY_TYPE) {
       // use tag overrides for default recipe
       if (type.is(TinkerTags.EntityTypes.MELTING_HIDE)) continue;
       if (type.getCategory() == MobCategory.MISC && !type.is(TinkerTags.EntityTypes.MELTING_SHOW)) continue;

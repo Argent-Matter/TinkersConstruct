@@ -1,0 +1,201 @@
+/*
+ * Mantle
+ * Master build file
+ * Based on TConstruct's master build file
+ * Authors: Sunstrike, ProgWML6
+ * Help from AbrarSyed
+*/
+
+//file:noinspection GroovyAssignabilityCheck
+plugins {
+    id 'fabric-loom'
+    id 'maven-publish'
+    id 'io.github.juuxel.loom-quiltflower'
+    id 'org.quiltmc.quilt-mappings-on-loom'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = "https://maven.parchmentmc.org" }
+    maven { url = "https://maven.shedaniel.me/" }
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://mvn.devos.one/releases/" }
+    maven { url = "https://mvn.devos.one/snapshots/" }
+    maven { url = "https://maven.terraformersmc.com/releases/" }
+    maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+    maven { url = "https://maven.jamieswhiteshirt.com/libs-release" }
+    maven { url = "https://dvs1.progwml6.com/files/maven/" }
+    maven { url = "https://maven.wispforest.io" }
+    maven { url = "https://jitpack.io" }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+}
+
+group = 'slimeknights.mantle'
+
+// sets version to the slimeKnights version format
+task buildInfo {
+    try {
+        def cmd = "git rev-parse --short HEAD"
+        def proc = cmd.execute()
+        proc.waitFor()
+        if (proc.exitValue() == 0) {
+            ext.revision = proc.text.trim()
+        } else {
+            ext.revision = "GITBORK"
+        }
+    } catch (all) {
+        ext.revision = "gitgud"
+    }
+
+    if (System.getenv().GITHUB_RUN_NUMBER != null) {
+        ext.buildNum = "${System.getenv().GITHUB_RUN_NUMBER}"
+    } else {
+        ext.buildNum = "DEV.${project.buildInfo.revision}"
+    }
+}
+ext.artifact_version = 'NFG'
+if (System.getenv().ARTIFACT_VERSION == null) {
+    artifact_version = "${mod_version}.${project.buildInfo.buildNum}"
+}
+if (System.getenv().ARTIFACT_VERSION != null) {
+    artifact_version = "${system.getenv().ARTIFACT_VERSION}"
+}
+
+version = "${minecraft_version}-${artifact_version}"
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/generated/resources"
+            //But exclude the cache of the generated data from what gets built
+            exclude '.cache'
+        }
+    }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/mantle.accesswidener")
+    runs {
+        datagen {
+            client()
+
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+            vmArg "-Dfabric-api.datagen.modid=mantle"
+
+            runDir "build/datagen"
+        }
+    }
+}
+assemble.dependsOn runDatagen
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+configurations {
+    deployerJars
+}
+               
+dependencies {
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
+
+    modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // cca
+    modApi "dev.onyxstudios.cardinal-components-api:cardinal-components-base:4.1.3"
+    modApi "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:4.1.3"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:4.1.3"
+    include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:4.1.3"
+}
+
+task buildOrPublish {
+    group = "build"
+    String mavenUser = System.getenv().MAVEN_USER
+    if (mavenUser != null && !mavenUser.isEmpty()) {
+        dependsOn(tasks.getByName("publish"))
+        println "prepared for publish"
+    } else {
+        dependsOn(tasks.getByName("build"))
+        println "prepared for build"
+    }
+}
+
+def modsTomlSpec = copySpec {
+    from(sourceSets.main.resources) {
+        include 'META-INF/mods.toml'
+        expand 'version': artifact_version,
+                'loader_version': loader_version,
+                'minecraft_range': minecraft_range
+    }
+}
+
+// need to copy into each build directory, unfortunately does not seem easy to do this automatically
+def buildPaths = [
+        "$rootDir/out/production/resources", // IDEA
+        "$rootDir/bin", // Eclipse
+]
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "Mantle",
+                "Specification-Vendor"    : "Slime Knights",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Slime Knights",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+
+    it.options.release = 17
+}
+
+java {
+    withSourcesJar()
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url = "https://mvn.devos.one/${System.getenv().PUBLISH_SUFFIX}/"
+            credentials {
+                username = System.getenv().MAVEN_USER
+                password = System.getenv().MAVEN_PASS
+            }
+            authentication { basic(BasicAuthentication) }
+        }
+    }
+}

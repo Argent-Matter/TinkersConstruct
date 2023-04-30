@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot.Type;
@@ -26,22 +25,22 @@ public class MobDisguiseModifier extends NoLevelsModifier {
   public static final IGenericLoader<MobDisguiseModifier> LOADER = new IGenericLoader<MobDisguiseModifier>() {
     @Override
     public MobDisguiseModifier deserialize(JsonObject json) {
-      return new MobDisguiseModifier(JsonHelper.getAsEntry(BuiltInRegistries.ENTITY_TYPE, json, "entity"));
+      return new MobDisguiseModifier(JsonHelper.getAsEntry(Registry.ENTITY_TYPE, json, "entity"));
     }
 
     @Override
     public void serialize(MobDisguiseModifier object, JsonObject json) {
-      json.addProperty("entity", Objects.requireNonNull(BuiltInRegistries.ENTITY_TYPE.getKey(object.type)).toString());
+      json.addProperty("entity", Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(object.type)).toString());
     }
 
     @Override
     public MobDisguiseModifier fromNetwork(FriendlyByteBuf buffer) {
-      return new MobDisguiseModifier(BuiltInRegistries.ENTITY_TYPE.get(buffer.readResourceLocation()));
+      return new MobDisguiseModifier(Registry.ENTITY_TYPE.get(buffer.readResourceLocation()));
     }
 
     @Override
     public void toNetwork(MobDisguiseModifier object, FriendlyByteBuf buffer) {
-      buffer.writeResourceLocation(BuiltInRegistries.ENTITY_TYPE.getKey(object.type));
+      buffer.writeResourceLocation(Registry.ENTITY_TYPE.getKey(object.type));
     }
   };
   public static final TinkerDataKey<Multiset<EntityType<?>>> DISGUISES = TConstruct.createKey("mob_disguise");

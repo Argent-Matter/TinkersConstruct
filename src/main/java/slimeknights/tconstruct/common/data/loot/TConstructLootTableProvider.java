@@ -2,7 +2,7 @@
 package slimeknights.tconstruct.common.data.loot;
 
 import io.github.fabricators_of_create.porting_lib.data.ModdedLootTableProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class TConstructLootTableProvider extends ModdedLootTableProvider {
 
-  public TConstructLootTableProvider(FabricDataOutput output) {
+  public TConstructLootTableProvider(FabricDataGenerator output) {
     super(output, Set.of(), List.of(
       new SubProviderEntry(BlockLootTableProvider::new, LootContextParamSets.BLOCK),
       new SubProviderEntry(AdvancementLootTableProvider::new, LootContextParamSets.ADVANCEMENT_REWARD),

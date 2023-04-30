@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemTransforms.TransformType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -104,7 +104,7 @@ public class HeatingStructureBlockEntityRenderer implements BlockEntityRenderer<
           matrices.mulPose(itemRotation);
           matrices.scale(ITEM_SCALE, ITEM_SCALE, ITEM_SCALE);
           BakedModel model = itemRenderer.getModel(stack, world, null, 0);
-          itemRenderer.render(stack, ItemDisplayContext.NONE, false, matrices, buffer, LevelRenderer.getLightColor(world, itemPos), OverlayTexture.NO_OVERLAY, model);
+          itemRenderer.render(stack, ItemTransforms.TransformType.NONE, false, matrices, buffer, LevelRenderer.getLightColor(world, itemPos), OverlayTexture.NO_OVERLAY, model);
           matrices.popPose();
 
           // done as quads rather than items as its not that expensive to draw blocks, items are the problem

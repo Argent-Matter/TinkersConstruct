@@ -7,7 +7,6 @@ import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelp
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -329,7 +328,7 @@ public class ModifierRemovalRecipe extends AbstractWorktableRecipe {
 
     @Override
     public void save(Consumer<FinishedRecipe> consumer) {
-      save(consumer, BuiltInRegistries.ITEM.getKey(leftovers.get(0).getItem()));
+      save(consumer, Registry.ITEM.getKey(leftovers.get(0).getItem()));
     }
 
     @Override

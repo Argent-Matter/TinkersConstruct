@@ -2,12 +2,11 @@ package slimeknights.tconstruct.common.data.tags;
 
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -82,12 +81,12 @@ import static slimeknights.tconstruct.common.TinkerTags.Items.WORN_ARMOR;
 @SuppressWarnings("unchecked")
 public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
-  public ItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture, BlockTagProvider blockTagProvider) {
-    super(output, registriesFuture, blockTagProvider);
+  public ItemTagProvider(FabricDataGenerator output, BlockTagProvider blockTagProvider) {
+    super(output, blockTagProvider);
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {
+  protected void generateTags() {
     this.addCommon();
     this.addWorld();
     this.addSmeltery();
@@ -144,9 +143,9 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     copy(Tags.Blocks.STAINED_GLASS_PANES, Tags.Items.STAINED_GLASS_PANES);
     for (DyeColor color : DyeColor.values()) {
       ResourceLocation name = new ResourceLocation("c", "glass/" + color.getSerializedName());
-      copy(TagKey.create(Registries.BLOCK, name), TagKey.create(Registries.ITEM, name));
+      copy(TagKey.create(Registry.BLOCK_REGISTRY, name), TagKey.create(Registry.ITEM_REGISTRY, name));
       name = new ResourceLocation("c", "glass_panes/" + color.getSerializedName());
-      copy(TagKey.create(Registries.BLOCK, name), TagKey.create(Registries.ITEM, name));
+      copy(TagKey.create(Registry.BLOCK_REGISTRY, name), TagKey.create(Registry.ITEM_REGISTRY, name));
     }
 
     copy(TinkerTags.Blocks.WORKBENCHES, TinkerTags.Items.WORKBENCHES);
@@ -222,16 +221,16 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
   private void addTools() {
     this.tag(TWO_HANDED);
     // stone
-    addToolTags(TinkerTools.pickaxe,      MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE,         ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES, ItemTags.PICKAXES);
-    addToolTags(TinkerTools.sledgeHammer, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE_PRIMARY, ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES, ItemTags.PICKAXES);
-    addToolTags(TinkerTools.veinHammer,   MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE,         ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES, ItemTags.PICKAXES);
+    addToolTags(TinkerTools.pickaxe,      MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE,         ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES);
+    addToolTags(TinkerTools.sledgeHammer, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE_PRIMARY, ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES);
+    addToolTags(TinkerTools.veinHammer,   MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, STONE_HARVEST, MELEE,         ONE_HANDED, AOE, CLUSTER_MAX_HARVESTABLES);
     // dirtD
     addToolTags(TinkerTools.mattock,   MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE, ONE_HANDED, AOE);
     addToolTags(TinkerTools.pickadze,  MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE, ONE_HANDED, AOE, STONE_HARVEST);
     addToolTags(TinkerTools.excavator, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE, ONE_HANDED, AOE);
     // wood
-    addToolTags(TinkerTools.handAxe,  MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE_PRIMARY, ONE_HANDED, AOE, ItemTags.AXES);
-    addToolTags(TinkerTools.broadAxe, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE_PRIMARY, ONE_HANDED, AOE, ItemTags.AXES);
+    addToolTags(TinkerTools.handAxe,  MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE_PRIMARY, ONE_HANDED, AOE);
+    addToolTags(TinkerTools.broadAxe, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE_PRIMARY, ONE_HANDED, AOE);
     // plants
     addToolTags(TinkerTools.kama,   MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE,         ONE_HANDED, AOE);
     addToolTags(TinkerTools.scythe, MULTIPART_TOOL, DURABILITY, HARVEST_PRIMARY, MELEE_PRIMARY, ONE_HANDED, AOE);
@@ -289,7 +288,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
         .addTag(MELEE_OR_HARVEST).addTag(AOE)
         .addTag(HELD);
     // disable parry mod on our items, we have our own modifier for that
-    this.tag(TagKey.create(Registries.ITEM, new ResourceLocation("parry", "excluded_shields"))).addTag(HELD);
+    this.tag(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("parry", "excluded_shields"))).addTag(HELD);
 
     // kamas are a shear type, when broken we don't pass it to loot tables
     this.tag(Tags.Items.SHEARS).add(TinkerTools.kama.get());

@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.damagesource.DamageSource;
@@ -109,7 +108,7 @@ public class MobEffectModifier extends IncrementalModifier implements Projectile
   public static final IGenericLoader<MobEffectModifier> LOADER = new IGenericLoader<>() {
     @Override
     public MobEffectModifier deserialize(JsonObject json) {
-      MobEffect effect = JsonHelper.getAsEntry(BuiltInRegistries.MOB_EFFECT, json, "effect");
+      MobEffect effect = JsonHelper.getAsEntry(Registry.MOB_EFFECT, json, "effect");
       float levelBase = 1;
       float levelMultiplier = 0;
       if (json.has("level")) {
@@ -126,7 +125,7 @@ public class MobEffectModifier extends IncrementalModifier implements Projectile
 
     @Override
     public void serialize(MobEffectModifier object, JsonObject json) {
-      json.addProperty("effect", Objects.requireNonNull(BuiltInRegistries.MOB_EFFECT.getKey(object.effect)).toString());
+      json.addProperty("effect", Objects.requireNonNull(Registry.MOB_EFFECT.getKey(object.effect)).toString());
       JsonObject level = new JsonObject();
       level.addProperty("base", object.levelBase);
       level.addProperty("multiplier", object.levelMultiplier);
@@ -140,7 +139,7 @@ public class MobEffectModifier extends IncrementalModifier implements Projectile
 
     @Override
     public MobEffectModifier fromNetwork(FriendlyByteBuf buffer) {
-      MobEffect effect = BuiltInRegistries.MOB_EFFECT.get(buffer.readResourceLocation());
+      MobEffect effect = Registry.MOB_EFFECT.get(buffer.readResourceLocation());
       float levelBase = buffer.readFloat();
       float levelMultiplier = buffer.readFloat();
       int timeBase = buffer.readInt();
@@ -151,7 +150,7 @@ public class MobEffectModifier extends IncrementalModifier implements Projectile
 
     @Override
     public void toNetwork(MobEffectModifier object, FriendlyByteBuf buffer) {
-      buffer.writeResourceLocation(BuiltInRegistries.MOB_EFFECT.getKey(object.effect));
+      buffer.writeResourceLocation(Registry.MOB_EFFECT.getKey(object.effect));
       buffer.writeFloat(object.levelBase);
       buffer.writeFloat(object.levelMultiplier);
       buffer.writeInt(object.timeBase);

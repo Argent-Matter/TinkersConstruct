@@ -3,7 +3,6 @@ package slimeknights.tconstruct.world;
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
@@ -51,10 +50,10 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public final class TinkerStructures extends TinkerModule {
   static final Logger log = Util.getLogger("tinker_structures");
-  private static final LazyRegistrar<Feature<?>> FEATURES = LazyRegistrar.create(Registries.FEATURE, TConstruct.MOD_ID);
-  private static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registries.STRUCTURE_TYPE, TConstruct.MOD_ID);
-  private static final LazyRegistrar<StructurePieceType> STRUCTURE_PIECE = LazyRegistrar.create(Registries.STRUCTURE_PIECE, TConstruct.MOD_ID);
-  private static final LazyRegistrar<BlockStateProviderType<?>> BLOCK_STATE_PROVIDER_TYPES = LazyRegistrar.create(Registries.BLOCK_STATE_PROVIDER_TYPE, TConstruct.MOD_ID);
+  private static final LazyRegistrar<Feature<?>> FEATURES = LazyRegistrar.create(Registry.FEATURE_REGISTRY, TConstruct.MOD_ID);
+  private static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registry.STRUCTURE_TYPE_REGISTRY, TConstruct.MOD_ID);
+  private static final LazyRegistrar<StructurePieceType> STRUCTURE_PIECE = LazyRegistrar.create(Registry.STRUCTURE_PIECE_REGISTRY, TConstruct.MOD_ID);
+  private static final LazyRegistrar<BlockStateProviderType<?>> BLOCK_STATE_PROVIDER_TYPES = LazyRegistrar.create(Registry.BLOCK_STATE_PROVIDER_TYPE_REGISTRY, TConstruct.MOD_ID);
 
   public TinkerStructures() {
     FEATURES.register();
@@ -187,11 +186,11 @@ public final class TinkerStructures extends TinkerModule {
   }
 
   public static ResourceKey<Structure> registerKey(String name) {
-    return ResourceKey.create(Registries.STRUCTURE, TConstruct.getResource(name));
+    return ResourceKey.create(Registry.STRUCTURE_REGISTRY, TConstruct.getResource(name));
   }
 
   public static void bootstrap(BootstapContext<Structure> context) {
-    HolderGetter<Biome> biomeLookup = context.lookup(Registries.BIOME);
+    HolderGetter<Biome> biomeLookup = context.lookup(Registry.BIOME_REGISTRY);
     context.register(earthSlimeIslandKey, new EarthSlimeIslandStructure(
       new Structure.StructureSettings(
         biomeLookup.getOrThrow(TinkerTags.Biomes.EARTHSLIME_ISLANDS), monsterOverride(TinkerWorld.earthSlimeEntity.get(), 4, 4),

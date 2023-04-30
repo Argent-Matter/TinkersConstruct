@@ -4,7 +4,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -327,7 +326,7 @@ public class TooltipUtil {
         for (int i = 0; i < enchantments.size(); ++i) {
           CompoundTag enchantmentTag = enchantments.getCompound(i);
           // TODO: tag to whitelist/blacklist enchantments in the tooltip, depends on which ones we reimplement and which work on their own
-          BuiltInRegistries.ENCHANTMENT.getOptional(ResourceLocation.tryParse(enchantmentTag.getString("id")))
+          Registry.ENCHANTMENT.getOptional(ResourceLocation.tryParse(enchantmentTag.getString("id")))
                               .ifPresent(enchantment -> {
                                 if (enchantment.isCurse()) {
                                   tooltips.add(enchantment.getFullname(enchantmentTag.getInt("lvl")));

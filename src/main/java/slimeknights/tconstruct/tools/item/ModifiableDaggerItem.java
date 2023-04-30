@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.tools.item;
 
-import io.github.fabricators_of_create.porting_lib.common.util.ToolAction;
+import io.github.fabricators_of_create.porting_lib.util.ToolAction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

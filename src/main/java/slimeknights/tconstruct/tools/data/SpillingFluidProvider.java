@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.tools.data;
 
 import me.alphamode.forgetags.Tags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.nbt.CompoundTag;
@@ -41,7 +41,7 @@ import java.util.function.Function;
 
 @SuppressWarnings("removal")
 public class SpillingFluidProvider extends AbstractSpillingFluidProvider {
-  public SpillingFluidProvider(FabricDataOutput output) {
+  public SpillingFluidProvider(FabricDataGenerator output) {
     super(output, TConstruct.MOD_ID);
   }
 

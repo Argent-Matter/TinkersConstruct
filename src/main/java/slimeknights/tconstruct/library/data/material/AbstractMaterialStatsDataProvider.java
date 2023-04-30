@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.library.data.material;
 
 import lombok.AllArgsConstructor;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.mantle.data.GenericDataProvider;
@@ -26,7 +26,7 @@ public abstract class AbstractMaterialStatsDataProvider extends GenericDataProvi
   /* Materials data provider for validation */
   private final AbstractMaterialDataProvider materials;
 
-  public AbstractMaterialStatsDataProvider(FabricDataOutput output, AbstractMaterialDataProvider materials) {
+  public AbstractMaterialStatsDataProvider(FabricDataGenerator output, AbstractMaterialDataProvider materials) {
     super(output, MaterialStatsManager.FOLDER);
     this.materials = materials;
   }

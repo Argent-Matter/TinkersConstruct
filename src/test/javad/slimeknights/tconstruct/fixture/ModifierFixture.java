@@ -11,7 +11,7 @@ public class ModifierFixture {
   public static final ModifierId TEST_2 = new ModifierId("test", "modifier_2");
 
 
-  protected static final Registry<Modifier> MODIFIER_REGISTRY = TinkerRegistries.MODIFIERS;/*new RegistryBuilder<Modifier>()
+  protected static final Registry<Modifier> MODIFIER_REGISTRY = TinkerRegistry.MODIFIERS_REGISTRY;/*new RegistryBuilder<Modifier>()
 			.setType(Modifier.class).setName(TConstruct.getResource("modifiers")).setDefaultKey(EMPTY_ID).create();*/
 
   public static final Modifier EMPTY = new Modifier();

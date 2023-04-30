@@ -6,7 +6,6 @@ import io.netty.handler.codec.DecoderException;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.mantle.data.GenericLoaderRegistry.IGenericLoader;
@@ -42,10 +41,10 @@ public class ParticleWeaponAttack implements IWeaponAttack {
     @Override
     public ParticleWeaponAttack deserialize(JsonObject json) {
       ResourceLocation location = JsonHelper.getResourceLocation(json, "particle");
-      if (!BuiltInRegistries.PARTICLE_TYPE.containsKey(location)) {
+      if (!Registry.PARTICLE_TYPE.containsKey(location)) {
         throw new JsonSyntaxException("Unknown particle ID " + location);
       }
-      ParticleType<?> type = Objects.requireNonNull(BuiltInRegistries.PARTICLE_TYPE.get(location));
+      ParticleType<?> type = Objects.requireNonNull(Registry.PARTICLE_TYPE.get(location));
       if (type instanceof SimpleParticleType simple) {
         return new ParticleWeaponAttack(simple);
       }
@@ -54,7 +53,7 @@ public class ParticleWeaponAttack implements IWeaponAttack {
 
     @Override
     public ParticleWeaponAttack fromNetwork(FriendlyByteBuf buffer) {
-      ParticleType<?> type = BuiltInRegistries.PARTICLE_TYPE.get(buffer.readResourceLocation());
+      ParticleType<?> type = Registry.PARTICLE_TYPE.get(buffer.readResourceLocation());
       if (type instanceof SimpleParticleType simple) {
         return new ParticleWeaponAttack(simple);
       }
@@ -63,12 +62,12 @@ public class ParticleWeaponAttack implements IWeaponAttack {
 
     @Override
     public void serialize(ParticleWeaponAttack object, JsonObject json) {
-      json.addProperty("particle", Objects.requireNonNull(BuiltInRegistries.PARTICLE_TYPE.getKey(object.particle)).toString());
+      json.addProperty("particle", Objects.requireNonNull(Registry.PARTICLE_TYPE.getKey(object.particle)).toString());
     }
 
     @Override
     public void toNetwork(ParticleWeaponAttack object, FriendlyByteBuf buffer) {
-      buffer.writeResourceLocation(BuiltInRegistries.PARTICLE_TYPE.getKey(object.particle));
+      buffer.writeResourceLocation(Registry.PARTICLE_TYPE.getKey(object.particle));
     }
   }
 }

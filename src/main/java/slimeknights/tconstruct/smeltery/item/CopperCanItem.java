@@ -4,7 +4,6 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -76,7 +75,7 @@ public class CopperCanItem extends Item {
       }
     } else {
       CompoundTag nbt = stack.getOrCreateTag();
-      nbt.putString(TAG_FLUID, Objects.requireNonNull(BuiltInRegistries.FLUID.getKey(fluid.getFluid())).toString());
+      nbt.putString(TAG_FLUID, Objects.requireNonNull(Registry.FLUID.getKey(fluid.getFluid())).toString());
       CompoundTag fluidTag = fluid.getTag();
       if (fluidTag != null) {
         nbt.put(TAG_FLUID_TAG, fluidTag.copy());
@@ -91,8 +90,8 @@ public class CopperCanItem extends Item {
   public static Fluid getFluid(CompoundTag nbt) {
     if (nbt != null) {
       ResourceLocation location = ResourceLocation.tryParse(nbt.getString(TAG_FLUID));
-      if (location != null && BuiltInRegistries.FLUID.containsKey(location)) {
-        Fluid fluid = BuiltInRegistries.FLUID.get(location);
+      if (location != null && Registry.FLUID.containsKey(location)) {
+        Fluid fluid = Registry.FLUID.get(location);
         if (fluid != null) {
           return fluid;
         }

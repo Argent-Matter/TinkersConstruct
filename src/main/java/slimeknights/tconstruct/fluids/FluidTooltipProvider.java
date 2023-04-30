@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.fluids;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import slimeknights.mantle.fluid.tooltip.AbstractFluidTooltipProvider;
 import slimeknights.tconstruct.TConstruct;
@@ -21,7 +21,7 @@ import static slimeknights.tconstruct.common.TinkerTags.Fluids.WATER_TOOLTIPS;
 
 @SuppressWarnings("removal")
 public class FluidTooltipProvider extends AbstractFluidTooltipProvider {
-  public FluidTooltipProvider(FabricDataOutput output) {
+  public FluidTooltipProvider(FabricDataGenerator output) {
     super(output, TConstruct.MOD_ID);
   }
 

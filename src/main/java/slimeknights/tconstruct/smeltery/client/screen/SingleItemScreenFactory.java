@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.smeltery.client.screen;
 
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,7 +25,7 @@ public class SingleItemScreenFactory implements ScreenRegistry.Factory<SingleIte
    */
   private static ResourceLocation getBackground(@Nullable BlockEntity tile) {
     if (tile != null) {
-      ResourceLocation id = BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(tile.getType());
+      ResourceLocation id = Registry.BLOCK_ENTITY_TYPE.getKey(tile.getType());
       if (id != null) {
         return new ResourceLocation(id.getNamespace(), String.format("textures/gui/%s.png", id.getPath()));
       }

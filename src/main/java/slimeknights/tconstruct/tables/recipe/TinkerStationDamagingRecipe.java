@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -121,7 +120,7 @@ public class TinkerStationDamagingRecipe implements ITinkerStationRecipe {
       if (stacks.length == 0) {
         throw new IllegalStateException("Empty ingredient not allowed");
       }
-      save(consumer, BuiltInRegistries.ITEM.getKey(stacks[0].getItem()));
+      save(consumer, Registry.ITEM.getKey(stacks[0].getItem()));
     }
 
     @Override

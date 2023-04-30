@@ -2,8 +2,7 @@ package slimeknights.tconstruct.shared.data;
 
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -36,7 +35,7 @@ import java.util.Locale;
 import java.util.function.Consumer;
 
 public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonRecipeHelper {
-  public CommonRecipeProvider(FabricDataOutput output) {
+  public CommonRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 
@@ -167,7 +166,7 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                          .pattern("###")
                          .group(modPrefix("stained_clear_glass"))
                          .unlockedBy("has_clear_glass", has(TinkerCommons.clearGlass))
-                         .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(block), folder));
+                         .save(consumer, prefix(Registry.BLOCK.getKey(block), folder));
       Block pane = TinkerCommons.clearStainedGlassPane.get(color);
       ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pane, 16)
                          .define('#', block)
@@ -175,7 +174,7 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                          .pattern("###")
                          .group(modPrefix("stained_clear_glass_pane"))
                          .unlockedBy("has_block", has(block))
-                         .save(consumer, prefix(BuiltInRegistries.BLOCK.getKey(pane), folder));
+                         .save(consumer, prefix(Registry.BLOCK.getKey(pane), folder));
       ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pane, 8)
                          .define('#', TinkerCommons.clearGlassPane)
                          .define('X', color.getDye().getTag())
@@ -184,7 +183,7 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                          .pattern("###")
                          .group(modPrefix("stained_clear_glass_pane"))
                          .unlockedBy("has_clear_glass", has(TinkerCommons.clearGlassPane))
-                         .save(consumer, wrap(BuiltInRegistries.BLOCK.getKey(pane), folder, "_from_panes"));
+                         .save(consumer, wrap(Registry.BLOCK.getKey(pane), folder, "_from_panes"));
     }
     // fix vanilla recipes not using tinkers glass
     String glassVanillaFolder = folder + "vanilla/";
@@ -197,7 +196,7 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                        .pattern("GSG")
                        .pattern("OOO")
                        .unlockedBy("has_nether_star", has(Items.NETHER_STAR))
-                       .save(vanillaGlassConsumer, prefix(BuiltInRegistries.BLOCK.getKey(Blocks.BEACON), glassVanillaFolder));
+                       .save(vanillaGlassConsumer, prefix(Registry.BLOCK.getKey(Blocks.BEACON), glassVanillaFolder));
     ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, Blocks.DAYLIGHT_DETECTOR)
                        .define('Q', Items.QUARTZ)
                        .define('G', Tags.Items.GLASS_COLORLESS)
@@ -206,7 +205,7 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                        .pattern("QQQ")
                        .pattern("WWW")
                        .unlockedBy("has_quartz", has(Items.QUARTZ))
-                       .save(vanillaGlassConsumer, prefix(BuiltInRegistries.BLOCK.getKey(Blocks.DAYLIGHT_DETECTOR), glassVanillaFolder));
+                       .save(vanillaGlassConsumer, prefix(Registry.BLOCK.getKey(Blocks.DAYLIGHT_DETECTOR), glassVanillaFolder));
     ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.END_CRYSTAL)
                        .define('T', Items.GHAST_TEAR)
                        .define('E', Items.ENDER_EYE)
@@ -215,13 +214,13 @@ public class CommonRecipeProvider extends BaseRecipeProvider implements ICommonR
                        .pattern("GEG")
                        .pattern("GTG")
                        .unlockedBy("has_ender_eye", has(Items.ENDER_EYE))
-                       .save(vanillaGlassConsumer, prefix(BuiltInRegistries.ITEM.getKey(Items.END_CRYSTAL), glassVanillaFolder));
+                       .save(vanillaGlassConsumer, prefix(Registry.ITEM.getKey(Items.END_CRYSTAL), glassVanillaFolder));
     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.GLASS_BOTTLE, 3)
                        .define('#', Tags.Items.GLASS_COLORLESS)
                        .pattern("# #")
                        .pattern(" # ")
                        .unlockedBy("has_glass", has(Tags.Items.GLASS_COLORLESS))
-                       .save(vanillaGlassConsumer, prefix(BuiltInRegistries.ITEM.getKey(Items.GLASS_BOTTLE), glassVanillaFolder));
+                       .save(vanillaGlassConsumer, prefix(Registry.ITEM.getKey(Items.GLASS_BOTTLE), glassVanillaFolder));
 
 
     // vanilla recipes

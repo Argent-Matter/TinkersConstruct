@@ -11,7 +11,6 @@ import com.google.gson.JsonSyntaxException;
 import lombok.Data;
 import lombok.Getter;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -94,10 +93,10 @@ public abstract class PartRequirement {
       // part item
       if (jsonObject.has("item")) {
         ResourceLocation name = JsonHelper.getResourceLocation(jsonObject, "item");
-        if (!BuiltInRegistries.ITEM.containsKey(name)) {
+        if (!Registry.ITEM.containsKey(name)) {
           throw new JsonSyntaxException("Invalid item '" + name + "' for tool part, does not exist");
         }
-        Item item = Objects.requireNonNull(BuiltInRegistries.ITEM.get(name));
+        Item item = Objects.requireNonNull(Registry.ITEM.get(name));
         if (!(item instanceof IToolPart)) {
           throw new JsonSyntaxException("Invalid item '" + name + "' for tool part, must implement IToolPart");
         }
@@ -156,7 +155,7 @@ public abstract class PartRequirement {
     @Override
     public JsonObject serialize() {
       JsonObject jsonObject = new JsonObject();
-      jsonObject.addProperty("item", Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(part.asItem())).toString());
+      jsonObject.addProperty("item", Objects.requireNonNull(Registry.ITEM.getKey(part.asItem())).toString());
       if (getWeight() != 1) {
         jsonObject.addProperty("weight", getWeight());
       }

@@ -5,7 +5,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import lombok.Getter;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -66,7 +65,7 @@ public interface ModifierStatBoost {
     IToolStat<?> stat = ToolStats.fromJson(GsonHelper.getAsString(json, "stat"));
     List<TagKey<Item>> tagRequirements = Collections.emptyList();
     if (json.has("tags")) {
-      tagRequirements = JsonHelper.parseList(json, "tags", (element, name) -> TagKey.create(Registries.ITEM, JsonHelper.convertToResourceLocation(element, name)));
+      tagRequirements = JsonHelper.parseList(json, "tags", (element, name) -> TagKey.create(Registry.ITEM_REGISTRY, JsonHelper.convertToResourceLocation(element, name)));
     }
     if (stat instanceof INumericToolStat<?> numeric) {
       return StatBoost.fromJson(json, numeric, tagRequirements);
@@ -82,7 +81,7 @@ public interface ModifierStatBoost {
     ImmutableList.Builder<TagKey<Item>> tagRequirements = ImmutableList.builder();
     int size = buffer.readVarInt();
     for (int i = 0; i < size; i++) {
-      tagRequirements.add(TagKey.create(Registries.ITEM, buffer.readResourceLocation()));
+      tagRequirements.add(TagKey.create(Registry.ITEM_REGISTRY, buffer.readResourceLocation()));
     }
     if (stat instanceof INumericToolStat<?> numeric) {
       return StatBoost.fromNetwork(buffer, numeric, tagRequirements.build());

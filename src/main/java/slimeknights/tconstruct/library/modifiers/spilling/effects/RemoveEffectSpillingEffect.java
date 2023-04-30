@@ -4,7 +4,6 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,11 +28,11 @@ public record RemoveEffectSpillingEffect(MobEffect effect) implements ISpillingE
   @Override
   public JsonObject serialize(JsonSerializationContext context) {
     JsonObject json = JsonUtils.withType(ID);
-    json.addProperty("effect", BuiltInRegistries.MOB_EFFECT.getKey(effect).toString());
+    json.addProperty("effect", Registry.MOB_EFFECT.getKey(effect).toString());
     return json;
   }
 
   /** Loader instance */
   public static final JsonDeserializer<RemoveEffectSpillingEffect> LOADER = (json, typeOfT, context) ->
-    new RemoveEffectSpillingEffect(JsonHelper.getAsEntry(BuiltInRegistries.MOB_EFFECT, json.getAsJsonObject(), "effect"));
+    new RemoveEffectSpillingEffect(JsonHelper.getAsEntry(Registry.MOB_EFFECT, json.getAsJsonObject(), "effect"));
 }

@@ -1,13 +1,13 @@
 package slimeknights.tconstruct.tools.data.material;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataGenerator;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
 public class MaterialDataProvider extends AbstractMaterialDataProvider {
-  public MaterialDataProvider(FabricDataOutput output) {
+  public MaterialDataProvider(FabricDataGenerator output) {
     super(output);
   }
 

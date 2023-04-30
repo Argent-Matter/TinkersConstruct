@@ -26,3 +26,5 @@ pluginManagement {
 }
 
 rootProject.name = 'Hephaestus'
+
+include ":mantle"

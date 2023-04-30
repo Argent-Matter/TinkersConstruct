@@ -1,10 +1,8 @@
 package slimeknights.tconstruct;
 
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.gadgets.TinkerGadgets;
 import slimeknights.tconstruct.shared.TinkerCommons;
@@ -20,17 +18,15 @@ public class TConstructData implements DataGeneratorEntrypoint {
 
   @Override
   public void onInitializeDataGenerator(FabricDataGenerator generator) {
-    ExistingFileHelper helper = ExistingFileHelper.withResourcesFromArg();
-    FabricDataGenerator.Pack pack = generator.createPack();
-    TConstruct.gatherData(pack, helper);
-    TinkerSmeltery.gatherData(pack);
-    TinkerModifiers.gatherData(pack, helper);
+    TConstruct.gatherData(generator);
+    TinkerSmeltery.gatherData(generator);
+    TinkerModifiers.gatherData(generator);
 
-    TinkerTools.gatherData(pack, helper);
-    TinkerFluids.gatherData(pack);
-    TinkerWorld.gatherData(pack);
-    TinkerGadgets.gatherData(pack);
-    TinkerCommons.gatherData(pack);
-    TinkerTables.gatherData(pack);
+    TinkerTools.gatherData(generator);
+    TinkerFluids.gatherData(generator);
+    TinkerWorld.gatherData(generator);
+    TinkerGadgets.gatherData(generator);
+    TinkerCommons.gatherData(generator);
+    TinkerTables.gatherData(generator);
   }
 }

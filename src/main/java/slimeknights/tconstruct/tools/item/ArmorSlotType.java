@@ -12,31 +12,32 @@ import java.util.Locale;
 @RequiredArgsConstructor
 @Getter
 public enum ArmorSlotType implements StringRepresentable {
-  BOOTS(ArmorItem.Type.BOOTS),
-  LEGGINGS(ArmorItem.Type.LEGGINGS),
-  CHESTPLATE(ArmorItem.Type.CHESTPLATE),
-  HELMET(ArmorItem.Type.HELMET);
+  BOOTS(EquipmentSlot.FEET),
+  LEGGINGS(EquipmentSlot.LEGS),
+  CHESTPLATE(EquipmentSlot.CHEST),
+  HELMET(EquipmentSlot.HEAD);
 
-  private final ArmorItem.Type armorType;
+  private final EquipmentSlot armorType;
   private final String serializedName = toString().toLowerCase(Locale.ROOT);
   private final int index = ordinal();
 
   /** Gets an equipment slot for the given armor slot */
-  public static ArmorSlotType fromType(ArmorItem.Type slotType) {
+  public static ArmorSlotType fromType(EquipmentSlot slotType) {
     return switch (slotType) {
-      case BOOTS -> BOOTS;
-      case LEGGINGS -> LEGGINGS;
-      case CHESTPLATE -> CHESTPLATE;
-      case HELMET -> HELMET;
+      case FEET -> BOOTS;
+      case LEGS -> LEGGINGS;
+      case CHEST -> CHESTPLATE;
+      case HEAD -> HELMET;
+      default -> null;
     };
   }
 
-  public static ArmorItem.Type equiptmentSlotToType(EquipmentSlot slot) {
+  public static EquipmentSlot equiptmentSlotToType(EquipmentSlot slot) {
     return switch (slot) {
-      case FEET -> ArmorItem.Type.BOOTS;
-      case LEGS -> ArmorItem.Type.LEGGINGS;
-      case CHEST -> ArmorItem.Type.CHESTPLATE;
-      case HEAD -> ArmorItem.Type.HELMET;
+      case FEET -> EquipmentSlot.FEET;
+      case LEGS -> EquipmentSlot.LEGS;
+      case CHEST -> EquipmentSlot.CHEST;
+      case HEAD -> EquipmentSlot.HEAD;
       default -> null;
     };
   }

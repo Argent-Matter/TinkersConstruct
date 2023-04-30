@@ -2,7 +2,7 @@ package slimeknights.tconstruct.tools.data.material;
 
 import io.github.fabricators_of_create.porting_lib.crafting.DifferenceIngredient;
 import me.alphamode.forgetags.Tags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
@@ -29,7 +29,7 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("removal")
 public class MaterialRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper {
-  public MaterialRecipeProvider(FabricDataOutput output) {
+  public MaterialRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 

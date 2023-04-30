@@ -2,7 +2,6 @@ package slimeknights.tconstruct.world.worldgen.islands;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -58,7 +57,7 @@ public class SlimeIslandPiece extends TemplateStructurePiece {
     this.tree = Optional.of(nbt.getString("Tree"))
                         .filter(s -> !s.isEmpty())
                         .map(ResourceLocation::tryParse)
-                        .flatMap(pContext.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE)::getOptional)
+                        .flatMap(pContext.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY)::getOptional)
                         .orElse(null);
   }
 
@@ -74,7 +73,7 @@ public class SlimeIslandPiece extends TemplateStructurePiece {
     tag.putString("Mi", this.placeSettings.getMirror().name());
     tag.putInt("NumberOfTreesPlaced", this.numberOfTreesPlaced);
     if (tree != null) {
-      ResourceLocation key = pContext.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getKey(tree);
+      ResourceLocation key = pContext.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).getKey(tree);
       if (key != null) {
         tag.putString("Tree", key.toString());
       }

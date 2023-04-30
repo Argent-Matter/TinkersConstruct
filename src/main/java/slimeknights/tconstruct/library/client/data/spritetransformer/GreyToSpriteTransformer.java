@@ -16,7 +16,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.FastColor;
 import net.minecraft.util.GsonHelper;
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import slimeknights.mantle.util.JsonHelper;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
@@ -72,7 +71,7 @@ public class GreyToSpriteTransformer implements ISpriteTransformer {
   private int getNewColor(int color, int x, int y) {
     // if fully transparent, just return fully transparent
     // we do not do 0 alpha RGB values to save effort
-    if (FastColor.ABGR32.alpha(color) == 0) {
+    if (FastColor.ARGB32.alpha(color) == 0) {
       return 0x00000000;
     }
     int grey = GreyToColorMapping.getGrey(color);
@@ -290,16 +289,14 @@ public class GreyToSpriteTransformer implements ISpriteTransformer {
   }
 
   /** Called before generating to set up the reader */
-  private static void textureCallback(@Nullable ExistingFileHelper existingFileHelper, @Nullable ResourceManager manager) {
+  private static void textureCallback(@Nullable ResourceManager manager) {
     if (READER != null) {
       MAPPINGS_TO_CLEAR.forEach(mapping -> mapping.image = null);
       MAPPINGS_TO_CLEAR.clear();
       READER.closeAll();
       READER = null;
     }
-    if (existingFileHelper != null) {
-      READER = new DataGenSpriteReader(existingFileHelper, TEXTURE_FOLDER);
-    } else if (manager != null) {
+    if (manager != null) {
       READER = new ResourceManagerSpriteReader(manager, TEXTURE_FOLDER);
     }
   }

@@ -2,7 +2,7 @@ package slimeknights.tconstruct.library.data.tinkering;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.data.CachedOutput;
@@ -25,7 +25,7 @@ import java.util.concurrent.CompletableFuture;
 public abstract class AbstractModifierProvider extends GenericDataProvider {
   private final Map<ModifierId,Result> allModifiers = new HashMap<>();
 
-  public AbstractModifierProvider(FabricDataOutput output) {
+  public AbstractModifierProvider(FabricDataGenerator output) {
     super(output, PackType.SERVER_DATA, ModifierManager.FOLDER, ModifierManager.GSON);
   }
 

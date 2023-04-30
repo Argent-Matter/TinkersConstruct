@@ -1,11 +1,10 @@
 package slimeknights.tconstruct.library.client.data.material;
 
 import com.mojang.blaze3d.platform.NativeImage;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import slimeknights.tconstruct.library.client.data.GenericTextureGenerator;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider.MaterialSpriteInfo;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider.PartSpriteInfo;
@@ -35,18 +34,16 @@ public class MaterialPartTextureGenerator extends GenericTextureGenerator {
   /** Path to textures outputted by this generator */
   public static final String FOLDER = "textures";
   private final DataGenSpriteReader spriteReader;
-  private final ExistingFileHelper existingFileHelper;
   /** Sprite provider */
   private final AbstractPartSpriteProvider partProvider;
   /** Materials to provide */
   private final AbstractMaterialSpriteProvider[] materialProviders;
 
-  public MaterialPartTextureGenerator(FabricDataOutput output, ExistingFileHelper existingFileHelper, AbstractPartSpriteProvider spriteProvider, AbstractMaterialSpriteProvider... materialProviders) {
+  public MaterialPartTextureGenerator(FabricDataGenerator output, AbstractPartSpriteProvider spriteProvider, AbstractMaterialSpriteProvider... materialProviders) {
     super(output, FOLDER);
-    this.spriteReader = new DataGenSpriteReader(existingFileHelper, FOLDER);
-    this.existingFileHelper = existingFileHelper;
     this.partProvider = spriteProvider;
     this.materialProviders = materialProviders;
+    spriteReader = new DataGenSpriteReader(output.getOutputFolder());
   }
 
   @Override
@@ -64,9 +61,8 @@ public class MaterialPartTextureGenerator extends GenericTextureGenerator {
 
 
   @Override
-  public CompletableFuture<?> run(CachedOutput cache) {
-    List<CompletableFuture<?>> futures = new ArrayList<>();
-    runCallbacks(existingFileHelper, null);
+  public void run(CachedOutput cache) {
+    runCallbacks(null);
     
     // ensure we have parts
     List<PartSpriteInfo> parts = partProvider.getSprites();
@@ -93,8 +89,7 @@ public class MaterialPartTextureGenerator extends GenericTextureGenerator {
     }
     spriteReader.closeAll();
     partProvider.cleanCache();
-    runCallbacks(null, null);
-    return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+    runCallbacks(null);
   }
 
   /**
@@ -148,18 +143,17 @@ public class MaterialPartTextureGenerator extends GenericTextureGenerator {
   }
 
   /** Runs all callbacks */
-  public static void runCallbacks(@Nullable ExistingFileHelper existingFileHelper, @Nullable ResourceManager manager) {
+  public static void runCallbacks(@Nullable ResourceManager manager) {
     for (IPartTextureCallback callback : TEXTURE_CALLBACKS) {
-      callback.accept(existingFileHelper, manager);
+      callback.accept(manager);
     }
   }
 
   public interface IPartTextureCallback {
     /**
      * Tells the given callback that texture generating is either starting or ending. Both parameters being null means texture generating is ending
-     * @param existingFileHelper  If nonnull, datagenerators are starting
      * @param manager             If nonnull, command is starting
      */
-    void accept(@Nullable ExistingFileHelper existingFileHelper, @Nullable ResourceManager manager);
+    void accept(@Nullable ResourceManager manager);
   }
 }

@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "slimeknights.mantle.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "client.FluidStorageMixin",
+    "client.ItemStorageMixin",
+    "client.MinecraftMixin",
+    "client.ModelLayersMixin",
+    "client.SheetsMixin",
+    "client.rei.DisplayRegistryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "plugin": "slimeknights.mantle.mixin.client.REIMixinPlugin",
+  "mixins": [
+    "common.TransactionManagerImplMixin"
+  ]
+}

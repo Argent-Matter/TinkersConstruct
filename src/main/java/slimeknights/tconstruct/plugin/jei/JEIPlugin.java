@@ -29,8 +29,6 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.Container;
@@ -259,7 +257,7 @@ public class JEIPlugin implements IModPlugin {
     registry.addRecipeCatalyst(new ItemStack(TinkerSmeltery.foundryController), TConstructJEIConstants.FOUNDRY);
 
     // modifiers
-    for (Holder<Item> item : Objects.requireNonNull(BuiltInRegistries.ITEM.getTagOrEmpty(TinkerTags.Items.MELEE))) {
+    for (Holder<Item> item : Objects.requireNonNull(Registry.ITEM.getTagOrEmpty(TinkerTags.Items.MELEE))) {
       // add any tools with a severing trait
       if (item instanceof IModifiable modifiable && modifiable.getToolDefinition().getData().getTraits().stream().anyMatch(entry -> entry.matches(TinkerModifiers.severing.getId()))) {
         registry.addRecipeCatalyst(IModifiableDisplay.getDisplayStack(item.value()), TConstructJEIConstants.SEVERING);
@@ -367,12 +365,12 @@ public class JEIPlugin implements IModPlugin {
 
   /** Helper to get an item tag */
   private static Iterable<Holder<Item>> getTag(ResourceLocation name) {
-    return getTag(TagKey.create(Registries.ITEM, name));
+    return getTag(TagKey.create(Registry.ITEM_REGISTRY, name));
   }
 
   /** Helper to get an item tag */
   private static Iterable<Holder<Item>> getTag(TagKey<Item> name) {
-    return Objects.requireNonNull(BuiltInRegistries.ITEM.getTagOrEmpty(name));
+    return Objects.requireNonNull(Registry.ITEM.getTagOrEmpty(name));
   }
 
   /**

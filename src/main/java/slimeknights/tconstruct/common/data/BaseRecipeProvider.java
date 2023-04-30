@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.common.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import slimeknights.tconstruct.TConstruct;
@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  * Shared logic for each module's recipe provider
  */
 public abstract class BaseRecipeProvider extends FabricRecipeProvider implements /*IConditionBuilder,*/ IRecipeHelper {
-  public BaseRecipeProvider(FabricDataOutput output) {
+  public BaseRecipeProvider(FabricDataGenerator output) {
     super(output);
     TConstruct.sealTinkersClass(this, "BaseRecipeProvider", "BaseRecipeProvider is trivial to recreate and directly extending can lead to addon recipes polluting our namespace.");
   }

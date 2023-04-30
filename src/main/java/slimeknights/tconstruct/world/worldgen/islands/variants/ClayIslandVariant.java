@@ -3,7 +3,6 @@ package slimeknights.tconstruct.world.worldgen.islands.variants;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -53,15 +52,15 @@ public class ClayIslandVariant implements IIslandVariant {
   public ConfiguredFeature<?,?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
     return switch (random.nextInt(10)) {
       // 40% oak
-      case 0, 1, 2, 3 -> registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TreeFeatures.OAK);
+      case 0, 1, 2, 3 -> registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TreeFeatures.OAK);
       // 30% birch
-      case 4, 5, 6 -> registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TreeFeatures.BIRCH);
+      case 4, 5, 6 -> registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TreeFeatures.BIRCH);
       // 10% spruce
-      case 7 -> registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TreeFeatures.SPRUCE);
+      case 7 -> registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TreeFeatures.SPRUCE);
       // 10% acacia
-      case 8 -> registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TreeFeatures.ACACIA);
+      case 8 -> registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TreeFeatures.ACACIA);
       // 10% jungle
-      case 9 -> registryAccess.registryOrThrow(Registries.CONFIGURED_FEATURE).get(TreeFeatures.JUNGLE_TREE_NO_VINE);
+      case 9 -> registryAccess.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).get(TreeFeatures.JUNGLE_TREE_NO_VINE);
       default -> null;
     };
   }

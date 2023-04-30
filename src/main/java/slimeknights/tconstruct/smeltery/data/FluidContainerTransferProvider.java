@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.smeltery.data;
 
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -27,7 +27,7 @@ import slimeknights.tconstruct.shared.block.SlimeType;
 import javax.annotation.Nullable;
 
 public class FluidContainerTransferProvider extends AbstractFluidContainerTransferProvider {
-  public FluidContainerTransferProvider(FabricDataOutput output) {
+  public FluidContainerTransferProvider(FabricDataGenerator output) {
     super(output, TConstruct.MOD_ID);
   }
 

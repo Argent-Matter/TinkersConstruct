@@ -15,35 +15,6 @@ plugins {
     id "org.quiltmc.quilt-mappings-on-loom" version "4.2.+"
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
-    maven { url = "https://libraries.minecraft.net/" }
-    maven { url = "https://api.modrinth.com/maven" }
-    maven { url = "https://maven.terraformersmc.com/releases/" }
-    maven { url = "https://maven.shedaniel.me/"  }
-    maven { url = "https://maven.wispforest.io" } // TOP
-    maven { url = "https://maven.blamejared.com" } // CraftTweaker, Immersive Engineering
-    maven { url = "https://www.cursemaven.com" }
-    maven { url = "https://maven.jamieswhiteshirt.com/libs-release" }
-    maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
-    maven { url = "https://mvn.devos.one/releases/" }
-    maven { url = "https://mvn.devos.one/snapshots/" }
-    maven { url = "https://maven.parchmentmc.org" }
-    maven { url = "https://jitpack.io" }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
-}
-
 group = 'slimeknights.tconstruct'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -108,44 +79,114 @@ loom {
     }
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
+    maven { url = "https://libraries.minecraft.net/" }
+    maven { url = "https://api.modrinth.com/maven" }
+    maven { url = "https://maven.terraformersmc.com/releases/" }
+    maven { url = "https://maven.shedaniel.me/"  }
+    maven { url = "https://maven.wispforest.io" } // TOP
+    maven { url = "https://maven.blamejared.com" } // CraftTweaker, Immersive Engineering
+    maven { url = "https://www.cursemaven.com" }
+    maven { url = "https://maven.jamieswhiteshirt.com/libs-release" }
+    maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+    maven { url = "https://mvn.devos.one/releases/" }
+    maven { url = "https://mvn.devos.one/snapshots/" }
+    maven { url = "https://maven.parchmentmc.org" }
+    maven { url = "https://jitpack.io" }
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+}
+
+allprojects {
+    apply plugin: "fabric-loom"
+    apply plugin: "io.github.juuxel.loom-quiltflower"
+    apply plugin: "org.quiltmc.quilt-mappings-on-loom"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
+        maven { url = "https://libraries.minecraft.net/" }
+        maven { url = "https://api.modrinth.com/maven" }
+        maven { url = "https://maven.terraformersmc.com/releases/" }
+        maven { url = "https://maven.shedaniel.me/"  }
+        maven { url = "https://maven.wispforest.io" } // TOP
+        maven { url = "https://maven.blamejared.com" } // CraftTweaker, Immersive Engineering
+        maven { url = "https://www.cursemaven.com" }
+        maven { url = "https://maven.jamieswhiteshirt.com/libs-release" }
+        maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+        maven { url = "https://mvn.devos.one/releases/" }
+        maven { url = "https://mvn.devos.one/snapshots/" }
+        maven { url = "https://maven.parchmentmc.org" }
+        maven { url = "https://jitpack.io" }
+        maven {
+            // location of the maven that hosts JEI files
+            name = "Progwml6 maven"
+            url = "https://dvs1.progwml6.com/files/maven/"
+        }
+        maven {
+            // location of a maven mirror for JEI files, as a fallback
+            name = "ModMaven"
+            url = "https://modmaven.dev"
+        }
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${minecraft_version}"
+
+        mappings loom.officialMojangMappings()
+
+        // lombok
+        compileOnly("org.projectlombok:lombok:1.18.22")
+        annotationProcessor("org.projectlombok:lombok:1.18.22")
+
+        testCompileOnly("org.projectlombok:lombok:1.18.22")
+        testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+
+        // dev environment
+        modImplementation("net.fabricmc:fabric-loader:${project.loader_version}")
+        modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+
+        modImplementation(include("io.github.fabricators_of_create:Porting-Lib:${project.port_lib_version}+1.19.1"))
+        modImplementation(include("io.github.tropheusj:serialization-hooks:0.4.27"))
+
+
+        implementation 'com.electronwill.night-config:core:3.6.5'
+        implementation 'com.electronwill.night-config:toml:3.6.5'
+        modImplementation "curse.maven:forgeconfigapiport-547434:${project.forge_config_version}"
+
+        // REI
+        modCompileOnlyApi("me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}")
+        modCompileOnlyApi("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
+
+        // compile against the JEI API but do not include it at runtime
+        modCompileOnlyApi "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+        modCompileOnlyApi "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+
+        modImplementation(include("me.alphamode:Star:${project.star_version}+${project.minecraft_version}"))
+    }
+}
+
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-
-    mappings loom.officialMojangMappings()
-
-    // dev environment
-    modImplementation("net.fabricmc:fabric-loader:${project.loader_version}")
-
     // modRuntimeOnly("com.github.Andrew6rant:InventoryTabs:inventorytabs-${inventorytabs_version}")
-
-    // lombok
-    compileOnly("org.projectlombok:lombok:1.18.22")
-    annotationProcessor("org.projectlombok:lombok:1.18.22")
-
-    testCompileOnly("org.projectlombok:lombok:1.18.22")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
-
     // mockito (no idea what this is)
     testCompileOnly("org.mockito:mockito-core:2.23.4")
 
     // dependencies
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
-    modImplementation(include("io.github.fabricators_of_create.Porting-Lib:Porting-Lib:${project.port_lib_version}+${project.minecraft_version}"))
-    modImplementation(include("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${project.forge_config_version}"))
-    modImplementation(include("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"))
-    modImplementation(include("io.github.tropheusj:serialization-hooks:0.4.27"))
+    implementation project(path: ":mantle", configuration: "namedElements")
     modImplementation(include("io.github.tropheusj:milk-lib:${project.milk_lib_version}"))
     modApi(include("io.github.tropheusj:dripstone-fluid-lib:${project.dripstone_fluid_lib_version}"))
-
-    modImplementation "me.alphamode:Star:1.3+1.19.4"
-
-    // REI
-    modCompileOnlyApi("me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}")
-    modCompileOnlyApi("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
-
-    // compile against the JEI API but do not include it at runtime
-    modCompileOnlyApi "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    modCompileOnlyApi "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
 
     if (project.recipe_viewer == 'jei') {
         // at runtime, use the full JEI jar for Fabric

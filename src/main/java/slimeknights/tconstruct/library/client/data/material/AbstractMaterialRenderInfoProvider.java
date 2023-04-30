@@ -2,7 +2,7 @@ package slimeknights.tconstruct.library.client.data.material;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -27,12 +27,12 @@ public abstract class AbstractMaterialRenderInfoProvider extends GenericDataProv
   @Nullable
   private final AbstractMaterialSpriteProvider materialSprites;
 
-  public AbstractMaterialRenderInfoProvider(FabricDataOutput output, @Nullable AbstractMaterialSpriteProvider materialSprites) {
+  public AbstractMaterialRenderInfoProvider(FabricDataGenerator output, @Nullable AbstractMaterialSpriteProvider materialSprites) {
     super(output, PackType.CLIENT_RESOURCES, MaterialRenderInfoLoader.FOLDER, MaterialRenderInfoLoader.GSON);
     this.materialSprites = materialSprites;
   }
 
-  public AbstractMaterialRenderInfoProvider(FabricDataOutput output) {
+  public AbstractMaterialRenderInfoProvider(FabricDataGenerator output) {
     this(output, null);
   }
 

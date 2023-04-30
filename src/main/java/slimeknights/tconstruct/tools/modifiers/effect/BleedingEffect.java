@@ -2,7 +2,6 @@ package slimeknights.tconstruct.tools.modifiers.effect;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
@@ -36,10 +35,10 @@ public class BleedingEffect extends NoMilkEffect {
     LivingEntity lastAttacker = target.getLastHurtMob();
     DamageSource source;
     if(lastAttacker != null) {
-      source = new BleedingDamageSource(target.level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(TinkerDamageTypes.BLEEDING), lastAttacker);
+      source = new BleedingDamageSource(target.level.registryAccess().registryOrThrow(Registry.DAMAGE_TYPE_REGISTRY).getHolderOrThrow(TinkerDamageTypes.BLEEDING), lastAttacker);
     }
     else {
-      source = new DamageSource(target.level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(TinkerDamageTypes.BLEEDING));
+      source = new DamageSource(target.level.registryAccess().registryOrThrow(Registry.DAMAGE_TYPE_REGISTRY).getHolderOrThrow(TinkerDamageTypes.BLEEDING));
     }
 
     // perform damage

@@ -8,7 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.renderer.Rect2i;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -161,7 +160,7 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
     if (te == null) {
       this.defaultLayout = StationSlotLayout.EMPTY;
     } else {
-      this.defaultLayout = StationSlotLayoutLoader.getInstance().get(BuiltInRegistries.BLOCK.getKey(te.getBlockState().getBlock()));
+      this.defaultLayout = StationSlotLayoutLoader.getInstance().get(Registry.BLOCK.getKey(te.getBlockState().getBlock()));
     }
     this.currentLayout = this.defaultLayout;
     this.activeInputs = Math.min(defaultLayout.getInputCount(), max);

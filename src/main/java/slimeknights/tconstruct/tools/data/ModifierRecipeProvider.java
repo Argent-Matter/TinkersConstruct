@@ -6,7 +6,7 @@ import io.github.fabricators_of_create.porting_lib.crafting.PartialNBTIngredient
 import io.github.tropheusj.milk.Milk;
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
 import me.alphamode.forgetags.Tags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
@@ -88,7 +88,7 @@ import java.util.function.Consumer;
 
 @SuppressWarnings("removal")
 public class ModifierRecipeProvider extends BaseRecipeProvider {
-  public ModifierRecipeProvider(FabricDataOutput output) {
+  public ModifierRecipeProvider(FabricDataGenerator output) {
     super(output);
   }
 

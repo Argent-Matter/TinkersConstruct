@@ -2,7 +2,7 @@ package slimeknights.tconstruct.library.data.material;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.mantle.data.GenericDataProvider;
@@ -38,7 +38,7 @@ public abstract class AbstractMaterialTraitDataProvider extends GenericDataProvi
   /* Materials data provider for validation */
   private final AbstractMaterialDataProvider materials;
 
-  public AbstractMaterialTraitDataProvider(FabricDataOutput output, AbstractMaterialDataProvider materials) {
+  public AbstractMaterialTraitDataProvider(FabricDataGenerator output, AbstractMaterialDataProvider materials) {
     super(output, MaterialTraitsManager.FOLDER, GSON);
     this.materials = materials;
   }

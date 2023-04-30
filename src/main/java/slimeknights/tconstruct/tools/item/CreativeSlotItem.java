@@ -1,7 +1,5 @@
 package slimeknights.tconstruct.tools.item;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -26,8 +24,7 @@ public class CreativeSlotItem extends Item {
   private static final Component TOOLTIP_MISSING = TConstruct.makeTranslation("item", "creative_slot.missing").withStyle(ChatFormatting.RED);
 
   public CreativeSlotItem(Properties properties, CreativeModeTab tab) {
-    super(properties);
-    ItemGroupEvents.modifyEntriesEvent(tab).register(this::fillItemCategory);
+    super(properties.tab(tab));
   }
 
   /** Gets the value of the slot tag from the given stack */
@@ -69,13 +66,16 @@ public class CreativeSlotItem extends Item {
     }
   }
 
-  public void fillItemCategory(FabricItemGroupEntries items) {
-    Collection<SlotType> allTypes = SlotType.getAllSlotTypes();
-    if (allTypes.isEmpty()) {
-      items.accept(new ItemStack(this));
-    } else {
-      for (SlotType type : allTypes) {
-        items.accept(withSlot(new ItemStack(this), type));
+  @Override
+  public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> nonNullList) {
+    if (this.allowedIn(creativeModeTab)) {
+      Collection<SlotType> allTypes = SlotType.getAllSlotTypes();
+      if (allTypes.isEmpty()) {
+        nonNullList.add(new ItemStack(this));
+      } else {
+        for (SlotType type : allTypes) {
+          nonNullList.add(withSlot(new ItemStack(this), type));
+        }
       }
     }
   }

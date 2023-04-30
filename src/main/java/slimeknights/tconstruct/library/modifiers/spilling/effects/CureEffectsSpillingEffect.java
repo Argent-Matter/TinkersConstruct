@@ -6,7 +6,6 @@ import com.google.gson.JsonSerializationContext;
 import io.github.fabricators_of_create.porting_lib.crafting.CraftingHelper;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.PotionHelper;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,7 +35,7 @@ public record CureEffectsSpillingEffect(ItemStack stack) implements ISpillingEff
   @Override
   public JsonObject serialize(JsonSerializationContext context) {
     JsonObject json = JsonUtils.withType(ID);
-    json.addProperty("item", BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
+    json.addProperty("item", Registry.ITEM.getKey(stack.getItem()).toString());
     CompoundTag nbt = stack.getTag();
     if (nbt != null) {
       json.addProperty("nbt", nbt.toString());

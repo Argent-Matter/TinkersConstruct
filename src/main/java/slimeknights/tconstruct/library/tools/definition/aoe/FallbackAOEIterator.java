@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -43,7 +42,7 @@ public class FallbackAOEIterator implements IAreaOfEffectIterator {
   private static class Loader implements IGenericLoader<FallbackAOEIterator> {
     @Override
     public FallbackAOEIterator deserialize(JsonObject json) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, JsonHelper.getResourceLocation(json, "tag"));
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, JsonHelper.getResourceLocation(json, "tag"));
       IAreaOfEffectIterator tagged = IAreaOfEffectIterator.LOADER.deserialize(GsonHelper.getAsJsonObject(json, "if_matches"));
       IAreaOfEffectIterator fallback = IAreaOfEffectIterator.LOADER.deserialize(GsonHelper.getAsJsonObject(json, "fallback"));
       return new FallbackAOEIterator(tag, tagged, fallback);
@@ -51,7 +50,7 @@ public class FallbackAOEIterator implements IAreaOfEffectIterator {
 
     @Override
     public FallbackAOEIterator fromNetwork(FriendlyByteBuf buffer) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, buffer.readResourceLocation());
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, buffer.readResourceLocation());
       IAreaOfEffectIterator tagged = IAreaOfEffectIterator.LOADER.fromNetwork(buffer);
       IAreaOfEffectIterator fallback = IAreaOfEffectIterator.LOADER.fromNetwork(buffer);
       return new FallbackAOEIterator(tag, tagged, fallback);

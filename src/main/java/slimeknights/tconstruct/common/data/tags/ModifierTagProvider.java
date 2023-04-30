@@ -1,6 +1,6 @@
 package slimeknights.tconstruct.common.data.tags;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataGenerator;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import slimeknights.tconstruct.TConstruct;
@@ -10,7 +10,7 @@ import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 public class ModifierTagProvider extends AbstractModifierTagProvider {
-  public ModifierTagProvider(FabricDataOutput output, ExistingFileHelper existingFileHelper) {
+  public ModifierTagProvider(FabricDataGenerator output) {
     super(output, TConstruct.MOD_ID, existingFileHelper);
   }
 

@@ -5,7 +5,6 @@ import com.google.gson.JsonSyntaxException;
 import io.github.fabricators_of_create.porting_lib.util.TierSortingRegistry;
 import io.netty.handler.codec.DecoderException;
 import lombok.RequiredArgsConstructor;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -46,7 +45,7 @@ public class FixedTierHarvestLogic implements IHarvestLogic {
   private static class Loader implements IGenericLoader<FixedTierHarvestLogic> {
     @Override
     public FixedTierHarvestLogic deserialize(JsonObject json) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, JsonHelper.getResourceLocation(json, "effective"));
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, JsonHelper.getResourceLocation(json, "effective"));
       ResourceLocation tierName = JsonHelper.getResourceLocation(json, "tier");
       Tier tier = TierSortingRegistry.byName(tierName);
       if (tier == null) {
@@ -57,7 +56,7 @@ public class FixedTierHarvestLogic implements IHarvestLogic {
 
     @Override
     public FixedTierHarvestLogic fromNetwork(FriendlyByteBuf buffer) {
-      TagKey<Block> tag = TagKey.create(Registries.BLOCK, buffer.readResourceLocation());
+      TagKey<Block> tag = TagKey.create(Registry.BLOCK_REGISTRY, buffer.readResourceLocation());
       ResourceLocation name = buffer.readResourceLocation();
       Tier tier = TierSortingRegistry.byName(name);
       if (tier == null) {

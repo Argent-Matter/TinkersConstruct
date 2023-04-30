@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.library.data.tinkering;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -33,7 +32,7 @@ public abstract class AbstractStationSlotLayoutProvider extends GenericDataProvi
 
   private final Map<ResourceLocation,StationSlotLayout.Builder> allLayouts = new HashMap<>();
 
-  public AbstractStationSlotLayoutProvider(FabricDataOutput output) {
+  public AbstractStationSlotLayoutProvider(FabricDataGenerator output) {
     super(output, PackType.SERVER_DATA, StationSlotLayoutLoader.FOLDER, StationSlotLayoutLoader.GSON);
   }
 
@@ -49,12 +48,12 @@ public abstract class AbstractStationSlotLayoutProvider extends GenericDataProvi
 
   /** Defines the given ID as a item layout */
   protected StationSlotLayout.Builder define(ItemLike item) {
-    return define(BuiltInRegistries.ITEM.getKey(item.asItem()));
+    return define(Registry.ITEM.getKey(item.asItem()));
   }
 
   /** Defines the given ID as a tool layout, sets icon and name */
   protected StationSlotLayout.Builder defineModifiable(IModifiableDisplay item) {
-    return define(BuiltInRegistries.ITEM.getKey(item.asItem()))
+    return define(Registry.ITEM.getKey(item.asItem()))
       .translationKey(item.asItem().getDescriptionId())
       .icon(item.getRenderTool());
   }

@@ -4,7 +4,6 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.ingredients.subtypes.UidContext;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,12 +22,12 @@ public class FluidStackIngredientHelper implements IIngredientHelper<FluidStack>
 
   @Override
   public String getUniqueId(FluidStack ingredient, UidContext context) {
-    return BuiltInRegistries.FLUID.getKey(ingredient.getFluid()).toString();
+    return Registry.FLUID.getKey(ingredient.getFluid()).toString();
   }
 
   @Override
   public ResourceLocation getResourceLocation(FluidStack ingredient) {
-    return BuiltInRegistries.FLUID.getKey(ingredient.getFluid());
+    return Registry.FLUID.getKey(ingredient.getFluid());
   }
 
   @Override

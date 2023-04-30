@@ -121,15 +121,15 @@ public class TConstruct implements ModInitializer {
     StationSlotLayoutLoader.init();
   }
 
-  public static void gatherData(FabricDataGenerator.Pack pack, ExistingFileHelper existingFileHelper) {
-    pack.addProvider(TinkerRegistrySets::new);
+  public static void gatherData(FabricDataGenerator pack) {
+    //pack.addProvider(TinkerRegistrySets::new);
     BlockTagProvider blockTags = pack.addProvider(BlockTagProvider::new);
-    pack.addProvider((output, registriesFuture) -> new ItemTagProvider(output, registriesFuture, blockTags));
+    pack.addProvider((output) -> new ItemTagProvider(output, blockTags));
     pack.addProvider(FluidTagProvider::new);
     pack.addProvider(EntityTypeTagProvider::new);
     pack.addProvider(BlockEntityTypeTagProvider::new);
     pack.addProvider(BiomeTagProvider::new);
-    pack.addProvider(EnchantmentTagProvider::new);
+    //pack.addProvider(EnchantmentTagProvider::new);
     pack.addProvider(TConstructLootTableProvider::new);
     pack.addProvider(AdvancementsProvider::new);
     pack.addProvider(GlobalLootModifiersProvider::new);

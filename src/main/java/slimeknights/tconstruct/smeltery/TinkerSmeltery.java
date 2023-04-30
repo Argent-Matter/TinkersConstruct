@@ -358,7 +358,7 @@ public final class TinkerSmeltery extends TinkerModule {
     FluidContainerTransferManager.TRANSFER_LOADERS.registerDeserializer(EmptyPotionTransfer.ID, EmptyPotionTransfer.DESERIALIZER);
   }
 
-  public static void gatherData(FabricDataGenerator.Pack pack) {
+  public static void gatherData(FabricDataGenerator pack) {
       pack.addProvider(SmelteryRecipeProvider::new);
       pack.addProvider(FluidContainerTransferProvider::new);
   }

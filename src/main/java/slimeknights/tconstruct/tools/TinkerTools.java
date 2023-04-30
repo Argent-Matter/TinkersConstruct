@@ -208,21 +208,21 @@ public final class TinkerTools extends TinkerModule {
     IToolModule.LOADER.register(TConstruct.getResource("preference_set_interaction"), PreferenceSetInteraction.LOADER);
   }
 
-  public static void gatherData(FabricDataGenerator.Pack pack, ExistingFileHelper existingFileHelper) {
+  public static void gatherData(FabricDataGenerator pack) {
     pack.addProvider(ToolsRecipeProvider::new);
     pack.addProvider(MaterialRecipeProvider::new);
     MaterialDataProvider materials = pack.addProvider(MaterialDataProvider::new);
-    pack.addProvider((output, registriesFuture) -> new MaterialStatsDataProvider(output, materials));
-    pack.addProvider((output, registriesFuture) -> new MaterialTraitsDataProvider(output, materials));
+    pack.addProvider((output) -> new MaterialStatsDataProvider(output, materials));
+    pack.addProvider((output) -> new MaterialTraitsDataProvider(output, materials));
     pack.addProvider(ToolDefinitionDataProvider::new);
     pack.addProvider(StationSlotLayoutProvider::new);
-    pack.addProvider((output, registriesFuture) -> new MaterialTagProvider(output, existingFileHelper));
+    pack.addProvider(MaterialTagProvider::new);
 
     TinkerMaterialSpriteProvider materialSprites = new TinkerMaterialSpriteProvider();
     TinkerPartSpriteProvider partSprites = new TinkerPartSpriteProvider();
-    pack.addProvider((output, registriesFuture) -> new MaterialRenderInfoProvider(output, materialSprites));
-    pack.addProvider((output, registriesFuture) -> new GeneratorPartTextureJsonGenerator(output, TConstruct.MOD_ID, partSprites));
-    pack.addProvider((output, registriesFuture) -> new MaterialPartTextureGenerator(output, existingFileHelper, partSprites, materialSprites));
-    pack.addProvider((output, registriesFuture) -> new TinkerSpriteSourceGenerator(output, existingFileHelper));
+    pack.addProvider((output) -> new MaterialRenderInfoProvider(output, materialSprites));
+    pack.addProvider((output) -> new GeneratorPartTextureJsonGenerator(output, TConstruct.MOD_ID, partSprites));
+    pack.addProvider((output) -> new MaterialPartTextureGenerator(output, partSprites, materialSprites));
+    pack.addProvider((output) -> new TinkerSpriteSourceGenerator(output));
   }
 }

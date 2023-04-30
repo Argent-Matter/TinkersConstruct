@@ -2,11 +2,10 @@ package slimeknights.tconstruct.common.data.tags;
 
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -52,12 +51,12 @@ import static net.minecraft.tags.BlockTags.NEEDS_STONE_TOOL;
 @SuppressWarnings("unchecked")
 public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
-  public BlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-    super(output, registriesFuture);
+  public BlockTagProvider(FabricDataGenerator output) {
+    super(output);
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {
+  protected void generateTags() {
     this.addCommon();
     this.addTools();
     this.addWorld();
@@ -550,7 +549,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
   private void addGlass(EnumObject<GlassColor,? extends Block> blockObj, String tagPrefix, FabricTagBuilder blockTag) {
     blockObj.forEach((color, block) -> {
       blockTag.add(block);
-      this.tag(TagKey.create(Registries.BLOCK, new ResourceLocation("c", tagPrefix + color.getSerializedName()))).add(block);
+      this.tag(TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("c", tagPrefix + color.getSerializedName()))).add(block);
     });
   }
 
