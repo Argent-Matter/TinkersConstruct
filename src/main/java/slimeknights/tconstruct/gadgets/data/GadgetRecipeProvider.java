@@ -3,6 +3,7 @@ package slimeknights.tconstruct.gadgets.data;
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -66,7 +67,7 @@ public class GadgetRecipeProvider extends BaseRecipeProvider {
                        .pattern("#X#")
                        .pattern(" # ")
                        .unlockedBy("has_item", has(Tags.Items.DUSTS_GLOWSTONE))
-                       .save(consumer, prefix(TinkerGadgets.efln, folder));
+                       .save(consumer, prefix(TinkerGadgets.efln.getRegistryName(), folder));
     ShapedRecipeBuilder.shaped(TinkerGadgets.glowBall.get(), 8)
                        .define('#', Items.SNOWBALL)
                        .define('X', Tags.Items.DUSTS_GLOWSTONE)
@@ -74,7 +75,7 @@ public class GadgetRecipeProvider extends BaseRecipeProvider {
                        .pattern("#X#")
                        .pattern("###")
                        .unlockedBy("has_item", has(Tags.Items.DUSTS_GLOWSTONE))
-                       .save(consumer, prefix(TinkerGadgets.glowBall, folder));
+                       .save(consumer, prefix(TinkerGadgets.glowBall.getRegistryName(), folder));
 
     // Shurikens
     folder = "gadgets/shuriken/";
@@ -84,27 +85,27 @@ public class GadgetRecipeProvider extends BaseRecipeProvider {
                         .pattern("X X")
                         .pattern(" X ")
                         .unlockedBy("has_item", has(Items.FLINT))
-                        .save(consumer, prefix(TinkerGadgets.flintShuriken, folder));
+                        .save(consumer, prefix(TinkerGadgets.flintShuriken.getRegistryName(), folder));
     ShapedRecipeBuilder.shaped(TinkerGadgets.quartzShuriken.get(), 4)
                         .define('X', Items.QUARTZ)
                         .pattern(" X ")
                         .pattern("X X")
                         .pattern(" X ")
                         .unlockedBy("has_item", has(Items.QUARTZ))
-                        .save(consumer, prefix(TinkerGadgets.quartzShuriken, folder));
+                        .save(consumer, prefix(TinkerGadgets.quartzShuriken.getRegistryName(), folder));
 
     // piggybackpack
     folder = "gadgets/";
     ItemCastingRecipeBuilder.tableRecipe(TinkerGadgets.piggyBackpack)
                             .setCast(Items.SADDLE, true)
                             .setFluidAndTime(TinkerFluids.blood, false, FluidValues.SLIME_CONGEALED)
-                            .save(consumer, prefix(TinkerGadgets.piggyBackpack, folder));
+                            .save(consumer, prefix(TinkerGadgets.piggyBackpack.getRegistryName(), folder));
     ShapedRecipeBuilder.shaped(TinkerGadgets.punji)
                        .define('b', Items.BAMBOO)
                        .pattern(" b ")
                        .pattern("bbb")
                        .unlockedBy("has_item", has(Items.BAMBOO))
-                       .save(consumer, prefix(TinkerGadgets.punji, folder));
+                       .save(consumer, prefix(TinkerGadgets.punji.getRegistryName(), folder));
 
     // frames
     folder = "gadgets/fancy_frame/";
@@ -181,7 +182,7 @@ public class GadgetRecipeProvider extends BaseRecipeProvider {
   private void campfireCooking(Consumer<FinishedRecipe> consumer, ItemLike input, ItemLike output, float experience, String folder) {
     SimpleCookingRecipeBuilder.cooking(Ingredient.of(input), output, experience, 600, RecipeSerializer.CAMPFIRE_COOKING_RECIPE)
                               .unlockedBy("has_item", has(input))
-                              .save(consumer, wrap(output.asItem(), folder, "_campfire"));
+                              .save(consumer, wrap(Registry.ITEM.getKey(input.asItem()), folder, "_campfire"));
   }
 
   /**

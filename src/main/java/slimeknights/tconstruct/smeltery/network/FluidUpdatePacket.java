@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import slimeknights.mantle.network.packet.ISimplePacket;
 import slimeknights.mantle.network.packet.IThreadsafePacket;
 import slimeknights.mantle.util.BlockEntityHelper;
 
@@ -29,7 +30,7 @@ public class FluidUpdatePacket implements IThreadsafePacket {
   }
 
   @Override
-  public void handleThreadsafe(Context context) {
+  public void handleThreadsafe(ISimplePacket.Context context) {
     HandleClient.handle(this);
   }
 

@@ -10,7 +10,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.inventory.InventoryMenu;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.RenderUtils;
@@ -33,7 +32,7 @@ public class PatternEntryRenderer implements EntryRenderer<Pattern> {
   public @Nullable Tooltip getTooltip(EntryStack<Pattern> entry, TooltipContext context) {
     Pattern pattern = entry.getValue();
     if (context.getFlag().isAdvanced()) {
-      return Tooltip.create(pattern.getDisplayName(), new TextComponent(pattern.toString()).withStyle(ChatFormatting.DARK_GRAY));
+      return Tooltip.create(pattern.getDisplayName(), Component.literal(pattern.toString()).withStyle(ChatFormatting.DARK_GRAY));
     } else {
       return Tooltip.create(pattern.getDisplayName());
     }

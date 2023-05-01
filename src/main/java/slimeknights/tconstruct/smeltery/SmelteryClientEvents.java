@@ -1,15 +1,12 @@
 package slimeknights.tconstruct.smeltery;
 
-import io.github.fabricators_of_create.porting_lib.event.client.ModelLoadCallback;
-import io.github.fabricators_of_create.porting_lib.model.ModelLoaderRegistry;
+import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometryLoadersCallback;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.resources.ResourceLocation;
 import slimeknights.mantle.client.model.FaucetFluidLoader;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.ClientEventBase;
@@ -30,6 +27,8 @@ import slimeknights.tconstruct.smeltery.client.screen.HeatingStructureScreen;
 import slimeknights.tconstruct.smeltery.client.screen.MelterScreen;
 import slimeknights.tconstruct.smeltery.client.screen.SingleItemScreenFactory;
 
+import java.util.Map;
+
 @SuppressWarnings("unused")
 public class SmelteryClientEvents extends ClientEventBase {
 
@@ -37,7 +36,7 @@ public class SmelteryClientEvents extends ClientEventBase {
     addResourceListener();
     registerRenderers();
     clientSetup();
-    ModelLoadCallback.EVENT.register(SmelteryClientEvents::registerModelLoaders);
+    RegisterGeometryLoadersCallback.EVENT.register(SmelteryClientEvents::registerModelLoaders);
   }
 
   static void addResourceListener() {
@@ -45,13 +44,13 @@ public class SmelteryClientEvents extends ClientEventBase {
   }
 
   static void registerRenderers() {
-    BlockEntityRendererRegistry.register(TinkerSmeltery.tank.get(), TankBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.faucet.get(), FaucetBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.channel.get(), ChannelBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.table.get(), CastingBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.basin.get(), CastingBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.melter.get(), MelterBlockEntityRenderer::new);
-    BlockEntityRendererRegistry.register(TinkerSmeltery.alloyer.get(), TankBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.tank.get(), TankBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.faucet.get(), FaucetBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.channel.get(), ChannelBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.table.get(), CastingBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.basin.get(), CastingBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.melter.get(), MelterBlockEntityRenderer::new);
+    BlockEntityRenderers.register(TinkerSmeltery.alloyer.get(), TankBlockEntityRenderer::new);
     BlockEntityRenderers.register(TinkerSmeltery.smeltery.get(), HeatingStructureBlockEntityRenderer::new);
     BlockEntityRenderers.register(TinkerSmeltery.foundry.get(), HeatingStructureBlockEntityRenderer::new);
   }
@@ -97,12 +96,12 @@ public class SmelteryClientEvents extends ClientEventBase {
     ScreenRegistry.register(TinkerSmeltery.alloyerContainer.get(), AlloyerScreen::new);
   }
 
-  static void registerModelLoaders(ResourceManager manager, BlockColors colors, ProfilerFiller profiler, int mipLevel) {
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("tank"), TankModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("casting"), CastingModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("melter"), MelterModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("channel"), ChannelModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("fluid_texture"), FluidTextureModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("copper_can"), CopperCanModel.LOADER);
+  static void registerModelLoaders(Map<ResourceLocation, IGeometryLoader<?>> callback) {
+    callback.put(TConstruct.getResource("tank"), TankModel.LOADER);
+    callback.put(TConstruct.getResource("casting"), CastingModel.LOADER);
+    callback.put(TConstruct.getResource("melter"), MelterModel.LOADER);
+    callback.put(TConstruct.getResource("channel"), ChannelModel.LOADER);
+    callback.put(TConstruct.getResource("fluid_texture"), FluidTextureModel.LOADER);
+    callback.put(TConstruct.getResource("copper_can"), CopperCanModel.LOADER);
   }
 }

@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.upgrades.armor;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 import slimeknights.tconstruct.TConstruct;
@@ -41,7 +40,7 @@ public class HasteArmorModifier extends IncrementalArmorLevelModifier {
   public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
     double boost = 0.1 * getScaledLevel(tool, level);
     if (boost != 0) {
-      tooltip.add(applyStyle(new TextComponent(Util.PERCENT_BOOST_FORMAT.format(boost)).append(" ").append(MINING_SPEED)));
+      tooltip.add(applyStyle(Component.literal(Util.PERCENT_BOOST_FORMAT.format(boost)).append(" ").append(MINING_SPEED)));
     }
   }
 }

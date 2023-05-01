@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
@@ -72,9 +71,9 @@ public class TankModifier extends Modifier {
     if (isOwner(tool)) {
       FluidStack current = getFluid(tool);
       if (!current.isEmpty()) {
-        tooltip.add(new TranslatableComponent(FILLED_KEY, current.getAmount(), current.getDisplayName()));
+        tooltip.add(Component.translatable(FILLED_KEY, current.getAmount(), current.getDisplayName()));
       }
-      tooltip.add(new TranslatableComponent(CAPACITY_KEY, getCapacity(tool)));
+      tooltip.add(Component.translatable(CAPACITY_KEY, getCapacity(tool)));
     }
   }
 

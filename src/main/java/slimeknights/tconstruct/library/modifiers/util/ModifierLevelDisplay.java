@@ -3,7 +3,6 @@ package slimeknights.tconstruct.library.modifiers.util;
 import com.google.gson.JsonObject;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.GsonHelper;
 import slimeknights.mantle.data.GenericLoaderRegistry;
 import slimeknights.mantle.data.GenericLoaderRegistry.IGenericLoader;
@@ -18,7 +17,7 @@ public interface ModifierLevelDisplay extends IHaveLoader<ModifierLevelDisplay> 
   ModifierLevelDisplay DEFAULT = singleton(loader -> new ModifierLevelDisplay() {
     @Override
     public Component nameForLevel(Modifier modifier, int level) {
-      return modifier.applyStyle(new TranslatableComponent(modifier.getTranslationKey())
+      return modifier.applyStyle(Component.translatable(modifier.getTranslationKey())
                                    .append(" ")
                                    .append(RomanNumeralHelper.getNumeral(level)));
     }
@@ -72,7 +71,7 @@ public interface ModifierLevelDisplay extends IHaveLoader<ModifierLevelDisplay> 
     @Override
     public Component nameForLevel(Modifier modifier, int level) {
       if (level > 1) {
-        return modifier.applyStyle(new TranslatableComponent(modifier.getTranslationKey()).append("+".repeat(level - 1)));
+        return modifier.applyStyle(Component.translatable(modifier.getTranslationKey()).append("+".repeat(level - 1)));
       }
       return modifier.getDisplayName();
     }
@@ -90,7 +89,7 @@ public interface ModifierLevelDisplay extends IHaveLoader<ModifierLevelDisplay> 
     @Override
     public Component nameForLevel(Modifier modifier, int level) {
       if (level <= unique) {
-        return modifier.applyStyle(new TranslatableComponent(modifier.getTranslationKey() + "." + level));
+        return modifier.applyStyle(Component.translatable(modifier.getTranslationKey() + "." + level));
       }
       return DEFAULT.nameForLevel(modifier, level);
     }

@@ -14,7 +14,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -107,7 +106,7 @@ public class EntityEntryRenderer implements EntryRenderer<EntityType> {
     List<Component> tooltip = new ArrayList<>();
     tooltip.add(entry.getValue().getDescription());
     if (context.getFlag().isAdvanced()) {
-      tooltip.add((new TextComponent(Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(entry.getValue())).toString())).withStyle(ChatFormatting.DARK_GRAY));
+      tooltip.add((Component.literal(Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(entry.getValue())).toString())).withStyle(ChatFormatting.DARK_GRAY));
     }
     return Tooltip.create(tooltip);
   }

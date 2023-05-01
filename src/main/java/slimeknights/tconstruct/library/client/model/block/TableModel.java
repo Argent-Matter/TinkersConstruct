@@ -3,6 +3,9 @@ package slimeknights.tconstruct.library.client.model.block;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Pair;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.IUnbakedGeometry;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
@@ -17,9 +20,6 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import slimeknights.mantle.client.model.RetexturedModel;
 import slimeknights.mantle.client.model.inventory.ModelItem;
 import slimeknights.mantle.client.model.util.SimpleBlockModel;
-import io.github.fabricators_of_create.porting_lib.model.IModelConfiguration;
-import io.github.fabricators_of_create.porting_lib.model.IModelGeometry;
-import io.github.fabricators_of_create.porting_lib.model.IModelLoader;
 
 import java.util.Collection;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.function.Function;
 
 @AllArgsConstructor
-public class TableModel implements IModelGeometry<TableModel> {
+public class TableModel implements IUnbakedGeometry<TableModel> {
   /** Shared loader instance */
   public static final Loader LOADER = new Loader();
 
@@ -36,12 +36,12 @@ public class TableModel implements IModelGeometry<TableModel> {
   private final List<ModelItem> items;
 
   @Override
-  public Collection<Material> getTextures(IModelConfiguration owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String, String>> missingTextureErrors) {
-    return this.model.getTextures(owner, modelGetter, missingTextureErrors);
+  public Collection<Material> getMaterials(IGeometryBakingContext owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String, String>> missingTextureErrors) {
+    return this.model.getMaterials(owner, modelGetter, missingTextureErrors);
   }
 
   @Override
-  public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+  public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
     BakedModel baked = this.model.bakeModel(owner, transform, overrides, spriteGetter, location);
     return new Baked(baked, owner, this.model, transform, RetexturedModel.getAllRetextured(owner, model, retextured), items);
   }
@@ -50,19 +50,16 @@ public class TableModel implements IModelGeometry<TableModel> {
   public static class Baked extends RetexturedModel.Baked {
     @Getter
     private final List<ModelItem> items;
-    protected Baked(BakedModel baked, IModelConfiguration owner, SimpleBlockModel model, ModelState transform, Set<String> retextured, List<ModelItem> items) {
+    protected Baked(BakedModel baked, IGeometryBakingContext owner, SimpleBlockModel model, ModelState transform, Set<String> retextured, List<ModelItem> items) {
       super(baked, owner, model, transform, retextured);
       this.items = items;
     }
   }
 
   /** Model loader class */
-  public static class Loader implements IModelLoader<TableModel> {
+  public static class Loader implements IGeometryLoader<TableModel> {
     @Override
-    public void onResourceManagerReload(ResourceManager resourceManager) {}
-
-    @Override
-    public TableModel read(JsonDeserializationContext context, JsonObject json) {
+    public TableModel read(JsonObject json, JsonDeserializationContext context) {
       SimpleBlockModel model = SimpleBlockModel.deserialize(context, json);
       Set<String> retextured = RetexturedModel.Loader.getRetextured(json);
       List<ModelItem> items = ModelItem.listFromJson(json, "items");

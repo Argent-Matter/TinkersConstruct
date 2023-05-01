@@ -3,8 +3,8 @@ package slimeknights.tconstruct;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.logging.log4j.LogManager;
@@ -121,15 +121,16 @@ public class TConstruct implements ModInitializer {
   public static void onInitializeDataGenerator(FabricDataGenerator datagenerator, ExistingFileHelper existingFileHelper) {
 //    if (event.includeServer()) {
       BlockTagProvider blockTags = new BlockTagProvider(datagenerator);
-      datagenerator.addProvider(blockTags);
-      datagenerator.addProvider(new ItemTagProvider(datagenerator, blockTags));
-      datagenerator.addProvider(new FluidTagProvider(datagenerator));
-      datagenerator.addProvider(new EntityTypeTagProvider(datagenerator));
-      datagenerator.addProvider(new BlockEntityTypeTagProvider(datagenerator));
-      datagenerator.addProvider(new TConstructLootTableProvider(datagenerator));
-      datagenerator.addProvider(new AdvancementsProvider(datagenerator));
-      datagenerator.addProvider(new BiomeTagProvider(datagenerator));
-      datagenerator.addProvider(new GlobalLootModifiersProvider(datagenerator));
+      boolean isStrict = datagenerator.isStrictValidationEnabled();
+      datagenerator.addProvider(isStrict, blockTags);
+      datagenerator.addProvider(isStrict, new ItemTagProvider(datagenerator, blockTags));
+      datagenerator.addProvider(isStrict, new FluidTagProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new EntityTypeTagProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new BlockEntityTypeTagProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new TConstructLootTableProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new AdvancementsProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new BiomeTagProvider(datagenerator));
+      datagenerator.addProvider(isStrict, new GlobalLootModifiersProvider(datagenerator));
 //      datagenerator.addProvider(new StructureUpdater(datagenerator, existingFileHelper, MOD_ID, PackType.SERVER_DATA, "structures"));
 //    }
 //    if (event.includeClient()) {
@@ -249,7 +250,7 @@ public class TConstruct implements ModInitializer {
    * @return  Translation key
    */
   public static MutableComponent makeTranslation(String base, String name) {
-    return new TranslatableComponent(makeTranslationKey(base, name));
+    return Component.translatable(makeTranslationKey(base, name));
   }
 
   /**
@@ -260,7 +261,7 @@ public class TConstruct implements ModInitializer {
    * @return  Translation key
    */
   public static MutableComponent makeTranslation(String base, String name, Object... arguments) {
-    return new TranslatableComponent(makeTranslationKey(base, name), arguments);
+    return Component.translatable(makeTranslationKey(base, name), arguments);
   }
 
   /**

@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.common.data.loot;
 
+import io.github.fabricators_of_create.porting_lib.loot.GlobalLootModifierProvider;
 import io.github.fabricators_of_create.porting_lib.loot.LootTableIdCondition;
 import net.minecraft.advancements.critereon.EntityEquipmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import slimeknights.mantle.data.GlobalLootModifierProvider;
 import slimeknights.mantle.loot.AddEntryLootModifier;
 import slimeknights.mantle.loot.ReplaceItemLootModifier;
 import slimeknights.mantle.loot.condition.BlockTagLootCondition;

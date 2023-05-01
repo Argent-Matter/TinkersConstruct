@@ -4,7 +4,6 @@ import io.github.fabricators_of_create.porting_lib.crafting.DifferenceIngredient
 import io.github.fabricators_of_create.porting_lib.crafting.IntersectionIngredient;
 import io.github.fabricators_of_create.porting_lib.crafting.PartialNBTIngredient;
 import io.github.fabricators_of_create.porting_lib.data.ConditionalRecipe;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.TrueCondition;
 import io.github.tropheusj.milk.Milk;
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
@@ -1334,7 +1333,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                                      .addInput(PartialNBTIngredient.of(Items.POTION, PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.INVISIBILITY).getOrCreateTag()))
                                      .save(consumer, modResource(worktableFolder + "invisible_ink_adding"));
     ModifierSetWorktableRecipeBuilder.setRemoving(hiddenModifiers, blacklist)
-                                     .addInput(FluidContainerIngredient.fromIngredient(FluidIngredient.of(Milk.STILL_MILK, FluidAttributes.BUCKET_VOLUME), Ingredient.of(Items.MILK_BUCKET)))
+                                     .addInput(FluidContainerIngredient.fromIngredient(FluidIngredient.of(Milk.STILL_MILK, FluidUnit.DROPLETS.getOneBucketAmount() * 1000L), Ingredient.of(Items.MILK_BUCKET)))
                                      .save(consumer, modResource(worktableFolder + "invisible_ink_removing"));
 
     // compatability

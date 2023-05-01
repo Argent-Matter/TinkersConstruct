@@ -4,7 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import slimeknights.tconstruct.fluids.FluidEvents;
 import slimeknights.tconstruct.shared.AchievementEvents;
 import slimeknights.tconstruct.shared.CommonsEvents;
@@ -24,7 +24,7 @@ public class FabricEvents {
     if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT && FabricLoader.getInstance().isDevelopmentEnvironment()) {
       ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
         stack.getTags().forEach(tagKey ->
-          lines.add(new TextComponent("#" + tagKey.location().toString()).withStyle(ChatFormatting.GRAY))
+          lines.add(Component.literal("#" + tagKey.location().toString()).withStyle(ChatFormatting.GRAY))
         );
       });
     }

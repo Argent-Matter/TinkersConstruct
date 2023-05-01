@@ -26,7 +26,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.tags.TagLoader;
 import net.minecraft.util.GsonHelper;
@@ -39,6 +38,7 @@ import slimeknights.tconstruct.library.utils.GenericTagUtil;
 import slimeknights.tconstruct.library.utils.JsonUtils;
 
 import javax.annotation.Nullable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +50,8 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.yaml.snakeyaml.tokens.Token.ID.Tag;
 
 /** Modifier registry and JSON loader */
 @Log4j2
@@ -88,7 +90,7 @@ public class ModifierManager extends SimpleJsonResourceReloadListener implements
   /** Modifiers loaded from JSON */
   private Map<ModifierId,Modifier> dynamicModifiers = Collections.emptyMap();
   /** Modifier tags loaded from JSON */
-  private Map<ResourceLocation,Tag<Modifier>> tags = Collections.emptyMap();
+  private Map<ResourceLocation, Collection<Modifier>> tags = Collections.emptyMap();
   /** Map from modifier to tags on the modifier */
   private Map<ModifierId,Set<TagKey<Modifier>>> reverseTags = Collections.emptyMap();
 
@@ -215,7 +217,7 @@ public class ModifierManager extends SimpleJsonResourceReloadListener implements
   }
 
   /** Updates the modifiers from the server */
-  void updateModifiersFromServer(Map<ModifierId,Modifier> modifiers, Map<ResourceLocation,Tag<Modifier>> tags) {
+  void updateModifiersFromServer(Map<ModifierId,Modifier> modifiers, Map<ResourceLocation,Collection<Modifier>> tags) {
     this.dynamicModifiers = modifiers;
     this.dynamicModifiersLoaded = true;
     this.tags = tags;
@@ -344,7 +346,7 @@ public class ModifierManager extends SimpleJsonResourceReloadListener implements
    * @return  Contained values
    */
   public static List<Modifier> getTagValues(TagKey<Modifier> tag) {
-    return INSTANCE.tags.getOrDefault(tag.location(), Tag.empty()).getValues();
+    return INSTANCE.tags.getOrDefault(tag.location(), Collections.emptyList()).stream().toList();
   }
 
 

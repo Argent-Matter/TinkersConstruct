@@ -2,8 +2,9 @@ package slimeknights.tconstruct.tools;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import io.github.fabricators_of_create.porting_lib.event.client.ModelLoadCallback;
+import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometryLoadersCallback;
 import io.github.fabricators_of_create.porting_lib.event.common.PlayerTickEvents;
-import io.github.fabricators_of_create.porting_lib.model.ModelLoaderRegistry;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -15,7 +16,9 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.profiling.ProfilerFiller;
@@ -44,6 +47,7 @@ import slimeknights.tconstruct.library.client.modifiers.TankModifierModel;
 import slimeknights.tconstruct.library.modifiers.ModifierManager;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.utils.HarvestTiers;
+import slimeknights.tconstruct.tables.TableClientEvents;
 import slimeknights.tconstruct.tools.client.ArmorModelHelper;
 import slimeknights.tconstruct.tools.client.CrystalshotRenderer;
 import slimeknights.tconstruct.tools.client.OverslimeModifierModel;
@@ -58,6 +62,7 @@ import slimeknights.tconstruct.tools.logic.InteractionHandler;
 import slimeknights.tconstruct.tools.modifiers.ability.armor.DoubleJumpModifier;
 import slimeknights.tconstruct.tools.network.TinkerControlPacket;
 
+import java.util.Map;
 import java.util.Objects;
 
 import static slimeknights.tconstruct.library.client.model.tools.ToolModel.registerItemColors;
@@ -88,9 +93,9 @@ public class ToolClientEvents extends ClientEventBase {
     ResourceManagerHelper.get(PackType.CLIENT_RESOURCES).registerReloadListener(HarvestTiers.RELOAD_LISTENER);
   }
 
-  static void registerModelLoaders(ResourceManager manager, BlockColors colors, ProfilerFiller profiler, int mipLevel) {
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("material"), MaterialModel.LOADER);
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("tool"), ToolModel.LOADER);
+  static void registerModelLoaders(Map<ResourceLocation, IGeometryLoader<?>> callback) {
+    callback.put(TConstruct.getResource("material"), MaterialModel.LOADER);
+    callback.put(TConstruct.getResource("tool"), ToolModel.LOADER);
   }
 
   static void registerModifierModels(ModifierModelRegistrationEvent event) {
@@ -123,7 +128,7 @@ public class ToolClientEvents extends ClientEventBase {
     TinkerItemProperties.registerBowProperties(TinkerTools.crossbow.asItem());
     TinkerItemProperties.registerBowProperties(TinkerTools.longbow.asItem());
     // no sense having two keys for ammo, just set 1 for arrow, 2 for fireworks
-    String fireworksID = Objects.requireNonNull(Items.FIREWORK_ROCKET.getRegistryName()).toString();
+    String fireworksID = Objects.requireNonNull(Registry.ITEM.getKey(Items.FIREWORK_ROCKET)).toString();
     ItemProperties.register(TinkerTools.crossbow.asItem(), TConstruct.getResource("ammo"), (stack, level, entity, seed) -> {
       CompoundTag nbt = stack.getTag();
       if (nbt != null) {
@@ -143,7 +148,7 @@ public class ToolClientEvents extends ClientEventBase {
     itemColors();
     addResourceListener();
     ModifierModelRegistrationEvent.EVENT.register(ToolClientEvents::registerModifierModels);
-    ModelLoadCallback.EVENT.register(ToolClientEvents::registerModelLoaders);
+    RegisterGeometryLoadersCallback.EVENT.register(ToolClientEvents::registerModelLoaders);
   }
 
   static void registerParticleFactories() {
@@ -189,7 +194,7 @@ public class ToolClientEvents extends ClientEventBase {
     Minecraft minecraft = Minecraft.getInstance();
     if (minecraft.player != null && minecraft.player == player && player.level.isClientSide() && !minecraft.player.isSpectator()) {
 
-      // jumping in mid air for double jump
+      // jumping in midair for double jump
       // ensure we pressed the key since the last tick, holding should not use all your jumps at once
       boolean isJumping = minecraft.options.keyJump.isDown();
       if (!wasJumping && isJumping) {

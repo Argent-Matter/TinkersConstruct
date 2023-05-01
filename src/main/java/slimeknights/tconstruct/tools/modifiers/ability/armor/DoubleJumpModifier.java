@@ -3,7 +3,6 @@ package slimeknights.tconstruct.tools.modifiers.ability.armor;
 import io.github.fabricators_of_create.porting_lib.event.common.LivingEntityEvents.Fall.FallEvent;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import io.github.fabricators_of_create.porting_lib.event.common.LivingEntityEvents;
@@ -32,13 +31,13 @@ public class DoubleJumpModifier extends TotalArmorLevelModifier {
   public Component getDisplayName(int level) {
     if (level == 1) {
       if (levelOneName == null) {
-        levelOneName = applyStyle(new TranslatableComponent(getTranslationKey() + ".double"));
+        levelOneName = applyStyle(Component.translatable(getTranslationKey() + ".double"));
       }
       return levelOneName;
     }
     if (level == 2) {
       if (levelTwoName == null) {
-        levelTwoName = applyStyle(new TranslatableComponent(getTranslationKey() + ".triple"));
+        levelTwoName = applyStyle(Component.translatable(getTranslationKey() + ".triple"));
       }
       return levelTwoName;
     }

@@ -2,8 +2,9 @@ package slimeknights.tconstruct.smeltery.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context;
@@ -48,12 +49,12 @@ public class ChannelBlockEntityRenderer implements BlockEntityRenderer<ChannelBl
 		}
 
 		// fluid attributes
-		FluidAttributes attributes = fluid.getFluid().getAttributes();
-		TextureAtlasSprite still = FluidRenderer.getBlockSprite(attributes.getStillTexture(fluid));
-		TextureAtlasSprite flowing = FluidRenderer.getBlockSprite(attributes.getFlowingTexture(fluid));
+    var textures = FluidVariantRendering.getSprites(fluid.getType());
+		TextureAtlasSprite still = textures[0];
+		TextureAtlasSprite flowing = textures[1];
 		VertexConsumer builder = buffer.getBuffer(MantleRenderTypes.FLUID);
-		int color = attributes.getColor(fluid);
-		light = FluidRenderer.withBlockLight(light, attributes.getLuminosity(fluid));
+		int color = FluidVariantRendering.getColor(fluid.getType());
+		light = FluidRenderer.withBlockLight(light, FluidVariantAttributes.getLuminance(fluid.getType()));
 
 		// render sides first, while doing so we will determine center "flow"
 		FluidCuboid cube;

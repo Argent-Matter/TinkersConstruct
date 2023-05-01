@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.upgrades.general;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
@@ -74,6 +73,6 @@ public class ReinforcedModifier extends IncrementalModifier {
     } else {
       reinforced = getPercentage(getScaledLevel(tool, level));
     }
-    tooltip.add(applyStyle(new TextComponent(Util.PERCENT_FORMAT.format(reinforced) + " ").append(makeDisplayName())));
+    tooltip.add(applyStyle(Component.literal(Util.PERCENT_FORMAT.format(reinforced) + " ").append(makeDisplayName())));
   }
 }

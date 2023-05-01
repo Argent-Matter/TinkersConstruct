@@ -13,7 +13,6 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.tags.TagLoader;
 import net.minecraft.util.profiling.ProfilerFiller;
@@ -79,7 +78,7 @@ public class MaterialManager extends SimpleJsonResourceReloadListener implements
   private List<IMaterial> sortedMaterials = Collections.emptyList();
 
   /** Modifier tags loaded from JSON */
-  private Map<ResourceLocation,Tag<IMaterial>> tags = Collections.emptyMap();
+  private Map<ResourceLocation,Collection<IMaterial>> tags = Collections.emptyMap();
   /** Map from modifier to tags on the modifier */
   private Map<MaterialId,Set<TagKey<IMaterial>>> reverseTags = Collections.emptyMap();
   /** Context for conditions */
@@ -152,7 +151,7 @@ public class MaterialManager extends SimpleJsonResourceReloadListener implements
    * @return  Contained values
    */
   public List<IMaterial> getValues(TagKey<Modifier> tag) {
-    return tags.getOrDefault(tag.location(), Tag.empty()).getValues();
+    return tags.getOrDefault(tag.location(), Collections.emptyList()).stream().toList();
   }
 
 
@@ -169,7 +168,7 @@ public class MaterialManager extends SimpleJsonResourceReloadListener implements
   /**
    * Updates the material list from the server.list. Should only be called client side
    */
-  public void updateMaterialsFromServer(Map<MaterialId,IMaterial> materials, Map<MaterialId,MaterialId> redirects, Map<ResourceLocation,Tag<IMaterial>> tags) {
+  public void updateMaterialsFromServer(Map<MaterialId,IMaterial> materials, Map<MaterialId,MaterialId> redirects, Map<ResourceLocation,Collection<IMaterial>> tags) {
     this.materials = materials;
     this.redirects = redirects;
     this.tags = tags;

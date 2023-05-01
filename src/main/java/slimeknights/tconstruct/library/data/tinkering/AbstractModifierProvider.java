@@ -4,8 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.server.packs.PackType;
 import slimeknights.mantle.data.GenericDataProvider;
 import slimeknights.tconstruct.library.json.JsonRedirect;
@@ -81,7 +82,7 @@ public abstract class AbstractModifierProvider extends GenericDataProvider {
   }
 
   @Override
-  public void run(HashCache cache) throws IOException {
+  public void run(CachedOutput cache) throws IOException {
     addModifiers();
     allModifiers.forEach((id, data) -> saveThing(cache, id, convert(data)));
   }

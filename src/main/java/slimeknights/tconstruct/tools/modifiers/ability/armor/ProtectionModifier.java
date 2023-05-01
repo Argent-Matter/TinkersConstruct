@@ -1,8 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.ability.armor;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -39,9 +37,9 @@ public class ProtectionModifier extends IncrementalModifier {
   @Override
   public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
     if (tool.hasTag(TinkerTags.Items.ARMOR)) {
-      tooltip.add(applyStyle(new TextComponent(Util.PERCENT_BOOST_FORMAT.format(getProtectionValue(tool, level) / 25f))
+      tooltip.add(applyStyle(Component.literal(Util.PERCENT_BOOST_FORMAT.format(getProtectionValue(tool, level) / 25f))
                                .append(" ")
-                               .append(new TranslatableComponent(getTranslationKey() + ".resistance"))));
+                               .append(Component.translatable(getTranslationKey() + ".resistance"))));
     }
   }
 }

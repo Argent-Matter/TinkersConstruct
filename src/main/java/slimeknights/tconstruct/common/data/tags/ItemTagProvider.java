@@ -4,7 +4,9 @@ import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -66,14 +68,14 @@ import static slimeknights.tconstruct.common.TinkerTags.Items.TWO_HANDED;
 import static slimeknights.tconstruct.common.TinkerTags.Items.UNARMED;
 
 @SuppressWarnings("unchecked")
-public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
+public class ItemTagProvider extends ItemTagsProvider {
 
   public ItemTagProvider(FabricDataGenerator generatorIn, BlockTagProvider blockTagProvider) {
     super(generatorIn, blockTagProvider);
   }
 
   @Override
-  protected void generateTags() {
+  protected void addTags() {
     this.addCommon();
     this.addWorld();
     this.addSmeltery();
@@ -275,7 +277,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // carrots and potatoes are not seeds in vanilla, so make a tag with them
     this.tag(TinkerTags.Items.SEEDS)
-        .forceAddTag(Tags.Items.SEEDS)
+        .addTag(Tags.Items.SEEDS)
         .add(Items.CARROT, Items.POTATO, Items.NETHER_WART);
 
     // tags for modifiers
@@ -296,11 +298,11 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // contains any ground stones
     this.tag(TinkerTags.Items.STONESHIELDS)
-        .forceAddTag(Tags.Items.STONE)
-        .forceAddTag(Tags.Items.COBBLESTONE)
-        .forceAddTag(Tags.Items.SANDSTONE)
-        .forceAddTag(Tags.Items.END_STONES)
-        .forceAddTag(Tags.Items.GRAVEL) // for shovels and axes to use
+        .addTag(Tags.Items.STONE)
+        .addTag(Tags.Items.COBBLESTONE)
+        .addTag(Tags.Items.SANDSTONE)
+        .addTag(Tags.Items.END_STONES)
+        .addTag(Tags.Items.GRAVEL) // for shovels and axes to use
         .add(Items.NETHERRACK, Items.BASALT, Items.POLISHED_BASALT, Items.BLACKSTONE, Items.POLISHED_BLACKSTONE);
     this.tag(TinkerTags.Items.FIREBALLS).add(Items.FIRE_CHARGE);
     this.tag(TinkerTags.Items.TOOL_INVENTORY_BLACKLIST)
@@ -313,7 +315,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     this.tag(TinkerTags.Items.VARIANT_PLANKS)
         .add(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.DARK_OAK_PLANKS, Items.ACACIA_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS)
         .addTag(TinkerTags.Items.SLIMY_PLANKS);
-    this.tag(TinkerTags.Items.VARIANT_LOGS).forceAddTag(ItemTags.OAK_LOGS).forceAddTag(ItemTags.SPRUCE_LOGS).forceAddTag(ItemTags.BIRCH_LOGS).forceAddTag(ItemTags.JUNGLE_LOGS).forceAddTag(ItemTags.DARK_OAK_LOGS).forceAddTag(ItemTags.ACACIA_LOGS).forceAddTag(ItemTags.CRIMSON_STEMS).forceAddTag(ItemTags.WARPED_STEMS).forceAddTag(TinkerTags.Items.SLIMY_LOGS);
+    this.tag(TinkerTags.Items.VARIANT_LOGS).addTag(ItemTags.OAK_LOGS).addTag(ItemTags.SPRUCE_LOGS).addTag(ItemTags.BIRCH_LOGS).addTag(ItemTags.JUNGLE_LOGS).addTag(ItemTags.DARK_OAK_LOGS).addTag(ItemTags.ACACIA_LOGS).addTag(ItemTags.CRIMSON_STEMS).addTag(ItemTags.WARPED_STEMS).addTag(TinkerTags.Items.SLIMY_LOGS);
 
     // part builder
     this.tag(TinkerTags.Items.DEFAULT_PATTERNS).add(TinkerTables.pattern.get());
@@ -423,7 +425,6 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     return "Tinkers Construct Item Tags";
   }
 
-
   /**
    * Adds relevant tags for a metal object
    * @param metal  Metal object
@@ -462,8 +463,5 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
       this.tag(getArmorTag(type)).add(item);
     });
   }
-
-  public FabricTagBuilder<Item> tag(TagKey<Item> tag) {
-    return getOrCreateTagBuilder(tag);
-  }
+  
 }

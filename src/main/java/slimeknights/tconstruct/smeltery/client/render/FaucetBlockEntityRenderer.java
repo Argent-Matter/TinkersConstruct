@@ -2,8 +2,10 @@ package slimeknights.tconstruct.smeltery.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -52,13 +54,14 @@ public class FaucetBlockEntityRenderer implements BlockEntityRenderer<FaucetBloc
       boolean isRotated = RenderingHelper.applyRotation(matrices, direction);
 
       // fluid props
-      FluidAttributes attributes = renderFluid.getFluid().getAttributes();
-      int color = attributes.getColor(renderFluid);
+      FluidVariant attributes = renderFluid.getType();
+      int color = FluidVariantRendering.getColor(attributes);
+      var textures = FluidVariantRendering.getSprites(attributes);
       Function<ResourceLocation, TextureAtlasSprite> spriteGetter = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS);
-      TextureAtlasSprite still = spriteGetter.apply(attributes.getStillTexture(renderFluid));
-      TextureAtlasSprite flowing = spriteGetter.apply(attributes.getFlowingTexture(renderFluid));
-      boolean isGas = attributes.isGaseous(renderFluid);
-      combinedLightIn = FluidRenderer.withBlockLight(combinedLightIn, attributes.getLuminosity(renderFluid));
+      TextureAtlasSprite still = textures[0];
+      TextureAtlasSprite flowing = textures[1];
+      boolean isGas = FluidVariantAttributes.isLighterThanAir(attributes);
+      combinedLightIn = FluidRenderer.withBlockLight(combinedLightIn, FluidVariantAttributes.getLuminance(attributes));
 
       // render all cubes in the model
       VertexConsumer buffer = bufferIn.getBuffer(MantleRenderTypes.FLUID);

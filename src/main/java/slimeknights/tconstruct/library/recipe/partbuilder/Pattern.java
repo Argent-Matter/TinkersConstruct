@@ -11,7 +11,6 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.ResourceLocationException;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.utils.Util;
 
@@ -55,7 +54,7 @@ public class Pattern extends ResourceLocation {
    * @return  Display name
    */
   public Component getDisplayName() {
-    return new TranslatableComponent(Util.makeTranslationKey("pattern", this));
+    return Component.translatable(Util.makeTranslationKey("pattern", this));
   }
 
   /**

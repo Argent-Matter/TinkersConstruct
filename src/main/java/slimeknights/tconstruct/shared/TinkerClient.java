@@ -1,11 +1,13 @@
 package slimeknights.tconstruct.shared;
 
+import com.google.common.base.Suppliers;
 import io.github.fabricators_of_create.porting_lib.event.client.ModelsBakedCallback;
 import io.github.fabricators_of_create.porting_lib.event.common.RecipesUpdatedCallback;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import me.alphamode.star.client.renderers.UpsideDownFluidRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.item.crafting.RecipeManager;
 import slimeknights.tconstruct.common.config.Config;
@@ -31,6 +33,7 @@ import slimeknights.tconstruct.tools.client.ToolRenderEvents;
 import slimeknights.tconstruct.world.WorldClientEvents;
 
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 /**
  * This class should only be referenced on the client side
@@ -72,8 +75,9 @@ public class TinkerClient implements ClientModInitializer {
     }
 
     ModelsBakedCallback.EVENT.register((manager, models, loader) -> {
-      FluidAttributes attributes = TinkerFluids.ichor.getStill().getAttributes();
-      FluidRenderHandlerRegistry.INSTANCE.register(TinkerFluids.ichor.getStill(), TinkerFluids.ichor.getFlowing(), new UpsideDownFluidRenderer(attributes::getStillTexture, attributes::getFlowingTexture, attributes::getOverlayTexture, attributes.getColor()));
+      var variant = FluidVariant.of(TinkerFluids.ichor.getStill());
+      var sprites = FluidVariantRendering.getSprites(variant);
+      FluidRenderHandlerRegistry.INSTANCE.register(TinkerFluids.ichor.getStill(), TinkerFluids.ichor.getFlowing(), new UpsideDownFluidRenderer(() -> sprites[0].getName(), () -> sprites[1].getName(), sprites.length > 2 ? () -> sprites[2].getName() : () -> null, FluidVariantRendering.getColor(variant)));
     });
   }
 }

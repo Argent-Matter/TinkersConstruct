@@ -4,8 +4,6 @@ import io.github.fabricators_of_create.porting_lib.extensions.ItemExtensions;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -56,7 +54,7 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
 
   @Override
   public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> items) {
-    if (this.allowdedIn(group) && MaterialRegistry.isFullyLoaded()) {
+    if (this.allowedIn(group) && MaterialRegistry.isFullyLoaded()) {
       // if a specific material is set in the config, try adding that
       String showOnlyId = Config.COMMON.showOnlyPartMaterial.get();
       boolean added = false;
@@ -89,17 +87,17 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
     ResourceLocation location = material.getLocation('.');
     String fullKey = String.format("%s.%s.%s", baseKey, location.getNamespace(), location.getPath());
     if (Util.canTranslate(fullKey)) {
-      return new TranslatableComponent(fullKey);
+      return Component.translatable(fullKey);
     }
     // try material name prefix next
     String materialKey = MaterialTooltipCache.getKey(material);
     String materialPrefix = materialKey + ".format";
     if (Util.canTranslate(materialPrefix)) {
-      return new TranslatableComponent(materialPrefix, new TranslatableComponent(baseKey));
+      return Component.translatable(materialPrefix, Component.translatable(baseKey));
     }
     // format as "<material> <item name>"
     if (Util.canTranslate(materialKey)) {
-      return new TranslatableComponent(materialKey).append(" ").append(new TranslatableComponent(baseKey));
+      return Component.translatable(materialKey).append(" ").append(Component.translatable(baseKey));
     }
     return null;
   }
@@ -125,7 +123,7 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
       return component;
     }
     // if neither worked, format directly
-    return new TranslatableComponent(key);
+    return Component.translatable(key);
   }
 
   @Nullable
@@ -148,7 +146,7 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
   protected static void addModTooltip(IMaterial material, List<Component> tooltip) {
     if (material != IMaterial.UNKNOWN) {
       tooltip.add(TextComponent.EMPTY);
-      tooltip.add(new TranslatableComponent(ADDED_BY, DomainDisplayName.nameFor(material.getIdentifier().getNamespace())));
+      tooltip.add(Component.translatable(ADDED_BY, DomainDisplayName.nameFor(material.getIdentifier().getNamespace())));
     }
   }
 

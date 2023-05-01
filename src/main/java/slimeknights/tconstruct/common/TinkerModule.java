@@ -1,6 +1,8 @@
 package slimeknights.tconstruct.common;
 
-import io.github.fabricators_of_create.porting_lib.loot.GlobalLootModifierSerializer;
+import com.mojang.serialization.Codec;
+import io.github.fabricators_of_create.porting_lib.PortingLibRegistries;
+import io.github.fabricators_of_create.porting_lib.loot.IGlobalLootModifier;
 import io.github.fabricators_of_create.porting_lib.loot.LootModifierManager;
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
 import net.minecraft.core.Registry;
@@ -17,10 +19,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -71,7 +73,7 @@ public abstract class TinkerModule {
   protected static final MenuTypeDeferredRegister MENUS = new MenuTypeDeferredRegister(TConstruct.MOD_ID);
   // datapacks
   protected static final LazyRegistrar<RecipeSerializer<?>> RECIPE_SERIALIZERS = LazyRegistrar.create(Registry.RECIPE_SERIALIZER, TConstruct.MOD_ID);
-  protected static final LazyRegistrar<GlobalLootModifierSerializer> GLOBAL_LOOT_MODIFIERS = LazyRegistrar.create(LootModifierManager.SERIALIZER, TConstruct.MOD_ID);
+  protected static final LazyRegistrar<Codec<? extends IGlobalLootModifier>> GLOBAL_LOOT_MODIFIERS = LazyRegistrar.create(PortingLibRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS.get(), TConstruct.MOD_ID);
   protected static final LazyRegistrar<LootItemConditionType> LOOT_CONDITIONS = LazyRegistrar.create(Registry.LOOT_ITEM_REGISTRY, TConstruct.MOD_ID);
   protected static final LazyRegistrar<LootItemFunctionType> LOOT_FUNCTIONS = LazyRegistrar.create(Registry.LOOT_FUNCTION_REGISTRY, TConstruct.MOD_ID);
   protected static final LazyRegistrar<LootPoolEntryType> LOOT_ENTRIES = LazyRegistrar.create(Registry.LOOT_ENTRY_REGISTRY, TConstruct.MOD_ID);
@@ -79,8 +81,9 @@ public abstract class TinkerModule {
   protected static final LazyRegistrar<Feature<?>> FEATURES = LazyRegistrar.create(Registry.FEATURE, TConstruct.MOD_ID);
   protected static final ConfiguredFeatureDeferredRegister CONFIGURED_FEATURES = new ConfiguredFeatureDeferredRegister(TConstruct.MOD_ID);
   protected static final PlacedFeatureDeferredRegister PLACED_FEATURES = new PlacedFeatureDeferredRegister(TConstruct.MOD_ID);
-  protected static final LazyRegistrar<StructureFeature<?>> STRUCTURE_FEATURES = LazyRegistrar.create(Registry.STRUCTURE_FEATURE, TConstruct.MOD_ID);
-  protected static final LazyRegistrar<ConfiguredStructureFeature<?,?>> CONFIGURED_STRUCTURE_FEATURES = LazyRegistrar.create(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, TConstruct.MOD_ID);
+  protected static final LazyRegistrar<Structure> STRUCTURE_FEATURES = LazyRegistrar.create(Registry.STRUCTURE_REGISTRY, TConstruct.MOD_ID);
+  protected static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registry.STRUCTURE_TYPE_REGISTRY, TConstruct.MOD_ID);
+  protected static final LazyRegistrar<Structure> STRUCTURES = LazyRegistrar.create(Registry.STRUCTURE_REGISTRY, TConstruct.MOD_ID);
   protected static final LazyRegistrar<StructurePieceType> STRUCTURE_PIECE = LazyRegistrar.create(Registry.STRUCTURE_PIECE, TConstruct.MOD_ID);
   protected static final LazyRegistrar<BlockStateProviderType<?>> BLOCK_STATE_PROVIDER_TYPES = LazyRegistrar.create(Registry.BLOCKSTATE_PROVIDER_TYPES, TConstruct.MOD_ID);
 
@@ -123,9 +126,9 @@ public abstract class TinkerModule {
     FEATURES.register();
     CONFIGURED_FEATURES.register();
     PLACED_FEATURES.register();
+    STRUCTURE_TYPES.register();
     STRUCTURE_FEATURES.register();
     STRUCTURE_PIECE.register();
-    CONFIGURED_STRUCTURE_FEATURES.register();
     BLOCK_STATE_PROVIDER_TYPES.register();
   }
 

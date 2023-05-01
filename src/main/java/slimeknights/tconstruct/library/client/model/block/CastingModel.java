@@ -2,6 +2,8 @@ package slimeknights.tconstruct.library.client.model.block;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import lombok.Getter;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -16,8 +18,6 @@ import slimeknights.mantle.client.model.fluid.FluidCuboid;
 import slimeknights.mantle.client.model.inventory.InventoryModel;
 import slimeknights.mantle.client.model.inventory.ModelItem;
 import slimeknights.mantle.client.model.util.SimpleBlockModel;
-import io.github.fabricators_of_create.porting_lib.model.IModelConfiguration;
-import io.github.fabricators_of_create.porting_lib.model.IModelLoader;
 
 import java.util.List;
 import java.util.function.Function;
@@ -38,7 +38,7 @@ public class CastingModel extends InventoryModel {
   }
 
   @Override
-  public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+  public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
     BakedModel baked = model.bakeModel(owner, transform, overrides, spriteGetter, location);
     return new Baked(baked, items, fluid);
   }
@@ -54,12 +54,10 @@ public class CastingModel extends InventoryModel {
   }
 
   /** Loader for this model */
-  public static class Loader implements IModelLoader<InventoryModel> {
-    @Override
-    public void onResourceManagerReload(ResourceManager resourceManager) {}
+  public static class Loader implements IGeometryLoader<InventoryModel> {
 
     @Override
-    public InventoryModel read(JsonDeserializationContext deserializationContext, JsonObject modelContents) {
+    public InventoryModel read(JsonObject modelContents, JsonDeserializationContext deserializationContext) {
       SimpleBlockModel model = SimpleBlockModel.deserialize(deserializationContext, modelContents);
       List<ModelItem> items = ModelItem.listFromJson(modelContents, "items");
       FluidCuboid fluid = FluidCuboid.fromJson(GsonHelper.getAsJsonObject(modelContents, "fluid"));

@@ -3,6 +3,7 @@ package slimeknights.tconstruct.tools.data;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import io.github.fabricators_of_create.porting_lib.attributes.PortingLibAttributes;
 import me.alphamode.forgetags.Tags;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -40,6 +41,8 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.modifiers.ability.armor.ToolBeltModifier;
 import slimeknights.tconstruct.tools.modifiers.slotless.OverslimeModifier;
+
+import java.io.IOException;
 
 import static slimeknights.tconstruct.common.TinkerTags.Items.ARMOR;
 

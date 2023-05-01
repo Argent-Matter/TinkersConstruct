@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.common.data.loot;
 
 import com.google.common.collect.Sets;
-import io.github.fabricators_of_create.porting_lib.util.CanToolPerformAction;
+import io.github.fabricators_of_create.porting_lib.loot.CanToolPerformAction;
 import io.github.fabricators_of_create.porting_lib.util.ToolActions;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;

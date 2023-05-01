@@ -2,7 +2,6 @@ package slimeknights.tconstruct.library.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -65,11 +64,11 @@ public final class RenderUtils {
       return;
     }
 
-    FluidAttributes attributes = fluid.getFluid().getAttributes();
-    TextureAtlasSprite still = FluidRenderer.getBlockSprite(attributes.getStillTexture());
-    TextureAtlasSprite flowing = FluidRenderer.getBlockSprite(attributes.getFlowingTexture());
+    TextureAtlasSprite[] textures = FluidVariantRendering.getSprites(fluid.getType());
+    TextureAtlasSprite still = textures[0];
+    TextureAtlasSprite flowing = textures[1];
     boolean isGas = FluidVariantAttributes.isLighterThanAir(fluid.getType());
-    light = FluidRenderer.withBlockLight(light, attributes.getLuminosity(fluid));
+    light = FluidRenderer.withBlockLight(light, FluidVariantAttributes.getLuminance(fluid.getType()));
 
     // add in fluid opacity if given
     int color = FluidVariantRendering.getColor(fluid.getType());

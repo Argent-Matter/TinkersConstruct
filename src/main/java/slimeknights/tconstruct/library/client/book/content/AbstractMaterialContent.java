@@ -5,14 +5,13 @@ import com.google.common.collect.Lists;
 import com.google.gson.annotations.SerializedName;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.ForgeI18n;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -231,7 +230,7 @@ public abstract class AbstractMaterialContent extends PageContent {
     List<TextComponentData> lineData = Lists.newArrayList();
     // add lines of tool information
     List<Component> localizedDescription = stats.get().getLocalizedDescriptions();
-    if (!localizedDescription.isEmpty() && (localizedDescription.size() > 1 || localizedDescription.get(0) != TextComponent.EMPTY)) {
+    if (!localizedDescription.isEmpty() && (localizedDescription.size() > 1 || localizedDescription.get(0) != Component.EMPTY)) {
       lineData.addAll(getStatLines(stats.get()));
     }
     lineData.addAll(getTraitLines(traits));
@@ -304,7 +303,7 @@ public abstract class AbstractMaterialContent extends PageContent {
       FluidStack firstFluid = fluids.stream()
                                     .flatMap(recipe -> recipe.getFluids().stream())
                                     .findFirst().orElse(FluidStack.EMPTY);
-      elementItem.tooltip = ImmutableList.of(new TranslatableComponent(CAST_FROM, firstFluid.getFluid().getAttributes().getDisplayName(firstFluid)));
+      elementItem.tooltip = ImmutableList.of(Component.translatable(CAST_FROM, FluidVariantAttributes.getName(firstFluid.getType())));
       displayTools.add(elementItem);
     }
 
@@ -320,7 +319,7 @@ public abstract class AbstractMaterialContent extends PageContent {
                                                                                       .map(part -> part.withMaterial(inputId))
                                                                                       .collect(Collectors.toList()));
         FluidStack firstFluid = composite.getFluids().stream().findFirst().orElse(FluidStack.EMPTY);
-        elementItem.tooltip = ImmutableList.of(new TranslatableComponent(COMPOSITE_FROM, firstFluid.getFluid().getAttributes().getDisplayName(firstFluid), MaterialTooltipCache.getDisplayName(inputId)));
+        elementItem.tooltip = ImmutableList.of(Component.translatable(COMPOSITE_FROM, FluidVariantAttributes.getName(firstFluid.getType()), MaterialTooltipCache.getDisplayName(inputId)));
         displayTools.add(elementItem);
       }
     }

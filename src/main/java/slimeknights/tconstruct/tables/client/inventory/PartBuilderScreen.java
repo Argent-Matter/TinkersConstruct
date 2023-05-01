@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -213,7 +212,7 @@ public class PartBuilderScreen extends BaseTabbedScreen<PartBuilderBlockEntity,P
     // determine how much material we have
     // get exact number of material, rather than rounded
     float value = materialRecipe.getMaterialValue(this.tile.getInventoryWrapper());
-    MutableComponent formatted = new TextComponent(Util.COMMA_FORMAT.format(value));
+    MutableComponent formatted = Component.literal(Util.COMMA_FORMAT.format(value));
 
     // if we have a part recipe, mark material red when not enough
     IPartBuilderRecipe partRecipe = this.tile.getPartRecipe();

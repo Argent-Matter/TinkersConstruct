@@ -2,11 +2,12 @@ package slimeknights.tconstruct.shared.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.commands.synchronization.ArgumentTypes;
-import net.minecraft.commands.synchronization.EmptyArgumentSerializer;
+import net.minecraft.commands.synchronization.SingletonArgumentInfo;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.shared.command.argument.MaterialArgument;
 import slimeknights.tconstruct.shared.command.argument.ModifierArgument;
@@ -24,10 +25,10 @@ public class TConstructCommand {
 
   /** Registers all TConstruct command related content */
   public static void init() {
-    ArgumentTypes.register(TConstruct.resourceString("slot_type"), SlotTypeArgument.class, new EmptyArgumentSerializer<>(SlotTypeArgument::slotType));
-    ArgumentTypes.register(TConstruct.resourceString("tool_stat"), ToolStatArgument.class, new EmptyArgumentSerializer<>(ToolStatArgument::stat));
-    ArgumentTypes.register(TConstruct.resourceString("modifier"), ModifierArgument.class, new EmptyArgumentSerializer<>(ModifierArgument::modifier));
-    ArgumentTypes.register(TConstruct.resourceString("material"), MaterialArgument.class, new EmptyArgumentSerializer<>(MaterialArgument::material));
+    ArgumentTypeRegistry.registerArgumentType(TConstruct.getResource("slot_type"), SlotTypeArgument.class, SingletonArgumentInfo.contextFree(SlotTypeArgument::slotType));
+    ArgumentTypeRegistry.registerArgumentType(TConstruct.getResource("tool_stat"), ToolStatArgument.class, SingletonArgumentInfo.contextFree(ToolStatArgument::stat));
+    ArgumentTypeRegistry.registerArgumentType(TConstruct.getResource("modifier"), ModifierArgument.class, SingletonArgumentInfo.contextFree(ModifierArgument::modifier));
+    ArgumentTypeRegistry.registerArgumentType(TConstruct.getResource("material"), MaterialArgument.class, SingletonArgumentInfo.contextFree(MaterialArgument::material));
 
     // add command listener
     CommandRegistrationCallback.EVENT.register(TConstructCommand::registerCommand);
@@ -41,7 +42,7 @@ public class TConstructCommand {
   }
 
   /** Event listener to register the Mantle command */
-  private static void registerCommand(CommandDispatcher<CommandSourceStack> dispatcher, boolean dedicated) {
+  private static void registerCommand(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext context, Commands.CommandSelection environment) {
     LiteralArgumentBuilder<CommandSourceStack> builder = Commands.literal(TConstruct.MOD_ID);
 
     // sub commands

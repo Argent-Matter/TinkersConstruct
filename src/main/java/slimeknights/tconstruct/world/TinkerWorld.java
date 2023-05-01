@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -212,8 +211,8 @@ public final class TinkerWorld extends TinkerModule {
       }
       return properties.instabreak().noCollission();
     };
-    slimeFern = BLOCKS.registerEnum(SlimeType.values(), "slime_fern", type -> new SlimeTallGrassBlock(props.apply(type), type), DEFAULT_BLOCK_ITEM);
-    slimeTallGrass = BLOCKS.registerEnum(SlimeType.values(), "slime_tall_grass", type -> new SlimeTallGrassBlock(props.apply(type), type), DEFAULT_BLOCK_ITEM);
+    slimeFern = BLOCKS.registerEnum(SlimeType.values(), "slime_fern", type -> new SlimeTallGrassBlock(props.apply(type).offsetType(BlockBehaviour.OffsetType.XYZ), type), DEFAULT_BLOCK_ITEM);
+    slimeTallGrass = BLOCKS.registerEnum(SlimeType.values(), "slime_tall_grass", type -> new SlimeTallGrassBlock(props.apply(type).offsetType(BlockBehaviour.OffsetType.XYZ), type), DEFAULT_BLOCK_ITEM);
   }
   public static final EnumObject<SlimeType,FlowerPotBlock> pottedSlimeFern = BLOCKS.registerPottedEnum(SlimeType.values(), "slime_fern", slimeFern);
 
@@ -352,10 +351,10 @@ public final class TinkerWorld extends TinkerModule {
   }
 
   public static void commonSetup() {
-    SpawnRestrictionAccessor.callRegister(earthSlimeEntity.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.EARTH_SLIME_SPAWN));
-    SpawnRestrictionAccessor.callRegister(skySlimeEntity.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.SKY_SLIME_SPAWN));
-    SpawnRestrictionAccessor.callRegister(enderSlimeEntity.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.ENDER_SLIME_SPAWN));
-    SpawnRestrictionAccessor.callRegister(terracubeEntity.get(),  SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TerracubeEntity::canSpawnHere);
+    SpawnPlacements.register(earthSlimeEntity.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.EARTH_SLIME_SPAWN));
+    SpawnPlacements.register(skySlimeEntity.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.SKY_SLIME_SPAWN));
+    SpawnPlacements.register(enderSlimeEntity.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new SlimePlacementPredicate<>(TinkerTags.Blocks.ENDER_SLIME_SPAWN));
+    SpawnPlacements.register(terracubeEntity.get(),  SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TerracubeEntity::canSpawnHere);
 
     // compostables
 //    event.enqueueWork(() -> {
@@ -407,7 +406,7 @@ public final class TinkerWorld extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(new WorldRecipeProvider(datagenerator));
+    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new WorldRecipeProvider(datagenerator));
   }
 
 

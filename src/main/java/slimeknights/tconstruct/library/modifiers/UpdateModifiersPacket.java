@@ -6,7 +6,6 @@ import io.netty.handler.codec.DecoderException;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
 import slimeknights.mantle.network.packet.IThreadsafePacket;
 import slimeknights.tconstruct.library.utils.GenericTagUtil;
 
@@ -21,7 +20,7 @@ public class UpdateModifiersPacket implements IThreadsafePacket {
   /** Collection of all modifiers */
   private final Map<ModifierId,Modifier> allModifiers;
   /** Map of all modifier tags */
-  private final Map<ResourceLocation,Tag<Modifier>> tags;
+  private final Map<ResourceLocation, Collection<Modifier>> tags;
   /** Collection of non-redirect modifiers */
   private Collection<Modifier> modifiers;
   /** Map of modifier redirect ID pairs */

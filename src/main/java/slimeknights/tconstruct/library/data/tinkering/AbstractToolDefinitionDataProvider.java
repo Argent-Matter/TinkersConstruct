@@ -3,7 +3,7 @@ package slimeknights.tconstruct.library.data.tinkering;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.level.ItemLike;
@@ -72,7 +72,7 @@ public abstract class AbstractToolDefinitionDataProvider extends GenericDataProv
   }
 
   @Override
-  public void run(HashCache cache) throws IOException {
+  public void run(CachedOutput cache) throws IOException {
     addToolDefinitions();
     Map<ResourceLocation,ToolDefinition> relevantDefinitions = ToolDefinitionLoader.getInstance().getRegisteredToolDefinitions().stream()
                                                                                    .filter(def -> def.getId().getNamespace().equals(modId))

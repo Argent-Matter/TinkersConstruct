@@ -1,16 +1,12 @@
 package slimeknights.tconstruct.tables;
 
-import io.github.fabricators_of_create.porting_lib.event.client.ModelLoadCallback;
-import io.github.fabricators_of_create.porting_lib.model.ModelLoaderRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometryLoadersCallback;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import slimeknights.tconstruct.TConstruct;
@@ -25,19 +21,21 @@ import slimeknights.tconstruct.tables.client.inventory.PartBuilderScreen;
 import slimeknights.tconstruct.tables.client.inventory.TinkerChestScreen;
 import slimeknights.tconstruct.tables.client.inventory.TinkerStationScreen;
 
+import java.util.Map;
+
 @SuppressWarnings("unused")
 public class TableClientEvents extends ClientEventBase {
 
   public static void init() {
-    ModelLoadCallback.EVENT.register(TableClientEvents::registerModelLoader);
+    RegisterGeometryLoadersCallback.EVENT.register(TableClientEvents::registerModelLoader);
     registerRenderers();
     setupClient();
     TableClientEvents.registerBlockColors();
     TableClientEvents.registerItemColors();
   }
 
-  static void registerModelLoader(ResourceManager manager, BlockColors colors, ProfilerFiller profiler, int mipLevel) {
-    ModelLoaderRegistry.registerLoader(TConstruct.getResource("table"), TableModel.LOADER);
+  static void registerModelLoader(Map<ResourceLocation, IGeometryLoader<?>> callback) {
+    callback.put(TConstruct.getResource("table"), TableModel.LOADER);
   }
 
   static void registerRenderers() {

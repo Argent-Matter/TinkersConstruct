@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.traits.general;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -89,7 +90,7 @@ public class TastyModifier extends Modifier {
   }
 
   @Override
-  public List<ItemStack> processLoot(IToolStackView tool, int level, List<ItemStack> generatedLoot, LootContext context) {
+  public ObjectArrayList<ItemStack> processLoot(IToolStackView tool, int level, ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
     // if no damage source, probably not a mob
     // otherwise blocks breaking (where THIS_ENTITY is the player) start dropping bacon
     if (!context.hasParam(LootContextParams.DAMAGE_SOURCE)) {

@@ -1,6 +1,5 @@
 package slimeknights.tconstruct.tools.modifiers.ability.tool;
 
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
 import net.fabricmc.fabric.mixin.transfer.BucketItemAccessor;
@@ -50,7 +49,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 @SuppressWarnings("removal")
 public class BucketingModifier extends TankModifier implements BlockInteractionModifierHook, GeneralInteractionModifierHook {
   public BucketingModifier() {
-    super(FluidAttributes.BUCKET_VOLUME);
+    super(FluidUnit.DROPLETS.getOneBucketAmount() * 1000L);
   }
 
   @Override
@@ -160,7 +159,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
       return InteractionResult.PASS;
     }
     FluidStack fluidStack = getFluid(tool);
-    if (fluidStack.getAmount() < FluidAttributes.BUCKET_VOLUME) {
+    if (fluidStack.getAmount() < FluidUnit.DROPLETS.getOneBucketAmount() * 1000L) {
       return InteractionResult.PASS;
     }
     Fluid fluid = fluidStack.getFluid();
@@ -213,7 +212,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
 
     // if we placed something, consume fluid
     if (placed) {
-      drain(tool, fluidStack, FluidAttributes.BUCKET_VOLUME);
+      drain(tool, fluidStack, FluidUnit.DROPLETS.getOneBucketAmount() * 1000L);
       return InteractionResult.SUCCESS;
     }
     return InteractionResult.PASS;
@@ -227,7 +226,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
 
     // need at least a bucket worth of empty space
     FluidStack fluidStack = getFluid(tool);
-    if (getCapacity(tool) - fluidStack.getAmount() < FluidAttributes.BUCKET_VOLUME) {
+    if (getCapacity(tool) - fluidStack.getAmount() < FluidUnit.DROPLETS.getOneBucketAmount() * 1000L) {
       return InteractionResult.PASS;
     }
     // have to trace again to find the fluid, ensure we can edit the position
@@ -261,9 +260,9 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
           // set the fluid if empty, increase the fluid if filled
           if (!world.isClientSide) {
             if (fluidStack.isEmpty()) {
-              setFluid(tool, new FluidStack(pickedUpFluid, FluidAttributes.BUCKET_VOLUME));
+              setFluid(tool, new FluidStack(pickedUpFluid, FluidUnit.DROPLETS.getOneBucketAmount() * 1000L));
             } else if (pickedUpFluid == currentFluid) {
-              fluidStack.grow(FluidAttributes.BUCKET_VOLUME);
+              fluidStack.grow(FluidUnit.DROPLETS.getOneBucketAmount() * 1000L);
               setFluid(tool, fluidStack);
             } else {
               TConstruct.LOG.error("Picked up a fluid {} that does not match the current fluid state {}, this should not happen", pickedUpFluid, fluidState.getType());

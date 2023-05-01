@@ -6,19 +6,18 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import slimeknights.mantle.client.SafeClientAccess;
-import slimeknights.mantle.client.TooltipKey;
-import slimeknights.mantle.fluid.tooltip.FluidTooltipHandler;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.transfer.fluid.FluidTank;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.library.fluid.FluidTooltipHandler;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.utils.NBTTags;
+import slimeknights.tconstruct.library.utils.SafeClientAccess;
+import slimeknights.tconstruct.library.utils.TooltipKey;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.smeltery.block.component.SearedTankBlock;
 import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
@@ -64,18 +63,18 @@ public class TankItem extends BlockTooltipItem implements CustomMaxCountItem {
       FluidTank tank = getFluidTank(stack);
       if (tank.getFluidAmount() > 0) {
         // TODO: migrate to a fluid tooltip JSON?
-        tooltip.add(new TranslatableComponent(KEY_FLUID, tank.getFluid().getDisplayName()).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(KEY_FLUID, tank.getFluid().getDisplayName()).withStyle(ChatFormatting.GRAY));
         long amount = tank.getFluidAmount();
         TooltipKey key = SafeClientAccess.getTooltipKey();
         if (tank.getCapacity() % FluidValues.INGOT != 0 || key == TooltipKey.SHIFT) {
-          tooltip.add(new TranslatableComponent(KEY_MB, amount).withStyle(ChatFormatting.GRAY));
+          tooltip.add(Component.translatable(KEY_MB, amount).withStyle(ChatFormatting.GRAY));
         } else {
           long ingots = amount / FluidValues.INGOT;
           long mb = amount % FluidValues.INGOT;
           if (mb == 0) {
-            tooltip.add(new TranslatableComponent(KEY_INGOTS, ingots).withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable(KEY_INGOTS, ingots).withStyle(ChatFormatting.GRAY));
           } else {
-            tooltip.add(new TranslatableComponent(KEY_MIXED, ingots, mb).withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable(KEY_MIXED, ingots, mb).withStyle(ChatFormatting.GRAY));
           }
           if (key != TooltipKey.UNKNOWN) {
             tooltip.add(FluidTooltipHandler.HOLD_SHIFT);

@@ -4,8 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -44,7 +42,7 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
    * @param cost  Pattern cost
    */
   public void setPatternCost(int cost) {
-    this.patternCost = new TranslatableComponent(COST_KEY, cost).withStyle(ChatFormatting.GOLD);
+    this.patternCost = Component.translatable(COST_KEY, cost).withStyle(ChatFormatting.GOLD);
     this.updateSliderParameters();
   }
 
@@ -60,7 +58,7 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
    * @param value  Value text
    */
   public void setMaterialValue(Component value) {
-    this.materialValue = new TranslatableComponent(MATERIAL_VALUE_KEY, value).withStyle(style -> style.withColor(TextColor.fromRgb(0x7fffff)));
+    this.materialValue = Component.translatable(MATERIAL_VALUE_KEY, value).withStyle(style -> style.withColor(TextColor.fromRgb(0x7fffff)));
     this.updateSliderParameters();
   }
 

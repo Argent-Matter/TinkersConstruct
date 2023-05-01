@@ -19,7 +19,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import slimeknights.mantle.fluid.tooltip.FluidTooltipHandler;
@@ -41,7 +40,7 @@ public class EntityMeltingRecipeCategory implements IRecipeCategory<EntityMeltin
   public static final ResourceLocation BACKGROUND_LOC = TConstruct.getResource("textures/gui/jei/melting.png");
   private static final Component TITLE = TConstruct.makeTranslation("jei", "entity_melting.title");
   private static final String KEY_PER_HEARTS = TConstruct.makeTranslationKey("jei", "entity_melting.per_hearts");
-  private static final Component TOOLTIP_PER_HEART = new TranslatableComponent(TConstruct.makeTranslationKey("jei", "entity_melting.per_heart")).withStyle(ChatFormatting.GRAY);
+  private static final Component TOOLTIP_PER_HEART = Component.translatable(TConstruct.makeTranslationKey("jei", "entity_melting.per_heart")).withStyle(ChatFormatting.GRAY);
 
   /** Map of damage value to tooltip callbacks */
   private static final Int2ObjectMap<IRecipeSlotTooltipCallback> TOOLTIP_MAP = new Int2ObjectOpenHashMap<>();
@@ -131,7 +130,7 @@ public class EntityMeltingRecipeCategory implements IRecipeCategory<EntityMeltin
       if (damage == 2) {
         list.add(TOOLTIP_PER_HEART);
       } else {
-        list.add(new TranslatableComponent(KEY_PER_HEARTS, damage / 2f).withStyle(ChatFormatting.GRAY));
+        list.add(Component.translatable(KEY_PER_HEARTS, damage / 2f).withStyle(ChatFormatting.GRAY));
       }
     }
   }

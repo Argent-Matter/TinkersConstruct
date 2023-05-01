@@ -2,6 +2,8 @@ package slimeknights.tconstruct.library.client.model.block;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -13,8 +15,6 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import slimeknights.mantle.client.model.inventory.ModelItem;
 import slimeknights.mantle.client.model.util.SimpleBlockModel;
-import io.github.fabricators_of_create.porting_lib.model.IModelConfiguration;
-import io.github.fabricators_of_create.porting_lib.model.IModelLoader;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -35,7 +35,7 @@ public class MelterModel extends TankModel {
   }
 
   @Override
-  public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+  public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
     BakedModel baked = model.bakeModel(owner, transform, overrides, spriteGetter, location);
     // bake the GUI model if present
     BakedModel bakedGui = baked;
@@ -47,7 +47,7 @@ public class MelterModel extends TankModel {
 
   /** Baked variant to allow access to items */
   public static final class Baked extends TankModel.Baked<MelterModel> {
-    private Baked(IModelConfiguration owner, ModelState transforms, BakedModel baked, BakedModel gui, MelterModel original) {
+    private Baked(IGeometryBakingContext owner, ModelState transforms, BakedModel baked, BakedModel gui, MelterModel original) {
       super(owner, transforms, baked, gui, original);
     }
 
@@ -61,12 +61,10 @@ public class MelterModel extends TankModel {
   }
 
   /** Loader for this model */
-  public static class Loader implements IModelLoader<TankModel> {
-    @Override
-    public void onResourceManagerReload(ResourceManager resourceManager) {}
+  public static class Loader implements IGeometryLoader<TankModel> {
 
     @Override
-    public TankModel read(JsonDeserializationContext deserializationContext, JsonObject modelContents) {
+    public TankModel read(JsonObject modelContents, JsonDeserializationContext deserializationContext) {
       SimpleBlockModel model = SimpleBlockModel.deserialize(deserializationContext, modelContents);
       SimpleBlockModel gui = null;
       if (modelContents.has("gui")) {

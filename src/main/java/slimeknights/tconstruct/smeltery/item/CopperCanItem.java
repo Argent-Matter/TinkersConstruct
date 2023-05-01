@@ -8,7 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -54,11 +53,11 @@ public class CopperCanItem extends Item {
         FluidStack displayFluid = new FluidStack(fluid, FluidValues.INGOT, fluidTag);
         text = displayFluid.getDisplayName().plainCopy();
       } else {
-        text = new TranslatableComponent(fluid.getAttributes().getTranslationKey());
+        text = Component.translatable(fluid.getAttributes().getTranslationKey());
       }
-      tooltip.add(new TranslatableComponent(this.getDescriptionId() + ".contents", text).withStyle(ChatFormatting.GRAY));
+      tooltip.add(Component.translatable(this.getDescriptionId() + ".contents", text).withStyle(ChatFormatting.GRAY));
     } else {
-      tooltip.add(new TranslatableComponent(this.getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
+      tooltip.add(Component.translatable(this.getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
     }
   }
 

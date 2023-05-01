@@ -2,8 +2,6 @@ package slimeknights.tconstruct.tools.modifiers.defense;
 
 import lombok.RequiredArgsConstructor;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlot.Type;
 import net.minecraft.world.entity.LivingEntity;
@@ -93,9 +91,9 @@ public abstract class AbstractProtectionModifier<T extends ModifierMaxLevel> ext
    */
   public static void addResistanceTooltip(Modifier modifier, IToolStackView tool, int level, float multiplier, List<Component> tooltip) {
     if (tool.hasTag(TinkerTags.Items.ARMOR)) {
-      tooltip.add(modifier.applyStyle(new TextComponent(Util.PERCENT_BOOST_FORMAT.format(Math.min(modifier.getEffectiveLevel(tool, level) * multiplier / 25f, 0.8f)))
+      tooltip.add(modifier.applyStyle(Component.literal(Util.PERCENT_BOOST_FORMAT.format(Math.min(modifier.getEffectiveLevel(tool, level) * multiplier / 25f, 0.8f)))
                                         .append(" ")
-                                        .append(new TranslatableComponent(modifier.getTranslationKey() + ".resistance"))));
+                                        .append(Component.translatable(modifier.getTranslationKey() + ".resistance"))));
     }
   }
 }

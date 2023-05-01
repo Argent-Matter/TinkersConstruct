@@ -5,6 +5,7 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.fabricmc.fabric.api.block.BlockPickInteractionAware;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.StringRepresentable;
@@ -66,7 +67,7 @@ public class SearedTankBlock extends SearedBlock implements ITankBlock, EntityBl
     BlockEntity te = world.getBlockEntity(pos);
     if (te instanceof TankBlockEntity) {
       FluidStack fluid = ((TankBlockEntity) te).getTank().getFluid();
-      return fluid.getFluid().getAttributes().getLuminosity(fluid);
+      return FluidVariantAttributes.getLuminance(fluid.getType());
     }
     return state.getLightEmission();
   }

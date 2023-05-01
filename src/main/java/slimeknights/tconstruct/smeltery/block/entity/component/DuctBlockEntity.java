@@ -2,6 +2,7 @@ package slimeknights.tconstruct.smeltery.block.entity.component;
 
 
 import io.github.fabricators_of_create.porting_lib.block.CustomUpdateTagHandlingBlockEntity;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelData;
 import slimeknights.mantle.transfer.item.ItemTransferable;
 import lombok.Getter;
 import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
@@ -16,11 +17,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import slimeknights.mantle.client.model.data.SinglePropertyData;
-import io.github.fabricators_of_create.porting_lib.model.IModelData;
 import slimeknights.mantle.transfer.fluid.IFluidHandler;
 import slimeknights.mantle.transfer.item.IItemHandler;
-import slimeknights.mantle.transfer.item.ItemTransferable;
 import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
@@ -44,7 +42,7 @@ public class DuctBlockEntity extends SmelteryFluidIO implements MenuProvider, It
   private final DuctItemHandler itemHandler = new DuctItemHandler(this);
   private final LazyOptional<IItemHandler> itemCapability = LazyOptional.of(() -> itemHandler);
   @Getter
-  private final IModelData modelData = new SinglePropertyData<>(IDisplayFluidListener.PROPERTY);
+  private ModelData modelData = null;
 
   public DuctBlockEntity(BlockPos pos, BlockState state) {
     this(TinkerSmeltery.duct.get(), pos, state);
@@ -90,7 +88,7 @@ public class DuctBlockEntity extends SmelteryFluidIO implements MenuProvider, It
 
   /** Updates the fluid in model data */
   public void updateFluid() {
-    modelData.setData(IDisplayFluidListener.PROPERTY, IDisplayFluidListener.normalizeFluid(itemHandler.getFluid()));
+    modelData = ModelData.builder().with(IDisplayFluidListener.PROPERTY, IDisplayFluidListener.normalizeFluid(itemHandler.getFluid())).build();
 //    requestModelDataUpdate(); TODO: PORT?
     assert level != null;
     BlockState state = getBlockState();

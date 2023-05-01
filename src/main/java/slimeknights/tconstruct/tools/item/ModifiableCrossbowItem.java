@@ -8,8 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -295,7 +293,7 @@ public class ModifiableCrossbowItem extends ModifiableLauncherItem {
       ItemStack heldStack = ItemStack.of(heldAmmo);
       if (!heldStack.isEmpty()) {
         // basic info: item and count
-        MutableComponent component = new TranslatableComponent(PROJECTILE_KEY);
+        MutableComponent component = Component.translatable(PROJECTILE_KEY);
         int count = heldStack.getCount();
         if (count > 1) {
           component.append(" " + count + " ");
@@ -309,7 +307,7 @@ public class ModifiableCrossbowItem extends ModifiableLauncherItem {
           List<Component> nestedTooltip = new ArrayList<>();
           heldStack.getItem().appendHoverText(heldStack, player.level, nestedTooltip, tooltipFlag);
           for (Component nested : nestedTooltip) {
-            tooltips.add(new TextComponent("  ").append(nested).withStyle(ChatFormatting.GRAY));
+            tooltips.add(Component.literal("  ").append(nested).withStyle(ChatFormatting.GRAY));
           }
         }
       }

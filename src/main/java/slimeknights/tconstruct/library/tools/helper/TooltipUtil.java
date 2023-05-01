@@ -8,8 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -99,16 +97,16 @@ public class TooltipUtil {
     String materialKey = MaterialTooltipCache.getKey(variantId);
     String key = itemKey + "." + materialKey;
     if (Util.canTranslate(key)) {
-      return new TranslatableComponent(key);
+      return Component.translatable(key);
     }
     // name format override
     String formatKey = materialKey + ".format";
     if (Util.canTranslate(formatKey)) {
-      return new TranslatableComponent(formatKey, itemName);
+      return Component.translatable(formatKey, itemName);
     }
     // base name with generic format
     if (Util.canTranslate(materialKey)) {
-      return new TranslatableComponent(KEY_FORMAT, new TranslatableComponent(materialKey), itemName);
+      return Component.translatable(KEY_FORMAT, Component.translatable(materialKey), itemName);
     }
     return null;
   }
@@ -147,13 +145,13 @@ public class TooltipUtil {
       return itemName;
     }
     // separate materials by dash
-    TextComponent name = new TextComponent("");
+    TextComponent name = Component.literal("");
     Iterator<Component> iter = materials.iterator();
     name.append(iter.next());
     while (iter.hasNext()) {
       name.append(MATERIAL_SEPARATOR).append(iter.next());
     }
-    return new TranslatableComponent(KEY_FORMAT, name, itemName);
+    return Component.translatable(KEY_FORMAT, name, itemName);
   }
 
   /**
@@ -174,7 +172,7 @@ public class TooltipUtil {
    */
   public static Component getDisplayName(ItemStack stack, @Nullable IToolStackView tool, ToolDefinition toolDefinition) {
     List<PartRequirement> components = toolDefinition.getData().getParts();
-    Component baseName = new TranslatableComponent(stack.getDescriptionId());
+    Component baseName = Component.translatable(stack.getDescriptionId());
     if (components.isEmpty()) {
       return baseName;
     }
@@ -453,7 +451,7 @@ public class TooltipUtil {
       if (!modifiers.isEmpty()) {
         if (slots.length > 1) {
           tooltip.add(TextComponent.EMPTY);
-          tooltip.add((new TranslatableComponent("item.modifiers." + slot.getName())).withStyle(ChatFormatting.GRAY));
+          tooltip.add((Component.translatable("item.modifiers." + slot.getName())).withStyle(ChatFormatting.GRAY));
         }
 
         for (Entry<Attribute, AttributeModifier> entry : modifiers.entries()) {
@@ -488,17 +486,17 @@ public class TooltipUtil {
             displayValue *= 100;
           }
           // final tooltip addition
-          Component name = new TranslatableComponent(attribute.getDescriptionId());
+          Component name = Component.translatable(attribute.getDescriptionId());
           if (showEquals) {
-            tooltip.add(new TextComponent(" ")
-                          .append(new TranslatableComponent("attribute.modifier.equals." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
+            tooltip.add(Component.literal(" ")
+                          .append(Component.translatable("attribute.modifier.equals." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
                           .withStyle(ChatFormatting.DARK_GREEN));
           } else if (amount > 0.0D) {
-            tooltip.add((new TranslatableComponent("attribute.modifier.plus." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
+            tooltip.add((Component.translatable("attribute.modifier.plus." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
                           .withStyle(ChatFormatting.BLUE));
           } else if (amount < 0.0D) {
             displayValue *= -1;
-            tooltip.add((new TranslatableComponent("attribute.modifier.take." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
+            tooltip.add((Component.translatable("attribute.modifier.take." + operation.toValue(), ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(displayValue), name))
                           .withStyle(ChatFormatting.RED));
           }
         }

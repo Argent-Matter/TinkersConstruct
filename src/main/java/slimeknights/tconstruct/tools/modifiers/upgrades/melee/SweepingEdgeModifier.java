@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.upgrades.melee;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 import slimeknights.tconstruct.TConstruct;
@@ -32,6 +31,6 @@ public class SweepingEdgeModifier extends IncrementalModifier {
   @Override
   public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
     float amount = getScaledLevel(tool, level) * 0.25f;
-    tooltip.add(applyStyle(new TextComponent(Util.PERCENT_FORMAT.format(amount)).append(" ").append(SWEEPING_BONUS)));
+    tooltip.add(applyStyle(Component.literal(Util.PERCENT_FORMAT.format(amount)).append(" ").append(SWEEPING_BONUS)));
   }
 }

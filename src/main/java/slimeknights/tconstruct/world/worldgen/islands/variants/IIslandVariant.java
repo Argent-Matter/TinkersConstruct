@@ -1,9 +1,11 @@
 package slimeknights.tconstruct.world.worldgen.islands.variants;
 
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
@@ -33,7 +35,7 @@ public interface IIslandVariant {
   BlockState getLakeFluid();
 
   /** Gets the decorate lake edges with */
-  BlockState getCongealedSlime(Random random);
+  BlockState getCongealedSlime(RandomSource random);
 
   /** Gets the vine block state to place around the island, needs to extend slime vines, return null to prevent vine placement */
   @Nullable
@@ -43,13 +45,13 @@ public interface IIslandVariant {
 
   /** Gets a plant to place on top of the island, return null to prevent plant placement */
   @Nullable
-  default BlockState getPlant(Random random) {
+  default BlockState getPlant(RandomSource random) {
     return null;
   }
 
   /** Gets the tree to place on top of the island, return null to prevent tree placement */
   @Nullable
-  default ConfiguredFeature<?, ?> getTreeFeature(Random random) {
+  default ConfiguredFeature<?, ?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
     return null;
   }
 

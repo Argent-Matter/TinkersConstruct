@@ -24,7 +24,6 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.Item;
@@ -183,7 +182,7 @@ public class ModifierRecipeCategory implements IRecipeCategory<IDisplayModifierR
     int checkX = (int) mouseX;
     int checkY = (int) mouseY;
     if (recipe.hasRequirements() && GuiUtil.isHovered(checkX, checkY, 66, 58, 16, 16)) {
-      return Collections.singletonList(new TranslatableComponent(recipe.getRequirementsError()));
+      return Collections.singletonList(Component.translatable(recipe.getRequirementsError()));
     } else if (recipe.isIncremental() && GuiUtil.isHovered(checkX, checkY, 83, 59, 16, 16)) {
       return TEXT_INCREMENTAL;
     } else if (GuiUtil.isHovered(checkX, checkY, 98, 58, 24, 16)) {
@@ -192,9 +191,9 @@ public class ModifierRecipeCategory implements IRecipeCategory<IDisplayModifierR
       if (slots != null) {
         int count = slots.getCount();
         if (count == 1) {
-          return Collections.singletonList(new TranslatableComponent(KEY_SLOT, slots.getType().getDisplayName()));
+          return Collections.singletonList(Component.translatable(KEY_SLOT, slots.getType().getDisplayName()));
         } else if (count > 1) {
-          return Collections.singletonList(new TranslatableComponent(KEY_SLOTS, slots, slots.getType().getDisplayName()));
+          return Collections.singletonList(Component.translatable(KEY_SLOTS, slots, slots.getType().getDisplayName()));
         }
       } else {
         return TEXT_FREE;

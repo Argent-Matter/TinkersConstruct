@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.tags.TagKey;
@@ -47,7 +47,7 @@ public abstract class AbstractSpillingFluidProvider extends GenericDataProvider 
   protected abstract void addFluids();
 
   @Override
-  public void run(HashCache cache) throws IOException {
+  public void run(CachedOutput cache) throws IOException {
     addFluids();
     entries.forEach((id, data) -> saveThing(cache, id, data.build()));
   }

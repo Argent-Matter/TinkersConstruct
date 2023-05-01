@@ -20,7 +20,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.mantle.fluid.tooltip.FluidTooltipHandler;
 import slimeknights.tconstruct.TConstruct;
@@ -39,15 +38,15 @@ public abstract class AbstractMeltingCategory implements IRecipeCategory<Melting
   protected static final String KEY_COOLING_TIME = TConstruct.makeTranslationKey("jei", "melting.time");
   protected static final String KEY_TEMPERATURE = TConstruct.makeTranslationKey("jei", "temperature");
   protected static final String KEY_MULTIPLIER = TConstruct.makeTranslationKey("jei", "melting.multiplier");
-  protected static final Component TOOLTIP_ORE = new TranslatableComponent(TConstruct.makeTranslationKey("jei", "melting.ore"));
+  protected static final Component TOOLTIP_ORE = Component.translatable(TConstruct.makeTranslationKey("jei", "melting.ore"));
 
   /** Tooltip for fuel display */
   public static final IRecipeTooltipReplacement FUEL_TOOLTIP = (slot, tooltip) -> {
     //noinspection SimplifyOptionalCallChains  Not for int streams
     slot.getDisplayedIngredient(JEITypes.FLUID_STACK).ifPresent(stack -> {
       MeltingFuelHandler.getTemperature(stack.getFluid()).ifPresent(temperature -> {
-        tooltip.add(new TranslatableComponent(KEY_TEMPERATURE, temperature).withStyle(ChatFormatting.GRAY));
-        tooltip.add(new TranslatableComponent(KEY_MULTIPLIER, temperature / 1000f).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(KEY_TEMPERATURE, temperature).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(KEY_MULTIPLIER, temperature / 1000f).withStyle(ChatFormatting.GRAY));
       });
     });
   };
@@ -101,7 +100,7 @@ public abstract class AbstractMeltingCategory implements IRecipeCategory<Melting
     }
     // time tooltip
     if (GuiUtil.isHovered(mouseX, mouseY, 56, 18, 24, 17)) {
-      return Collections.singletonList(new TranslatableComponent(KEY_COOLING_TIME, recipe.getTime() / 4));
+      return Collections.singletonList(Component.translatable(KEY_COOLING_TIME, recipe.getTime() / 4));
     }
     return Collections.emptyList();
   }

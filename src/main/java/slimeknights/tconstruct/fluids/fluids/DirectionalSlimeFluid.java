@@ -2,6 +2,7 @@ package slimeknights.tconstruct.fluids.fluids;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -22,7 +23,7 @@ public abstract class DirectionalSlimeFluid extends SimpleDirectionalFluid {
   }
 
   @Override
-  public void randomTick(Level world, BlockPos pos, FluidState state, Random random) {
+  public void randomTick(Level world, BlockPos pos, FluidState state, RandomSource random) {
     int oldLevel = getLegacyLevel(state);
     super.randomTick(world, pos, state, random);
 

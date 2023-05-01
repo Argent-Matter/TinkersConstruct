@@ -2,20 +2,23 @@ package slimeknights.tconstruct.common.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.core.Registry;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.world.level.material.Fluid;
 import slimeknights.mantle.datagen.MantleTags;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 
 @SuppressWarnings("unchecked")
-public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
+public class FluidTagProvider extends TagsProvider<Fluid> {
 
   public FluidTagProvider(FabricDataGenerator generatorIn) {
-    super(generatorIn);
+    super(generatorIn, Registry.FLUID);
   }
 
   @Override
-  public void generateTags() {
+  public void addTags() {
     // first, register common tags
     // slime
     tagLocal(TinkerFluids.blood);
@@ -124,7 +127,7 @@ public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
     this.tag(TinkerTags.Fluids.LARGE_GEM_TOOLTIPS).addTags(TinkerFluids.moltenEmerald.getLocalTag(), TinkerFluids.moltenDiamond.getLocalTag());
     this.tag(TinkerTags.Fluids.SMALL_GEM_TOOLTIPS).addTags(TinkerFluids.moltenQuartz.getLocalTag(), TinkerFluids.moltenAmethyst.getLocalTag());
     this.tag(TinkerTags.Fluids.SOUP_TOOLTIPS).addTags(TinkerFluids.beetrootSoup.getLocalTag(), TinkerFluids.mushroomStew.getLocalTag(), TinkerFluids.rabbitStew.getLocalTag());
-    this.getOrCreateTagBuilder(TinkerTags.Fluids.WATER_TOOLTIPS).forceAddTag(MantleTags.Fluids.WATER);
+    this.getOrCreateRawBuilder(TinkerTags.Fluids.WATER_TOOLTIPS).addTag(MantleTags.Fluids.WATER.location());
 
     // spilling tags - reduces the number of recipes generated //
     this.tag(TinkerTags.Fluids.CLAY_SPILLING)

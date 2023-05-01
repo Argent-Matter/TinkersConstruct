@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.world.block;
 
 import com.google.common.collect.Lists;
-import io.github.fabricators_of_create.porting_lib.util.IPlantable;
+import io.github.fabricators_of_create.porting_lib.extensions.IPlantable;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -40,15 +40,6 @@ public class SlimeTallGrassBlock extends BushBlock implements IShearable, IPlant
   @Override
   public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
     return SHAPE;
-  }
-
-  /**
-   * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
-   */
-  @Nonnull
-  @Override
-  public Block.OffsetType getOffsetType() {
-    return Block.OffsetType.XYZ;
   }
 
   /* Forge/MC callbacks */

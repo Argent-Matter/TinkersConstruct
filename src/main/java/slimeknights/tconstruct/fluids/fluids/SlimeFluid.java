@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.fluids.fluids;
 
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
@@ -23,7 +24,7 @@ public abstract class SlimeFluid extends SimpleFlowableFluid {
   }
 
   @Override
-  public void randomTick(Level world, BlockPos pos, FluidState state, Random random) {
+  public void randomTick(Level world, BlockPos pos, FluidState state, RandomSource random) {
     int oldLevel = getLegacyLevel(state);
     super.randomTick(world, pos, state, random);
 

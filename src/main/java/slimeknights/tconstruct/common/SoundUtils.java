@@ -32,7 +32,7 @@ public class SoundUtils {
     if (entity instanceof ServerPlayer) {
       TinkerNetwork.getInstance().sendVanillaPacket(entity,
         new ClientboundSoundPacket(sound, entity.getSoundSource(), entity.getX(), entity.getY(),
-          entity.getZ(), volume, pitch));
+          entity.getZ(), volume, pitch, 0));
     }
   }
 }

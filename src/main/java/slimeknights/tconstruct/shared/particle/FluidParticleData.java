@@ -4,8 +4,8 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.serialization.Codec;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.core.Registry;
@@ -14,7 +14,7 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.TagParser;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
 
@@ -22,7 +22,7 @@ import net.minecraft.world.level.material.Fluid;
 @SuppressWarnings("removal")
 @RequiredArgsConstructor
 public class FluidParticleData implements ParticleOptions {
-  private static final DynamicCommandExceptionType UNKNOWN_FLUID = new DynamicCommandExceptionType(arg -> new TranslatableComponent("command.tconstruct.fluid.not_found", arg));
+  private static final DynamicCommandExceptionType UNKNOWN_FLUID = new DynamicCommandExceptionType(arg -> Component.translatable("command.tconstruct.fluid.not_found", arg));
   private static final ParticleOptions.Deserializer<FluidParticleData> DESERIALIZER = new ParticleOptions.Deserializer<>() {
     @Override
     public FluidParticleData fromCommand(ParticleType<FluidParticleData> type, StringReader reader) throws CommandSyntaxException {
@@ -37,7 +37,7 @@ public class FluidParticleData implements ParticleOptions {
       if (reader.canRead() && reader.peek() == '{') {
         nbt = new TagParser(reader).readStruct();
       }
-      return new FluidParticleData(type, new FluidStack(fluid, FluidAttributes.BUCKET_VOLUME, nbt));
+      return new FluidParticleData(type, new FluidStack(fluid, FluidUnit.DROPLETS.getOneBucketAmount(), nbt));
     }
 
     @Override
@@ -59,9 +59,9 @@ public class FluidParticleData implements ParticleOptions {
   @Override
   public String writeToString() {
     StringBuilder builder = new StringBuilder();
-    builder.append(getType().getRegistryName());
+    builder.append(Registry.PARTICLE_TYPE.getKey(getType()));
     builder.append(" ");
-    builder.append(fluid.getFluid().getRegistryName());
+    builder.append(Registry.FLUID.getKey(fluid.getFluid()));
     CompoundTag nbt = fluid.getTag();
     if (nbt != null) {
       builder.append(nbt);

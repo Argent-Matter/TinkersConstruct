@@ -11,8 +11,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import slimeknights.tconstruct.library.client.RenderUtils;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 
@@ -42,9 +40,9 @@ public enum ModifierBookmarkEntryRenderer implements EntryRenderer<ModifierEntry
   public Tooltip getTooltip(EntryStack<ModifierEntry> entry, TooltipContext context) {
     List<Component> list = new ArrayList<>();
     // not using the main method as that applies color
-    list.add(new TranslatableComponent(WRAPPER_KEY, new TranslatableComponent(entry.getValue().getModifier().getTranslationKey())));
+    list.add(Component.translatable(WRAPPER_KEY, Component.translatable(entry.getValue().getModifier().getTranslationKey())));
     if (context.getFlag().isAdvanced()) {
-      list.add((new TextComponent(entry.getValue().getId().toString())).withStyle(ChatFormatting.DARK_GRAY));
+      list.add((Component.literal(entry.getValue().getId().toString())).withStyle(ChatFormatting.DARK_GRAY));
     }
     return Tooltip.create(list);
   }

@@ -1,6 +1,9 @@
 package slimeknights.tconstruct.smeltery.block.entity.component;
 
-import io.github.fabricators_of_create.porting_lib.model.IModelData;
+import dev.architectury.platform.Mod;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelData;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelProperty;
+import net.minecraft.client.model.Model;
 import slimeknights.mantle.transfer.fluid.FluidTransferable;
 import slimeknights.mantle.transfer.fluid.IFluidHandler;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
@@ -18,7 +21,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import slimeknights.mantle.client.model.data.SinglePropertyData;
 import slimeknights.tconstruct.library.client.model.ModelProperties;
 import slimeknights.tconstruct.library.fluid.FluidTankAnimated;
 import slimeknights.tconstruct.library.utils.NBTTags;
@@ -64,7 +66,7 @@ public class TankBlockEntity extends SmelteryComponentBlockEntity implements ITa
   /** Capability holder for the tank */
   private final LazyOptional<IFluidHandler> holder;
   /** Tank data for the model */
-  private final IModelData modelData;
+  private final ModelData modelData;
   /** Last comparator strength to reduce block updates */
   @Getter @Setter
   private int lastStrength = -1;
@@ -86,7 +88,7 @@ public class TankBlockEntity extends SmelteryComponentBlockEntity implements ITa
     super(type, pos, state);
     tank = new FluidTankAnimated(block.getCapacity(), this);
     holder = LazyOptional.of(() -> tank);
-    modelData = new SinglePropertyData<>(ModelProperties.FLUID_TANK, tank);
+    modelData = ModelData.builder().with(ModelProperties.FLUID_TANK, tank).build();
   }
 
 

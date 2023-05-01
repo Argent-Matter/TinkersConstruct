@@ -1,10 +1,12 @@
 package slimeknights.tconstruct.common.data;
 
+import com.google.common.hash.HashCode;
 import com.mojang.datafixers.DataFixer;
 import com.mojang.datafixers.DataFixerUpper;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.nbt.NbtUtils;
@@ -51,16 +53,17 @@ public class StructureUpdater implements DataProvider {
   }
 
   @Override
-  public void run(HashCache cache) throws IOException {
-    for(ResourceLocation loc : resources.listResources(basePath, file -> file.endsWith(".nbt"))) {
+  public void run(CachedOutput cache) throws IOException {
+    for(ResourceLocation loc : resources.listResources(basePath, file -> file.getPath().endsWith(".nbt")).keySet()) {
       if (loc.getNamespace().equals(modid)) {
         process(loc, cache);
       }
     }
   }
 
-  private void process(ResourceLocation loc, HashCache cache) throws IOException {
-    CompoundTag inputNBT = NbtIo.readCompressed(resources.getResource(loc).getInputStream());
+  private void process(ResourceLocation loc, CachedOutput cache) throws IOException {
+    var resource = resources.getResource(loc);
+    CompoundTag inputNBT = resource.isPresent() ? NbtIo.readCompressed(resource.get().open()) : null;
     CompoundTag converted = updateNBT(inputNBT);
     if (!converted.equals(inputNBT)) {
       Class<? extends DataFixer> fixerClass = DataFixers.getDataFixer().getClass();
@@ -71,20 +74,13 @@ public class StructureUpdater implements DataProvider {
     }
   }
 
-  private void writeNBTTo(ResourceLocation loc, CompoundTag data, HashCache cache) throws IOException {
+  private void writeNBTTo(ResourceLocation loc, CompoundTag data, CachedOutput cache) throws IOException {
     ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
     NbtIo.writeCompressed(data, bytearrayoutputstream);
     byte[] bytes = bytearrayoutputstream.toByteArray();
-    String hashString = SHA1.hashBytes(bytes).toString();
+    HashCode hashString = HashCode.fromBytes(bytes);
     Path outputPath = gen.getOutputFolder().resolve(packType.getDirectory() + "/" + loc.getNamespace() + "/" + loc.getPath());
-
-    if(!Objects.equals(cache.getHash(outputPath), hashString) || !Files.exists(outputPath)) {
-      Files.createDirectories(outputPath.getParent());
-      try(OutputStream outputstream = Files.newOutputStream(outputPath)) {
-        outputstream.write(bytes);
-      }
-    }
-    cache.putNew(outputPath, hashString);
+    cache.writeIfNeeded(outputPath, bytes, hashString);
   }
 
   private static CompoundTag updateNBT(CompoundTag nbt) {

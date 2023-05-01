@@ -17,7 +17,6 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.material.Fluid;
@@ -173,10 +172,10 @@ public class FluidStackRenderer implements IIngredientRenderer<FluidStack> {
       long milliBuckets = (amount * 1000) / 1000;
 
       if (tooltipMode == TooltipMode.SHOW_AMOUNT_AND_CAPACITY) {
-        MutableComponent amountString = new TranslatableComponent("jei.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
+        MutableComponent amountString = Component.translatable("jei.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
         tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
       } else if (tooltipMode == TooltipMode.SHOW_AMOUNT) {
-        MutableComponent amountString = new TranslatableComponent("jei.tooltip.liquid.amount", nf.format(milliBuckets));
+        MutableComponent amountString = Component.translatable("jei.tooltip.liquid.amount", nf.format(milliBuckets));
         tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
       }
     } catch (RuntimeException e) {

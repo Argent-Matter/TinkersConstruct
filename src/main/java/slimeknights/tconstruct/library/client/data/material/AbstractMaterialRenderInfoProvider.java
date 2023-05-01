@@ -2,8 +2,9 @@ package slimeknights.tconstruct.library.client.data.material;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import slimeknights.mantle.data.GenericDataProvider;
@@ -37,7 +38,7 @@ public abstract class AbstractMaterialRenderInfoProvider extends GenericDataProv
   protected abstract void addMaterialRenderInfo();
 
   @Override
-  public void run(HashCache cache) {
+  public void run(CachedOutput cache) {
     addMaterialRenderInfo();
     // generate
     allRenderInfo.forEach((materialId, info) -> saveThing(cache, materialId.getLocation('/'), info.build()));

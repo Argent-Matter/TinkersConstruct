@@ -4,10 +4,12 @@ import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.Registry;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -46,14 +48,14 @@ import static net.minecraft.tags.BlockTags.NEEDS_IRON_TOOL;
 import static net.minecraft.tags.BlockTags.NEEDS_STONE_TOOL;
 
 @SuppressWarnings("unchecked")
-public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
+public class BlockTagProvider extends BlockTagsProvider {
 
   public BlockTagProvider(FabricDataGenerator generatorIn) {
     super(generatorIn);
   }
 
   @Override
-  protected void generateTags() {
+  protected void addTags() {
     this.addCommon();
     this.addTools();
     this.addWorld();
@@ -117,7 +119,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         .addTag(TinkerMaterials.queensSlime.getBlockTag())
         .addTag(TinkerMaterials.manyullyn.getBlockTag())
         .addTag(TinkerMaterials.hepatizon.getBlockTag())
-        .forceAddTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE);
+        .addTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE);
     for (SmelteryCompat compat : SmelteryCompat.values()) {
       if (!compat.isOre()) {
         builder.addOptionalTag(new ResourceLocation("c", "storage_blocks/" + compat.getName()));
@@ -131,7 +133,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // things the platform connects to on the sides
     this.tag(TinkerTags.Blocks.PLATFORM_CONNECTIONS)
         .add(Blocks.LEVER, Blocks.LADDER, Blocks.IRON_BARS, TinkerCommons.goldBars.get(), Blocks.TRIPWIRE_HOOK, Blocks.WALL_TORCH, Blocks.SOUL_WALL_TORCH, Blocks.REDSTONE_WALL_TORCH, Blocks.REDSTONE_WIRE)
-        .forceAddTag(Tags.Blocks.GLASS_PANES).forceAddTag(BlockTags.BUTTONS).forceAddTag(Tags.Blocks.FENCES).forceAddTag(BlockTags.WALLS).forceAddTag(BlockTags.WALL_SIGNS);
+        .addTag(Tags.Blocks.GLASS_PANES).addTag(BlockTags.BUTTONS).addTag(Tags.Blocks.FENCES).addTag(BlockTags.WALLS).addTag(BlockTags.WALL_SIGNS);
 
     // copper platforms
     TagAppender<Block> copperPlatforms = this.tag(TinkerTags.Blocks.COPPER_PLATFORMS);
@@ -151,7 +153,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     this.tag(TinkerTags.Blocks.HARVESTABLE_STACKABLE)
         .add(Blocks.SUGAR_CANE, Blocks.KELP_PLANT);
     this.tag(TinkerTags.Blocks.HARVESTABLE_CROPS)
-        .forceAddTag(BlockTags.CROPS)
+        .addTag(BlockTags.CROPS)
         .addOptionalTag(new ResourceLocation("c", "crops"))
         .add(Blocks.NETHER_WART);
     this.tag(TinkerTags.Blocks.HARVESTABLE_INTERACT)
@@ -164,7 +166,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // just logs for lumber axe, but modpack makers can add more
     this.tag(TinkerTags.Blocks.TREE_LOGS).addTag(BlockTags.LOGS);
     // blocks that drop gold and should drop more gold
-    this.tag(TinkerTags.Blocks.CHRYSOPHILITE_ORES).forceAddTag(Tags.Blocks.ORES_GOLD).add(Blocks.GILDED_BLACKSTONE);
+    this.tag(TinkerTags.Blocks.CHRYSOPHILITE_ORES).addTag(Tags.Blocks.ORES_GOLD).add(Blocks.GILDED_BLACKSTONE);
   }
 
 
@@ -431,16 +433,16 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     tag(TinkerTags.Blocks.MINABLE_WITH_SHEARS)
       .add(Blocks.AZALEA, Blocks.COBWEB, Blocks.DRIED_KELP_BLOCK, Blocks.GLOW_LICHEN, Blocks.LILY_PAD, Blocks.REDSTONE_WIRE,
            Blocks.TRIPWIRE, Blocks.TWISTING_VINES_PLANT, Blocks.TWISTING_VINES, Blocks.VINE, Blocks.WEEPING_VINES_PLANT, Blocks.WEEPING_VINES)
-      .forceAddTag(BlockTags.CAVE_VINES).forceAddTag(BlockTags.LEAVES).forceAddTag(BlockTags.WOOL).forceAddTag(BlockTags.SAPLINGS).forceAddTag(BlockTags.FLOWERS).forceAddTag(BlockTags.REPLACEABLE_PLANTS).forceAddTag(BlockTags.CORAL_PLANTS);
+      .addTag(BlockTags.CAVE_VINES).addTag(BlockTags.LEAVES).addTag(BlockTags.WOOL).addTag(BlockTags.SAPLINGS).addTag(BlockTags.FLOWERS).addTag(BlockTags.REPLACEABLE_PLANTS).addTag(BlockTags.CORAL_PLANTS);
     // scythe/kama does hoe or shear blocks
     tag(TinkerTags.Blocks.MINABLE_WITH_SCYTHE)
       .add(Blocks.ATTACHED_MELON_STEM, Blocks.ATTACHED_PUMPKIN_STEM, Blocks.BIG_DRIPLEAF_STEM, Blocks.BIG_DRIPLEAF, Blocks.KELP, Blocks.KELP_PLANT, Blocks.NETHER_WART, Blocks.SMALL_DRIPLEAF, Blocks.SPORE_BLOSSOM, Blocks.SUGAR_CANE, Blocks.SWEET_BERRY_BUSH)
-      .addTag(MINEABLE_WITH_HOE).forceAddTag(TinkerTags.Blocks.MINABLE_WITH_SHEARS).forceAddTag(BlockTags.CROPS);
+      .addTag(MINEABLE_WITH_HOE).addTag(TinkerTags.Blocks.MINABLE_WITH_SHEARS).addTag(BlockTags.CROPS);
     // sword list is filled to best ability, but will be a bit inexact as vanilla uses materials, hopefully putting this tag under forge will get people to tag their blocks
     tag(TinkerTags.Blocks.MINABLE_WITH_SWORD).add(Blocks.COBWEB)
       .add(Blocks.COCOA, Blocks.CHORUS_PLANT, Blocks.CHORUS_FLOWER, Blocks.SWEET_BERRY_BUSH, Blocks.VINE, Blocks.MOSS_CARPET, Blocks.MOSS_BLOCK,
            Blocks.BIG_DRIPLEAF, Blocks.BIG_DRIPLEAF_STEM, Blocks.GLOW_LICHEN, Blocks.PUMPKIN, Blocks.CARVED_PUMPKIN, Blocks.MELON)
-      .forceAddTag(BlockTags.LEAVES).forceAddTag(BlockTags.SAPLINGS).forceAddTag(BlockTags.FLOWERS).forceAddTag(BlockTags.CROPS);
+      .addTag(BlockTags.LEAVES).addTag(BlockTags.SAPLINGS).addTag(BlockTags.FLOWERS).addTag(BlockTags.CROPS);
     // dagger does hoe or sword blocks
     tag(TinkerTags.Blocks.MINABLE_WITH_DAGGER).addTag(MINEABLE_WITH_HOE).addTag(TinkerTags.Blocks.MINABLE_WITH_SWORD);
   }
@@ -582,9 +584,5 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // signs
     this.tag(BlockTags.STANDING_SIGNS).add(object.getSign());
     this.tag(BlockTags.WALL_SIGNS).add(object.getWallSign());
-  }
-
-  public FabricTagBuilder tag(TagKey<Block> tag) {
-    return getOrCreateTagBuilder(tag);
   }
 }

@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.smeltery.block.entity.controller;
 
 import io.github.fabricators_of_create.porting_lib.block.CustomRenderBoundingBoxBlockEntity;
-import io.github.fabricators_of_create.porting_lib.model.IModelData;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelData;
 import slimeknights.mantle.transfer.fluid.IFluidHandler;
 import slimeknights.mantle.transfer.item.IItemHandler;
 import slimeknights.mantle.transfer.item.ItemHandlerHelper;
@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import slimeknights.mantle.block.entity.NameableBlockEntity;
-import slimeknights.mantle.client.model.data.SinglePropertyData;
 import slimeknights.mantle.util.BlockEntityHelper;
 import slimeknights.tconstruct.common.multiblock.IMasterLogic;
 import slimeknights.tconstruct.common.multiblock.IServantLogic;
@@ -124,7 +123,7 @@ public abstract class HeatingStructureBlockEntity extends NameableBlockEntity im
 
   /* Client display */
   @Getter
-  private final IModelData modelData = new SinglePropertyData<>(IDisplayFluidListener.PROPERTY);
+  private ModelData modelData;
   private final List<WeakReference<IDisplayFluidListener>> fluidDisplayListeners = new ArrayList<>();
 
   /* Misc helpers */
@@ -398,7 +397,7 @@ public abstract class HeatingStructureBlockEntity extends NameableBlockEntity im
     if (level != null && level.isClientSide) {
       // update ourself
       fluid = IDisplayFluidListener.normalizeFluid(fluid);
-      modelData.setData(IDisplayFluidListener.PROPERTY, fluid);
+      modelData = ModelData.builder().with(IDisplayFluidListener.PROPERTY, fluid).build();
 //      this.requestModelDataUpdate(); TODO: PORT?
       BlockState state = getBlockState();
       level.sendBlockUpdated(worldPosition, state, state, 48);

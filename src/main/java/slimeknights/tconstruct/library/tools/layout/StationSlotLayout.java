@@ -9,7 +9,6 @@ import lombok.experimental.Accessors;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -148,7 +147,7 @@ public class StationSlotLayout {
   /** Gets the display name from the unlocalized name of {@link #getTranslationKey()} */
   public Component getDisplayName() {
     if (displayName == null) {
-      displayName = new TranslatableComponent(getTranslationKey());
+      displayName = Component.translatable(getTranslationKey());
     }
     return displayName;
   }
@@ -156,7 +155,7 @@ public class StationSlotLayout {
   /** Gets the description from the unlocalized name of {@link #getTranslationKey()} */
   public Component getDescription() {
     if (description == null) {
-      description = new TranslatableComponent(getTranslationKey() + ".description");
+      description = Component.translatable(getTranslationKey() + ".description");
     }
     return description;
   }

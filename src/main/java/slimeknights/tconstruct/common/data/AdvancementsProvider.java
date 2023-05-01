@@ -2,6 +2,10 @@ package slimeknights.tconstruct.common.data;
 
 import com.google.common.collect.Sets;
 import com.google.gson.JsonObject;
+import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.network.chat.Component;
 import slimeknights.mantle.transfer.fluid.FluidTank;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
@@ -16,17 +20,14 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemDurabilityTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
-import net.minecraft.advancements.critereon.LocationTrigger;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.NbtPredicate;
 import net.minecraft.advancements.critereon.PlacedBlockTrigger;
 import net.minecraft.advancements.critereon.PlayerInteractTrigger;
-import net.minecraft.advancements.critereon.TickTrigger;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -70,6 +71,7 @@ import slimeknights.tconstruct.world.TinkerStructures;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 import javax.annotation.Nullable;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
@@ -92,7 +94,7 @@ public class AdvancementsProvider extends GenericDataProvider {
   }
 
   /** Generates the advancements */
-  protected void generate() {
+  public void generate() {
     // tinkering path
     Advancement materialsAndYou = builder(TinkerCommons.materialsAndYou, resource("tools/materials_and_you"), resource("textures/gui/advancement_background.png"), FrameType.TASK, builder ->
       builder.addCriterion("crafted_book", hasItem(TinkerCommons.materialsAndYou)));
@@ -320,15 +322,15 @@ public class AdvancementsProvider extends GenericDataProvider {
     Advancement tinkersGadgetry = builder(TinkerCommons.tinkersGadgetry, resource("world/tinkers_gadgetry"), materialsAndYou, FrameType.TASK, builder ->
       builder.addCriterion("crafted_book", hasItem(TinkerCommons.tinkersGadgetry)));
     builder(TinkerWorld.slimeSapling.get(SlimeType.EARTH), resource("world/earth_island"), tinkersGadgetry, FrameType.GOAL, builder ->
-      builder.addCriterion("found_island", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(TinkerStructures.configuredEarthSlimeIsland.getKey()))));
+      builder.addCriterion("found_island", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(TinkerStructures.earthSlimeIslandKey))));
     builder(TinkerWorld.slimeSapling.get(SlimeType.SKY), resource("world/sky_island"), tinkersGadgetry, FrameType.GOAL, builder ->
-      builder.addCriterion("found_island", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(TinkerStructures.configuredSkySlimeIsland.getKey()))));
+      builder.addCriterion("found_island", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(TinkerStructures.skySlimeIslandKey))));
     builder(TinkerWorld.slimeSapling.get(SlimeType.BLOOD), resource("world/blood_island"), tinkersGadgetry, FrameType.GOAL, builder ->
-      builder.addCriterion("found_island", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(TinkerStructures.configuredBloodIsland.getKey()))));
+      builder.addCriterion("found_island", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(TinkerStructures.bloodIslandKey))));
     Advancement enderslimeIsland = builder(TinkerWorld.slimeSapling.get(SlimeType.ENDER), resource("world/ender_island"), tinkersGadgetry, FrameType.GOAL, builder ->
-      builder.addCriterion("found_island", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(TinkerStructures.configuredEndSlimeIsland.getKey()))));
+      builder.addCriterion("found_island", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(TinkerStructures.endSlimeIslandKey))));
     builder(Items.CLAY_BALL, resource("world/clay_island"), tinkersGadgetry, FrameType.GOAL, builder ->
-      builder.addCriterion("found_island", LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(TinkerStructures.configuredClayIsland.getKey()))));
+      builder.addCriterion("found_island", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(TinkerStructures.clayIslandKey))));
     Advancement slimes = builder(TinkerCommons.slimeball.get(SlimeType.ICHOR), resource("world/slime_collector"), tinkersGadgetry, FrameType.TASK, builder -> {
       for (SlimeType type : SlimeType.values()) {
         builder.addCriterion(type.getSerializedName(), hasTag(type.getSlimeballTag()));
@@ -367,7 +369,7 @@ public class AdvancementsProvider extends GenericDataProvider {
 
     // internal advancements
     hiddenBuilder(resource("internal/starting_book"), ConfigEnabledCondition.SPAWN_WITH_BOOK, builder -> {
-      builder.addCriterion("tick", new TickTrigger.TriggerInstance(EntityPredicate.Composite.ANY));
+      builder.addCriterion("tick", PlayerTrigger.TriggerInstance.located(EntityPredicate.ANY));
       builder.rewards(AdvancementRewards.Builder.loot(TConstruct.getResource("gameplay/starting_book")));
     });
   }
@@ -394,7 +396,7 @@ public class AdvancementsProvider extends GenericDataProvider {
   }
 
   @Override
-  public void run(HashCache cache) {
+  public void run(CachedOutput cache) {
     Set<ResourceLocation> set = Sets.newHashSet();
     this.advancementConsumer = advancement -> {
       if (!set.add(advancement.getId())) {
@@ -476,8 +478,8 @@ public class AdvancementsProvider extends GenericDataProvider {
   protected Advancement builder(ItemStack display, ResourceLocation name, @Nullable ResourceLocation background, FrameType frame, Consumer<Advancement.Builder> consumer) {
     Advancement.Builder builder = Advancement.Builder
       .advancement().display(display,
-                             new TranslatableComponent(makeTranslationKey(name) + ".title"),
-                             new TranslatableComponent(makeTranslationKey(name) + ".description"),
+                             Component.translatable(makeTranslationKey(name) + ".title"),
+                             Component.translatable(makeTranslationKey(name) + ".description"),
                              background, frame, true, frame != FrameType.TASK, false);
     consumer.accept(builder);
     return builder.save(advancementConsumer, name.toString());

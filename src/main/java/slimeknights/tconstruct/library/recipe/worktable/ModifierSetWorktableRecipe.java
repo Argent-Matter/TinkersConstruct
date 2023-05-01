@@ -9,7 +9,6 @@ import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -67,8 +66,8 @@ public class ModifierSetWorktableRecipe extends AbstractWorktableRecipe {
     this.dataKey = dataKey;
     this.addToSet = addToSet;
     String rootKey = Util.makeTranslationKey("recipe", dataKey) + (addToSet ? ".adding" : ".removing");
-    this.title = new TranslatableComponent(rootKey + ".title");
-    this.description = new TranslatableComponent(rootKey + ".description");
+    this.title = Component.translatable(rootKey + ".title");
+    this.description = Component.translatable(rootKey + ".description");
     this.blacklist = blacklist;
     this.entryFilter = entry -> !entry.matches(blacklist);
   }

@@ -106,7 +106,7 @@ public class FancyItemFrameRenderer<T extends FancyItemFrameEntity> extends Item
           int light = frameType == FrameType.MANYULLYN ? 0x00F000F0 : packedLight;
           Integer mapId = MapItem.getMapId(stack);
           assert mapId != null;
-          this.minecraft.gameRenderer.getMapRenderer().render(matrices, bufferIn, mapId, mapdata, true, light);
+          Minecraft.getInstance().gameRenderer.getMapRenderer().render(matrices, bufferIn, mapId, mapdata, true, light);
         } else {
           float scale = frameType == FrameType.CLEAR ? 0.75f : 0.5f;
           matrices.scale(scale, scale, scale);

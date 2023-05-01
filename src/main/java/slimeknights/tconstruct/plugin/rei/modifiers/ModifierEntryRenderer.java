@@ -10,7 +10,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 
@@ -34,7 +33,7 @@ public record ModifierEntryRenderer(int width, int height) implements EntryRende
     List<Component> tooltip = entry.getValue().getModifier().getDescriptionList(entry.getValue().getLevel());
     if (context.getFlag().isAdvanced()) {
       tooltip = new ArrayList<>(tooltip);
-      tooltip.add((new TextComponent(entry.getValue().getId().toString())).withStyle(ChatFormatting.DARK_GRAY));
+      tooltip.add((Component.literal(entry.getValue().getId().toString())).withStyle(ChatFormatting.DARK_GRAY));
     }
     return Tooltip.create(tooltip);
   }

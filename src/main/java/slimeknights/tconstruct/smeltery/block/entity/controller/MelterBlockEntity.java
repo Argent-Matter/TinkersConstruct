@@ -1,7 +1,8 @@
 package slimeknights.tconstruct.smeltery.block.entity.controller;
 
+import dev.architectury.platform.Mod;
 import io.github.fabricators_of_create.porting_lib.block.ChunkUnloadListeningBlockEntity;
-import io.github.fabricators_of_create.porting_lib.model.IModelData;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelData;
 import slimeknights.mantle.transfer.fluid.FluidTransferable;
 import slimeknights.mantle.transfer.fluid.IFluidHandler;
 import slimeknights.mantle.transfer.item.IItemHandler;
@@ -23,7 +24,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import slimeknights.mantle.block.entity.NameableBlockEntity;
-import slimeknights.mantle.client.model.data.SinglePropertyData;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.config.Config;
@@ -61,7 +61,7 @@ public class MelterBlockEntity extends NameableBlockEntity implements ITankBlock
   private final LazyOptional<IFluidHandler> tankHolder = LazyOptional.of(() -> tank);
   /** Tank data for the model */
   @Getter
-  private final IModelData modelData = new SinglePropertyData<>(ModelProperties.FLUID_TANK, tank);
+  private final ModelData modelData = ModelData.builder().with(ModelProperties.FLUID_TANK, tank).build();
   /** Last comparator strength to reduce block updates */
   @Getter @Setter
   private int lastStrength = -1;

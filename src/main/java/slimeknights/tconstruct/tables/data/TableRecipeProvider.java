@@ -46,7 +46,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
       .pattern("ps")
       .pattern("sp")
       .unlockedBy("has_item", has(Tags.Items.RODS_WOODEN))
-      .save(consumer, prefix(TinkerTables.pattern, folder));
+      .save(consumer, prefix(TinkerTables.pattern.getRegistryName(), folder));
 
     // book from patterns and slime
     ShapelessRecipeBuilder.shapeless(Items.BOOK)
@@ -67,7 +67,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
       .pattern("p")
       .pattern("w")
       .unlockedBy("has_item", has(TinkerTables.pattern))
-      .save(consumer, prefix(TinkerTables.craftingStation, folder));
+      .save(consumer, prefix(TinkerTables.craftingStation.getRegistryName(), folder));
     // station with log texture
     ShapedRetexturedRecipeBuilder.fromShaped(
       ShapedRecipeBuilder.shaped(TinkerTables.craftingStation)
@@ -77,7 +77,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                          .pattern("w")
                          .unlockedBy("has_item", has(TinkerTables.pattern)))
       .setSource(ItemTags.LOGS)
-      .build(consumer, wrap(TinkerTables.craftingStation, folder, "_from_logs"));
+      .build(consumer, wrap(TinkerTables.craftingStation.getRegistryName(), folder, "_from_logs"));
 
     // part builder
     ShapedRetexturedRecipeBuilder.fromShaped(
@@ -89,7 +89,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
         .unlockedBy("has_item", has(TinkerTables.pattern)))
       .setSource(TinkerTags.Items.PLANKLIKE)
       .setMatchAll()
-      .build(consumer, prefix(TinkerTables.partBuilder, folder));
+      .build(consumer, prefix(TinkerTables.partBuilder.getRegistryName(), folder));
 
     // tinker station
     ShapedRetexturedRecipeBuilder.fromShaped(
@@ -102,7 +102,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
         .unlockedBy("has_item", has(TinkerTables.pattern)))
       .setSource(TinkerTags.Items.PLANKLIKE)
       .setMatchAll()
-      .build(consumer, prefix(TinkerTables.tinkerStation, folder));
+      .build(consumer, prefix(TinkerTables.tinkerStation.getRegistryName(), folder));
 
     // part chest
     ShapedRecipeBuilder.shaped(TinkerTables.partChest)
@@ -114,7 +114,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                        .pattern("sCs")
                        .pattern("sws")
                        .unlockedBy("has_item", has(TinkerTables.pattern))
-                       .save(consumer, prefix(TinkerTables.partChest, folder));
+                       .save(consumer, prefix(TinkerTables.partChest.getRegistryName(), folder));
     // modifier chest
     ShapedRecipeBuilder.shaped(TinkerTables.tinkersChest)
                        .define('p', TinkerTables.pattern)
@@ -125,7 +125,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                        .pattern("lCl")
                        .pattern("lwl")
                        .unlockedBy("has_item", has(TinkerTables.pattern))
-                       .save(consumer, prefix(TinkerTables.tinkersChest, folder));
+                       .save(consumer, prefix(TinkerTables.tinkersChest.getRegistryName(), folder));
     // cast chest
     ShapedRecipeBuilder.shaped(TinkerTables.castChest)
                        .define('c', TinkerTags.Items.GOLD_CASTS)
@@ -136,7 +136,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                        .pattern("bCb")
                        .pattern("bBb")
                        .unlockedBy("has_item", has(TinkerTags.Items.GOLD_CASTS))
-                       .save(consumer, prefix(TinkerTables.castChest, folder));
+                       .save(consumer, prefix(TinkerTables.castChest.getRegistryName(), folder));
 
     // modifier worktable
     ShapedRetexturedRecipeBuilder.fromShaped(
@@ -149,7 +149,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                                                       .unlockedBy("has_item", has(TinkerTags.Items.SEARED_BLOCKS)))
                                  .setSource(TinkerTags.Items.WORKSTATION_ROCK)
                                  .setMatchAll()
-                                 .build(consumer, prefix(TinkerTables.modifierWorktable, folder));
+                                 .build(consumer, prefix(TinkerTables.modifierWorktable.getRegistryName(), folder));
 
     // tinker anvil
     ShapedRetexturedRecipeBuilder.fromShaped(
@@ -162,7 +162,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                          .unlockedBy("has_item", has(TinkerTags.Items.ANVIL_METAL)))
                                  .setSource(TinkerTags.Items.ANVIL_METAL)
                                  .setMatchAll()
-                                 .build(consumer, prefix(TinkerTables.tinkersAnvil, folder));
+                                 .build(consumer, prefix(TinkerTables.tinkersAnvil.getRegistryName(), folder));
     ShapedRetexturedRecipeBuilder.fromShaped(
       ShapedRecipeBuilder.shaped(TinkerTables.tinkersAnvil)
                          .define('m', TinkerTags.Items.ANVIL_METAL)
@@ -185,7 +185,7 @@ public class TableRecipeProvider extends BaseRecipeProvider {
                          .unlockedBy("has_item", has(TinkerTags.Items.ANVIL_METAL)))
                                  .setSource(TinkerTags.Items.ANVIL_METAL)
                                  .setMatchAll()
-                                 .build(consumer, prefix(TinkerTables.scorchedAnvil, folder));
+                                 .build(consumer, prefix(TinkerTables.scorchedAnvil.getRegistryName(), folder));
     ShapedRetexturedRecipeBuilder.fromShaped(
       ShapedRecipeBuilder.shaped(TinkerTables.scorchedAnvil)
                          .define('m', TinkerTags.Items.ANVIL_METAL)

@@ -1,7 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.traits.general;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -28,7 +27,7 @@ public class DenseModifier extends ReinforcedModifier {
 
   @Override
   public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-    tooltip.add(applyStyle(new TextComponent(Util.PERCENT_FORMAT.format(getPercentage(getScaledLevel(tool, level))) + " ")
+    tooltip.add(applyStyle(Component.literal(Util.PERCENT_FORMAT.format(getPercentage(getScaledLevel(tool, level))) + " ")
                              .append(makeDisplayName())));
   }
 }

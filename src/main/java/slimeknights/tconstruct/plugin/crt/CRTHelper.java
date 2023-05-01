@@ -7,7 +7,6 @@ import com.blamejared.crafttweaker.api.fluid.CTFluidIngredient;
 import com.blamejared.crafttweaker.impl.commands.CTCommandCollectionEvent;
 import com.blamejared.crafttweaker.impl_native.item.ExpandItem;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -95,7 +94,7 @@ public class CRTHelper {
         builder.append("\n}");
         CraftTweakerAPI.logDump(builder.toString());
       });
-      final TextComponent message = new TextComponent(ChatFormatting.GREEN + "Material list written to the log" + ChatFormatting.RESET);
+      final TextComponent message = Component.literal(ChatFormatting.GREEN + "Material list written to the log" + ChatFormatting.RESET);
       commandContext.getSource().sendSuccess(message, true);
       return 0;
     });
@@ -106,7 +105,7 @@ public class CRTHelper {
       ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof IMaterialItem).forEach(item -> {
         CraftTweakerAPI.logDump(ExpandItem.getDefaultInstance(item).getCommandString());
       });
-      final TextComponent message = new TextComponent(ChatFormatting.GREEN + "Material Items written to the log" + ChatFormatting.RESET);
+      final TextComponent message = Component.literal(ChatFormatting.GREEN + "Material Items written to the log" + ChatFormatting.RESET);
       commandContext.getSource().sendSuccess(message, true);
       return 0;
     });
@@ -128,7 +127,7 @@ public class CRTHelper {
         builder.append("\n}");
         CraftTweakerAPI.logDump(builder.toString());
       });
-      final TextComponent message = new TextComponent(ChatFormatting.GREEN + "Modifier list written to the log" + ChatFormatting.RESET);
+      final TextComponent message = Component.literal(ChatFormatting.GREEN + "Modifier list written to the log" + ChatFormatting.RESET);
       commandContext.getSource().sendSuccess(message, true);
       return 0;
     });
@@ -140,7 +139,7 @@ public class CRTHelper {
       ForgeRegistries.ITEMS.getValues().stream().filter(item -> item instanceof IModifiable).forEach(item -> {
         CraftTweakerAPI.logDump(ExpandItem.getDefaultInstance(item).getCommandString());
       });
-      final TextComponent message = new TextComponent(ChatFormatting.GREEN + "Tool Core Items written to the log" + ChatFormatting.RESET);
+      final TextComponent message = Component.literal(ChatFormatting.GREEN + "Tool Core Items written to the log" + ChatFormatting.RESET);
       commandContext.getSource().sendSuccess(message, true);
       return 0;
     });

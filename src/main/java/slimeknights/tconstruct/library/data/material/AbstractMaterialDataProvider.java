@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import slimeknights.mantle.client.book.data.JsonCondition;
@@ -74,7 +74,7 @@ public abstract class AbstractMaterialDataProvider extends GenericDataProvider {
   }
 
   @Override
-  public void run(HashCache cache) {
+  public void run(CachedOutput cache) {
     ensureAddMaterialsRun();
     allMaterials.forEach((id, data) -> saveThing(cache, id, convert(data)));
   }

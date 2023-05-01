@@ -3,9 +3,9 @@ package slimeknights.tconstruct.library.client.modifiers;
 import com.google.common.collect.ImmutableList;
 import com.mojang.math.Transformation;
 import io.github.fabricators_of_create.porting_lib.model.ItemTextureQuadConverter;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -85,13 +85,10 @@ public class FluidModifierModel extends NormalModifierModel {
           // finally, build (mostly based on bucket model)
           ImmutableList.Builder<BakedQuad> builder = ImmutableList.builder();
           builder.addAll(quads);
-          FluidAttributes attributes = fluid.getFluid().getAttributes();
           TextureAtlasSprite fluidSprite = spriteGetter.apply(new Material(TextureAtlas.LOCATION_BLOCKS, FluidVariantRendering.getSprite(fluid.getType()).getName()));
-          int color = attributes.getColor(fluid);
-          int luminosity = attributes.getLuminosity(fluid);
           TextureAtlasSprite templateSprite = spriteGetter.apply(template);
-          builder.addAll(ItemTextureQuadConverter.convertTexture(transforms, templateSprite, fluidSprite, 7.498f / 16f, Direction.NORTH, color, -1, luminosity));
-          builder.addAll(ItemTextureQuadConverter.convertTexture(transforms, templateSprite, fluidSprite, 8.502f / 16f, Direction.SOUTH, color, -1, luminosity));
+          builder.addAll(ItemTextureQuadConverter.convertTexture(transforms, templateSprite, fluidSprite, 7.498f / 16f, Direction.NORTH, FluidVariantRendering.getColor(fluid.getType()), -1, FluidVariantAttributes.getLuminance(fluid.getType())));
+          builder.addAll(ItemTextureQuadConverter.convertTexture(transforms, templateSprite, fluidSprite, 8.502f / 16f, Direction.SOUTH, FluidVariantRendering.getColor(fluid.getType()), -1, FluidVariantAttributes.getLuminance(fluid.getType())));
           quads = builder.build();
         }
       }

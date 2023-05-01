@@ -1,21 +1,30 @@
 package slimeknights.tconstruct.world;
 
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.HugeFungusConfiguration;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride.BoundingBoxType;
+import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType.StructureTemplateType;
 import org.apache.logging.log4j.Logger;
+import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerModule;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.utils.Util;
@@ -140,22 +149,59 @@ public final class TinkerStructures extends TinkerModule {
   /*
    * Structures
    */
-  public static final RegistryObject<StructurePieceType> slimeIslandPiece = STRUCTURE_PIECE.register("slime_island_piece", () -> (StructureTemplateType)SlimeIslandPiece::new);
+  public static final RegistryObject<StructurePieceType> slimeIslandPiece = STRUCTURE_PIECE.register("slime_island_piece", () -> SlimeIslandPiece::new);
   // earthslime)
-  public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> earthSlimeIsland = STRUCTURE_FEATURES.register("earth_slime_island", EarthSlimeIslandStructure::new);
-  public static final RegistryObject<ConfiguredStructureFeature<?,?>> configuredEarthSlimeIsland = CONFIGURED_STRUCTURE_FEATURES.register("earth_slime_island", () -> earthSlimeIsland.get().configured(NoneFeatureConfiguration.INSTANCE, TinkerTags.Biomes.EARTHSLIME_ISLANDS, false, monsterOverride(TinkerWorld.earthSlimeEntity.get(), 4, 4)));
+  public static final RegistryObject<StructureType<EarthSlimeIslandStructure>> earthSlimeIsland = STRUCTURE_TYPES.register("earth_slime_island", () -> () -> EarthSlimeIslandStructure.CODEC);
+  public static final RegistryObject<Structure> earthSlimeIslandStructure = STRUCTURES.register("earth_slime_island", () -> new EarthSlimeIslandStructure(
+    new Structure.StructureSettings(
+      biomes(TinkerTags.Biomes.EARTHSLIME_ISLANDS), monsterOverride(TinkerWorld.earthSlimeEntity.get(), 4, 4),
+      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
+  );
+  public static final ResourceKey<Structure> earthSlimeIslandKey = registerKey("earth_slime_island");
   // skyslime
-  public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> skySlimeIsland = STRUCTURE_FEATURES.register("sky_slime_island", SkySlimeIslandStructure::new);
-  public static final RegistryObject<ConfiguredStructureFeature<?,?>> configuredSkySlimeIsland = CONFIGURED_STRUCTURE_FEATURES.register("sky_slime_island", () -> skySlimeIsland.get().configured(NoneFeatureConfiguration.INSTANCE, TinkerTags.Biomes.SKYSLIME_ISLANDS, false, monsterOverride(TinkerWorld.skySlimeEntity.get(), 3, 4)));
+  public static final RegistryObject<StructureType<SkySlimeIslandStructure>> skySlimeIsland = STRUCTURE_TYPES.register("sky_slime_island", () -> () -> SkySlimeIslandStructure.CODEC);
+  public static final RegistryObject<Structure> skySlimeIslandStructure = STRUCTURES.register("sky_slime_island", () -> new SkySlimeIslandStructure(
+    new Structure.StructureSettings(
+      biomes(TinkerTags.Biomes.SKYSLIME_ISLANDS), monsterOverride(TinkerWorld.skySlimeEntity.get(), 3, 4),
+      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
+    )
+  ));
+  public static final ResourceKey<Structure> skySlimeIslandKey = registerKey("sky_slime_island");
   // ckay
-  public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> clayIsland = STRUCTURE_FEATURES.register("clay_island", ClayIslandStructure::new);
-  public static final RegistryObject<ConfiguredStructureFeature<?,?>> configuredClayIsland = CONFIGURED_STRUCTURE_FEATURES.register("clay_island", () -> clayIsland.get().configured(NoneFeatureConfiguration.INSTANCE, TinkerTags.Biomes.CLAY_ISLANDS, false, monsterOverride(TinkerWorld.terracubeEntity.get(), 2, 4)));
+  public static final RegistryObject<StructureType<ClayIslandStructure>> clayIsland = STRUCTURE_TYPES.register("clay_island", () -> () -> ClayIslandStructure.CODEC);
+  public static final RegistryObject<Structure> clayIslandStructure = STRUCTURES.register("clay_island", () -> new ClayIslandStructure(
+    new Structure.StructureSettings(
+      biomes(TinkerTags.Biomes.CLAY_ISLANDS), monsterOverride(TinkerWorld.terracubeEntity.get(), 2, 4),
+      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
+    )
+  ));
+  public static final ResourceKey<Structure> clayIslandKey = registerKey("clay_island");
   // nether
-  public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> bloodIsland = STRUCTURE_FEATURES.register("blood_island", BloodSlimeIslandStructure::new);
-  public static final RegistryObject<ConfiguredStructureFeature<?,?>> configuredBloodIsland = CONFIGURED_STRUCTURE_FEATURES.register("blood_island", () -> bloodIsland.get().configured(NoneFeatureConfiguration.INSTANCE, TinkerTags.Biomes.BLOOD_ISLANDS, false, monsterOverride(EntityType.MAGMA_CUBE, 4, 6)));
+  public static final RegistryObject<StructureType<BloodSlimeIslandStructure>> bloodIsland = STRUCTURE_TYPES.register("blood_island", () -> () -> BloodSlimeIslandStructure.CODEC);
+  public static final RegistryObject<Structure> bloodIslandStructure = STRUCTURES.register("blood_island", () -> new BloodSlimeIslandStructure(
+    new Structure.StructureSettings(
+      biomes(TinkerTags.Biomes.BLOOD_ISLANDS), monsterOverride(EntityType.MAGMA_CUBE, 4, 6),
+      GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.NONE
+    )
+  ));
+  public static final ResourceKey<Structure> bloodIslandKey = registerKey("blood_island");
   // end
-  public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> endSlimeIsland = STRUCTURE_FEATURES.register("end_slime_island", EnderSlimeIslandStructure::new);
-  public static final RegistryObject<ConfiguredStructureFeature<?,?>> configuredEndSlimeIsland = CONFIGURED_STRUCTURE_FEATURES.register("end_slime_island", () -> endSlimeIsland.get().configured(NoneFeatureConfiguration.INSTANCE, TinkerTags.Biomes.ENDERSLIME_ISLANDS, false, monsterOverride(TinkerWorld.enderSlimeEntity.get(), 4, 4)));
+  public static final RegistryObject<StructureType<EnderSlimeIslandStructure>> endSlimeIsland = STRUCTURE_TYPES.register("end_slime_island", () -> () -> EnderSlimeIslandStructure.CODEC);
+  public static final RegistryObject<Structure> endSlimeIslandStructure = STRUCTURES.register("end_slime_island", () -> new EnderSlimeIslandStructure(
+    new Structure.StructureSettings(
+      biomes(TinkerTags.Biomes.ENDERSLIME_ISLANDS), monsterOverride(TinkerWorld.enderSlimeEntity.get(), 4, 4),
+      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
+    )
+  ));
+  public static final ResourceKey<Structure> endSlimeIslandKey = registerKey("end_slime_island");
+
+  public static ResourceKey<Structure> registerKey(String name) {
+    return ResourceKey.create(Registry.STRUCTURE_REGISTRY, TConstruct.getResource(name));
+  }
+
+  private static HolderSet<Biome> biomes(TagKey<Biome> tagKey) {
+    return BuiltinRegistries.BIOME.getOrCreateTag(tagKey);
+  }
 
   /** Creates a spawn override for a single mob */
   private static Map<MobCategory,StructureSpawnOverride> monsterOverride(EntityType<?> entity, int min, int max) {

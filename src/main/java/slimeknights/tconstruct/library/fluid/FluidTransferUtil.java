@@ -1,14 +1,7 @@
 package slimeknights.tconstruct.library.fluid;
 
-import io.github.fabricators_of_create.porting_lib.mixin.common.accessor.BucketItemAccessor;
-import slimeknights.mantle.transfer.TransferUtil;
-import slimeknights.mantle.transfer.fluid.EmptyFluidHandler;
 import slimeknights.mantle.transfer.fluid.IFluidHandler;
-import slimeknights.mantle.transfer.fluid.IFluidHandlerItem;
-import slimeknights.mantle.transfer.item.ItemHandlerHelper;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
-import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import net.minecraft.core.BlockPos;
@@ -20,7 +13,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import slimeknights.mantle.fluid.FluidTransferHelper;
 
 /**
- * Alternative to {@link net.minecraftforge.fluids.FluidUtil} since no one has time to make the forge util not a buggy mess
+ * Alternative to {@link io.github.fabricators_of_create.porting_lib.util.FluidUtil} since no one has time to make the forge util not a buggy mess
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FluidTransferUtil {

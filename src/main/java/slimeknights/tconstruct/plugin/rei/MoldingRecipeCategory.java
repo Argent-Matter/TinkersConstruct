@@ -10,7 +10,6 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.TConstruct;
@@ -26,7 +25,7 @@ import java.util.List;
 public class MoldingRecipeCategory implements TinkersCategory<MoldingRecipeDisplay> {
   private static final ResourceLocation BACKGROUND_LOC = TConstruct.getResource("textures/gui/jei/casting.png");
   private static final Component TITLE = TConstruct.makeTranslation("jei", "molding.title");
-  private static final Component TOOLTIP_PATTERN_CONSUMED = new TranslatableComponent(TConstruct.makeTranslationKey("jei", "molding.pattern_consumed"));
+  private static final Component TOOLTIP_PATTERN_CONSUMED = Component.translatable(TConstruct.makeTranslationKey("jei", "molding.pattern_consumed"));
 
   @Getter
   private final WidgetHolder background;

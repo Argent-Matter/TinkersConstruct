@@ -1,5 +1,7 @@
 package slimeknights.tconstruct.tools;
 
+import com.mojang.serialization.Codec;
+import io.github.fabricators_of_create.porting_lib.loot.IGlobalLootModifier;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import io.github.fabricators_of_create.porting_lib.util.ToolAction;
 import io.github.fabricators_of_create.porting_lib.util.ToolActions;
@@ -490,7 +492,7 @@ public final class TinkerModifiers extends TinkerModule {
   /**
    * Loot
    */
-  public static final RegistryObject<ModifierLootModifier.Serializer> modifierLootModifier = GLOBAL_LOOT_MODIFIERS.register("modifier_hook", ModifierLootModifier.Serializer::new);
+  public static final RegistryObject<Codec<? extends IGlobalLootModifier>> modifierLootModifier = GLOBAL_LOOT_MODIFIERS.register("modifier_hook", ModifierLootModifier.CODEC);
   public static final RegistryObject<LootItemConditionType> hasModifierLootCondition = LOOT_CONDITIONS.register("has_modifier", () -> new LootItemConditionType(new HasModifierLootCondition.ConditionSerializer()));
   public static final RegistryObject<LootItemFunctionType> modifierBonusFunction = LOOT_FUNCTIONS.register("modifier_bonus", () -> new LootItemFunctionType(new ModifierBonusLootFunction.Serializer()));
   public static final RegistryObject<LootItemConditionType> chrysophiliteLootCondition = LOOT_CONDITIONS.register("has_chrysophilite", () -> new LootItemConditionType(ChrysophiliteLootCondition.SERIALIZER));
@@ -542,9 +544,9 @@ public final class TinkerModifiers extends TinkerModule {
   }
 
   public static void gatherData(FabricDataGenerator generator, ExistingFileHelper helper) {
-    generator.addProvider(new ModifierProvider(generator));
-    generator.addProvider(new ModifierRecipeProvider(generator));
-    generator.addProvider(new SpillingFluidProvider(generator));
-    generator.addProvider(new ModifierTagProvider(generator, helper));
+    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierProvider(generator));
+    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierRecipeProvider(generator));
+    generator.addProvider(generator.isStrictValidationEnabled(), new SpillingFluidProvider(generator));
+    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierTagProvider(generator, helper));
   }
 }

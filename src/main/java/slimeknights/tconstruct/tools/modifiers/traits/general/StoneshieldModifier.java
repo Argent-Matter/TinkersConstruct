@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.tools.modifiers.traits.general;
 
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -9,7 +10,6 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import javax.annotation.Nullable;
 import java.util.Iterator;
-import java.util.List;
 
 public class StoneshieldModifier extends DurabilityShieldModifier {
   @Override
@@ -24,7 +24,7 @@ public class StoneshieldModifier extends DurabilityShieldModifier {
   }
 
   @Override
-  public List<ItemStack> processLoot(IToolStackView tool, int level, List<ItemStack> generatedLoot, LootContext context) {
+  public ObjectArrayList<ItemStack> processLoot(IToolStackView tool, int level, ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
     Iterator<ItemStack> iterator = generatedLoot.iterator();
     int addedShield = 0;
     // 20% chance per level of consuming each stone

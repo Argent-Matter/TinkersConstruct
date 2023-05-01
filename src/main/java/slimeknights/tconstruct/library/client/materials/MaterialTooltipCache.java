@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.packs.resources.ResourceManager;
 import slimeknights.mantle.client.ResourceColorManager;
 import slimeknights.mantle.data.fabric.IdentifiableISafeManagerReloadListener;
@@ -56,10 +55,10 @@ public class MaterialTooltipCache {
     if (id.hasVariant()) {
       String variantKey = getKey(id);
       if (Util.canTranslate(variantKey)) {
-        return new TranslatableComponent(variantKey);
+        return Component.translatable(variantKey);
       }
     }
-    return new TranslatableComponent(getKey(id.getId()));
+    return Component.translatable(getKey(id.getId()));
   };
 
   /** Gets the key name for a given material variant, prevents need to create a lot of extra strings */

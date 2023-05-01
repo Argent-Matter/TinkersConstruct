@@ -9,8 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.ClickEvent.Action;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.Resource;
@@ -62,7 +60,7 @@ public class ClientGeneratePartTexturesCommand {
 
   /** Gets the clickable output link */
   protected static Component getOutputComponent(File file) {
-    return (new TextComponent(file.getAbsolutePath())).withStyle((style) -> style.withUnderlined(true).withClickEvent(new ClickEvent(Action.OPEN_FILE, file.getAbsolutePath())));
+    return (Component.literal(file.getAbsolutePath())).withStyle((style) -> style.withUnderlined(true).withClickEvent(new ClickEvent(Action.OPEN_FILE, file.getAbsolutePath())));
   }
 
   /** Generates all textures using the resource pack list */
@@ -139,7 +137,7 @@ public class ClientGeneratePartTexturesCommand {
     MaterialPartTextureGenerator.runCallbacks(null, null);
     log.info("Finished generating {} textures in {} ms", count, deltaTime / 1000000f);
     if (Minecraft.getInstance().player != null) {
-      Minecraft.getInstance().player.displayClientMessage(new TranslatableComponent(SUCCESS_KEY, count, (deltaTime / 1000000) / 1000f, getOutputComponent(path.toFile())), false);
+      Minecraft.getInstance().player.displayClientMessage(Component.translatable(SUCCESS_KEY, count, (deltaTime / 1000000) / 1000f, getOutputComponent(path.toFile())), false);
     }
   }
 

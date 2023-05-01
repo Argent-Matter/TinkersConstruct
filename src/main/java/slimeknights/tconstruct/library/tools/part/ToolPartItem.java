@@ -2,8 +2,6 @@ package slimeknights.tconstruct.library.tools.part;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -72,9 +70,9 @@ public class ToolPartItem extends MaterialItem implements IToolPart {
         // is the material missing, or is it not valid for this stat type?
         IMaterial material = MaterialRegistry.getMaterial(id);
         if (material == IMaterial.UNKNOWN) {
-          tooltip.add(new TranslatableComponent(MISSING_MATERIAL_KEY, id));
+          tooltip.add(Component.translatable(MISSING_MATERIAL_KEY, id));
         } else {
-          tooltip.add(new TranslatableComponent(MISSING_STATS_KEY, materialStatId).withStyle(ChatFormatting.GRAY));
+          tooltip.add(Component.translatable(MISSING_STATS_KEY, materialStatId).withStyle(ChatFormatting.GRAY));
         }
       }
     }

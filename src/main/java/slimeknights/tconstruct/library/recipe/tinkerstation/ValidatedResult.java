@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -89,7 +88,7 @@ public class ValidatedResult {
 
     private Failure(String translationKey, Object[] params) {
       super(false);
-      this.message = new TranslatableComponent(translationKey, params);
+      this.message = Component.translatable(translationKey, params);
     }
 
     @Override

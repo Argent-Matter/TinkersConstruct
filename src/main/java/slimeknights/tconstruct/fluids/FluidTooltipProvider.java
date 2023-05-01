@@ -1,7 +1,8 @@
 package slimeknights.tconstruct.fluids;
 
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import net.minecraft.data.DataGenerator;
+import slimeknights.mantle.datagen.MantleTags;
 import slimeknights.mantle.fluid.tooltip.AbstractFluidTooltipProvider;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -58,13 +59,13 @@ public class FluidTooltipProvider extends AbstractFluidTooltipProvider {
       .addUnit("block", FluidValues.GLASS_BLOCK)
       .addUnit("pane", FluidValues.GLASS_PANE);
 
-    add("water", WATER_TOOLTIPS)
-      .addUnit("kilobucket", "mantle", FluidAttributes.BUCKET_VOLUME * 1000)
-      .addUnit("bucket",     "mantle", FluidAttributes.BUCKET_VOLUME)
+    add("water", MantleTags.Fluids.WATER)
+      .addUnit("kilobucket", "mantle", FluidUnit.DROPLETS.getOneBucketAmount() * 1000L)
+      .addUnit("bucket",     "mantle", FluidUnit.DROPLETS.getOneBucketAmount())
       .addUnit("bottle", FluidValues.BOTTLE);
     add("venom", TinkerFluids.venom.getLocalTag())
-      .addUnit("kilobucket", "mantle", FluidAttributes.BUCKET_VOLUME * 1000)
-      .addUnit("bucket",     "mantle", FluidAttributes.BUCKET_VOLUME)
+      .addUnit("kilobucket", "mantle", FluidUnit.DROPLETS.getOneBucketAmount() * 1000L)
+      .addUnit("bucket",     "mantle", FluidUnit.DROPLETS.getOneBucketAmount())
       .addUnit("bottle", FluidValues.BOTTLE);
     add("honey", TinkerFluids.honey.getForgeTag())
       .addUnit("block", FluidValues.BOTTLE * 4)

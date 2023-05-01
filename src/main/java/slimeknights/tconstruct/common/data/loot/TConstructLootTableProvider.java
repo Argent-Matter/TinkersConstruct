@@ -8,8 +8,9 @@ import com.google.gson.GsonBuilder;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.logging.LogUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -52,7 +53,7 @@ public class TConstructLootTableProvider extends LootTableProvider {
   }
 
   @Override
-  public void run(HashCache pCache) {
+  public void run(CachedOutput pCache) {
     Path path = this.gen.getOutputFolder();
     Map<ResourceLocation, LootTable> map = Maps.newHashMap();
     this.lootTables.forEach((p_124458_) -> {
@@ -79,7 +80,7 @@ public class TConstructLootTableProvider extends LootTableProvider {
         Path path1 = createPath(path, p_124451_);
 
         try {
-          DataProvider.save(GSON, pCache, LootTables.serialize(p_124452_), path1);
+          DataProvider.saveStable(pCache, LootTables.serialize(p_124452_), path1);
         } catch (IOException ioexception) {
           LOGGER.error("Couldn't save loot table {}", path1, ioexception);
         }

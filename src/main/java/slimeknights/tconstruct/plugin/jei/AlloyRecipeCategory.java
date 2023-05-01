@@ -19,7 +19,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import slimeknights.mantle.fluid.tooltip.FluidTooltipHandler;
@@ -49,7 +48,7 @@ public class AlloyRecipeCategory implements IRecipeCategory<AlloyRecipe> {
     //noinspection SimplifyOptionalCallChains  Not for int streams
     slot.getDisplayedIngredient(JEITypes.FLUID_STACK)
         .ifPresent(stack -> MeltingFuelHandler.getTemperature(stack.getFluid())
-                                              .ifPresent(temperature -> tooltip.add(new TranslatableComponent(KEY_TEMPERATURE, temperature).withStyle(ChatFormatting.GRAY))));
+                                              .ifPresent(temperature -> tooltip.add(Component.translatable(KEY_TEMPERATURE, temperature).withStyle(ChatFormatting.GRAY))));
   };
 
   @Getter

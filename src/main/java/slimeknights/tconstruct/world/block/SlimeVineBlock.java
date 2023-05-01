@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.world.block;
 
 import lombok.Getter;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
@@ -47,7 +48,7 @@ public class SlimeVineBlock extends VineBlock {
   }
 
   @Override
-  public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+  public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
     if (worldIn.isClientSide) {
       return;
     }
@@ -80,7 +81,7 @@ public class SlimeVineBlock extends VineBlock {
    * @param pos     Pos
    * @param state   State
    */
-  public void grow(LevelAccessor worldIn, Random random, BlockPos pos, BlockState state) {
+  public void grow(LevelAccessor worldIn, RandomSource random, BlockPos pos, BlockState state) {
     // no growing ends
     if (hasNoHorizontalSides(state) || state.getValue(STAGE) == VineStage.END) {
       return;

@@ -2,7 +2,6 @@ package slimeknights.tconstruct.tools.modifiers.upgrades.general;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import io.github.fabricators_of_create.porting_lib.util.Lazy;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.ToolRebuildContext;
@@ -13,10 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class OffhandedModifier extends Modifier {
-  private final Lazy<Component> noHandedName = Lazy.of(() -> applyStyle(new TranslatableComponent(getTranslationKey() + ".2")));
+  private final Lazy<Component> noHandedName = Lazy.of(() -> applyStyle(Component.translatable(getTranslationKey() + ".2")));
   private final Lazy<List<Component>> noHandedDescription = Lazy.of(() -> Arrays.asList(
-    new TranslatableComponent(getTranslationKey() + ".flavor").withStyle(ChatFormatting.ITALIC),
-    new TranslatableComponent(getTranslationKey() + ".description.2")));
+    Component.translatable(getTranslationKey() + ".flavor").withStyle(ChatFormatting.ITALIC),
+    Component.translatable(getTranslationKey() + ".description.2")));
 
   @Override
   public void addVolatileData(ToolRebuildContext context, int level, ModDataNBT volatileData) {

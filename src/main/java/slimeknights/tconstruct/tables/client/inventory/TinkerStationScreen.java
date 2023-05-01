@@ -9,8 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -62,7 +60,7 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
   private static final Component UPGRADES_TEXT = TConstruct.makeTranslation("gui", "tinker_station.upgrades");
   private static final Component TRAITS_TEXT = TConstruct.makeTranslation("gui", "tinker_station.traits");
   // fallback text for crafting with no named slots
-  private static final Component ASCII_ANVIL = new TextComponent("\n\n")
+  private static final Component ASCII_ANVIL = Component.literal("\n\n")
     .append("       .\n")
     .append("     /( _________\n")
     .append("     |  >:=========`\n")
@@ -329,19 +327,19 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
 
       // for each named slot, color the slot if the slot is filled
       // typically all input slots should be named, or none of them
-      MutableComponent fullText = new TextComponent("");
+      MutableComponent fullText = Component.literal("");
       boolean hasComponents = false;
       for (int i = 0; i <= activeInputs; i++) {
         LayoutSlot layout = currentLayout.getSlot(i);
         String key = layout.getTranslationKey();
         if (!layout.isHidden() && !key.isEmpty()) {
           hasComponents = true;
-          MutableComponent textComponent = new TextComponent(" * ");
+          MutableComponent textComponent = Component.literal(" * ");
           ItemStack slotStack = this.getMenu().getSlot(i).getItem();
           if (!layout.isValid(slotStack)) {
             textComponent.withStyle(ChatFormatting.RED);
           }
-          textComponent.append(new TranslatableComponent(key)).append("\n");
+          textComponent.append(Component.translatable(key)).append("\n");
           fullText.append(textComponent);
         }
       }

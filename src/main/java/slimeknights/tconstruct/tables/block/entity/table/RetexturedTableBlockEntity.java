@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.tables.block.entity.table;
 
 import io.github.fabricators_of_create.porting_lib.block.CustomRenderBoundingBoxBlockEntity;
-import io.github.fabricators_of_create.porting_lib.model.IModelData;
+import io.github.fabricators_of_create.porting_lib.model.data.ModelData;
 import io.github.fabricators_of_create.porting_lib.util.Lazy;
 import lombok.Getter;
 import net.fabricmc.fabric.api.rendering.data.v1.RenderAttachmentBlockEntity;
@@ -26,7 +26,7 @@ import java.util.Objects;
 public abstract class RetexturedTableBlockEntity extends TableBlockEntity implements IRetexturedBlockEntity, RenderAttachmentBlockEntity, CustomRenderBoundingBoxBlockEntity {
   private static final String TAG_TEXTURE = "texture";
 
-  private final Lazy<IModelData> data = Lazy.of(this::getRetexturedModelData);
+  private final Lazy<ModelData> data = Lazy.of(this::getRetexturedModelData);
   @Nonnull @Getter
   private Block texture = Blocks.AIR;
   public RetexturedTableBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, Component name, int size) {
@@ -42,7 +42,7 @@ public abstract class RetexturedTableBlockEntity extends TableBlockEntity implem
 
   @Nonnull
   @Override
-  public IModelData getRenderAttachmentData() {
+  public ModelData getRenderAttachmentData() {
     return this.data.get();
   }
 
@@ -58,9 +58,9 @@ public abstract class RetexturedTableBlockEntity extends TableBlockEntity implem
     // update the texture in BE data
     if (level != null && level.isClientSide) {
       Block normalizedTexture = texture == Blocks.AIR ? null : texture;
-      IModelData data = getRetexturedModelData();
-      if (data.getData(RetexturedHelper.BLOCK_PROPERTY) != normalizedTexture) {
-        data.setData(RetexturedHelper.BLOCK_PROPERTY, normalizedTexture);
+      ModelData data = getRetexturedModelData();
+      if (data.get(RetexturedHelper.BLOCK_PROPERTY) != normalizedTexture) {
+        data = data.derive().with(RetexturedHelper.BLOCK_PROPERTY, normalizedTexture).build();
 //        requestModelDataUpdate();
         BlockState state = getBlockState();
         level.sendBlockUpdated(worldPosition, state, state, 0);

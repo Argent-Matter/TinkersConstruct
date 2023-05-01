@@ -2,7 +2,6 @@ package slimeknights.tconstruct.fluids.item;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -50,10 +49,10 @@ public class PotionBucketItem extends PotionItem {
     Potion potion = PotionUtils.getPotion(stack.getTag());
     String bucketKey = potion.getName(getDescriptionId() + ".effect.");
     if (Util.canTranslate(bucketKey)) {
-      return new TranslatableComponent(bucketKey);
+      return Component.translatable(bucketKey);
     }
     // default to filling with the contents
-    return new TranslatableComponent(getDescriptionId() + ".contents", new TranslatableComponent(potion.getName("item.minecraft.potion.effect.")));
+    return Component.translatable(getDescriptionId() + ".contents", Component.translatable(potion.getName("item.minecraft.potion.effect.")));
   }
 
   @Override
@@ -96,7 +95,7 @@ public class PotionBucketItem extends PotionItem {
         player.getInventory().add(new ItemStack(Items.BUCKET));
       }
     }
-    level.gameEvent(living, GameEvent.DRINKING_FINISH, living.eyeBlockPosition());
+    level.gameEvent(living, GameEvent.DRINK, living.getEyePosition());
     return stack;
   }
 
@@ -124,7 +123,7 @@ public class PotionBucketItem extends PotionItem {
 //    @Override
 //    public FluidStack getFluid() {
 //      return new FluidStack(((PotionBucketItem)container.getItem()).getFluid(),
-//                            FluidAttributes.BUCKET_VOLUME, container.getTag());
+//                            FluidUnit.DROPLETS.getOneBucketAmount() * 1000L, container.getTag());
 //    }
 //  }
 }

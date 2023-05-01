@@ -3,6 +3,9 @@ package slimeknights.tconstruct.library.client.model.block;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Pair;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryBakingContext;
+import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.IUnbakedGeometry;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.minecraft.client.renderer.block.model.ItemOverrides;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -16,9 +19,6 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import slimeknights.mantle.client.model.fluid.FluidCuboid;
 import slimeknights.mantle.client.model.util.SimpleBlockModel;
-import io.github.fabricators_of_create.porting_lib.model.IModelConfiguration;
-import io.github.fabricators_of_create.porting_lib.model.IModelGeometry;
-import io.github.fabricators_of_create.porting_lib.model.IModelLoader;
 
 import java.util.Collection;
 import java.util.EnumMap;
@@ -30,7 +30,7 @@ import java.util.function.Function;
  * Similar to {@link slimeknights.mantle.client.model.fluid.FluidsModel}, but arranges cuboids in the channel.
  * Used since there is no easy way to handle multipart in the fluid cuboid system.
  */
-public class ChannelModel implements IModelGeometry<ChannelModel> {
+public class ChannelModel implements IUnbakedGeometry<ChannelModel> {
 	/** Model loader instance */
 	public static final Loader LOADER = new Loader();
 
@@ -45,12 +45,12 @@ public class ChannelModel implements IModelGeometry<ChannelModel> {
 	}
 
 	@Override
-	public Collection<Material> getTextures(IModelConfiguration owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors) {
-		return model.getTextures(owner, modelGetter, missingTextureErrors);
+	public Collection<Material> getMaterials(IGeometryBakingContext owner, Function<ResourceLocation,UnbakedModel> modelGetter, Set<Pair<String,String>> missingTextureErrors) {
+		return model.getMaterials(owner, modelGetter, missingTextureErrors);
 	}
 
 	@Override
-	public BakedModel bake(IModelConfiguration owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
+	public BakedModel bake(IGeometryBakingContext owner, ModelBakery bakery, Function<Material,TextureAtlasSprite> spriteGetter, ModelState transform, ItemOverrides overrides, ResourceLocation location) {
 		BakedModel baked = this.model.bakeModel(owner, transform, overrides, spriteGetter, location);
 		return new Baked(baked, this.fluids);
 	}
@@ -98,12 +98,10 @@ public class ChannelModel implements IModelGeometry<ChannelModel> {
 	}
 
 	/** Model loader */
-	private static class Loader implements IModelLoader<ChannelModel> {
-		@Override
-		public void onResourceManagerReload(ResourceManager resourceManager) {}
+	private static class Loader implements IGeometryLoader<ChannelModel> {
 
 		@Override
-		public ChannelModel read(JsonDeserializationContext deserializationContext, JsonObject modelContents) {
+		public ChannelModel read(JsonObject modelContents, JsonDeserializationContext deserializationContext) {
 			SimpleBlockModel model = SimpleBlockModel.deserialize(deserializationContext, modelContents);
 
 			// parse fluid cuboid for each side

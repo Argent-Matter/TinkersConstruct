@@ -1,8 +1,8 @@
 package slimeknights.tconstruct.smeltery.block.entity.tank;
 
+import io.github.fabricators_of_create.porting_lib.model.data.ModelProperty;
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import net.minecraft.core.BlockPos;
-import io.github.fabricators_of_create.porting_lib.model.ModelProperty;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 
 /**
@@ -31,7 +31,7 @@ public interface IDisplayFluidListener {
       return FluidStack.EMPTY;
     }
     fluid = fluid.copy();
-    fluid.setAmount(FluidAttributes.BUCKET_VOLUME);
+    fluid.setAmount(FluidUnit.DROPLETS.getOneBucketAmount());
     return fluid;
   }
 }

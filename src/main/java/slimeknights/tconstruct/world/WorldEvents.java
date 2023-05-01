@@ -1,18 +1,20 @@
 package slimeknights.tconstruct.world;
 
 import com.google.common.collect.Lists;
-import io.github.fabricators_of_create.porting_lib.biome.BiomeDictionary;
-import io.github.fabricators_of_create.porting_lib.biome.BiomeDictionary.Type;
 import io.github.fabricators_of_create.porting_lib.event.common.LivingEntityEvents;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableSource;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,7 +27,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraft.world.level.dimension.LevelStem;
@@ -50,29 +51,15 @@ import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
-import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
 public class WorldEvents {
-  /** Checks if the biome matches the given categories */
-  private static boolean matches(boolean hasNoTypes, @Nullable ResourceKey<Biome> key, BiomeCategory given, @Nullable BiomeCategory check, Type type) {
-    if (hasNoTypes || key == null) {
-      // check of null means not none, the nether/end checks were done earlier
-      if (check == null) {
-        return given != BiomeCategory.NONE;
-      }
-      return given == check;
-    }
-    // we have a key, require matching all the given types
-    return BiomeDictionary.hasType(key, type);
-  }
-
   public static void init() {
     LootTableEvents.MODIFY.register(WorldEvents::onLootTableLoad);
-    LivingEntityEvents.VISIBILITY.register(WorldEvents::livingVisibility);
+    //LivingEntityEvents.VISIBILITY.register(WorldEvents::livingVisibility);
     LivingEntityEvents.DROPS.register(WorldEvents::creeperKill);
     onBiomeLoad();
   }
@@ -81,19 +68,19 @@ public class WorldEvents {
     // setup for biome checks
     // nether - any biome is fine
     if (Config.COMMON.generateCobalt.get()) {
-      TinkerWorld.placedSmallCobaltOre.getHolder().ifPresent(holder -> BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, holder.unwrapKey().get()));
-      TinkerWorld.placedLargeCobaltOre.getHolder().ifPresent(holder -> BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, holder.unwrapKey().get()));
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedSmallCobaltOre.getKey());
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedLargeCobaltOre.getKey());
     }
     // ichor can be anywhere
     if (Config.COMMON.ichorGeodes.get()) {
-      TinkerWorld.placedIchorGeode.getHolder().ifPresent(holder -> BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.LOCAL_MODIFICATIONS, holder.unwrapKey().get()));
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedIchorGeode.getKey());
     }
     // end, mostly do stuff in the outer islands
     // slime spawns anywhere, uses the grass
     BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), MobCategory.MONSTER, TinkerWorld.enderSlimeEntity.get(), 10, 2, 4);
     // geodes only on outer islands
     if (Config.COMMON.enderGeodes.get()/* && key != null && !Biomes.THE_END.equals(key)*/) {
-      TinkerWorld.placedEnderGeode.getHolder().ifPresent(holder -> BiomeModifications.addFeature(context -> context.canGenerateIn(LevelStem.END) && context.getBiomeKey() != Biomes.THE_END,Decoration.LOCAL_MODIFICATIONS, holder.unwrapKey().get()));
+      BiomeModifications.addFeature(context -> context.canGenerateIn(LevelStem.END) && context.getBiomeKey() != Biomes.THE_END,Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEnderGeode.getKey());
     }
     // overworld gets tricky
     // slime spawns anywhere, uses the grass
@@ -102,7 +89,7 @@ public class WorldEvents {
 
     // earth spawns anywhere, sky does not spawn in ocean (looks weird)
     if (Config.COMMON.earthGeodes.get()) {
-      TinkerWorld.placedEarthGeode.getHolder().ifPresent(holder -> BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), Decoration.LOCAL_MODIFICATIONS, holder.unwrapKey().get()));
+      BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEarthGeode.getKey());
     }
     // sky spawn in non-oceans, they look funny in the ocean as they spawn so high
     if (Config.COMMON.skyGeodes.get()) {
@@ -110,17 +97,17 @@ public class WorldEvents {
         if (!biomeSelectionContext.canGenerateIn(LevelStem.OVERWORLD))
           return false;
         boolean add;
-        BiomeCategory category = Biome.getBiomeCategory(biomeSelectionContext.getBiomeRegistryEntry());
+        Holder<Biome> biomeHolder = biomeSelectionContext.getBiomeRegistryEntry();
         ResourceKey<Biome> key = biomeSelectionContext.getBiomeKey();
-        boolean hasNoTypes = key == null || !BiomeDictionary.hasAnyType(key);
+        boolean hasNoTypes = key == null;
         if (hasNoTypes) {
-          add = category != BiomeCategory.OCEAN && category != BiomeCategory.BEACH && category != BiomeCategory.RIVER;
+          add = !biomeHolder.is(ConventionalBiomeTags.OCEAN) && !biomeHolder.is(ConventionalBiomeTags.BEACH) && !biomeHolder.is(ConventionalBiomeTags.RIVER);
         } else {
-          add = !BiomeDictionary.hasType(key, Type.WATER) && !BiomeDictionary.hasType(key, Type.BEACH);
+          add = !biomeHolder.is(BiomeTags.IS_OCEAN) && !biomeHolder.is(ConventionalBiomeTags.BEACH);
         }
         return add;
       };
-      TinkerWorld.placedSkyGeode.getHolder().ifPresent(holder -> BiomeModifications.addFeature(context, Decoration.LOCAL_MODIFICATIONS, holder.unwrapKey().get()));
+      BiomeModifications.addFeature(context, Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedSkyGeode.getKey());
     }
   }
 
@@ -150,7 +137,7 @@ public class WorldEvents {
   /** Makes a seed injection loot entry */
   private static LootPoolEntryContainer makeSeed(SlimeType type, int weight) {
     return LootItem.lootTableItem(TinkerWorld.slimeGrassSeeds.get(type)).setWeight(weight)
-                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 4))).build();
+      .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 4))).build();
   }
 
   /** Makes a sapling injection loot entry */
@@ -191,14 +178,14 @@ public class WorldEvents {
           int weight = Config.COMMON.barterBlazingBlood.get();
           if (weight > 0) {
             injectInto(manager.get(name), "main", LootItem.lootTableItem(TinkerSmeltery.scorchedLantern).setWeight(weight)
-                                              .apply(SetFluidLootFunction.builder(new FluidStack(TinkerFluids.blazingBlood.get(), FluidValues.LANTERN_CAPACITY)))
-                                              .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
-                                              .build());
+              .apply(SetFluidLootFunction.builder(new FluidStack(TinkerFluids.blazingBlood.get(), FluidValues.LANTERN_CAPACITY)))
+              .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
+              .build());
           }
           break;
         }
 
-          // randomly swap vanilla tool for a tinkers tool
+        // randomly swap vanilla tool for a tinkers tool
         case "chests/spawn_bonus_chest": {
           int weight = Config.COMMON.tinkerToolBonusChest.get();
           if (weight > 0) {
@@ -206,19 +193,19 @@ public class WorldEvents {
             RandomMaterial firstHandle = RandomMaterial.firstWithStat(HandleMaterialStats.ID); // should be wood
             RandomMaterial randomBinding = RandomMaterial.random(ExtraMaterialStats.ID).tier(1).build();
             injectInto(manager.get(name), "main", LootItem.lootTableItem(TinkerTools.handAxe.get())
-                                              .setWeight(weight)
-                                              .apply(AddToolDataFunction.builder()
-                                                               .addMaterial(randomHead)
-                                                               .addMaterial(firstHandle)
-                                                               .addMaterial(randomBinding))
-                                              .build());
+              .setWeight(weight)
+              .apply(AddToolDataFunction.builder()
+                .addMaterial(randomHead)
+                .addMaterial(firstHandle)
+                .addMaterial(randomBinding))
+              .build());
             injectInto(manager.get(name), "pool1", LootItem.lootTableItem(TinkerTools.pickaxe.get())
-                                               .setWeight(weight)
-                                               .apply(AddToolDataFunction.builder()
-                                                               .addMaterial(randomHead)
-                                                               .addMaterial(firstHandle)
-                                                               .addMaterial(randomBinding))
-                                               .build());
+              .setWeight(weight)
+              .apply(AddToolDataFunction.builder()
+                .addMaterial(randomHead)
+                .addMaterial(firstHandle)
+                .addMaterial(randomBinding))
+              .build());
           }
           break;
         }

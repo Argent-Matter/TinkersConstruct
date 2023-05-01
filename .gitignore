@@ -13,7 +13,6 @@ Thumbs.db
 #gradle stuff
 /.gradle
 /build/
-/libs/
 /run*/
 /ui/
 *.launch

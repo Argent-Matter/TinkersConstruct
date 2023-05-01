@@ -7,7 +7,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import io.github.fabricators_of_create.porting_lib.event.common.PlayerTickEvents;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.TConstruct;
@@ -32,7 +31,7 @@ public class SlurpingModifier extends TankModifier implements KeybindInteractMod
   private static final float DEGREE_TO_RADIANS = (float)Math.PI / 180F;
   private static final TinkerDataKey<SlurpingInfo> SLURP_FINISH_TIME = TConstruct.createKey("slurping_finish");
   public SlurpingModifier() {
-    super(FluidAttributes.BUCKET_VOLUME);
+    super(FluidUnit.DROPLETS.getOneBucketAmount() * 1000L);
     PlayerTickEvents.END.register(this::playerTick);
   }
 

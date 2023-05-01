@@ -5,8 +5,9 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector3f;
 import io.github.fabricators_of_create.porting_lib.extensions.Vector3fExtensions;
-import io.github.fabricators_of_create.porting_lib.util.FluidAttributes;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
@@ -110,11 +111,10 @@ public class SmelteryTankRenderer {
       return;
     }
     // fluid attributes
-    FluidAttributes attributes = fluid.getFluid().getAttributes();
-    TextureAtlasSprite still = FluidRenderer.getBlockSprite(/*FluidVariantRendering.getSprite(fluid.getType()).getName()*/attributes.getFlowingTexture(fluid));
-    int color = attributes.getColor(fluid);//FluidVariantRendering.getColor(fluid.getType());
-    brightness = FluidRenderer.withBlockLight(brightness, attributes.getLuminosity(fluid));
-    boolean upsideDown = attributes.isGaseous(fluid);//FluidVariantRendering.fillsFromTop(fluid.getType());
+    TextureAtlasSprite still = FluidRenderer.getBlockSprite(FluidVariantRendering.getSprite(fluid.getType()).getName());
+    int color = FluidVariantRendering.getColor(fluid.getType());//FluidVariantRendering.getColor(fluid.getType());
+    brightness = FluidRenderer.withBlockLight(brightness, FluidVariantAttributes.getLuminance(fluid.getType()));
+    boolean upsideDown = FluidVariantAttributes.isLighterThanAir(fluid.getType());//FluidVariantRendering.fillsFromTop(fluid.getType());
 
     // the liquid can stretch over more blocks than the subtracted height is if yMin's decimal is bigger than yMax's decimal (causing UV over 1)
     // ignoring the decimals prevents this, as yd then equals exactly how many ints are between the two

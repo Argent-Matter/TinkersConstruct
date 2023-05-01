@@ -120,6 +120,12 @@ dependencies {
     modRuntimeOnly("maven.modrinth:lazydfu:0.1.2")
     // modRuntimeOnly("com.github.Andrew6rant:InventoryTabs:inventorytabs-${inventorytabs_version}")
 
+    // Adds a dependency on the base cardinal components module (required by every other module)
+    // Replace modImplementation with modApi if you expose components in your own API
+    modImplementation(include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"))
+    // Adds a dependency on a specific module
+    modImplementation(include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"))
+
     // lombok
     compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
@@ -132,13 +138,14 @@ dependencies {
 
     // dependencies
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
-    modImplementation(include("io.github.fabricators_of_create:Porting-Lib:${project.port_lib_version}+${project.minecraft_version}"))
+    modImplementation(include("io.github.fabricators_of_create:Porting-Lib:${project.port_lib_version}+1.19.1"))
     modImplementation(include("curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"))
     modImplementation("com.github.AlphaMode:fakeconfig:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation("com.github.AlphaMode:fakeconfigtoml:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation(include("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"))
+    modImplementation("com.github.AlphaMode:fakeconfigtoml:fb8d12b") { exclude(group: "net.fabricmc.fabric-api") }
+    modImplementation(include(files("libs/Mantle-1.19.2-1.9.DEV.fa947449.jar"))) //"slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"
     include("io.github.tropheusj:serialization-hooks:0.3.23")
-    modImplementation(include("io.github.tropheusj:milk-lib:0.3.2"))
+    modImplementation(include("io.github.tropheusj:milk-lib:1.1.54"))
+    modImplementation(include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"))
 
     api(include("com.github.LlamaLad7:MixinExtras:0.0.6"))
     annotationProcessor(include("com.github.LlamaLad7:MixinExtras:0.0.6"))
