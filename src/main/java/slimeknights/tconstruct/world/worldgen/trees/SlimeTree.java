@@ -35,20 +35,14 @@ public class SlimeTree extends AbstractTreeGrower {
    */
   @Nullable
   private ConfiguredFeature<?, ?> getSlimeTreeFeature() {
-    switch (this.foliageType) {
-      case EARTH:
-        return TinkerStructures.earthSlimeTree.get();
-      case SKY:
-        return TinkerStructures.skySlimeTree.get();
-      case ENDER:
-        return TinkerStructures.enderSlimeTree.get();
-      case BLOOD:
-        return TinkerStructures.bloodSlimeFungus.get();
-      case ICHOR:
-        return TinkerStructures.ichorSlimeFungus.get();
-    }
+    return switch (this.foliageType) {
+      case EARTH -> TinkerStructures.earthSlimeTree.get();
+      case SKY -> TinkerStructures.skySlimeTree.value();
+      case ENDER -> TinkerStructures.enderSlimeTree.value();
+      case BLOOD -> TinkerStructures.bloodSlimeFungus.value();
+      case ICHOR -> TinkerStructures.ichorSlimeFungus.value();
+    };
 
-    return null;
   }
 
   @Override

@@ -130,7 +130,6 @@ public abstract class TinkerModule {
     CONFIGURED_FEATURES.register();
     PLACED_FEATURES.register();
     STRUCTURE_TYPES.register();
-    TinkerStructures.init();
     STRUCTURE_PIECE.register();
     BLOCK_STATE_PROVIDER_TYPES.register();
 

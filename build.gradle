@@ -144,7 +144,7 @@ dependencies {
     modImplementation(include("curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"))
     modImplementation("com.github.AlphaMode:fakeconfig:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
     modImplementation("com.github.AlphaMode:fakeconfigtoml:fb8d12b") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation(include(files("libs/Mantle-1.19.2-1.9.DEV.37333e3c.jar")))
+    include(modImplementation(files("libs/Mantle-1.19.2-1.9.DEV.37333e3c.jar")))
     include("io.github.tropheusj:serialization-hooks:0.3.26")
     modImplementation(include("io.github.tropheusj:milk-lib:1.0.51"))
     modImplementation(include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"))
@@ -153,6 +153,7 @@ dependencies {
     annotationProcessor(include("com.github.LlamaLad7:MixinExtras:0.0.6"))
 
     modImplementation "me.alphamode:Star:1.3+1.19.2"
+    modImplementation(include("me.alphamode:ForgeTags:2.2"))
 
     modRuntimeOnly("dev.architectury:architectury-fabric:6.5.77") { transitive = false }
 

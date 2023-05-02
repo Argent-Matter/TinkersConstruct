@@ -216,7 +216,7 @@ public final class TinkerFluids extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new FluidTooltipProvider(datagenerator));
+    datagenerator.addProvider(true, new FluidTooltipProvider(datagenerator));
   }
 
   void commonSetup() {

@@ -232,8 +232,8 @@ public final class TinkerWorld extends TinkerModule {
     Function<SlimeType,BlockBehaviour.Properties> props = type -> builder(Material.PLANT, type.getMapColor(), type.isNether() ? SoundType.FUNGUS : SoundType.GRASS).instabreak().noCollission();
     return new EnumObject.Builder<SlimeType,Block>(SlimeType.class)
       .putAll(BLOCKS.registerEnum(SlimeType.OVERWORLD, "slime_sapling", (type) -> new SlimeSaplingBlock(new SlimeTree(type), type, props.apply(type).randomTicks()), TOOLTIP_BLOCK_ITEM))
-      .put(SlimeType.BLOOD, BLOCKS.register("blood_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.BLOOD), () -> Holder.hackyErase(TinkerStructures.bloodSlimeFungus.getHolder().orElseThrow())), TOOLTIP_BLOCK_ITEM))
-      .put(SlimeType.ICHOR, BLOCKS.register("ichor_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.ICHOR), () -> Holder.hackyErase(TinkerStructures.ichorSlimeFungus.getHolder().orElseThrow())), HIDDEN_BLOCK_ITEM))
+      .put(SlimeType.BLOOD, BLOCKS.register("blood_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.BLOOD), () -> Holder.hackyErase(TinkerStructures.bloodSlimeFungus)), TOOLTIP_BLOCK_ITEM))
+      .put(SlimeType.ICHOR, BLOCKS.register("ichor_slime_sapling", () -> new SlimeFungusBlock(props.apply(SlimeType.ICHOR), () -> Holder.hackyErase(TinkerStructures.ichorSlimeFungus)), HIDDEN_BLOCK_ITEM))
       .build();
   });
   public static final EnumObject<SlimeType,FlowerPotBlock> pottedSlimeSapling = BLOCKS.registerPottedEnum(SlimeType.values(), "slime_sapling", slimeSapling);
@@ -357,8 +357,8 @@ public final class TinkerWorld extends TinkerModule {
   public static ResourceKey<PlacedFeature> placedLargeCobaltOreKey = ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, TConstruct.getResource("cobalt_ore_large"));
   public static Holder<PlacedFeature> placedLargeCobaltOre = registerPlaced("cobalt_ore_large", configuredSmallCobaltOre, CountPlacement.of(3), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(8), VerticalAnchor.absolute(32)), BiomeFilter.biome());
 
-  public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, F>> registerOre(String resourceKey, F feature, FC featureConfiguration) {
-    return BuiltinRegistries.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, TConstruct.resourceString(resourceKey), new ConfiguredFeature<>(feature, featureConfiguration));
+  public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, F>> registerOre(String name, F feature, FC featureConfiguration) {
+    return BuiltinRegistries.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, TConstruct.resourceString(name), new ConfiguredFeature<>(feature, featureConfiguration));
   }
 
   /*
@@ -448,7 +448,7 @@ public final class TinkerWorld extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new WorldRecipeProvider(datagenerator));
+    datagenerator.addProvider(true, new WorldRecipeProvider(datagenerator));
   }
 
 

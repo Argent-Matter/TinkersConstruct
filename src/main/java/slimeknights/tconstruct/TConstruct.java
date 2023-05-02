@@ -89,6 +89,7 @@ public class TConstruct implements ModInitializer {
     // init deferred registers
     TinkerModule.initRegisters();
     TinkerGadgets.commonSetup();
+    TinkerStructures.init();
     TinkerWorld.init();
     TinkerTags.init();
     WorldEvents.init();
@@ -122,16 +123,15 @@ public class TConstruct implements ModInitializer {
   public static void onInitializeDataGenerator(FabricDataGenerator datagenerator) {
 //    if (event.includeServer()) {
       BlockTagProvider blockTags = new BlockTagProvider(datagenerator);
-      boolean isStrict = datagenerator.isStrictValidationEnabled();
-      datagenerator.addProvider(isStrict, blockTags);
-      datagenerator.addProvider(isStrict, new ItemTagProvider(datagenerator, blockTags));
-      datagenerator.addProvider(isStrict, new FluidTagProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new EntityTypeTagProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new BlockEntityTypeTagProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new TConstructLootTableProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new AdvancementsProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new BiomeTagProvider(datagenerator));
-      datagenerator.addProvider(isStrict, new GlobalLootModifiersProvider(datagenerator));
+      datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), blockTags);
+      datagenerator.addProvider(true, new ItemTagProvider(datagenerator, blockTags));
+      datagenerator.addProvider(true, new FluidTagProvider(datagenerator));
+      datagenerator.addProvider(true, new EntityTypeTagProvider(datagenerator));
+      datagenerator.addProvider(true, new BlockEntityTypeTagProvider(datagenerator));
+      datagenerator.addProvider(true, new TConstructLootTableProvider(datagenerator));
+      datagenerator.addProvider(true, new AdvancementsProvider(datagenerator));
+      datagenerator.addProvider(true, new BiomeTagProvider(datagenerator));
+      datagenerator.addProvider(true, new GlobalLootModifiersProvider(datagenerator));
 //      datagenerator.addProvider(new StructureUpdater(datagenerator, existingFileHelper, MOD_ID, PackType.SERVER_DATA, "structures"));
 //    }
 //    if (event.includeClient()) {

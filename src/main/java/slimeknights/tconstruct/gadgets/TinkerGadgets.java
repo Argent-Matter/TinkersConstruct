@@ -164,6 +164,6 @@ public final class TinkerGadgets extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new GadgetRecipeProvider(datagenerator));
+    datagenerator.addProvider(true, new GadgetRecipeProvider(datagenerator));
   }
 }

@@ -35,11 +35,9 @@ public abstract class AbstractIslandStructure extends Structure {
    */
   public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
     // get height
-    ChunkPos chunkPos = context.chunkPos();
-    RandomSource random = RandomSource.create(chunkPos.x + chunkPos.z * 0x9E7F71L);
     ChunkGenerator generator = context.chunkGenerator();
-    Rotation rotation = Rotation.getRandom(random);
-    int height = iIslandSettings.getHeight(context.chunkPos(), generator, context.heightAccessor(), rotation, random, context.randomState());
+    Rotation rotation = Rotation.getRandom(context.random());
+    int height = iIslandSettings.getHeight(context.chunkPos(), generator, context.heightAccessor(), rotation, context.random(), context.randomState());
 
     // biome check
     BlockPos targetPos = context.chunkPos().getMiddleBlockPosition(height);

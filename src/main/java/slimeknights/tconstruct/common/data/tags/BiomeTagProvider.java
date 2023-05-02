@@ -26,14 +26,13 @@ import static net.minecraft.world.level.biome.Biomes.END_HIGHLANDS;
 import static net.minecraft.world.level.biome.Biomes.END_MIDLANDS;
 import static net.minecraft.world.level.biome.Biomes.SMALL_END_ISLANDS;
 
-@SuppressWarnings("unchecked")
-public class BiomeTagProvider extends TagsProvider<Biome> {
+public class BiomeTagProvider extends FabricTagProvider.DynamicRegistryTagProvider<Biome> {
 
   public BiomeTagProvider(FabricDataGenerator generatorIn) {
-    super(generatorIn, BuiltinRegistries.BIOME);
+    super(generatorIn, Registry.BIOME_REGISTRY);
   }
   @Override
-  protected void addTags() {
+  protected void generateTags() {
     this.tag(TinkerTags.Biomes.CLAY_ISLANDS).addOptionalTag(IS_DEEP_OCEAN.location()).addOptionalTag(IS_OCEAN.location()).addOptionalTag(IS_BEACH.location()).addOptionalTag(IS_RIVER.location()).addOptionalTag(IS_MOUNTAIN.location()).addOptionalTag(IS_BADLANDS.location()).addOptionalTag(IS_HILL.location());
     this.tag(TinkerTags.Biomes.EARTHSLIME_ISLANDS).addOptionalTag(IS_DEEP_OCEAN.location()).addOptionalTag(IS_OCEAN.location());
     this.tag(TinkerTags.Biomes.SKYSLIME_ISLANDS).addOptionalTag(IS_DEEP_OCEAN.location()).addOptionalTag(IS_OCEAN.location()).addOptionalTag(IS_BEACH.location()).addOptionalTag(IS_RIVER.location()).addOptionalTag(IS_MOUNTAIN.location()).addOptionalTag(IS_BADLANDS.location()).addOptionalTag(IS_HILL.location()).addOptionalTag(IS_TAIGA.location()).addOptionalTag(IS_FOREST.location());

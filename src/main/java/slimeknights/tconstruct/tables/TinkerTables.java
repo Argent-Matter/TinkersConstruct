@@ -141,6 +141,6 @@ public final class TinkerTables extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new TableRecipeProvider(datagenerator));
+    datagenerator.addProvider(true, new TableRecipeProvider(datagenerator));
   }
 }

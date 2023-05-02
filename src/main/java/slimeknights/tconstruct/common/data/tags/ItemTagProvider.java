@@ -80,7 +80,6 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     this.addTools();
   }
 
-  @SuppressWarnings("unchecked")
   private void addCommon() {
     this.tag(TinkerTags.Items.TINKERS_GUIDES)
         .add(TinkerCommons.materialsAndYou.get(), TinkerCommons.tinkersGadgetry.get(),
@@ -275,7 +274,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // carrots and potatoes are not seeds in vanilla, so make a tag with them
     this.tag(TinkerTags.Items.SEEDS)
-        .addTag(Tags.Items.SEEDS)
+        .addOptionalTag(Tags.Items.SEEDS.location())
         .add(Items.CARROT, Items.POTATO, Items.NETHER_WART);
 
     // tags for modifiers
@@ -296,11 +295,11 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // contains any ground stones
     this.tag(TinkerTags.Items.STONESHIELDS)
-        .addTag(Tags.Items.STONE)
-        .addTag(Tags.Items.COBBLESTONE)
-        .addTag(Tags.Items.SANDSTONE)
-        .addTag(Tags.Items.END_STONES)
-        .addTag(Tags.Items.GRAVEL) // for shovels and axes to use
+        .addOptionalTag(Tags.Items.STONE.location())
+        .addOptionalTag(Tags.Items.COBBLESTONE.location())
+        .addOptionalTag(Tags.Items.SANDSTONE.location())
+        .addOptionalTag(Tags.Items.END_STONES.location())
+        .addOptionalTag(Tags.Items.GRAVEL.location()) // for shovels and axes to use
         .add(Items.NETHERRACK, Items.BASALT, Items.POLISHED_BASALT, Items.BLACKSTONE, Items.POLISHED_BLACKSTONE);
     this.tag(TinkerTags.Items.FIREBALLS).add(Items.FIRE_CHARGE);
     this.tag(TinkerTags.Items.TOOL_INVENTORY_BLACKLIST)
@@ -313,7 +312,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     this.tag(TinkerTags.Items.VARIANT_PLANKS)
         .add(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.DARK_OAK_PLANKS, Items.ACACIA_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS)
         .addTag(TinkerTags.Items.SLIMY_PLANKS);
-    this.tag(TinkerTags.Items.VARIANT_LOGS).addTag(ItemTags.OAK_LOGS).addTag(ItemTags.SPRUCE_LOGS).addTag(ItemTags.BIRCH_LOGS).addTag(ItemTags.JUNGLE_LOGS).addTag(ItemTags.DARK_OAK_LOGS).addTag(ItemTags.ACACIA_LOGS).addTag(ItemTags.CRIMSON_STEMS).addTag(ItemTags.WARPED_STEMS).addTag(TinkerTags.Items.SLIMY_LOGS);
+    this.tag(TinkerTags.Items.VARIANT_LOGS).addOptionalTag(ItemTags.OAK_LOGS.location()).addOptionalTag(ItemTags.SPRUCE_LOGS.location()).addOptionalTag(ItemTags.BIRCH_LOGS.location()).addOptionalTag(ItemTags.JUNGLE_LOGS.location()).addOptionalTag(ItemTags.DARK_OAK_LOGS.location()).addOptionalTag(ItemTags.ACACIA_LOGS.location()).addOptionalTag(ItemTags.CRIMSON_STEMS.location()).addOptionalTag(ItemTags.WARPED_STEMS.location()).addTag(TinkerTags.Items.SLIMY_LOGS);
 
     // part builder
     this.tag(TinkerTags.Items.DEFAULT_PATTERNS).add(TinkerTables.pattern.get());

@@ -127,7 +127,7 @@ public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
     this.tag(TinkerTags.Fluids.LARGE_GEM_TOOLTIPS).addTags(TinkerFluids.moltenEmerald.getLocalTag(), TinkerFluids.moltenDiamond.getLocalTag());
     this.tag(TinkerTags.Fluids.SMALL_GEM_TOOLTIPS).addTags(TinkerFluids.moltenQuartz.getLocalTag(), TinkerFluids.moltenAmethyst.getLocalTag());
     this.tag(TinkerTags.Fluids.SOUP_TOOLTIPS).addTags(TinkerFluids.beetrootSoup.getLocalTag(), TinkerFluids.mushroomStew.getLocalTag(), TinkerFluids.rabbitStew.getLocalTag());
-    this.getOrCreateRawBuilder(TinkerTags.Fluids.WATER_TOOLTIPS).addTag(MantleTags.Fluids.WATER.location());
+    this.getOrCreateRawBuilder(TinkerTags.Fluids.WATER_TOOLTIPS).addOptionalTag(MantleTags.Fluids.WATER.location());
 
     // spilling tags - reduces the number of recipes generated //
     this.tag(TinkerTags.Fluids.CLAY_SPILLING)
