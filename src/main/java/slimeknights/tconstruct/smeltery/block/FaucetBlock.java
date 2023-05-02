@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -123,7 +124,7 @@ public class FaucetBlock extends Block implements EntityBlock {
   @SuppressWarnings("deprecation")
   @Deprecated
   @Override
-  public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+  public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
     getFaucet(worldIn, pos).ifPresent(FaucetBlockEntity::activate);
   }
 
@@ -156,7 +157,7 @@ public class FaucetBlock extends Block implements EntityBlock {
   }
 
   @Override
-  public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+  public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
     getFaucet(worldIn, pos).ifPresent(faucet -> {
       if (faucet.isPouring() && faucet.getRenderFluid().isEmpty() && rand.nextFloat() < 0.25F) {
         addParticles(stateIn, worldIn, pos);

@@ -199,11 +199,11 @@ public class GadgetRecipeProvider extends BaseRecipeProvider {
     InventoryChangeTrigger.TriggerInstance criteria = has(input);
     SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), output, experience, 200)
                               .unlockedBy("has_item", criteria)
-                              .save(consumer, wrap(output.asItem(), folder, "_furnace"));
+                              .save(consumer, wrap(Registry.ITEM.getKey(output.asItem()), folder, "_furnace"));
     // smoker 100 ticks
     SimpleCookingRecipeBuilder.cooking(Ingredient.of(input), output, experience, 100, RecipeSerializer.SMOKING_RECIPE)
                               .unlockedBy("has_item", criteria)
-                              .save(consumer, wrap(output.asItem(), folder, "_smoker"));
+                              .save(consumer, wrap(Registry.ITEM.getKey(output.asItem()), folder, "_smoker"));
   }
 
   /**

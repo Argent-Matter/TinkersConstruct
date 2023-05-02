@@ -45,18 +45,6 @@ public class MoldingRecipeCategory implements IRecipeCategory<MoldingRecipe> {
     this.upArrow = helper.createDrawable(BACKGROUND_LOC, 76, 55, 6, 6);
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public ResourceLocation getUid() {
-    return TConstructJEIConstants.MOLDING.getUid();
-  }
-
-  @SuppressWarnings("removal")
-  @Override
-  public Class<? extends MoldingRecipe> getRecipeClass() {
-    return MoldingRecipe.class;
-  }
-
   @Override
   public RecipeType<MoldingRecipe> getRecipeType() {
     return TConstructJEIConstants.MOLDING;

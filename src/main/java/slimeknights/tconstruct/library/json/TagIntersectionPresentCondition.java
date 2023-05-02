@@ -13,6 +13,8 @@ import slimeknights.mantle.util.JsonHelper;
 import slimeknights.tconstruct.TConstruct;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -57,30 +59,30 @@ public class TagIntersectionPresentCondition<T> implements ConditionJsonProvider
 
   public boolean test() {
     // if there is just one tag, just needs to be filled
-    List<Tag<?>> tags = names.stream().map(tTagKey -> {
-      for (Map.Entry<ResourceKey<?>, Map<ResourceLocation, Tag<Holder<?>>>> entry : ResourceConditionsImpl.LOADED_TAGS.get().entrySet()) {
+    List<Collection<?>> tags = names.stream().map(tTagKey -> {
+      for (Map.Entry<ResourceKey<?>, Map<ResourceLocation, Collection<Holder<?>>>> entry : ResourceConditionsImpl.LOADED_TAGS.get().entrySet()) {
         if (entry.getKey() == Registry.ITEM_REGISTRY && entry.getValue().get(tTagKey.location()) != null)
           return entry.getValue().get(tTagKey.location());
       }
-      return Tag.empty();
+      return Collections.emptyList();
     }).toList();
     if (tags.size() == 1) {
-      return !tags.get(0).getValues().isEmpty();
+      return !tags.get(0).isEmpty();
     }
     // if any remaining tag is empty, give up
     int count = tags.size();
     for (int i = 1; i < count; i++) {
-      if (tags.get(i).getValues().isEmpty()) {
+      if (tags.get(i).isEmpty()) {
         return false;
       }
     }
 
     // all tags have something, so find the first item that is in all tags
     itemLoop:
-    for (Object entry : tags.get(0).getValues()) {
+    for (Object entry : tags.get(0)) {
       // find the first item contained in all other intersection tags
       for (int i = 1; i < count; i++) {
-        if (!tags.get(i).getValues().contains(entry)) {
+        if (!tags.get(i).contains(entry)) {
           continue itemLoop;
         }
       }

@@ -62,12 +62,6 @@ public class MeltingCategory extends AbstractMeltingCategory {
     this.solidFuel = helper.drawableBuilder(BACKGROUND_LOC, 164, 0, 18, 20).build();
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public ResourceLocation getUid() {
-    return TConstructJEIConstants.MELTING.getUid();
-  }
-
   @Override
   public RecipeType<MeltingRecipe> getRecipeType() {
     return TConstructJEIConstants.MELTING;
@@ -142,7 +136,7 @@ public class MeltingCategory extends AbstractMeltingCategory {
       if (smelteryAmount != melterAmount) {
         list.add(TOOLTIP_MELTER);
         boolean shift = FluidTooltipHandler.appendMaterialNoShift(fluid, melterAmount, list);
-        list.add(TextComponent.EMPTY);
+        list.add(Component.empty());
         list.add(TOOLTIP_SMELTERY);
         shift = FluidTooltipHandler.appendMaterialNoShift(fluid, smelteryAmount, list) || shift;
         return shift;

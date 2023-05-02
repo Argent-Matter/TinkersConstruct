@@ -185,6 +185,6 @@ public final class TinkerCommons extends TinkerModule {
   }
 
   public static void gatherData(final FabricDataGenerator datagenerator) {
-    datagenerator.addProvider(new CommonRecipeProvider(datagenerator));
+    datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new CommonRecipeProvider(datagenerator));
   }
 }

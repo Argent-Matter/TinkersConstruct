@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.library.recipe.casting;
 
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.world.item.ItemStack;
 import slimeknights.mantle.recipe.ICommonRecipe;
 import slimeknights.tconstruct.library.recipe.TinkerRecipeTypes;
@@ -58,6 +59,6 @@ public interface ICastingRecipe extends ICommonRecipe<ICastingContainer> {
    * @return  Time for the recipe
    */
   static int calcCoolingTime(FluidStack fluid) {
-    return calcCoolingTime(fluid.getFluid().getAttributes().getTemperature(fluid) - 300, fluid.getAmount());
+    return calcCoolingTime(FluidVariantAttributes.getTemperature(fluid.getType()) - 300, fluid.getAmount());
   }
 }

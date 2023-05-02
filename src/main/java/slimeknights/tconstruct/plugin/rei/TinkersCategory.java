@@ -15,6 +15,7 @@ import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.CollectionUtils;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import slimeknights.tconstruct.plugin.rei.widgets.TooltipWidget;
 import slimeknights.tconstruct.plugin.rei.widgets.WidgetHolder;
 
@@ -64,11 +65,11 @@ public interface TinkersCategory<T extends Display> extends DisplayCategory<T> {
           for (EntryStack<?> entry : slot.getEntries()) {
             ClientEntryStacks.setTooltipProcessor(entry, (stack, tooltip) -> {
               List<Component> components = CollectionUtils.filterAndMap(tooltip.entries(), Tooltip.Entry::isText, Tooltip.Entry::getAsText);
-              List<ClientTooltipComponent> tooltipComponents = CollectionUtils.filterAndMap(tooltip.entries(), ((Predicate<Tooltip.Entry>) Tooltip.Entry::isText).negate(), Tooltip.Entry::getAsComponent);
+              List<TooltipComponent> tooltipComponents = CollectionUtils.filterAndMap(tooltip.entries(), Tooltip.Entry::isTooltipComponent, Tooltip.Entry::getAsTooltipComponent);
               replacement.onTooltip(slot, components);
               tooltip.entries().clear();
               tooltip.addAllTexts(components);
-              tooltip.addAllComponents(tooltipComponents);
+              tooltip.addAllTooltipComponents(tooltipComponents);
               return tooltip;
             });
           }
@@ -109,11 +110,11 @@ public interface TinkersCategory<T extends Display> extends DisplayCategory<T> {
     slot.getEntries().forEach(stack -> {
       ClientEntryStacks.setTooltipProcessor(stack, (entryStack, tooltip) -> {
         List<Component> components = CollectionUtils.filterAndMap(tooltip.entries(), Tooltip.Entry::isText, Tooltip.Entry::getAsText);
-        List<ClientTooltipComponent> tooltipComponents = CollectionUtils.filterAndMap(tooltip.entries(), ((Predicate<Tooltip.Entry>) Tooltip.Entry::isText).negate(), Tooltip.Entry::getAsComponent);
+        List<TooltipComponent> tooltipComponents = CollectionUtils.filterAndMap(tooltip.entries(), Tooltip.Entry::isTooltipComponent, Tooltip.Entry::getAsTooltipComponent);
         replacement.onTooltip(slot, components);
         tooltip.entries().clear();
         tooltip.addAllTexts(components);
-        tooltip.addAllComponents(tooltipComponents);
+        tooltip.addAllTooltipComponents(tooltipComponents);
         return tooltip;
       });
     });

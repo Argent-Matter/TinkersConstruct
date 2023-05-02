@@ -7,6 +7,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -37,8 +38,10 @@ public class WeatheringPlatformBlock extends PlatformBlock implements Weathering
     return state.is(TinkerTags.Blocks.COPPER_PLATFORMS);
   }
 
+  @SuppressWarnings("deprecation")
+  @Deprecated
   @Override
-  public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+  public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
     this.onRandomTick(pState, pLevel, pPos, pRandom);
   }
 

@@ -5,6 +5,7 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -45,7 +46,7 @@ public class MaterialFluidRecipeBuilder extends AbstractRecipeBuilder<MaterialFl
   public MaterialFluidRecipeBuilder setFluidAndTemp(FluidStack fluidStack) {
     this.fluid = FluidIngredient.of(fluidStack);
     if (this.temperature == -1) {
-      this.temperature = fluidStack.getFluid().getAttributes().getTemperature(fluidStack) - 300;
+      this.temperature = FluidVariantAttributes.getTemperature(fluidStack.getType()) - 300;
     }
     return this;
   }

@@ -6,6 +6,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -57,7 +58,7 @@ public class TConstruct implements ModInitializer {
 
   public static final String MOD_ID = "tconstruct";
   public static final Logger LOG = LogManager.getLogger(MOD_ID);
-  public static final Random RANDOM = new Random();
+  public static final RandomSource RANDOM = RandomSource.create();
 
   /* Instance of this mod, used for grabbing prototype fields */
   public static TConstruct instance;
@@ -78,10 +79,10 @@ public class TConstruct implements ModInitializer {
     new TinkerWorld();
     new TinkerStructures();
     // tools
-   new TinkerTables();
-   new TinkerModifiers();
-   new TinkerToolParts();
-   new TinkerTools();
+    new TinkerTables();
+    new TinkerModifiers();
+    new TinkerToolParts();
+    new TinkerTools();
     // smeltery
     new TinkerSmeltery();
 
@@ -118,7 +119,7 @@ public class TConstruct implements ModInitializer {
     StationSlotLayoutLoader.init();
   }
 
-  public static void onInitializeDataGenerator(FabricDataGenerator datagenerator, ExistingFileHelper existingFileHelper) {
+  public static void onInitializeDataGenerator(FabricDataGenerator datagenerator) {
 //    if (event.includeServer()) {
       BlockTagProvider blockTags = new BlockTagProvider(datagenerator);
       boolean isStrict = datagenerator.isStrictValidationEnabled();

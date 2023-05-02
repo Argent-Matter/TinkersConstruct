@@ -68,19 +68,19 @@ public class WorldEvents {
     // setup for biome checks
     // nether - any biome is fine
     if (Config.COMMON.generateCobalt.get()) {
-      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedSmallCobaltOre.getKey());
-      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedLargeCobaltOre.getKey());
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedSmallCobaltOreKey);
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.UNDERGROUND_DECORATION, TinkerWorld.placedLargeCobaltOreKey);
     }
     // ichor can be anywhere
     if (Config.COMMON.ichorGeodes.get()) {
-      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedIchorGeode.getKey());
+      BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedIchorGeodeKey);
     }
     // end, mostly do stuff in the outer islands
     // slime spawns anywhere, uses the grass
     BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), MobCategory.MONSTER, TinkerWorld.enderSlimeEntity.get(), 10, 2, 4);
     // geodes only on outer islands
     if (Config.COMMON.enderGeodes.get()/* && key != null && !Biomes.THE_END.equals(key)*/) {
-      BiomeModifications.addFeature(context -> context.canGenerateIn(LevelStem.END) && context.getBiomeKey() != Biomes.THE_END,Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEnderGeode.getKey());
+      BiomeModifications.addFeature(context -> context.canGenerateIn(LevelStem.END) && context.getBiomeKey() != Biomes.THE_END,Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEnderGeodeKey);
     }
     // overworld gets tricky
     // slime spawns anywhere, uses the grass
@@ -89,7 +89,7 @@ public class WorldEvents {
 
     // earth spawns anywhere, sky does not spawn in ocean (looks weird)
     if (Config.COMMON.earthGeodes.get()) {
-      BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEarthGeode.getKey());
+      BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedEarthGeodeKey);
     }
     // sky spawn in non-oceans, they look funny in the ocean as they spawn so high
     if (Config.COMMON.skyGeodes.get()) {
@@ -107,7 +107,7 @@ public class WorldEvents {
         }
         return add;
       };
-      BiomeModifications.addFeature(context, Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedSkyGeode.getKey());
+      BiomeModifications.addFeature(context, Decoration.LOCAL_MODIFICATIONS, TinkerWorld.placedSkyGeodeKey);
     }
   }
 

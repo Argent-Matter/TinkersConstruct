@@ -23,8 +23,8 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
 
   public PartInfoPanelScreen(MultiModuleScreen parent, AbstractContainerMenu container, Inventory playerInventory, Component title) {
     super(parent, container, playerInventory, title);
-    this.patternCost = TextComponent.EMPTY;
-    this.materialValue = TextComponent.EMPTY;
+    this.patternCost = Component.empty();
+    this.materialValue = Component.empty();
   }
 
   /* Pattern cost */
@@ -33,7 +33,7 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
    * Clears the pattern cost text
    */
   public void clearPatternCost() {
-    this.patternCost = TextComponent.EMPTY;
+    this.patternCost = Component.empty();
     this.updateSliderParameters();
   }
 
@@ -48,7 +48,7 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
 
   /** If true, has pattern cost text */
   private boolean hasPatternCost() {
-    return this.patternCost != null && this.patternCost != TextComponent.EMPTY;
+    return this.patternCost != null && this.patternCost != Component.empty();
   }
 
   /* Material value */
@@ -66,13 +66,13 @@ public class PartInfoPanelScreen extends InfoPanelScreen {
    * Clears the material value
    */
   public void clearMaterialValue() {
-    this.materialValue = TextComponent.EMPTY;
+    this.materialValue = Component.empty();
     this.updateSliderParameters();
   }
 
   /** If true, has material value text */
   private boolean hasMaterialValue() {
-    return this.materialValue != null && this.materialValue != TextComponent.EMPTY;
+    return this.materialValue != null && this.materialValue != Component.empty();
   }
 
   @Override

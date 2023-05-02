@@ -71,12 +71,6 @@ public abstract class AbstractCastingCategory implements IRecipeCategory<IDispla
     return true;
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public Class<? extends IDisplayableCastingRecipe> getRecipeClass() {
-    return IDisplayableCastingRecipe.class;
-  }
-
   @Override
   public void draw(IDisplayableCastingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack matrixStack, double mouseX, double mouseY) {
     cachedArrows.getUnchecked(Math.max(1, recipe.getCoolingTime())).draw(matrixStack, 58, 18);

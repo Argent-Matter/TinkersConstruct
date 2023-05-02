@@ -4,9 +4,7 @@ import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -68,14 +66,14 @@ import static slimeknights.tconstruct.common.TinkerTags.Items.TWO_HANDED;
 import static slimeknights.tconstruct.common.TinkerTags.Items.UNARMED;
 
 @SuppressWarnings("unchecked")
-public class ItemTagProvider extends ItemTagsProvider {
+public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
   public ItemTagProvider(FabricDataGenerator generatorIn, BlockTagProvider blockTagProvider) {
     super(generatorIn, blockTagProvider);
   }
 
   @Override
-  protected void addTags() {
+  protected void generateTags() {
     this.addCommon();
     this.addWorld();
     this.addSmeltery();
@@ -418,11 +416,6 @@ public class ItemTagProvider extends ItemTagsProvider {
     this.tag(TinkerTags.Items.TANKS)
         .addTag(TinkerTags.Items.SEARED_TANKS)
         .addTag(TinkerTags.Items.SCORCHED_TANKS);
-  }
-
-  @Override
-  public String getName() {
-    return "Tinkers Construct Item Tags";
   }
 
   /**

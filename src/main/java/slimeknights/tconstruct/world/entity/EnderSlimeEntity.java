@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.world.entity;
 
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -48,11 +49,11 @@ public class EnderSlimeEntity extends ArmoredSlimeEntity {
   }
 
   @Override
-  protected void populateDefaultEquipmentSlots(DifficultyInstance difficulty) {
+  protected void populateDefaultEquipmentSlots(RandomSource randomSource, DifficultyInstance difficulty) {
     // ender slime spawns with slimeskulls with a random material
     // vanilla logic but simplified down to just helmets
     float multiplier = difficulty.getSpecialMultiplier();
-    if (this.random.nextFloat() < 0.15F * difficulty.getSpecialMultiplier()) {
+    if (randomSource.nextFloat() < 0.15F * difficulty.getSpecialMultiplier()) {
       // 2.5% chance of plate
       ItemStack helmet = new ItemStack(TinkerTools.slimesuit.get(ArmorSlotType.HELMET));
       // just init stats, will set random material

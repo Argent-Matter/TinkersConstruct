@@ -141,7 +141,7 @@ public class MeltingCategory extends AbstractMeltingCategory {
       if (smelteryAmount != melterAmount) {
         list.add(TOOLTIP_MELTER);
         boolean shift = FluidTooltipHandler.appendMaterialNoShift(fluid, melterAmount, list);
-        list.add(TextComponent.EMPTY);
+        list.add(Component.empty());
         list.add(TOOLTIP_SMELTERY);
         shift = FluidTooltipHandler.appendMaterialNoShift(fluid, smelteryAmount, list) || shift;
         return shift;

@@ -7,6 +7,7 @@ import lombok.Getter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Rect2i;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -156,7 +157,7 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
     if (te == null) {
       this.defaultLayout = StationSlotLayout.EMPTY;
     } else {
-      this.defaultLayout = StationSlotLayoutLoader.getInstance().get(Objects.requireNonNull(te.getBlockState().getBlock().getRegistryName()));
+      this.defaultLayout = StationSlotLayoutLoader.getInstance().get(Objects.requireNonNull(Registry.BLOCK.getKey(te.getBlockState().getBlock())));
     }
     this.currentLayout = this.defaultLayout;
     this.activeInputs = Math.min(defaultLayout.getInputCount(), max);
@@ -174,7 +175,7 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
     this.topPos += 4;
     this.cornerY += 4;
 
-    //this.textField = new TextFieldWidget(this.font, this.cornerX + 81, this.cornerY + 7, 91, 12, TextComponent.EMPTY);
+    //this.textField = new TextFieldWidget(this.font, this.cornerX + 81, this.cornerY + 7, 91, 12, Component.empty());
     //this.textField.setEnableBackgroundDrawing(false);
     //this.textField.setMaxStringLength(40);
 
@@ -348,7 +349,7 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
         this.modifierInfo.setCaption(COMPONENTS_TEXT);
         this.modifierInfo.setText(fullText);
       } else {
-        this.modifierInfo.setCaption(TextComponent.EMPTY);
+        this.modifierInfo.setCaption(Component.empty());
         this.modifierInfo.setText(ASCII_ANVIL);
       }
     }
@@ -665,16 +666,16 @@ public class TinkerStationScreen extends BaseTabbedScreen<TinkerStationBlockEnti
   public void error(Component message) {
     this.tinkerInfo.setCaption(COMPONENT_ERROR);
     this.tinkerInfo.setText(message);
-    this.modifierInfo.setCaption(TextComponent.EMPTY);
-    this.modifierInfo.setText(TextComponent.EMPTY);
+    this.modifierInfo.setCaption(Component.empty());
+    this.modifierInfo.setText(Component.empty());
   }
 
   @Override
   public void warning(Component message) {
     this.tinkerInfo.setCaption(COMPONENT_WARNING);
     this.tinkerInfo.setText(message);
-    this.modifierInfo.setCaption(TextComponent.EMPTY);
-    this.modifierInfo.setText(TextComponent.EMPTY);
+    this.modifierInfo.setCaption(Component.empty());
+    this.modifierInfo.setText(Component.empty());
   }
 
   /**

@@ -69,12 +69,6 @@ public abstract class AbstractMeltingCategory implements IRecipeCategory<Melting
     });
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public Class<? extends MeltingRecipe> getRecipeClass() {
-    return MeltingRecipe.class;
-  }
-
   @Override
   public void draw(MeltingRecipe recipe, IRecipeSlotsView slots, PoseStack matrices, double mouseX, double mouseY) {
     // draw the arrow

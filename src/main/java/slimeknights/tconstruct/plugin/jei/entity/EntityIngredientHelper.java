@@ -26,18 +26,6 @@ public class EntityIngredientHelper implements IIngredientHelper<EntityType> {
     return TConstructJEIConstants.ENTITY_TYPE;
   }
 
-  @SuppressWarnings("removal")
-  @Nullable
-  @Override
-  public EntityType getMatch(Iterable<EntityType> iterable, EntityType type, UidContext context) {
-    for (EntityType<?> match : iterable) {
-      if (match == type) {
-        return match;
-      }
-    }
-    return null;
-  }
-
   @Override
   public String getDisplayName(EntityType type) {
     return type.getDescription().getString();
@@ -46,20 +34,6 @@ public class EntityIngredientHelper implements IIngredientHelper<EntityType> {
   @Override
   public String getUniqueId(EntityType type, UidContext context) {
     return Objects.requireNonNull(Registry.ENTITY_TYPE.getKey(type)).toString();
-  }
-
-  @SuppressWarnings("removal")
-  @Deprecated
-  @Override
-  public String getModId(EntityType type) {
-    return getResourceLocation(type).getNamespace();
-  }
-
-  @SuppressWarnings("removal")
-  @Deprecated
-  @Override
-  public String getResourceId(EntityType type) {
-    return getResourceLocation(type).getPath();
   }
 
   @Override

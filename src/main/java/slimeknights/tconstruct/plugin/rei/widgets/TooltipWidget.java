@@ -5,6 +5,7 @@ import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.widgets.Slot;
 import me.shedaniel.rei.api.client.gui.widgets.Tooltip;
+import me.shedaniel.rei.api.client.gui.widgets.TooltipContext;
 import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.client.gui.widgets.WidgetWithBounds;
 import me.shedaniel.rei.api.client.gui.widgets.Widgets;
@@ -42,7 +43,7 @@ public class TooltipWidget<T extends Display> extends WidgetWithBounds {
     if (containsMouse(mouse)) {
       for (Slot slot : Widgets.<Slot>walk(widgets, listener -> listener instanceof Slot)) {
         if (slot.containsMouse(mouse) && slot.isHighlightEnabled()) {
-          if (slot.getCurrentTooltip(mouse) != null) {
+          if (slot.getCurrentTooltip(TooltipContext.of(mouse)) != null) {
             return;
           }
         }
@@ -56,7 +57,7 @@ public class TooltipWidget<T extends Display> extends WidgetWithBounds {
     }
   }
 
-  @Override
+
   @Nullable
   public Tooltip getTooltip(Point mouse) {
     List<Component> strings = category.getTooltipStrings(display, widgets, mouse.x - bounds.x - 4, mouse.y - bounds.y - 4);

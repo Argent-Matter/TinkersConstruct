@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -80,7 +81,7 @@ public class SoulSpeedModifier extends Modifier implements ArmorWalkModifierHook
 
     // add back speed boost if above a soul speed block and not flying
     if (!living.isFallFlying() && below.is(BlockTags.SOUL_SPEED_BLOCKS)) {
-      Random rand = living.getRandom();
+      RandomSource rand = living.getRandom();
 
       // boost speed
       float boost = (0.03f + modifier.getEffectiveLevel(tool) * 0.0105f);

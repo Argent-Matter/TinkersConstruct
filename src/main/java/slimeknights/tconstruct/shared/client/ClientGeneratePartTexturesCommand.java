@@ -180,33 +180,29 @@ public class ClientGeneratePartTexturesCommand {
     // each namespace loads separately
     for (String namespace : manager.getNamespaces()) {
       ResourceLocation location = new ResourceLocation(namespace, GENERATOR_PART_TEXTURES);
-      if (manager.hasResource(location)) {
+      if (manager.getResource(location).isPresent()) {
         // if the namespace has the file, we will start building
-        try {
-          // start from the top most pack and work down, lets us break the loop as soon as we find a "replace"
-          List<Resource> resources = manager.getResources(location);
-          for (int r = resources.size() - 1; r >= 0; r--) {
-            Resource resource = resources.get(r);
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8))) {
-              JsonObject object = GsonHelper.parse(reader);
-              List<PartSpriteInfo> parts = JsonHelper.parseList(object, "parts", (element, name) -> {
-                JsonObject part = GsonHelper.convertToJsonObject(element, name);
-                ResourceLocation path = JsonHelper.getResourceLocation(part, "path");
-                MaterialStatsId statId = new MaterialStatsId(JsonHelper.getResourceLocation(part, "statType"));
-                return new PartSpriteInfo(path, statId);
-              });
-              builder.addAll(parts);
+        // start from the top most pack and work down, lets us break the loop as soon as we find a "replace"
+        List<Resource> resources = manager.getResourceStack(location);
+        for (int r = resources.size() - 1; r >= 0; r--) {
+          Resource resource = resources.get(r);
+          try (BufferedReader reader = resource.openAsReader()) {
+            JsonObject object = GsonHelper.parse(reader);
+            List<PartSpriteInfo> parts = JsonHelper.parseList(object, "parts", (element, name) -> {
+              JsonObject part = GsonHelper.convertToJsonObject(element, name);
+              ResourceLocation path = JsonHelper.getResourceLocation(part, "path");
+              MaterialStatsId statId = new MaterialStatsId(JsonHelper.getResourceLocation(part, "statType"));
+              return new PartSpriteInfo(path, statId);
+            });
+            builder.addAll(parts);
 
-              // if we find replace, don't process lower files from this namespace
-              if (GsonHelper.getAsBoolean(object, "replace", false)) {
-                break;
-              }
-            } catch (IOException ex) {
-              log.error("Failed to load modifier models from {} for pack {}", location, resource.getSourceName(), ex);
+            // if we find replace, don't process lower files from this namespace
+            if (GsonHelper.getAsBoolean(object, "replace", false)) {
+              break;
             }
+          } catch (IOException ex) {
+            log.error("Failed to load modifier models from {} for pack {}", location, resource.sourcePackId(), ex);
           }
-        } catch (IOException ex) {
-          log.error("Failed to load modifier models from {}", location, ex);
         }
       }
     }
@@ -223,7 +219,7 @@ public class ClientGeneratePartTexturesCommand {
     ImmutableList.Builder<MaterialSpriteInfo> builder = ImmutableList.builder();
 
     int trim = MaterialRenderInfoLoader.FOLDER.length() + 1;
-    for(ResourceLocation location : manager.listResources(MaterialRenderInfoLoader.FOLDER, loc -> loc.endsWith(".json"))) {
+    for(ResourceLocation location : manager.listResources(MaterialRenderInfoLoader.FOLDER, loc -> loc.getPath().endsWith(".json")).keySet()) {
       // clean up ID by trimming off the extension
       String path = location.getPath();
       String localPath = path.substring(trim, path.length() - 5);
@@ -240,9 +236,7 @@ public class ClientGeneratePartTexturesCommand {
       // ensure its a material we care about
       if (validMaterialId.test(id)) {
         try (
-          Resource iresource = manager.getResource(location);
-          InputStream inputstream = iresource.getInputStream();
-          Reader reader = new BufferedReader(new InputStreamReader(inputstream, StandardCharsets.UTF_8))
+          Reader reader = manager.getResource(location).get().openAsReader();
         ) {
           // if the JSON has generator info, add it to the consumer
           MaterialRenderInfoJson json = MaterialRenderInfoLoader.GSON.fromJson(reader, MaterialRenderInfoJson.class);

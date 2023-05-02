@@ -2,6 +2,7 @@ package slimeknights.tconstruct.library.tools.part;
 
 import io.github.fabricators_of_create.porting_lib.extensions.ItemExtensions;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -133,7 +134,7 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
     if (!IMaterial.UNKNOWN_ID.equals(material)) {
       return material.getId().getNamespace();
     }
-    ResourceLocation id = this.getRegistryName();
+    ResourceLocation id = Registry.ITEM.getKey(this);
     return id == null ? null : id.getNamespace();
   }
 
@@ -145,7 +146,7 @@ public class MaterialItem extends Item implements IMaterialItem, ItemExtensions 
    */
   protected static void addModTooltip(IMaterial material, List<Component> tooltip) {
     if (material != IMaterial.UNKNOWN) {
-      tooltip.add(TextComponent.EMPTY);
+      tooltip.add(Component.empty());
       tooltip.add(Component.translatable(ADDED_BY, DomainDisplayName.nameFor(material.getIdentifier().getNamespace())));
     }
   }

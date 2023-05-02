@@ -282,16 +282,16 @@ public class ModifierWorktableScreen extends BaseTabbedScreen<ModifierWorktableB
   public void error(Component message) {
     this.tinkerInfo.setCaption(COMPONENT_ERROR);
     this.tinkerInfo.setText(message);
-    this.modifierInfo.setCaption(TextComponent.EMPTY);
-    this.modifierInfo.setText(TextComponent.EMPTY);
+    this.modifierInfo.setCaption(Component.empty());
+    this.modifierInfo.setText(Component.empty());
   }
 
   @Override
   public void warning(Component message) {
     this.tinkerInfo.setCaption(COMPONENT_WARNING);
     this.tinkerInfo.setText(message);
-    this.modifierInfo.setCaption(TextComponent.EMPTY);
-    this.modifierInfo.setText(TextComponent.EMPTY);
+    this.modifierInfo.setCaption(Component.empty());
+    this.modifierInfo.setText(Component.empty());
   }
 
   private Component getInfoTitle() {
@@ -308,8 +308,8 @@ public class ModifierWorktableScreen extends BaseTabbedScreen<ModifierWorktableB
   public void message(Component message) {
     this.tinkerInfo.setCaption(getInfoTitle());
     this.tinkerInfo.setText(message);
-    this.modifierInfo.setCaption(TextComponent.EMPTY);
-    this.modifierInfo.setText(TextComponent.EMPTY);
+    this.modifierInfo.setCaption(Component.empty());
+    this.modifierInfo.setText(Component.empty());
   }
 
   @Override

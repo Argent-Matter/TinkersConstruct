@@ -11,6 +11,8 @@ import com.mojang.math.Matrix4f;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import net.fabricmc.fabric.api.transfer.v1.client.fluid.FluidVariantRendering;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
@@ -135,9 +137,9 @@ public final class GuiUtil {
    */
   public static void renderTiledFluid(PoseStack matrices, AbstractContainerScreen<?> screen, FluidStack stack, int x, long y, int width, long height, int depth) {
     if (!stack.isEmpty()) {
-      TextureAtlasSprite fluidSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(stack.getFluid().getAttributes().getStillTexture(stack));
-      RenderUtils.setColorRGBA(stack.getFluid().getAttributes().getColor(stack));
-      renderTiledTextureAtlas(matrices, screen, fluidSprite, x, y, width, height, depth, stack.getFluid().getAttributes().isGaseous(stack));
+      TextureAtlasSprite fluidSprite = FluidVariantRendering.getSprite(stack.getType());
+      RenderUtils.setColorRGBA(FluidVariantRendering.getColor(stack.getType()));
+      renderTiledTextureAtlas(matrices, screen, fluidSprite, x, y, width, height, depth, FluidVariantAttributes.isLighterThanAir(stack.getType()));
       RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
   }
@@ -194,11 +196,10 @@ public final class GuiUtil {
       startY += renderHeight;
     } while(height > 0);
 
-    // finish drawing sprites
-    builder.end();
     // RenderSystem.enableAlphaTest();
     RenderSystem.enableDepthTest(); // TODO: correct
-    BufferUploader.end(builder);
+    // finish drawing sprites
+    BufferUploader.drawWithShader(builder.end());
   }
 
   /**

@@ -10,6 +10,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.InventoryMenu;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.client.RenderUtils;

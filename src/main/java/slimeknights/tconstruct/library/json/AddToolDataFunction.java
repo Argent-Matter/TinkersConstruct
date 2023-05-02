@@ -9,6 +9,7 @@ import com.google.gson.JsonSyntaxException;
 import lombok.experimental.Accessors;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
@@ -61,7 +62,7 @@ public class AddToolDataFunction extends LootItemConditionalFunction {
       tool.ensureSlotsBuilt();
       if (tool.getDefinition().isMultipart() && !materials.isEmpty()) {
         MaterialNBT.Builder builder = MaterialNBT.builder();
-        Random random = context.getRandom();
+        RandomSource random = context.getRandom();
         for (RandomMaterial material : materials) {
           builder.add(material.getMaterial(random));
         }

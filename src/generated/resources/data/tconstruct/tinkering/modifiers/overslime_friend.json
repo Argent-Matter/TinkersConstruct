@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:stat_boost",
-  "level_display": "tconstruct:default",
-  "flags": [
-    "tconstruct:overslime_friend"
-  ],
-  "modifier_display": "never"
-}

@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.HumanoidArm;
@@ -59,8 +60,8 @@ public class ModifierClientEvents {
     // suppress durability from advanced, we display our own
     if (stack.getItem() instanceof IModifiableDisplay) {
       lines.removeIf(text -> {
-        if (text instanceof TranslatableComponent) {
-          return ((TranslatableComponent)text).getKey().equals("item.durability");
+        if (text.getContents() instanceof TranslatableContents contents) {
+          return contents.getKey().equals("item.durability");
         }
         return false;
       });
@@ -98,7 +99,7 @@ public class ModifierClientEvents {
       if (!player.isInvisible() && mainhand.getItem() != Items.FILLED_MAP && ModifierUtil.getTotalModifierLevel(player, TinkerDataKeys.SHOW_EMPTY_OFFHAND) > 0) {
         PoseStack matrices = event.getPoseStack();
         matrices.pushPose();
-        Minecraft.getInstance().getItemInHandRenderer().renderPlayerArm(matrices, event.getMultiBufferSource(), event.getPackedLight(), event.getEquipProgress(), event.getSwingProgress(), player.getMainArm().getOpposite());
+        Minecraft.getInstance().getEntityRenderDispatcher().getItemInHandRenderer().renderPlayerArm(matrices, event.getMultiBufferSource(), event.getPackedLight(), event.getEquipProgress(), event.getSwingProgress(), player.getMainArm().getOpposite());
         matrices.popPose();
         event.setCanceled(true);
       }

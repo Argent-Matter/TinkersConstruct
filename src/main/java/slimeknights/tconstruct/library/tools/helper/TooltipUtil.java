@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -145,7 +146,7 @@ public class TooltipUtil {
       return itemName;
     }
     // separate materials by dash
-    TextComponent name = Component.literal("");
+    MutableComponent name = Component.literal("");
     Iterator<Component> iter = materials.iterator();
     name.append(iter.next());
     while (iter.hasNext()) {
@@ -315,7 +316,7 @@ public class TooltipUtil {
     }
     // modifier tooltip
     addModifierNames(stack, tool, tooltips);
-    tooltips.add(TextComponent.EMPTY);
+    tooltips.add(Component.empty());
     tooltips.add(TOOLTIP_HOLD_SHIFT);
     if (tool.getDefinition().isMultipart()) {
       tooltips.add(TOOLTIP_HOLD_CTRL);
@@ -431,7 +432,7 @@ public class TooltipUtil {
       tooltips.add(requirement.nameForMaterial(material).copy().withStyle(ChatFormatting.UNDERLINE).withStyle(style -> style.withColor(MaterialTooltipCache.getColor(material))));
       MaterialRegistry.getInstance().getMaterialStats(material.getId(), requirement.getStatType()).ifPresent(stat -> tooltips.addAll(stat.getLocalizedInfo()));
       if (i != max) {
-        tooltips.add(TextComponent.EMPTY);
+        tooltips.add(Component.empty());
       }
     }
   }
@@ -450,7 +451,7 @@ public class TooltipUtil {
       Multimap<Attribute,AttributeModifier> modifiers = item.getAttributeModifiers(tool, slot);
       if (!modifiers.isEmpty()) {
         if (slots.length > 1) {
-          tooltip.add(TextComponent.EMPTY);
+          tooltip.add(Component.empty());
           tooltip.add((Component.translatable("item.modifiers." + slot.getName())).withStyle(ChatFormatting.GRAY));
         }
 

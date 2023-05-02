@@ -1,8 +1,0 @@
-{
-  "type": "tconstruct:loot",
-  "level_display": "tconstruct:no_levels",
-  "enchantment": {
-    "name": "minecraft:silk_touch",
-    "level": 1
-  }
-}

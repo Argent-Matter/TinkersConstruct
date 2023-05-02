@@ -20,7 +20,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 public class ExperiencedModifier extends Modifier {
   private static final TinkerDataKey<Integer> EXPERIENCED = TConstruct.createKey("experienced");
   public ExperiencedModifier() {
-    LivingEntityEvents.EXPERIENCE_DROP_WITH_ENTITY.register(this::onExperienceDrop);
+    LivingEntityEvents.EXPERIENCE_DROP.register(this::onExperienceDrop);
 //    MinecraftForge.EVENT_BUS.addListener(this::onEntityKilled); TODO: PORT
     BlockEvents.BLOCK_BREAK.register(this::beforeBlockBreak);
   }
@@ -73,9 +73,9 @@ public class ExperiencedModifier extends Modifier {
    * @param amount  amount of xp
    * @param player current player
    */
-  private int onExperienceDrop(int amount, Player player, LivingEntity entity) {
+  private int onExperienceDrop(int amount, Player player) {
     // if the entity was killed by one of our arrows, boost the experience from that
-    int experienced = TinkerDataCapability.CAPABILITY.maybeGet(entity).map(data -> data.get(EXPERIENCED)).orElse(-1);
+    int experienced = TinkerDataCapability.CAPABILITY.maybeGet(player).map(data -> data.get(EXPERIENCED)).orElse(-1);
     if (experienced > 0) {
       return boost(amount, experienced);
       // experienced being zero means it was our arrow but it was not modified, do not check the held item in that case

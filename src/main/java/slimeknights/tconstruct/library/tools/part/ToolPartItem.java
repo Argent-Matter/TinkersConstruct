@@ -2,6 +2,7 @@ package slimeknights.tconstruct.library.tools.part;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -62,7 +63,7 @@ public class ToolPartItem extends MaterialItem implements IToolPart {
             this.addStatInfoTooltip(id, tooltip);
           } else {
             // info tooltip for detailed and component info
-            tooltip.add(TextComponent.EMPTY);
+            tooltip.add(Component.empty());
             tooltip.add(TooltipUtil.TOOLTIP_HOLD_SHIFT);
           }
         }
@@ -88,7 +89,7 @@ public class ToolPartItem extends MaterialItem implements IToolPart {
     MaterialRegistry.getInstance().getMaterialStats(material, this.materialStatId).ifPresent((stat) -> {
       List<Component> text = stat.getLocalizedInfo();
       if (!text.isEmpty()) {
-        tooltip.add(TextComponent.EMPTY);
+        tooltip.add(Component.empty());
         tooltip.add(stat.getLocalizedName().withStyle(ChatFormatting.WHITE, ChatFormatting.UNDERLINE));
         tooltip.addAll(stat.getLocalizedInfo());
       }

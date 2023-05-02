@@ -26,8 +26,8 @@ public class ResourceManagerSpriteReader extends AbstractSpriteReader {
 
   @Override
   public NativeImage read(ResourceLocation path) throws IOException {
-    Resource resource = manager.getResource(getLocation(path));
-    NativeImage image = NativeImage.read(resource.getInputStream());
+    Resource resource = manager.getResource(getLocation(path)).get();
+    NativeImage image = NativeImage.read(resource.open());
     openedImages.add(image);
     return image;
   }

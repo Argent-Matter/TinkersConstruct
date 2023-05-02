@@ -5,6 +5,7 @@ import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
 import io.github.fabricators_of_create.porting_lib.util.NonNullConsumer;
 import lombok.Getter;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -227,7 +228,7 @@ public class FaucetBlockEntity extends MantleBlockEntity implements CustomRender
       // can we drain?
       IFluidHandler input = inputOptional.orElse(EmptyFluidHandler.INSTANCE);
       FluidStack drained = input.drain(PACKET_SIZE, true);
-      if (!drained.isEmpty() && !drained.getFluid().getAttributes().isGaseous(drained)) {
+      if (!drained.isEmpty() && !FluidVariantAttributes.isLighterThanAir(drained.getType())) {
         // can we fill
         IFluidHandler output = outputOptional.orElse(EmptyFluidHandler.INSTANCE);
         long filled = output.fill(drained, true);

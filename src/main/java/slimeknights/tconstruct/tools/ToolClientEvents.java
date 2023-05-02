@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 import io.github.fabricators_of_create.porting_lib.event.client.ModelLoadCallback;
 import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometryLoadersCallback;
 import io.github.fabricators_of_create.porting_lib.event.common.PlayerTickEvents;
+import io.github.fabricators_of_create.porting_lib.model.DynamicFluidContainerModel;
 import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -96,6 +97,8 @@ public class ToolClientEvents extends ClientEventBase {
   static void registerModelLoaders(Map<ResourceLocation, IGeometryLoader<?>> callback) {
     callback.put(TConstruct.getResource("material"), MaterialModel.LOADER);
     callback.put(TConstruct.getResource("tool"), ToolModel.LOADER);
+
+    callback.put(new ResourceLocation("forge", "bucket"), DynamicFluidContainerModel.Loader.INSTANCE);
   }
 
   static void registerModifierModels(ModifierModelRegistrationEvent event) {

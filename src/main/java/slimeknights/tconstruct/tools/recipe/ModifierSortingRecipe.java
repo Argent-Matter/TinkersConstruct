@@ -3,6 +3,7 @@ package slimeknights.tconstruct.tools.recipe;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -134,7 +135,7 @@ public class ModifierSortingRecipe extends AbstractWorktableRecipe {
   public static class Builder extends AbstractSizedIngredientRecipeBuilder<Builder> {
     @Override
     public void save(Consumer<FinishedRecipe> consumer) {
-      save(consumer, Objects.requireNonNull(inputs.get(0).getMatchingStacks().get(0).getItem().getRegistryName()));
+      save(consumer, Objects.requireNonNull(Registry.ITEM.getKey(inputs.get(0).getMatchingStacks().get(0).getItem())));
     }
 
     @Override

@@ -3,6 +3,7 @@ package slimeknights.tconstruct.smeltery.block.controller;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -59,7 +60,7 @@ public class AlloyerBlock extends TinyMultiblockControllerBlock {
   }
 
   @Override
-  public void animateTick(BlockState state, Level world, BlockPos pos, Random rand) {
+  public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource rand) {
     if (state.getValue(ACTIVE)) {
       double x = pos.getX() + 0.5D;
       double y = (double) pos.getY() + (rand.nextFloat() * 4F) / 16F;

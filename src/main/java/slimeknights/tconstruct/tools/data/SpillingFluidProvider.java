@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.tools.data;
 
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.core.Registry;
@@ -39,7 +40,6 @@ import slimeknights.tconstruct.tools.modifiers.traits.skull.StrongBonesModifier;
 
 import java.util.function.Function;
 
-@SuppressWarnings("removal")
 public class SpillingFluidProvider extends AbstractSpillingFluidProvider {
   public SpillingFluidProvider(DataGenerator generator) {
     super(generator, TConstruct.MOD_ID);
@@ -169,7 +169,7 @@ public class SpillingFluidProvider extends AbstractSpillingFluidProvider {
       return new TagPredicate(compound);
     };
     String create = "create";
-    addFluid("potion_create", FluidNameIngredient.of(new ResourceLocation(create, "potion"), FluidAttributes.BUCKET_VOLUME / 8))
+    addFluid("potion_create", FluidNameIngredient.of(new ResourceLocation(create, "potion"), FluidUnit.DROPLETS.getOneBucketAmount() * 125L))
       .condition(DefaultResourceConditions.allModsLoaded(create))
       .addEffect(new PotionFluidEffect(0.25f, createBottle.apply("REGULAR")))
       .addEffect(new PotionFluidEffect(0.5f, createBottle.apply("SPLASH")))

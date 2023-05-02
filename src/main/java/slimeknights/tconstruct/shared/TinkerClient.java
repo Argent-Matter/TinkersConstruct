@@ -74,10 +74,10 @@ public class TinkerClient implements ClientModInitializer {
       BaseTabbedScreen.COMPAT_SHOW_TABS = false;
     }
 
-    ModelsBakedCallback.EVENT.register((manager, models, loader) -> {
-      var variant = FluidVariant.of(TinkerFluids.ichor.getStill());
+    /*ModelsBakedCallback.EVENT.register((manager, models, loader) -> {
+      var variant = FluidVariant.of(TinkerFluids.ichor.get());
       var sprites = FluidVariantRendering.getSprites(variant);
       FluidRenderHandlerRegistry.INSTANCE.register(TinkerFluids.ichor.getStill(), TinkerFluids.ichor.getFlowing(), new UpsideDownFluidRenderer(() -> sprites[0].getName(), () -> sprites[1].getName(), sprites.length > 2 ? () -> sprites[2].getName() : () -> null, FluidVariantRendering.getColor(variant)));
-    });
+    });*/
   }
 }

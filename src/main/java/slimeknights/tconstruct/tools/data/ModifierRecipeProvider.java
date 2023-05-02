@@ -4,12 +4,15 @@ import io.github.fabricators_of_create.porting_lib.crafting.DifferenceIngredient
 import io.github.fabricators_of_create.porting_lib.crafting.IntersectionIngredient;
 import io.github.fabricators_of_create.porting_lib.crafting.PartialNBTIngredient;
 import io.github.fabricators_of_create.porting_lib.data.ConditionalRecipe;
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import io.github.fabricators_of_create.porting_lib.util.TrueCondition;
 import io.github.tropheusj.milk.Milk;
 import io.github.tropheusj.serialization_hooks.ingredient.CombinedIngredient;
 import me.alphamode.forgetags.Tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -103,38 +106,38 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.ironReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenIron, true, FluidValues.NUGGET * 3)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.ironReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.ironReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.slimesteelReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenSlimesteel, false, FluidValues.NUGGET * 3)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.slimesteelReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.slimesteelReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.searedReinforcement)
                             .setFluid(FluidIngredient.of(FluidIngredient.of(TinkerFluids.searedStone.getLocalTag(), FluidValues.BRICK), FluidIngredient.of(TinkerFluids.scorchedStone.getLocalTag(), FluidValues.BRICK)))
-                            .setCoolingTime(TinkerFluids.searedStone.get().getAttributes().getTemperature() - 300, FluidValues.BRICK)
+                            .setCoolingTime(FluidVariantAttributes.getTemperature(FluidVariant.of(TinkerFluids.searedStone.get())) - 300, FluidValues.BRICK)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.searedReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.searedReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.goldReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenGold, true, FluidValues.NUGGET * 3)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.goldReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.goldReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.emeraldReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenEmerald, false, FluidValues.GEM_SHARD)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.emeraldReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.emeraldReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.bronzeReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenAmethystBronze, true, FluidValues.NUGGET * 3)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.bronzeReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.bronzeReinforcement.getRegistryName(), folder));
     ItemCastingRecipeBuilder.tableRecipe(TinkerModifiers.cobaltReinforcement)
                             .setFluidAndTime(TinkerFluids.moltenCobalt, true, FluidValues.NUGGET * 3)
                             .setCast(TinkerCommons.obsidianPane, true)
-                            .save(consumer, prefix(TinkerModifiers.cobaltReinforcement, folder));
+                            .save(consumer, prefix(TinkerModifiers.cobaltReinforcement.getRegistryName(), folder));
 
     // jeweled apple
     ItemCastingRecipeBuilder.tableRecipe(TinkerCommons.jeweledApple)
                             .setFluidAndTime(TinkerFluids.moltenDiamond, false, FluidValues.GEM * 4)
                             .setCast(Items.APPLE, true)
-                            .save(consumer, prefix(TinkerCommons.jeweledApple, folder));
+                            .save(consumer, prefix(TinkerCommons.jeweledApple.getRegistryName(), folder));
 
     // silky cloth
     ShapedRecipeBuilder.shaped(TinkerModifiers.silkyCloth)
@@ -144,7 +147,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                        .pattern("sgs")
                        .pattern("sss")
                        .unlockedBy("has_item", has(Tags.Items.INGOTS_GOLD))
-                       .save(consumer, prefix(TinkerModifiers.silkyCloth, folder));
+                       .save(consumer, prefix(TinkerModifiers.silkyCloth.getRegistryName(), folder));
 
     // wither bone purifying
     ShapelessRecipeBuilder.shapeless(Items.BONE)
@@ -718,8 +721,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                                     .setInput(TinkerModifiers.dragonScale, 1, 10)
                                     .setSlots(SlotType.DEFENSE, 1)
                                     .setTools(TinkerTags.Items.ARMOR)
-                                    .saveSalvage(consumer, prefix(TinkerModifiers.dragonScale, defenseSalvage))
-                                    .save(consumer, prefix(TinkerModifiers.dragonScale, defenseFolder));
+                                    .saveSalvage(consumer, prefix(TinkerModifiers.dragonScale.getRegistryName(), defenseSalvage))
+                                    .save(consumer, prefix(TinkerModifiers.dragonScale.getRegistryName(), defenseFolder));
     // 3 each for chest and legs, 2 each for boots and helmet, leads to 10 total
     IncrementalModifierRecipeBuilder.modifier(ModifierIds.revitalizing)
                                     .setTools(ingredientFromTags(TinkerTags.Items.CHESTPLATES, TinkerTags.Items.LEGGINGS))

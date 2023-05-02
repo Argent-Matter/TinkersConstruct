@@ -2,6 +2,7 @@ package slimeknights.tconstruct.library.recipe.tinkerstation.building;
 
 import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -22,7 +23,7 @@ public class ToolBuildingRecipeBuilder extends AbstractRecipeBuilder<ToolBuildin
 
   @Override
   public void save(Consumer<FinishedRecipe> consumerIn) {
-    this.save(consumerIn, Objects.requireNonNull(this.output.asItem().getRegistryName()));
+    this.save(consumerIn, Objects.requireNonNull(Registry.ITEM.getKey(this.output.asItem())));
   }
 
   @Override
@@ -41,7 +42,7 @@ public class ToolBuildingRecipeBuilder extends AbstractRecipeBuilder<ToolBuildin
       if (!group.isEmpty()) {
         json.addProperty("group", group);
       }
-      json.addProperty("result", Objects.requireNonNull(output.asItem().getRegistryName()).toString());
+      json.addProperty("result", Objects.requireNonNull(Registry.ITEM.getKey(output.asItem())).toString());
     }
 
     @Override

@@ -91,7 +91,7 @@ public class CommonsClientEvents extends ClientEventBase {
       unicodeRenderer = new Font(rl -> {
         FontManager resourceManager = Minecraft.getInstance().fontManager;
         return resourceManager.fontSets.get(Minecraft.UNIFORM_FONT);
-      });
+      }, false);
 
     return unicodeRenderer;
   }

@@ -3,6 +3,7 @@ package slimeknights.tconstruct.tables.recipe;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -119,7 +120,7 @@ public class TinkerStationDamagingRecipe implements ITinkerStationRecipe {
       if (stacks.length == 0) {
         throw new IllegalStateException("Empty ingredient not allowed");
       }
-      save(consumer, Objects.requireNonNull(stacks[0].getItem().getRegistryName()));
+      save(consumer, Objects.requireNonNull(Registry.ITEM.getKey(stacks[0].getItem())));
     }
 
     @Override

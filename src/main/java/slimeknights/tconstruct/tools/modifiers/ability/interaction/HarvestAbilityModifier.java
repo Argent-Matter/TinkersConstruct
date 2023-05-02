@@ -168,7 +168,7 @@ public class HarvestAbilityModifier extends InteractionModifier.NoLevels impleme
     // if we found one, replant, no seed means break
     if (hasSeed) {
       world.setBlockAndUpdate(pos, replant);
-      state.spawnAfterBreak(world, pos, stack);
+      state.spawnAfterBreak(world, pos, stack, false);
       // set block state will not play sounds, destory block will
       world.playSound(null, pos, state.getSoundType(/*world, pos, player*/).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
     } else {

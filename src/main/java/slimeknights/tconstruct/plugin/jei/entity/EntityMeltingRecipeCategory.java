@@ -62,18 +62,6 @@ public class EntityMeltingRecipeCategory implements IRecipeCategory<EntityMeltin
     this.tank = helper.createDrawable(BACKGROUND_LOC, 150, 74, 16, 16);
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public ResourceLocation getUid() {
-    return TConstructJEIConstants.ENTITY_MELTING.getUid();
-  }
-
-  @SuppressWarnings("removal")
-  @Override
-  public Class<? extends EntityMeltingRecipe> getRecipeClass() {
-    return EntityMeltingRecipe.class;
-  }
-
   @Override
   public RecipeType<EntityMeltingRecipe> getRecipeType() {
     return TConstructJEIConstants.ENTITY_MELTING;

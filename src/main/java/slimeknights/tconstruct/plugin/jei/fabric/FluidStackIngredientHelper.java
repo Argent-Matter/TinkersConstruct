@@ -5,6 +5,7 @@ import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("removal")
@@ -17,7 +18,7 @@ public class FluidStackIngredientHelper implements IIngredientHelper<FluidStack>
 
   @Override
   public String getDisplayName(FluidStack ingredient) {
-    return ingredient.getDisplayName().getContents();
+    return ingredient.getDisplayName().getString();
   }
 
   @Override
@@ -26,13 +27,8 @@ public class FluidStackIngredientHelper implements IIngredientHelper<FluidStack>
   }
 
   @Override
-  public String getModId(FluidStack ingredient) {
-    return Registry.FLUID.getKey(ingredient.getFluid()).getNamespace();
-  }
-
-  @Override
-  public String getResourceId(FluidStack ingredient) {
-    return Registry.FLUID.getKey(ingredient.getFluid()).getPath();
+  public ResourceLocation getResourceLocation(FluidStack ingredient) {
+    return Registry.FLUID.getKey(ingredient.getFluid());
   }
 
   @Override
@@ -44,6 +40,6 @@ public class FluidStackIngredientHelper implements IIngredientHelper<FluidStack>
   public String getErrorInfo(@Nullable FluidStack ingredient) {
     if (ingredient == null)
       return "FluidStack is null";
-    return ingredient.getDisplayName().getContents();
+    return ingredient.getDisplayName().getString();
   }
 }

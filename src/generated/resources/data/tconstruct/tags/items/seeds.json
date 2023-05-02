@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#c:seeds",
-    "minecraft:carrot",
-    "minecraft:potato",
-    "minecraft:nether_wart"
-  ]
-}

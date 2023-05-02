@@ -1,8 +1,10 @@
 package slimeknights.tconstruct.world;
 
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
+import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
@@ -150,50 +152,55 @@ public final class TinkerStructures extends TinkerModule {
    * Structures
    */
   public static final RegistryObject<StructurePieceType> slimeIslandPiece = STRUCTURE_PIECE.register("slime_island_piece", () -> SlimeIslandPiece::new);
-  // earthslime)
+
+  // earthslime
   public static final RegistryObject<StructureType<EarthSlimeIslandStructure>> earthSlimeIsland = STRUCTURE_TYPES.register("earth_slime_island", () -> () -> EarthSlimeIslandStructure.CODEC);
-  public static final RegistryObject<Structure> earthSlimeIslandStructure = STRUCTURES.register("earth_slime_island", () -> new EarthSlimeIslandStructure(
+  public static final ResourceKey<Structure> earthSlimeIslandKey = registerKey("earth_slime_island");
+  public static final Holder<Structure> earthSlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, earthSlimeIslandKey, new EarthSlimeIslandStructure(
     new Structure.StructureSettings(
       biomes(TinkerTags.Biomes.EARTHSLIME_ISLANDS), monsterOverride(TinkerWorld.earthSlimeEntity.get(), 4, 4),
       GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
   );
-  public static final ResourceKey<Structure> earthSlimeIslandKey = registerKey("earth_slime_island");
+
   // skyslime
   public static final RegistryObject<StructureType<SkySlimeIslandStructure>> skySlimeIsland = STRUCTURE_TYPES.register("sky_slime_island", () -> () -> SkySlimeIslandStructure.CODEC);
-  public static final RegistryObject<Structure> skySlimeIslandStructure = STRUCTURES.register("sky_slime_island", () -> new SkySlimeIslandStructure(
+  public static final ResourceKey<Structure> skySlimeIslandKey = registerKey("sky_slime_island");
+  public static final Holder<Structure> skySlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, skySlimeIslandKey, new SkySlimeIslandStructure(
     new Structure.StructureSettings(
       biomes(TinkerTags.Biomes.SKYSLIME_ISLANDS), monsterOverride(TinkerWorld.skySlimeEntity.get(), 3, 4),
       GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
     )
   ));
-  public static final ResourceKey<Structure> skySlimeIslandKey = registerKey("sky_slime_island");
-  // ckay
+
+  // clay
   public static final RegistryObject<StructureType<ClayIslandStructure>> clayIsland = STRUCTURE_TYPES.register("clay_island", () -> () -> ClayIslandStructure.CODEC);
-  public static final RegistryObject<Structure> clayIslandStructure = STRUCTURES.register("clay_island", () -> new ClayIslandStructure(
+  public static final ResourceKey<Structure> clayIslandKey = registerKey("clay_island");
+  public static final Holder<Structure> clayIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, clayIslandKey, new ClayIslandStructure(
     new Structure.StructureSettings(
       biomes(TinkerTags.Biomes.CLAY_ISLANDS), monsterOverride(TinkerWorld.terracubeEntity.get(), 2, 4),
       GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
     )
   ));
-  public static final ResourceKey<Structure> clayIslandKey = registerKey("clay_island");
+
   // nether
   public static final RegistryObject<StructureType<BloodSlimeIslandStructure>> bloodIsland = STRUCTURE_TYPES.register("blood_island", () -> () -> BloodSlimeIslandStructure.CODEC);
-  public static final RegistryObject<Structure> bloodIslandStructure = STRUCTURES.register("blood_island", () -> new BloodSlimeIslandStructure(
+  public static final ResourceKey<Structure> bloodIslandKey = registerKey("blood_island");
+  public static final Holder<Structure> bloodIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, bloodIslandKey, new BloodSlimeIslandStructure(
     new Structure.StructureSettings(
       biomes(TinkerTags.Biomes.BLOOD_ISLANDS), monsterOverride(EntityType.MAGMA_CUBE, 4, 6),
       GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.NONE
     )
   ));
-  public static final ResourceKey<Structure> bloodIslandKey = registerKey("blood_island");
+
   // end
   public static final RegistryObject<StructureType<EnderSlimeIslandStructure>> endSlimeIsland = STRUCTURE_TYPES.register("end_slime_island", () -> () -> EnderSlimeIslandStructure.CODEC);
-  public static final RegistryObject<Structure> endSlimeIslandStructure = STRUCTURES.register("end_slime_island", () -> new EnderSlimeIslandStructure(
+  public static final ResourceKey<Structure> endSlimeIslandKey = registerKey("end_slime_island");
+  public static final Holder<Structure> endSlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, endSlimeIslandKey, new EnderSlimeIslandStructure(
     new Structure.StructureSettings(
       biomes(TinkerTags.Biomes.ENDERSLIME_ISLANDS), monsterOverride(TinkerWorld.enderSlimeEntity.get(), 4, 4),
       GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE
     )
   ));
-  public static final ResourceKey<Structure> endSlimeIslandKey = registerKey("end_slime_island");
 
   public static ResourceKey<Structure> registerKey(String name) {
     return ResourceKey.create(Registry.STRUCTURE_REGISTRY, TConstruct.getResource(name));
@@ -206,5 +213,9 @@ public final class TinkerStructures extends TinkerModule {
   /** Creates a spawn override for a single mob */
   private static Map<MobCategory,StructureSpawnOverride> monsterOverride(EntityType<?> entity, int min, int max) {
     return Map.of(MobCategory.MONSTER, new StructureSpawnOverride(BoundingBoxType.STRUCTURE, WeightedRandomList.create(new MobSpawnSettings.SpawnerData(entity, 1, min, max))));
+  }
+
+  public static void init() {
+
   }
 }

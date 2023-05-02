@@ -1,6 +1,8 @@
 package slimeknights.tconstruct.world.worldgen.islands.variants;
 
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import slimeknights.tconstruct.TConstruct;
@@ -25,7 +27,7 @@ public class EnderSlimeIslandVariant extends AbstractSlimeIslandVariant {
   }
 
   @Override
-  protected SlimeType getCongealedSlimeType(Random random) {
+  protected SlimeType getCongealedSlimeType(RandomSource random) {
     return SlimeType.ENDER;
   }
 
@@ -42,7 +44,7 @@ public class EnderSlimeIslandVariant extends AbstractSlimeIslandVariant {
 
   @Nullable
   @Override
-  public ConfiguredFeature<?,?> getTreeFeature(Random random) {
+  public ConfiguredFeature<?,?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
     return TinkerStructures.enderSlimeIslandTree.get();
   }
 }

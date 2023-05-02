@@ -48,14 +48,14 @@ import static net.minecraft.tags.BlockTags.NEEDS_IRON_TOOL;
 import static net.minecraft.tags.BlockTags.NEEDS_STONE_TOOL;
 
 @SuppressWarnings("unchecked")
-public class BlockTagProvider extends BlockTagsProvider {
+public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
   public BlockTagProvider(FabricDataGenerator generatorIn) {
     super(generatorIn);
   }
 
   @Override
-  protected void addTags() {
+  protected void generateTags() {
     this.addCommon();
     this.addTools();
     this.addWorld();
@@ -445,11 +445,6 @@ public class BlockTagProvider extends BlockTagsProvider {
       .addTag(BlockTags.LEAVES).addTag(BlockTags.SAPLINGS).addTag(BlockTags.FLOWERS).addTag(BlockTags.CROPS);
     // dagger does hoe or sword blocks
     tag(TinkerTags.Blocks.MINABLE_WITH_DAGGER).addTag(MINEABLE_WITH_HOE).addTag(TinkerTags.Blocks.MINABLE_WITH_SWORD);
-  }
-
-  @Override
-  public String getName() {
-    return "Tinkers Construct Block Tags";
   }
 
   /** Applies a tag to a set of suppliers */

@@ -8,6 +8,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -50,21 +51,21 @@ public class SlimeGrassBlock extends SnowyDirtBlock implements BonemealableBlock
   }
 
   @Override
-  public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+  public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
     return true;
   }
 
   /**
    * Shared logic to grow slimy grass from bonemeal
    * @param world            World instance
-   * @param rand             Random instnace
+   * @param rand             RandomSource instnace
    * @param pos              Position to grow
    * @param validBase        Tag of valid base blocks to grow on
    * @param foliageType      Foliage type to grow
    * @param includeSapling   If true, sapling may be grown
    * @param spread           If true, spreads foliage to relevant dirt blocks
    */
-  public static void growGrass(ServerLevel world, Random rand, BlockPos pos, TagKey<Block> validBase, SlimeType foliageType, boolean includeSapling, boolean spread) {
+  public static void growGrass(ServerLevel world, RandomSource rand, BlockPos pos, TagKey<Block> validBase, SlimeType foliageType, boolean includeSapling, boolean spread) {
     // based on vanilla logic, reimplemented to switch plant types
     BlockPos up = pos.above();
     mainLoop:
@@ -111,19 +112,18 @@ public class SlimeGrassBlock extends SnowyDirtBlock implements BonemealableBlock
   }
 
   @Override
-  public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+  public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
     growGrass(world, rand, pos, TinkerTags.Blocks.SLIMY_GRASS, foliageType, false, false);
   }
 
   /* Spreading */
 
   @SuppressWarnings("deprecation")
-  @Deprecated
   @Override
-  public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+  public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
     // based on vanilla logic, reimplemented to remove dirt hardcode
     // prevent loading unloaded chunks
-    if (!LevelUtil.isAreaLoaded(world, pos, 3)) return;
+    if (!world.isAreaLoaded(pos, 3)) return;
 
     // if this is no longer valid grass, destroy
     if (!isValidPos(state, world, pos)) {

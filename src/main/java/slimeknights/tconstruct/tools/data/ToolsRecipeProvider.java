@@ -84,13 +84,13 @@ public class ToolsRecipeProvider extends BaseRecipeProvider implements IMaterial
                           .requires(Ingredient.of(TinkerSmeltery.searedBrick, TinkerSmeltery.scorchedBrick))
                           .unlockedBy("has_seared", has(TinkerSmeltery.searedBrick))
                           .unlockedBy("has_scorched", has(TinkerSmeltery.scorchedBrick))
-                          .save(consumer, prefix(TinkerTools.flintAndBrick, folder));
+                          .save(consumer, prefix(TinkerTools.flintAndBrick.getRegistryName(), folder));
     SpecializedRepairRecipeBuilder.repair(TinkerTools.flintAndBrick, MaterialIds.searedStone)
-                                  .buildRepairKit(consumer, wrap(TinkerTools.flintAndBrick, repairFolder, "_seared_repair_kit"))
-                                  .save(consumer, wrap(TinkerTools.flintAndBrick, repairFolder, "_seared_station"));
+                                  .buildRepairKit(consumer, wrap(TinkerTools.flintAndBrick.getRegistryName(), repairFolder, "_seared_repair_kit"))
+                                  .save(consumer, wrap(TinkerTools.flintAndBrick.getRegistryName(), repairFolder, "_seared_station"));
     SpecializedRepairRecipeBuilder.repair(TinkerTools.flintAndBrick, MaterialIds.scorchedStone)
-                                  .buildRepairKit(consumer, wrap(TinkerTools.flintAndBrick, repairFolder, "_scorched_repair_kit"))
-                                  .save(consumer, wrap(TinkerTools.flintAndBrick, repairFolder, "_scorched_station"));
+                                  .buildRepairKit(consumer, wrap(TinkerTools.flintAndBrick.getRegistryName(), repairFolder, "_scorched_repair_kit"))
+                                  .save(consumer, wrap(TinkerTools.flintAndBrick.getRegistryName(), repairFolder, "_scorched_station"));
 
     // travelers gear
     ShapedRecipeBuilder.shaped(TinkerTools.travelersGear.get(ArmorSlotType.HELMET))

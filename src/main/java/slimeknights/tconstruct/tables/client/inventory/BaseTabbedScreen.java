@@ -86,7 +86,7 @@ public class BaseTabbedScreen<TILE extends BlockEntity, CONTAINER extends Tabbed
     SideInventoryContainer<?> sideInventoryContainer = getMenu().getSubContainer(SideInventoryContainer.class);
     if (sideInventoryContainer != null) {
       // no title if missing one
-      Component sideInventoryName = TextComponent.EMPTY;
+      Component sideInventoryName = Component.empty();
       BlockEntity te = sideInventoryContainer.getTile();
       if (te instanceof MenuProvider) {
         sideInventoryName = ((MenuProvider) te).getDisplayName();

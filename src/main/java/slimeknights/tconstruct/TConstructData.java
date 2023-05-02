@@ -20,10 +20,14 @@ public class TConstructData implements DataGeneratorEntrypoint {
 
   @Override
   public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-    var existingData = System.getProperty("slimeknights.tconstruct.existingData").split(";");
+    var existingDataString = System.getProperty("slimeknights.tconstruct.existingData");
+    var existingData = new String[0];
+    if (existingDataString != null) {
+      existingData = existingDataString.split(";");
+    }
     ExistingFileHelper helper = new ExistingFileHelper(Arrays.stream(existingData).map(Paths::get).toList(), Collections.emptySet(),
       true, null, null);
-    TConstruct.onInitializeDataGenerator(fabricDataGenerator, helper);
+    TConstruct.onInitializeDataGenerator(fabricDataGenerator);
     TinkerSmeltery.gatherData(fabricDataGenerator);
     TinkerModifiers.gatherData(fabricDataGenerator, helper);
 

@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -37,7 +38,7 @@ public class MaterialMeltingRecipeBuilder extends AbstractRecipeBuilder<Material
 
   /** Creates a recipe using the fluids temperature */
   public static MaterialMeltingRecipeBuilder material(MaterialVariantId materialId, FluidStack result) {
-    return material(materialId, result.getFluid().getAttributes().getTemperature(result) - 300, result);
+    return material(materialId, FluidVariantAttributes.getTemperature(result.getType()) - 300, result);
   }
 
   /** Creates a recipe using the fluids temperature */

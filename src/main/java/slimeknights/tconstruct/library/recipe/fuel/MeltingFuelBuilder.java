@@ -3,6 +3,8 @@ package slimeknights.tconstruct.library.recipe.fuel;
 import com.google.gson.JsonObject;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import lombok.AllArgsConstructor;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -31,7 +33,7 @@ public class MeltingFuelBuilder extends AbstractRecipeBuilder<MeltingFuelBuilder
    * @return  Builder instance
    */
   public static MeltingFuelBuilder fuel(FluidStack fluid, int duration) {
-    return fuel(FluidIngredient.of(fluid), duration, fluid.getFluid().getAttributes().getTemperature(fluid) - 300);
+    return fuel(FluidIngredient.of(fluid), duration, FluidVariantAttributes.getTemperature(fluid.getType()) - 300);
   }
 
   @Override
@@ -39,7 +41,7 @@ public class MeltingFuelBuilder extends AbstractRecipeBuilder<MeltingFuelBuilder
     if (input.getFluids().isEmpty()) {
       throw new IllegalStateException("Must have at least one fluid for dynamic input");
     }
-    save(consumer, Objects.requireNonNull(input.getFluids().get(0).getFluid().getRegistryName()));
+    save(consumer, Objects.requireNonNull(Registry.FLUID.getKey(input.getFluids().get(0).getFluid())));
   }
 
   @Override

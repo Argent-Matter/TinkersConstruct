@@ -12,6 +12,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -100,7 +101,7 @@ public class Modifier implements IHaveLoader<Modifier> {
   };
 
   /** Modifier random instance, use for chance based effects */
-  protected static Random RANDOM = new Random();
+  protected static RandomSource RANDOM = RandomSource.create();
 
   /** Priority of modfiers by default */
   public static final int DEFAULT_PRIORITY = 100;
@@ -328,7 +329,7 @@ public class Modifier implements IHaveLoader<Modifier> {
   /** Converts a list of text components to a single text component, newline separated */
   private static Component listToComponent(List<Component> list) {
     if (list.isEmpty()) {
-      return (Component) Component.EMPTY;
+      return Component.empty();
     }
     MutableComponent textComponent = Component.literal("");
     Iterator<Component> iterator = list.iterator();

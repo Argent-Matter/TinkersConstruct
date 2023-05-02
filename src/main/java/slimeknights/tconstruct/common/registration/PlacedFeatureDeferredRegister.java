@@ -30,8 +30,8 @@ public class PlacedFeatureDeferredRegister extends DeferredRegisterWrapper<Place
    * @param placement  Placements
    * @return  Registry object
    */
-  public RegistryObject<PlacedFeature> register(String name, RegistryObject<? extends ConfiguredFeature<?,?>> feature, List<PlacementModifier> placement) {
-    return register.register(name, () -> new PlacedFeature(Holder.hackyErase(feature.getHolder().orElseThrow(() -> new IllegalStateException("Feature does not have a holder"))), List.copyOf(placement)));
+  public RegistryObject<PlacedFeature> register(String name, Holder<? extends ConfiguredFeature<?,?>> feature, List<PlacementModifier> placement) {
+    return register.register(name, () -> new PlacedFeature(Holder.hackyErase(feature), List.copyOf(placement)));
   }
 
   /**
@@ -41,12 +41,12 @@ public class PlacedFeatureDeferredRegister extends DeferredRegisterWrapper<Place
    * @param placement  Placements
    * @return  Registry object
    */
-  public RegistryObject<PlacedFeature> register(String name, RegistryObject<? extends ConfiguredFeature<?,?>> feature, PlacementModifier... placement) {
+  public RegistryObject<PlacedFeature> register(String name, Holder<? extends ConfiguredFeature<?,?>> feature, PlacementModifier... placement) {
     return register(name, feature, Arrays.asList(placement));
   }
 
   /** Registers a geode feature */
-  public RegistryObject<PlacedFeature> registerGeode(String name, RegistryObject<ConfiguredFeature<GeodeConfiguration,Feature<GeodeConfiguration>>> geode, RarityFilter rarity, HeightRangePlacement height) {
+  public RegistryObject<PlacedFeature> registerGeode(String name, Holder<ConfiguredFeature<GeodeConfiguration,Feature<GeodeConfiguration>>> geode, RarityFilter rarity, HeightRangePlacement height) {
     return register(name, geode, rarity, InSquarePlacement.spread(), height, BiomeFilter.biome());
   }
 }

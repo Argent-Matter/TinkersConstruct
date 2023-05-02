@@ -1,10 +1,13 @@
 package slimeknights.tconstruct.common;
 
+import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.serialization.Codec;
 import io.github.fabricators_of_create.porting_lib.PortingLibRegistries;
 import io.github.fabricators_of_create.porting_lib.loot.IGlobalLootModifier;
 import io.github.fabricators_of_create.porting_lib.loot.LootModifierManager;
 import io.github.fabricators_of_create.porting_lib.util.LazyRegistrar;
+import net.minecraft.commands.synchronization.ArgumentTypeInfos;
+import net.minecraft.commands.synchronization.SingletonArgumentInfo;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.data.BuiltinRegistries;
@@ -29,6 +32,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryType;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
+import net.minecraftforge.server.command.ModIdArgument;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.item.TooltipItem;
 import slimeknights.mantle.registration.deferred.BlockEntityTypeDeferredRegister;
@@ -45,6 +49,7 @@ import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.recipe.TinkerRecipeTypes;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.block.SlimeType;
+import slimeknights.tconstruct.world.TinkerStructures;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -81,9 +86,7 @@ public abstract class TinkerModule {
   protected static final LazyRegistrar<Feature<?>> FEATURES = LazyRegistrar.create(Registry.FEATURE, TConstruct.MOD_ID);
   protected static final ConfiguredFeatureDeferredRegister CONFIGURED_FEATURES = new ConfiguredFeatureDeferredRegister(TConstruct.MOD_ID);
   protected static final PlacedFeatureDeferredRegister PLACED_FEATURES = new PlacedFeatureDeferredRegister(TConstruct.MOD_ID);
-  protected static final LazyRegistrar<Structure> STRUCTURE_FEATURES = LazyRegistrar.create(Registry.STRUCTURE_REGISTRY, TConstruct.MOD_ID);
-  protected static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registry.STRUCTURE_TYPE_REGISTRY, TConstruct.MOD_ID);
-  protected static final LazyRegistrar<Structure> STRUCTURES = LazyRegistrar.create(Registry.STRUCTURE_REGISTRY, TConstruct.MOD_ID);
+  protected static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registry.STRUCTURE_TYPES, TConstruct.MOD_ID);
   protected static final LazyRegistrar<StructurePieceType> STRUCTURE_PIECE = LazyRegistrar.create(Registry.STRUCTURE_PIECE, TConstruct.MOD_ID);
   protected static final LazyRegistrar<BlockStateProviderType<?>> BLOCK_STATE_PROVIDER_TYPES = LazyRegistrar.create(Registry.BLOCKSTATE_PROVIDER_TYPES, TConstruct.MOD_ID);
 
@@ -127,9 +130,11 @@ public abstract class TinkerModule {
     CONFIGURED_FEATURES.register();
     PLACED_FEATURES.register();
     STRUCTURE_TYPES.register();
-    STRUCTURE_FEATURES.register();
+    TinkerStructures.init();
     STRUCTURE_PIECE.register();
     BLOCK_STATE_PROVIDER_TYPES.register();
+
+    ArgumentTypeInfos.register(Registry.COMMAND_ARGUMENT_TYPE, "forge:mod_id", ModIdArgument.class, SingletonArgumentInfo.contextFree(ModIdArgument::modIdArgument));
   }
 
   /**

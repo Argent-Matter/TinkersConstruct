@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MultiblockResult {
   /** Successful result, used when no error */
-  public static final MultiblockResult SUCCESS = new MultiblockResult(true, null, TextComponent.EMPTY);
+  public static final MultiblockResult SUCCESS = new MultiblockResult(true, null, Component.empty());
 
   /** If true, this result was successful */
   private final boolean success;

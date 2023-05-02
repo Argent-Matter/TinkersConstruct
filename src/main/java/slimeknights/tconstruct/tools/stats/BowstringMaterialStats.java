@@ -21,7 +21,7 @@ public class BowstringMaterialStats extends BaseMaterialStats {
   public static final MaterialStatsId ID = new MaterialStatsId(TConstruct.getResource("bowstring"));
   public static final BowstringMaterialStats DEFAULT = new BowstringMaterialStats();
   private static final List<Component> LOCALIZED = Collections.singletonList(makeTooltip(TConstruct.getResource("extra.no_stats")));
-  private static final List<Component> DESCRIPTION = Collections.singletonList(TextComponent.EMPTY);
+  private static final List<Component> DESCRIPTION = Collections.singletonList(Component.empty());
 
   // no stats
 

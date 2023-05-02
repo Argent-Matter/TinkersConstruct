@@ -3,6 +3,7 @@ package slimeknights.tconstruct.world.worldgen.trees.feature;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -29,7 +30,7 @@ public class SlimeFungusFeature extends HugeFungusFeature {
       return false;
     }
     // ensure not too tall
-    Random random = context.random();
+    RandomSource random = context.random();
     int height = Mth.nextInt(random, 4, 13);
     if (random.nextInt(12) == 0) {
       height *= 2;

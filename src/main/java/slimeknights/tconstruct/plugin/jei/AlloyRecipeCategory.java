@@ -65,18 +65,6 @@ public class AlloyRecipeCategory implements IRecipeCategory<AlloyRecipe> {
     this.tank = helper.createDrawable(BACKGROUND_LOC, 172, 17, 16, 16);
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public ResourceLocation getUid() {
-    return TConstructJEIConstants.ALLOY.getUid();
-  }
-
-  @SuppressWarnings("removal")
-  @Override
-  public Class<? extends AlloyRecipe> getRecipeClass() {
-    return AlloyRecipe.class;
-  }
-
   @Override
   public RecipeType<AlloyRecipe> getRecipeType() {
     return TConstructJEIConstants.ALLOY;

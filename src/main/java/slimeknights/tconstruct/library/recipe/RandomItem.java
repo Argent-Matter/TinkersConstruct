@@ -7,6 +7,7 @@ import io.netty.handler.codec.DecoderException;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import slimeknights.mantle.transfer.item.ItemHandlerHelper;
 import slimeknights.mantle.recipe.helper.ItemOutput;
@@ -21,7 +22,7 @@ public abstract class RandomItem {
    * Produces a random result with a range from the min count to the result stack size
    * @param result    Result, stack size determines max output
    * @param minCount  Minimum count for randomness
-   * @return  Random item
+   * @return  RandomSource item
    */
   public static RandomItem range(ItemOutput result, int minCount) {
     return new Range(result, minCount);
@@ -30,7 +31,7 @@ public abstract class RandomItem {
   /**
    * Produces a random result with a range from the 0 to the result stack size
    * @param result    Result, stack size determines max output
-   * @return  Random item
+   * @return  RandomSource item
    */
   public static RandomItem range(ItemOutput result) {
     return range(result, 0);
@@ -40,7 +41,7 @@ public abstract class RandomItem {
    * Produces a random result with a percent chance
    * @param result    Result
    * @param chance    Percent chance of a result
-   * @return  Random item
+   * @return  RandomSource item
    */
   public static RandomItem chance(ItemOutput result, float chance) {
     return new Chance(result, chance);
@@ -49,7 +50,7 @@ public abstract class RandomItem {
   /**
    * Produces a constant result
    * @param result    Result
-   * @return  Random item
+   * @return  RandomSource item
    */
   public static RandomItem constant(ItemOutput result) {
     return chance(result, 1.0f);
@@ -57,10 +58,10 @@ public abstract class RandomItem {
 
   /**
    * Gets a copy of the item for the given random object
-   * @param random  Random instance for randomization
+   * @param random  RandomSource instance for randomization
    * @return  Item stack, or empty if the random failed
    */
-  public abstract ItemStack get(Random random);
+  public abstract ItemStack get(RandomSource random);
 
   /** Serializes this object to JSON */
   public abstract JsonElement serialize();
@@ -71,7 +72,7 @@ public abstract class RandomItem {
   /**
    * Reads a random item from JSON
    * @param element  JSON element
-   * @return  Random item
+   * @return  RandomSource item
    */
   public static RandomItem fromJson(JsonElement element, String name) {
     // we serialize max to count for ranges as it looks cleaner, put it back
@@ -131,7 +132,7 @@ public abstract class RandomItem {
     private final int minCount;
 
     @Override
-    public ItemStack get(Random random) {
+    public ItemStack get(RandomSource random) {
       ItemStack result = this.result.get();
       // safety in case min count is too high
       int newCount = result.getCount();
@@ -178,7 +179,7 @@ public abstract class RandomItem {
     private final float chance;
 
     @Override
-    public ItemStack get(Random random) {
+    public ItemStack get(RandomSource random) {
       if (chance >= 1.0f || random.nextFloat() < chance) {
         return result.get().copy();
       }

@@ -11,14 +11,14 @@ import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 
 @SuppressWarnings("unchecked")
-public class FluidTagProvider extends TagsProvider<Fluid> {
+public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
 
   public FluidTagProvider(FabricDataGenerator generatorIn) {
-    super(generatorIn, Registry.FLUID);
+    super(generatorIn);
   }
 
   @Override
-  public void addTags() {
+  public void generateTags() {
     // first, register common tags
     // slime
     tagLocal(TinkerFluids.blood);
@@ -154,11 +154,6 @@ public class FluidTagProvider extends TagsProvider<Fluid> {
         .addTag(TinkerFluids.moltenLumium.getForgeTag())
         .addTag(TinkerFluids.moltenSignalum.getForgeTag())
         .addTag(TinkerFluids.moltenRefinedObsidian.getForgeTag());
-  }
-
-  @Override
-  public String getName() {
-    return "Tinkers Construct Fluid TinkerTags";
   }
 
   /** Tags this fluid using local tags */

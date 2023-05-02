@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -71,12 +72,12 @@ public abstract class AbstractSpillingFluidProvider extends GenericDataProvider 
 
   /** Creates a builder for a fluid stack */
   protected Builder addFluid(FluidStack fluid) {
-    return addFluid(Objects.requireNonNull(fluid.getFluid().getRegistryName()).getPath(), FluidIngredient.of(fluid));
+    return addFluid(Objects.requireNonNull(Registry.FLUID.getKey(fluid.getFluid())).getPath(), FluidIngredient.of(fluid));
   }
 
   /** Creates a builder for a fluid and amount */
   protected Builder addFluid(Fluid fluid, long amount) {
-    return addFluid(Objects.requireNonNull(fluid.getRegistryName()).getPath(), FluidIngredient.of(fluid, amount));
+    return addFluid(Objects.requireNonNull(Registry.FLUID.getKey(fluid)).getPath(), FluidIngredient.of(fluid, amount));
   }
 
   /** Creates a builder for a tag and amount */

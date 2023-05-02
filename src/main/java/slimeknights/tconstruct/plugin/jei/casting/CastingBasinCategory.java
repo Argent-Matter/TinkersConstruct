@@ -15,12 +15,6 @@ public class CastingBasinCategory extends AbstractCastingCategory {
     super(guiHelper, TinkerSmeltery.searedBasin.get(), guiHelper.createDrawable(BACKGROUND_LOC, 117, 16, 16, 16));
   }
 
-  @SuppressWarnings("removal")
-  @Override
-  public ResourceLocation getUid() {
-    return TConstructJEIConstants.CASTING_BASIN.getUid();
-  }
-
   @Override
   public RecipeType<IDisplayableCastingRecipe> getRecipeType() {
     return TConstructJEIConstants.CASTING_BASIN;

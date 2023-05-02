@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
@@ -135,7 +136,7 @@ public class Exploder {
   private void finish() {
     final int d = (int) this.r / 2;
     final BlockPos pos = new BlockPos(this.x - d, this.y - d, this.z - d);
-    final Random random = new Random();
+    final RandomSource random = RandomSource.create();
 
     List<ItemStack> aggregatedDrops = Lists.newArrayList();
 

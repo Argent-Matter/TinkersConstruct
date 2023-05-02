@@ -4,6 +4,7 @@ import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometry
 import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.resources.ResourceLocation;
@@ -90,10 +91,10 @@ public class SmelteryClientEvents extends ClientEventBase {
     BlockRenderLayerMap.INSTANCE.putBlock(TinkerSmeltery.scorchedGlassPane.get(), cutout);
 
     // screens
-    ScreenRegistry.register(TinkerSmeltery.melterContainer.get(), MelterScreen::new);
-    ScreenRegistry.register(TinkerSmeltery.smelteryContainer.get(), HeatingStructureScreen::new);
-    ScreenRegistry.register(TinkerSmeltery.singleItemContainer.get(), new SingleItemScreenFactory());
-    ScreenRegistry.register(TinkerSmeltery.alloyerContainer.get(), AlloyerScreen::new);
+    MenuScreens.register(TinkerSmeltery.melterContainer.get(), MelterScreen::new);
+    MenuScreens.register(TinkerSmeltery.smelteryContainer.get(), HeatingStructureScreen::new);
+    MenuScreens.register(TinkerSmeltery.singleItemContainer.get(), new SingleItemScreenFactory());
+    MenuScreens.register(TinkerSmeltery.alloyerContainer.get(), AlloyerScreen::new);
   }
 
   static void registerModelLoaders(Map<ResourceLocation, IGeometryLoader<?>> callback) {

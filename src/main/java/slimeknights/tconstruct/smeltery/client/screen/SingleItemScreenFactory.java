@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.smeltery.client.screen;
 
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.MenuScreens.ScreenConstructor;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
@@ -16,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Screen factory for the single item container, one container for multiple backgrounds
  */
-public class SingleItemScreenFactory implements ScreenRegistry.Factory<SingleItemContainerMenu,BackgroundContainerScreen<SingleItemContainerMenu>> {
+public class SingleItemScreenFactory implements MenuScreens.ScreenConstructor<SingleItemContainerMenu,BackgroundContainerScreen<SingleItemContainerMenu>> {
   private static final int HEIGHT = 133;
   private static final ResourceLocation DEFAULT = TConstruct.getResource("textures/gui/blank.png");
 

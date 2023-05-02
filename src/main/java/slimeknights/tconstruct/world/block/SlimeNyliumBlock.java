@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.world.block;
 
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -45,7 +46,7 @@ public class SlimeNyliumBlock extends Block implements BonemealableBlock {
   }
 
   @Override
-  public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+  public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
     if (!isDarkEnough(state, worldIn, pos)) {
       worldIn.setBlockAndUpdate(pos, SlimeGrassBlock.getDirtState(state));
     }
@@ -57,12 +58,12 @@ public class SlimeNyliumBlock extends Block implements BonemealableBlock {
   }
 
   @Override
-  public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+  public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
     return true;
   }
 
   @Override
-  public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+  public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
     SlimeGrassBlock.growGrass(world, rand, pos, TinkerTags.Blocks.SLIMY_NYLIUM, foliageType, true, true);
   }
 }

@@ -9,14 +9,14 @@ import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 @SuppressWarnings("unchecked")
-public class EntityTypeTagProvider extends TagsProvider<EntityType<?>> {
+public class EntityTypeTagProvider extends FabricTagProvider.EntityTypeTagProvider {
 
   public EntityTypeTagProvider(FabricDataGenerator generatorIn) {
-    super(generatorIn, Registry.ENTITY_TYPE);
+    super(generatorIn);
   }
 
   @Override
-  public void addTags() {
+  public void generateTags() {
     this.tag(TinkerTags.EntityTypes.SLIMES)
         .add(EntityType.SLIME, TinkerWorld.earthSlimeEntity.get(), TinkerWorld.skySlimeEntity.get(), TinkerWorld.enderSlimeEntity.get(), TinkerWorld.terracubeEntity.get());
     this.tag(TinkerTags.EntityTypes.BACON_PRODUCER).add(EntityType.PIG, EntityType.PIGLIN, EntityType.HOGLIN);
@@ -32,11 +32,6 @@ public class EntityTypeTagProvider extends TagsProvider<EntityType<?>> {
     this.tag(TinkerTags.EntityTypes.KILLAGERS).addTag(TinkerTags.EntityTypes.VILLAGERS).addTag(TinkerTags.EntityTypes.ILLAGERS).add(EntityType.IRON_GOLEM, EntityType.RAVAGER);
 
     this.tag(TinkerTags.EntityTypes.SMALL_ARMOR).addTag(TinkerTags.EntityTypes.SLIMES);
-  }
-
-  @Override
-  public String getName() {
-    return "Tinkers Construct Entity Type TinkerTags";
   }
 
 }

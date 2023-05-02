@@ -37,7 +37,7 @@ public class SoulboundModifier extends NoLevelsModifier {
 //    }
     // this is the latest we can add slot markers to the items so we can return them to slots
     // for simplicity, only care about held items
-    if (/*event.getEntityLiving() instanceof Player player && */!(player.isFake())) {
+    if (/*event.getEntityLiving() instanceof Player player && */!(player.isAttackable())) {
       for (EquipmentSlot slot : EquipmentSlot.values()) {
         if (slot != EquipmentSlot.MAINHAND) {
           ItemStack stack = player.getItemBySlot(slot);

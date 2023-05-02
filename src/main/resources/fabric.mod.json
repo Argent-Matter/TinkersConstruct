@@ -30,7 +30,7 @@
     "rei_client": [
       "slimeknights.tconstruct.plugin.rei.REIPlugin"
     ],
-    "rei": [
+    "rei_server": [
       "slimeknights.tconstruct.plugin.rei.REIPluginServer"
     ],
     "jei_mod_plugin": [
@@ -48,7 +48,7 @@
   "depends": {
     "fabricloader": ">=0.14.19",
     "fabric": ">=0.76.0",
-    "minecraft": ">=1.19<1.19.3"
+    "minecraft": "1.19.2"
   },
   "custom": {
     "cardinal-components": [

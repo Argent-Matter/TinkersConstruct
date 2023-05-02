@@ -10,23 +10,18 @@ import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tables.TinkerTables;
 
-public class BlockEntityTypeTagProvider extends TagsProvider<BlockEntityType<?>> {
+public class BlockEntityTypeTagProvider extends FabricTagProvider<BlockEntityType<?>> {
   public BlockEntityTypeTagProvider(FabricDataGenerator generatorIn) {
     super(generatorIn, Registry.BLOCK_ENTITY_TYPE);
   }
 
   @Override
-  protected void addTags() {
+  protected void generateTags() {
     this.tag(TinkerTags.TileEntityTypes.CRAFTING_STATION_BLACKLIST)
         .add(TinkerTables.craftingStationTile.get(), TinkerTables.tinkerStationTile.get(), TinkerTables.partBuilderTile.get(),
 						 TinkerTables.partChestTile.get(), TinkerTables.tinkersChestTile.get(), TinkerTables.castChestTile.get(),
 						 TinkerSmeltery.basin.get(), TinkerSmeltery.table.get(), TinkerSmeltery.smeltery.get());
 
-  }
-
-  @Override
-  public String getName() {
-    return "Tinkers' Construct Block Entity Type Tags";
   }
 
 }

@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.world.entity;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,19 +23,19 @@ public class EarthSlimeEntity extends ArmoredSlimeEntity {
   }
 
   @Override
-  protected void populateDefaultEquipmentSlots(DifficultyInstance difficulty) {
+  protected void populateDefaultEquipmentSlots(RandomSource randomSource, DifficultyInstance difficulty) {
     // earth slime spawns with vanilla armor, but unlike zombies turtle shells are fair game
     // vanilla logic but simplified down to just helmets
     float multiplier = difficulty.getSpecialMultiplier();
-    if (this.random.nextFloat() < 0.15F * multiplier) {
+    if (randomSource.nextFloat() < 0.15F * multiplier) {
       int armorQuality = this.random.nextInt(3);
-      if (this.random.nextFloat() < 0.25F) {
+      if (randomSource.nextFloat() < 0.25F) {
         ++armorQuality;
       }
-      if (this.random.nextFloat() < 0.25F) {
+      if (randomSource.nextFloat() < 0.25F) {
         ++armorQuality;
       }
-      if (this.random.nextFloat() < 0.25F) {
+      if (randomSource.nextFloat() < 0.25F) {
         ++armorQuality;
       }
 
@@ -43,7 +44,7 @@ public class EarthSlimeEntity extends ArmoredSlimeEntity {
         Item item = armorQuality == 5 ? Items.TURTLE_HELMET : getEquipmentForSlot(EquipmentSlot.HEAD, armorQuality);
         if (item != null) {
           this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(item));
-          this.enchantSpawnedArmor(multiplier, EquipmentSlot.HEAD);
+          this.enchantSpawnedArmor(randomSource, multiplier, EquipmentSlot.HEAD);
         }
       }
     }

@@ -81,7 +81,7 @@ public class ToolEvents {
     LivingEntityEvents.ACTUALLY_HURT.register(ToolEvents::livingAttack);
     LivingEntityEvents.ACTUALLY_HURT.register(ToolEvents::livingHurt);
     LivingEntityEvents.TICK.register(ToolEvents::livingWalk);
-    LivingEntityEvents.VISIBILITY.register(ToolEvents::livingVisibility);
+    //LivingEntityEvents.VISIBILITY.register(ToolEvents::livingVisibility);
     ProjectileImpactCallback.EVENT.register(ToolEvents::projectileHit);
   }
 

@@ -6,6 +6,7 @@ import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -62,7 +63,7 @@ public class PartBuilderToolRecycle implements IPartBuilderRecipe {
     return ToolStack.from(inv.getStack()).getDefinition().getData().getParts().stream()
                .map(PartRequirement::getPart)
                .filter(Objects::nonNull)
-               .map(part -> part.asItem().getRegistryName())
+               .map(part -> Registry.ITEM.getKey(part.asItem()))
                .filter(Objects::nonNull)
                .distinct()
                .map(Pattern::new);
@@ -97,7 +98,7 @@ public class PartBuilderToolRecycle implements IPartBuilderRecipe {
     List<PartRequirement> requirements = tool.getDefinition().getData().getParts();
     for (int i = 0; i < requirements.size(); i++) {
       IToolPart part = requirements.get(i).getPart();
-      if (part != null && pattern.equals(part.asItem().getRegistryName())) {
+      if (part != null && pattern.equals(Registry.ITEM.getKey(part.asItem()))) {
         matchIndex = i;
         match = part;
         break;
@@ -131,7 +132,7 @@ public class PartBuilderToolRecycle implements IPartBuilderRecipe {
     for (int i = 0; i < requirements.size(); i++) {
       IToolPart part = requirements.get(i).getPart();
       if (part != null) {
-        if (found || !pattern.equals(part.asItem().getRegistryName())) {
+        if (found || !pattern.equals(Registry.ITEM.getKey(part.asItem()))) {
           parts.add(part);
           indices.add(i);
         } else {

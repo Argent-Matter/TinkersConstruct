@@ -28,7 +28,7 @@ public class DataGenSpriteReader extends AbstractSpriteReader {
   public NativeImage read(ResourceLocation path) throws IOException {
     try {
       Resource resource = existingFileHelper.getResource(path, PackType.CLIENT_RESOURCES, ".png", folder);
-      NativeImage image = NativeImage.read(resource.getInputStream());
+      NativeImage image = NativeImage.read(resource.open());
       openedImages.add(image);
       return image;
     } catch (IOException e) {

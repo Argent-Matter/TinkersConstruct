@@ -96,7 +96,7 @@ public class MaterialRenderInfoLoader implements IEarlySafeManagerReloadListener
     // first, we need to fetch all relevant JSON files
     int trim = FOLDER.length() + 1;
     Map<MaterialVariantId,MaterialRenderInfo> map = new HashMap<>();
-    for(ResourceLocation location : manager.listResources(FOLDER, (loc) -> loc.endsWith(".json"))) {
+    for(ResourceLocation location : manager.listResources(FOLDER, (loc) -> loc.getPath().endsWith(".json")).keySet()) {
       // clean up ID by trimming off the extension and folder
       String path = location.getPath();
       String localPath = path.substring(trim, path.length() - 5);
@@ -112,9 +112,7 @@ public class MaterialRenderInfoLoader implements IEarlySafeManagerReloadListener
 
       // read in the JSON data
       try (
-        Resource resource = manager.getResource(location);
-        InputStream inputstream = resource.getInputStream();
-        Reader reader = new BufferedReader(new InputStreamReader(inputstream, StandardCharsets.UTF_8))
+        Reader reader = manager.getResource(location).get().openAsReader();
       ) {
         MaterialRenderInfoJson json = GSON.fromJson(reader, MaterialRenderInfoJson.class);
         if (json == null) {

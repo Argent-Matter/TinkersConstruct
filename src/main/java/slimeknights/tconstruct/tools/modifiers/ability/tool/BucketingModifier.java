@@ -1,7 +1,9 @@
 package slimeknights.tconstruct.tools.modifiers.ability.tool;
 
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
+import io.github.fabricators_of_create.porting_lib.util.FluidUnit;
 import io.github.fabricators_of_create.porting_lib.util.LazyOptional;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariantAttributes;
 import net.fabricmc.fabric.mixin.transfer.BucketItemAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -46,7 +48,6 @@ import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-@SuppressWarnings("removal")
 public class BucketingModifier extends TankModifier implements BlockInteractionModifierHook, GeneralInteractionModifierHook {
   public BucketingModifier() {
     super(FluidUnit.DROPLETS.getOneBucketAmount() * 1000L);
@@ -122,7 +123,8 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
           if (!fluidStack.isEmpty()) {
             long added = cap.fill(fluidStack, false);
             if (added > 0) {
-              sound = fluidStack.getFluid().getAttributes().getEmptySound(fluidStack);
+
+              sound = FluidVariantAttributes.getEmptySound(fluidStack.getType());
               fluidStack.shrink(added);
               setFluid(tool, fluidStack);
             }
@@ -132,7 +134,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
           FluidStack drained = cap.drain(getCapacity(tool), false);
           if (!drained.isEmpty()) {
             setFluid(tool, drained);
-            sound = drained.getFluid().getAttributes().getFillSound(drained);
+            sound = FluidVariantAttributes.getFillSound(fluidStack.getType());
           }
         } else {
           // filter drained to be the same as the current fluid
@@ -140,7 +142,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
           if (!drained.isEmpty() && drained.isFluidEqual(fluidStack)) {
             fluidStack.grow(drained.getAmount());
             setFluid(tool, fluidStack);
-            sound = drained.getFluid().getAttributes().getFillSound(drained);
+            sound = FluidVariantAttributes.getFillSound(fluidStack.getType());
           }
         }
         if (sound != null) {
@@ -200,13 +202,13 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
         world.destroyBlock(target, true);
       }
       if (world.setBlockAndUpdate(target, fluid.defaultFluidState().createLegacyBlock()) || existing.getFluidState().isSource()) {
-        world.playSound(null, target, fluid.getAttributes().getEmptySound(fluidStack), SoundSource.BLOCKS, 1.0F, 1.0F);
+        world.playSound(null, target, FluidVariantAttributes.getEmptySound(fluidStack.getType()), SoundSource.BLOCKS, 1.0F, 1.0F);
         placed = true;
       }
     } else if (existing.getBlock() instanceof LiquidBlockContainer container) {
       // if not replaceable, it must be a liquid container
       container.placeLiquid(world, target, existing, ((FlowingFluid)fluid).getSource(false));
-      world.playSound(null, target, fluid.getAttributes().getEmptySound(fluidStack), SoundSource.BLOCKS, 1.0F, 1.0F);
+      world.playSound(null, target, FluidVariantAttributes.getEmptySound(fluidStack.getType()), SoundSource.BLOCKS, 1.0F, 1.0F);
       placed = true;
     }
 
@@ -256,7 +258,7 @@ public class BucketingModifier extends TankModifier implements BlockInteractionM
       if (!bucket.isEmpty() && bucket.getItem() instanceof BucketItem bucketItem) {
         Fluid pickedUpFluid = ((BucketItemAccessor)bucketItem).fabric_getFluid();
         if (pickedUpFluid != Fluids.EMPTY) {
-          player.playSound(pickedUpFluid.getAttributes().getFillSound(fluidStack), 1.0F, 1.0F);
+          player.playSound(FluidVariantAttributes.getFillSound(fluidStack.getType()), 1.0F, 1.0F);
           // set the fluid if empty, increase the fluid if filled
           if (!world.isClientSide) {
             if (fluidStack.isEmpty()) {

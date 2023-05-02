@@ -143,7 +143,7 @@ public class JsonUtils {
    */
   public static JsonElement serializeItemStack(ItemStack result) {
     // if the item has NBT, write both, else write just the name
-    String itemName = Objects.requireNonNull(result.getItem().getRegistryName()).toString();
+    String itemName = Objects.requireNonNull(Registry.ITEM.getKey(result.getItem())).toString();
     if (result.hasTag()) {
       JsonObject jsonResult = new JsonObject();
       jsonResult.addProperty("item", itemName);

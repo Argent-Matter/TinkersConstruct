@@ -77,7 +77,7 @@ public class SlimeVineBlock extends VineBlock {
   /**
    * Grows the vine one stage
    * @param worldIn World instance
-   * @param random  Random instance
+   * @param random  RandomSource instance
    * @param pos     Pos
    * @param state   State
    */

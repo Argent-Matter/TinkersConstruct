@@ -228,9 +228,9 @@ public class PartBuilderScreen extends BaseTabbedScreen<PartBuilderBlockEntity,P
     // add warning that the material is uncraftable
     if (!materialVariant.get().isCraftable()) {
       stats.add(UNCRAFTABLE_MATERIAL);
-      stats.add(TextComponent.EMPTY);
+      stats.add(Component.empty());
       tips.add(UNCRAFTABLE_MATERIAL_TOOLTIP);
-      tips.add(TextComponent.EMPTY);
+      tips.add(Component.empty());
     }
 
     MaterialId id = materialVariant.getId();
@@ -239,7 +239,7 @@ public class PartBuilderScreen extends BaseTabbedScreen<PartBuilderBlockEntity,P
 
       if (!info.isEmpty()) {
         stats.add(stat.getLocalizedName().withStyle(ChatFormatting.UNDERLINE));
-        tips.add(TextComponent.EMPTY);
+        tips.add(Component.empty());
 
         stats.addAll(info);
         tips.addAll(stat.getLocalizedDescriptions());
@@ -253,8 +253,8 @@ public class PartBuilderScreen extends BaseTabbedScreen<PartBuilderBlockEntity,P
           }
         }
 
-        stats.add(TextComponent.EMPTY);
-        tips.add(TextComponent.EMPTY);
+        stats.add(Component.empty());
+        tips.add(Component.empty());
       }
     }
 

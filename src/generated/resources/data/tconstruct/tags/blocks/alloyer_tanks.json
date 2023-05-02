@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "tconstruct:scorched_alloyer",
-    "tconstruct:seared_melter",
-    "#tconstruct:seared_tanks",
-    "#tconstruct:scorched_tanks"
-  ]
-}

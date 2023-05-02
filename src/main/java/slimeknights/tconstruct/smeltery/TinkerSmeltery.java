@@ -351,8 +351,8 @@ public final class TinkerSmeltery extends TinkerModule {
 
   public static void gatherData(FabricDataGenerator datagenerator) {
 //    if (event.includeServer()) {
-      datagenerator.addProvider(new SmelteryRecipeProvider(datagenerator));
-      datagenerator.addProvider(new FluidContainerTransferProvider(datagenerator));
+      datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new SmelteryRecipeProvider(datagenerator));
+      datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), new FluidContainerTransferProvider(datagenerator));
 //    }
   }
 }

@@ -200,7 +200,7 @@ public class InfoPanelScreen extends ModuleScreen {
       this.tooltipLines.add(lines.size());
 
       if (textComponent.getString().isEmpty()) {
-        lines.add(TextComponent.EMPTY.getVisualOrderText());
+        lines.add(Component.empty().getVisualOrderText());
         continue;
       }
 

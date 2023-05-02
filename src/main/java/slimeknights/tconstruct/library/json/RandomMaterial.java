@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
+import net.minecraft.util.RandomSource;
 import slimeknights.mantle.util.JsonHelper;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.library.materials.IMaterialRegistry;
@@ -23,7 +24,6 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -68,7 +68,7 @@ public abstract class RandomMaterial {
   }
 
   /** Gets a random material */
-  public abstract MaterialVariantId getMaterial(Random random);
+  public abstract MaterialVariantId getMaterial(RandomSource random);
 
   /** Serializes the given material to json */
   public abstract JsonObject serialize();
@@ -97,7 +97,7 @@ public abstract class RandomMaterial {
     }
 
     @Override
-    public MaterialVariantId getMaterial(Random random) {
+    public MaterialVariantId getMaterial(RandomSource random) {
       return material;
     }
 
@@ -125,7 +125,7 @@ public abstract class RandomMaterial {
     }
 
     @Override
-    public MaterialVariantId getMaterial(Random random) {
+    public MaterialVariantId getMaterial(RandomSource random) {
       return MaterialRegistry.firstWithStatType(statType).getIdentifier();
     }
 
@@ -183,7 +183,7 @@ public abstract class RandomMaterial {
     }
 
     @Override
-    public MaterialId getMaterial(Random random) {
+    public MaterialId getMaterial(RandomSource random) {
       if (materialChoices == null) {
         materialChoices = MaterialRegistry.getInstance()
                                           .getAllMaterials()

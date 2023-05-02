@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.world.entity;
 
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -74,13 +75,13 @@ public class SkySlimeEntity extends ArmoredSlimeEntity {
   }
 
   @Override
-  protected void populateDefaultEquipmentSlots(DifficultyInstance difficulty) {
+  protected void populateDefaultEquipmentSlots(RandomSource randomSource, DifficultyInstance difficulty) {
     // sky slime spawns with tinkers armor, high chance of travelers, low chance of plate
     // vanilla logic but simplified down to just helmets
     float multiplier = difficulty.getSpecialMultiplier();
-    if (this.random.nextFloat() < 0.15F * multiplier) {
+    if (randomSource.nextFloat() < 0.15F * multiplier) {
       // 2.5% chance of plate
-      boolean isPlate = this.random.nextFloat() < (0.05f * multiplier);
+      boolean isPlate = randomSource.nextFloat() < (0.05f * multiplier);
       ItemStack helmet = new ItemStack((isPlate ? TinkerTools.plateArmor : TinkerTools.travelersGear).get(ArmorSlotType.HELMET));
 
       // for plate, just init stats
@@ -90,7 +91,7 @@ public class SkySlimeEntity extends ArmoredSlimeEntity {
       ModDataNBT persistentData = tool.getPersistentData();
       if (!isPlate) {
         // travelers dyes a random color
-        persistentData.putInt(TinkerModifiers.dyed.getId(), this.random.nextInt(0xFFFFFF+1));
+        persistentData.putInt(TinkerModifiers.dyed.getId(), randomSource.nextInt(0xFFFFFF+1));
         modifiers = modifiers.withModifier(TinkerModifiers.dyed.getId(), 1);
       }
 
@@ -98,7 +99,7 @@ public class SkySlimeEntity extends ArmoredSlimeEntity {
       // add some random defense modifiers
       int max = tool.getFreeSlots(SlotType.DEFENSE);
       for (int i = 0; i < max; i++) {
-        if (random.nextFloat() > 0.5f * multiplier) {
+        if (randomSource.nextFloat() > 0.5f * multiplier) {
           break;
         }
         persistentData.addSlots(SlotType.DEFENSE, -1);
@@ -107,7 +108,7 @@ public class SkySlimeEntity extends ArmoredSlimeEntity {
       // chance of diamond or emerald
       if (tool.getFreeSlots(SlotType.UPGRADE) > 0 && random.nextFloat() < 0.5f * multiplier) {
         persistentData.addSlots(SlotType.UPGRADE, -1);
-        modifiers = modifiers.withModifier(random.nextBoolean() ? ModifierIds.emerald : ModifierIds.diamond, 1);
+        modifiers = modifiers.withModifier(randomSource.nextBoolean() ? ModifierIds.emerald : ModifierIds.diamond, 1);
       }
 
       tool.setUpgrades(modifiers);
@@ -129,5 +130,5 @@ public class SkySlimeEntity extends ArmoredSlimeEntity {
   }
 
   @Override
-  protected void populateDefaultEquipmentEnchantments(DifficultyInstance difficulty) {}
+  protected void populateDefaultEquipmentEnchantments(RandomSource randomSource, DifficultyInstance difficulty) {}
 }
