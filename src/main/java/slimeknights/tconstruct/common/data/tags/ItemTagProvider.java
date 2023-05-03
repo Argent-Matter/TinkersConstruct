@@ -274,7 +274,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // carrots and potatoes are not seeds in vanilla, so make a tag with them
     this.tag(TinkerTags.Items.SEEDS)
-        .addOptionalTag(Tags.Items.SEEDS.location())
+        .forceAddTag(Tags.Items.SEEDS)
         .add(Items.CARROT, Items.POTATO, Items.NETHER_WART);
 
     // tags for modifiers
@@ -295,11 +295,11 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     // contains any ground stones
     this.tag(TinkerTags.Items.STONESHIELDS)
-        .addOptionalTag(Tags.Items.STONE.location())
-        .addOptionalTag(Tags.Items.COBBLESTONE.location())
-        .addOptionalTag(Tags.Items.SANDSTONE.location())
-        .addOptionalTag(Tags.Items.END_STONES.location())
-        .addOptionalTag(Tags.Items.GRAVEL.location()) // for shovels and axes to use
+        .forceAddTag(Tags.Items.STONE)
+        .forceAddTag(Tags.Items.COBBLESTONE)
+        .forceAddTag(Tags.Items.SANDSTONE)
+        .forceAddTag(Tags.Items.END_STONES)
+        .forceAddTag(Tags.Items.GRAVEL) // for shovels and axes to use
         .add(Items.NETHERRACK, Items.BASALT, Items.POLISHED_BASALT, Items.BLACKSTONE, Items.POLISHED_BLACKSTONE);
     this.tag(TinkerTags.Items.FIREBALLS).add(Items.FIRE_CHARGE);
     this.tag(TinkerTags.Items.TOOL_INVENTORY_BLACKLIST)
@@ -312,7 +312,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     this.tag(TinkerTags.Items.VARIANT_PLANKS)
         .add(Items.OAK_PLANKS, Items.SPRUCE_PLANKS, Items.BIRCH_PLANKS, Items.JUNGLE_PLANKS, Items.DARK_OAK_PLANKS, Items.ACACIA_PLANKS, Items.CRIMSON_PLANKS, Items.WARPED_PLANKS)
         .addTag(TinkerTags.Items.SLIMY_PLANKS);
-    this.tag(TinkerTags.Items.VARIANT_LOGS).addOptionalTag(ItemTags.OAK_LOGS.location()).addOptionalTag(ItemTags.SPRUCE_LOGS.location()).addOptionalTag(ItemTags.BIRCH_LOGS.location()).addOptionalTag(ItemTags.JUNGLE_LOGS.location()).addOptionalTag(ItemTags.DARK_OAK_LOGS.location()).addOptionalTag(ItemTags.ACACIA_LOGS.location()).addOptionalTag(ItemTags.CRIMSON_STEMS.location()).addOptionalTag(ItemTags.WARPED_STEMS.location()).addTag(TinkerTags.Items.SLIMY_LOGS);
+    this.tag(TinkerTags.Items.VARIANT_LOGS).forceAddTag(ItemTags.OAK_LOGS).forceAddTag(ItemTags.SPRUCE_LOGS).forceAddTag(ItemTags.BIRCH_LOGS).forceAddTag(ItemTags.JUNGLE_LOGS).forceAddTag(ItemTags.DARK_OAK_LOGS).forceAddTag(ItemTags.ACACIA_LOGS).forceAddTag(ItemTags.CRIMSON_STEMS).forceAddTag(ItemTags.WARPED_STEMS).addTag(TinkerTags.Items.SLIMY_LOGS);
 
     // part builder
     this.tag(TinkerTags.Items.DEFAULT_PATTERNS).add(TinkerTables.pattern.get());
@@ -417,6 +417,10 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
         .addTag(TinkerTags.Items.SCORCHED_TANKS);
   }
 
+  public FabricTagBuilder<Item> tag(TagKey<Item> key) {
+    return this.getOrCreateTagBuilder(key);
+  }
+
   /**
    * Adds relevant tags for a metal object
    * @param metal  Metal object
@@ -455,5 +459,7 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
       this.tag(getArmorTag(type)).add(item);
     });
   }
-  
+
+
+
 }

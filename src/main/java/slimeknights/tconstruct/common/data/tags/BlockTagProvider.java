@@ -119,7 +119,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         .addTag(TinkerMaterials.queensSlime.getBlockTag())
         .addTag(TinkerMaterials.manyullyn.getBlockTag())
         .addTag(TinkerMaterials.hepatizon.getBlockTag())
-        .addOptionalTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE.location());
+        .forceAddTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE);
     for (SmelteryCompat compat : SmelteryCompat.values()) {
       if (!compat.isOre()) {
         builder.addOptionalTag(new ResourceLocation("c", "storage_blocks/" + compat.getName()));
@@ -133,7 +133,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // things the platform connects to on the sides
     this.tag(TinkerTags.Blocks.PLATFORM_CONNECTIONS)
         .add(Blocks.LEVER, Blocks.LADDER, Blocks.IRON_BARS, TinkerCommons.goldBars.get(), Blocks.TRIPWIRE_HOOK, Blocks.WALL_TORCH, Blocks.SOUL_WALL_TORCH, Blocks.REDSTONE_WALL_TORCH, Blocks.REDSTONE_WIRE)
-        .addOptionalTag(Tags.Blocks.GLASS_PANES.location()).addOptionalTag(BlockTags.BUTTONS.location()).addOptionalTag(Tags.Blocks.FENCES.location()).addOptionalTag(BlockTags.WALLS.location()).addOptionalTag(BlockTags.WALL_SIGNS.location());
+        .forceAddTag(Tags.Blocks.GLASS_PANES).forceAddTag(BlockTags.BUTTONS).forceAddTag(Tags.Blocks.FENCES).forceAddTag(BlockTags.WALLS).forceAddTag(BlockTags.WALL_SIGNS);
 
     // copper platforms
     TagAppender<Block> copperPlatforms = this.tag(TinkerTags.Blocks.COPPER_PLATFORMS);
@@ -153,7 +153,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     this.tag(TinkerTags.Blocks.HARVESTABLE_STACKABLE)
         .add(Blocks.SUGAR_CANE, Blocks.KELP_PLANT);
     this.tag(TinkerTags.Blocks.HARVESTABLE_CROPS)
-        .addOptionalTag(BlockTags.CROPS.location())
+        .forceAddTag(BlockTags.CROPS)
         .addOptionalTag(new ResourceLocation("c", "crops"))
         .add(Blocks.NETHER_WART);
     this.tag(TinkerTags.Blocks.HARVESTABLE_INTERACT)
@@ -166,7 +166,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // just logs for lumber axe, but modpack makers can add more
     this.tag(TinkerTags.Blocks.TREE_LOGS).addTag(BlockTags.LOGS);
     // blocks that drop gold and should drop more gold
-    this.tag(TinkerTags.Blocks.CHRYSOPHILITE_ORES).addOptionalTag(Tags.Blocks.ORES_GOLD.location()).add(Blocks.GILDED_BLACKSTONE);
+    this.tag(TinkerTags.Blocks.CHRYSOPHILITE_ORES).forceAddTag(Tags.Blocks.ORES_GOLD).add(Blocks.GILDED_BLACKSTONE);
   }
 
 
@@ -446,6 +446,11 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
     // dagger does hoe or sword blocks
     tag(TinkerTags.Blocks.MINABLE_WITH_DAGGER).addTag(MINEABLE_WITH_HOE).addTag(TinkerTags.Blocks.MINABLE_WITH_SWORD);
   }
+
+  public FabricTagBuilder<Block> tag(TagKey<Block> key) {
+    return this.getOrCreateTagBuilder(key);
+  }
+
 
   /** Applies a tag to a set of suppliers */
   @SafeVarargs

@@ -2,12 +2,14 @@ package slimeknights.tconstruct.world.block;
 
 import io.github.fabricators_of_create.porting_lib.block.CustomPathNodeTypeBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,6 +27,11 @@ public class CongealedSlimeBlock extends Block implements CustomPathNodeTypeBloc
   private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 15, 15);
   public CongealedSlimeBlock(Properties properties) {
     super(properties);
+  }
+
+  @Override
+  public Item asItem() {
+    return Registry.ITEM.get(Registry.BLOCK.getKey(this));
   }
 
   @Deprecated
