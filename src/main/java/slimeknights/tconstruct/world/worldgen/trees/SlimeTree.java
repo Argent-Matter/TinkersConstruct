@@ -27,16 +27,20 @@ public class SlimeTree extends AbstractTreeGrower {
   @Nullable
   @Override
   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomIn, boolean largeHive) {
-    return null;
-  }
+    return switch (this.foliageType) {
+      case EARTH -> TinkerStructures.earthSlimeTree;
+      case SKY -> TinkerStructures.skySlimeTree;
+      case ENDER -> TinkerStructures.enderSlimeTree;
+      case BLOOD -> TinkerStructures.bloodSlimeFungus;
+      case ICHOR -> TinkerStructures.ichorSlimeFungus;
+    };  }
 
   /**
    * Get a {@link ConfiguredFeature} of tree
    */
-  @Nullable
   private ConfiguredFeature<?, ?> getSlimeTreeFeature() {
     return switch (this.foliageType) {
-      case EARTH -> TinkerStructures.earthSlimeTree.get();
+      case EARTH -> TinkerStructures.earthSlimeTree.value();
       case SKY -> TinkerStructures.skySlimeTree.value();
       case ENDER -> TinkerStructures.enderSlimeTree.value();
       case BLOOD -> TinkerStructures.bloodSlimeFungus.value();
@@ -48,9 +52,6 @@ public class SlimeTree extends AbstractTreeGrower {
   @Override
   public boolean growTree(ServerLevel world, ChunkGenerator chunkGenerator, BlockPos pos, BlockState state, RandomSource rand) {
     ConfiguredFeature<?, ?> configuredFeature = this.getSlimeTreeFeature();
-    if (configuredFeature == null) {
-      return false;
-    }
     world.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
     if (configuredFeature.place(world, chunkGenerator, rand, pos)) {
       return true;

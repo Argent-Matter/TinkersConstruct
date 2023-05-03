@@ -123,7 +123,7 @@ public class TConstruct implements ModInitializer {
   public static void onInitializeDataGenerator(FabricDataGenerator datagenerator) {
 //    if (event.includeServer()) {
       BlockTagProvider blockTags = new BlockTagProvider(datagenerator);
-      datagenerator.addProvider(datagenerator.isStrictValidationEnabled(), blockTags);
+      datagenerator.addProvider(true, blockTags);
       datagenerator.addProvider(true, new ItemTagProvider(datagenerator, blockTags));
       datagenerator.addProvider(true, new FluidTagProvider(datagenerator));
       datagenerator.addProvider(true, new EntityTypeTagProvider(datagenerator));

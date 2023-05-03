@@ -71,8 +71,8 @@ public final class TinkerStructures extends TinkerModule {
   public static final RegistryObject<SlimeFungusFeature> slimeFungus = FEATURES.register("slime_fungus", () -> new SlimeFungusFeature(SlimeFungusConfig.CODEC));
 
   /** Greenheart tree variant */
-  public static final RegistryObject<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeTree = CONFIGURED_FEATURES.registerStatic(
-    "earth_slime_tree", slimeTree,
+  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeTree = registerTree(
+    "earth_slime_tree", slimeTree.get(),
     new SlimeTreeConfig.Builder()
       .planted()
       .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState())
@@ -80,8 +80,8 @@ public final class TinkerStructures extends TinkerModule {
       .baseHeight(4).randomHeight(3)
       .build());
   /** Greenheart tree variant on islands */
-  public static final RegistryObject<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeIslandTree = CONFIGURED_FEATURES.registerStatic(
-    "earth_slime_island_tree", slimeTree,
+  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeIslandTree = registerTree(
+    "earth_slime_island_tree", slimeTree.get(),
     new SlimeTreeConfig.Builder()
       .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState())
       .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.EARTH).defaultBlockState())
@@ -115,8 +115,8 @@ public final class TinkerStructures extends TinkerModule {
       .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.ENDER).defaultBlockState())
       .build());
   /** Enderslime island tree variant on islands */
-  public static final RegistryObject<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> enderSlimeIslandTree = CONFIGURED_FEATURES.registerStatic(
-    "ender_slime_island_tree", slimeTree,
+  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> enderSlimeIslandTree = registerTree(
+    "ender_slime_island_tree", slimeTree.get(),
     new SlimeTreeConfig.Builder()
       .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState()) // TODO: temporary until we have proper green trees and ender shrooms
       .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.ENDER).defaultBlockState())

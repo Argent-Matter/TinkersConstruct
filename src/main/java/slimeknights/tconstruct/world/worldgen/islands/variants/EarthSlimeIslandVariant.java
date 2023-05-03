@@ -43,7 +43,7 @@ public class EarthSlimeIslandVariant extends AbstractSlimeIslandVariant {
   @Nullable
   @Override
   public ConfiguredFeature<?,?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
-    return TinkerStructures.earthSlimeIslandTree.get();
+    return TinkerStructures.earthSlimeIslandTree.value();
   }
 
   private static boolean isWater(WorldGenLevel world, BlockPos pos) {
