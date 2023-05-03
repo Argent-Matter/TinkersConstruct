@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:alloy",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/invar"
+      ]
+    },
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/nickel"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "amount": 18000,
+      "tag": "c:molten_iron"
+    },
+    {
+      "amount": 9000,
+      "tag": "c:molten_nickel"
+    }
+  ],
+  "result": {
+    "amount": 27000,
+    "fluid": "tconstruct:molten_invar"
+  },
+  "temperature": 900
+}

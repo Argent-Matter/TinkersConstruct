@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/gear"
+  },
+  "cast_consumed": true,
+  "cooling_time": 152,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/enderium"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 36000,
+    "tag": "c:molten_enderium"
+  },
+  "result": {
+    "tag": "c:gears/enderium"
+  }
+}

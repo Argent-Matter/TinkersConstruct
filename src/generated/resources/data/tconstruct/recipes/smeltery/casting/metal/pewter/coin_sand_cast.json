@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/coin"
+  },
+  "cast_consumed": true,
+  "cooling_time": 27,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/pewter"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 3000,
+    "tag": "c:molten_pewter"
+  },
+  "result": {
+    "tag": "c:coins/pewter"
+  }
+}

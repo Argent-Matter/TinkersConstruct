@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/rod"
+  },
+  "cooling_time": 37,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:rods/rose_gold"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "c:molten_rose_gold"
+  },
+  "result": {
+    "tag": "c:rods/rose_gold"
+  }
+}

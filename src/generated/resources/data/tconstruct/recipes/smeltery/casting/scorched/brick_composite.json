@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "minecraft:flint"
+  },
+  "cast_consumed": true,
+  "cooling_time": 45,
+  "fluid": {
+    "amount": 10125,
+    "tag": "c:magma"
+  },
+  "result": "tconstruct:scorched_brick"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/wire"
+  },
+  "cooling_time": 40,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires/bronze"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "c:molten_bronze"
+  },
+  "result": {
+    "tag": "c:wires/bronze"
+  }
+}

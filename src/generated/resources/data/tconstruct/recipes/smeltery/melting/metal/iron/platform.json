@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tconstruct:iron_platform"
+  },
+  "result": {
+    "amount": 10000,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 800,
+  "time": 63
+}

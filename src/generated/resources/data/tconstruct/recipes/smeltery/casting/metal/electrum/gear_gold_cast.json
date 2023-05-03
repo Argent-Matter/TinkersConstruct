@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gear"
+  },
+  "cooling_time": 118,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/electrum"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 36000,
+    "tag": "c:molten_electrum"
+  },
+  "result": {
+    "tag": "c:gears/electrum"
+  }
+}

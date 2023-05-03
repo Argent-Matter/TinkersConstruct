@@ -1,0 +1,9 @@
+{
+  "tag": "c:potion",
+  "units": [
+    {
+      "key": "gui.tconstruct.fluid.bottle",
+      "needed": 27000
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cooling_time": 183,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/refined_glowstone"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 81000,
+    "tag": "c:molten_refined_glowstone"
+  },
+  "result": {
+    "tag": "c:storage_blocks/refined_glowstone"
+  }
+}

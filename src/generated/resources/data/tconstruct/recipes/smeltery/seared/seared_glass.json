@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "G": {
+      "tag": "c:glass/colorless"
+    },
+    "b": {
+      "item": "tconstruct:seared_brick"
+    }
+  },
+  "pattern": [
+    " b ",
+    "bGb",
+    " b "
+  ],
+  "result": {
+    "item": "tconstruct:seared_glass"
+  }
+}

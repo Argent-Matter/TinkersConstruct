@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:nuggets/osmium"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:nuggets/osmium"
+  },
+  "result": {
+    "amount": 1000,
+    "fluid": "tconstruct:molten_osmium"
+  },
+  "temperature": 975,
+  "time": 22
+}

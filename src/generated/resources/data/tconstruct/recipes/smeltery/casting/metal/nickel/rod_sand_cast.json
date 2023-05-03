@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/rod"
+  },
+  "cast_consumed": true,
+  "cooling_time": 46,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:rods/nickel"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "c:molten_nickel"
+  },
+  "result": {
+    "tag": "c:rods/nickel"
+  }
+}

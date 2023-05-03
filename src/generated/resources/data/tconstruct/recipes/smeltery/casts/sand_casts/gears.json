@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:molding_table",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears"
+      ]
+    }
+  ],
+  "material": {
+    "item": "tconstruct:blank_sand_cast"
+  },
+  "pattern": {
+    "tag": "c:gears"
+  },
+  "result": "tconstruct:gear_sand_cast"
+}

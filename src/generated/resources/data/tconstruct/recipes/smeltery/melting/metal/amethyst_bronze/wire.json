@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires/amethyst_bronze"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:wires/amethyst_bronze"
+  },
+  "result": {
+    "amount": 4500,
+    "fluid": "tconstruct:molten_amethyst_bronze"
+  },
+  "temperature": 820,
+  "time": 12
+}

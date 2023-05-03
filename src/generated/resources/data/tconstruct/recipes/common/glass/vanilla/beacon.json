@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "tconstruct:config",
+      "prop": "glass_recipe_fix"
+    }
+  ],
+  "key": {
+    "G": {
+      "tag": "c:glass/colorless"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GSG",
+    "OOO"
+  ],
+  "result": {
+    "item": "minecraft:beacon"
+  }
+}

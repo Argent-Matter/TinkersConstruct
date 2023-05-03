@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires/signalum"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:wires/signalum"
+  },
+  "result": {
+    "amount": 4500,
+    "fluid": "tconstruct:molten_signalum"
+  },
+  "temperature": 1125,
+  "time": 14
+}

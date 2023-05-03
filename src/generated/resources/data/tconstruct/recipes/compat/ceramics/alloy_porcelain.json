@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:alloy",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "ceramics"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "amount": 60750,
+      "tag": "tconstruct:molten_clay"
+    },
+    {
+      "amount": 8100,
+      "tag": "tconstruct:molten_quartz"
+    }
+  ],
+  "result": {
+    "amount": 81000,
+    "fluid": "tconstruct:molten_porcelain"
+  },
+  "temperature": 700
+}

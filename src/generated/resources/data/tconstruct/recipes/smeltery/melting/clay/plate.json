@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:plates/brick"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:plates/brick"
+  },
+  "result": {
+    "amount": 20250,
+    "fluid": "tconstruct:molten_clay"
+  },
+  "temperature": 450,
+  "time": 48
+}

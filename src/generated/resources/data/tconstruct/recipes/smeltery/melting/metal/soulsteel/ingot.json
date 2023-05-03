@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "c:ingots/soulsteel"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_soulsteel"
+  },
+  "temperature": 1200,
+  "time": 72
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "minecraft:beetroot"
+  },
+  "result": {
+    "amount": 5400,
+    "fluid": "tconstruct:beetroot_soup"
+  },
+  "temperature": 100,
+  "time": 333
+}

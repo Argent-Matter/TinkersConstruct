@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "minecraft:slime_block"
+  },
+  "result": {
+    "amount": 182250,
+    "fluid": "tconstruct:earth_slime"
+  },
+  "temperature": 50,
+  "time": 92
+}

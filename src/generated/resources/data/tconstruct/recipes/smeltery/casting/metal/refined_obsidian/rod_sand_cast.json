@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/rod"
+  },
+  "cast_consumed": true,
+  "cooling_time": 56,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:rods/refined_obsidian"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "c:molten_refined_obsidian"
+  },
+  "result": {
+    "tag": "c:rods/refined_obsidian"
+  }
+}

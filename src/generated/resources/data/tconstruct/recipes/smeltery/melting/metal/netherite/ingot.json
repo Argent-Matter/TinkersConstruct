@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "c:ingots/netherite"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_netherite"
+  },
+  "temperature": 1250,
+  "time": 74
+}

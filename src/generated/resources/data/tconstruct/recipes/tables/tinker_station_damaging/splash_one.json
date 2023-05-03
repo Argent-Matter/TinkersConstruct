@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:tinker_station_damaging",
+  "damage_amount": 150,
+  "ingredient": {
+    "type": "forge:nbt",
+    "count": 1,
+    "item": "minecraft:splash_potion",
+    "nbt": "{Potion:\"minecraft:harming\"}"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "tconstruct:seared_brick"
+    },
+    "C": {
+      "tag": "c:ingots/cobalt"
+    }
+  },
+  "pattern": [
+    "# #",
+    "C C",
+    "# #"
+  ],
+  "result": {
+    "item": "tconstruct:seared_duct"
+  }
+}

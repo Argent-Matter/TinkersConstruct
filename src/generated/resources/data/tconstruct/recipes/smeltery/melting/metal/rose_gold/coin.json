@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/rose_gold"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:coins/rose_gold"
+  },
+  "result": {
+    "amount": 3000,
+    "fluid": "tconstruct:molten_rose_gold"
+  },
+  "temperature": 550,
+  "time": 34
+}

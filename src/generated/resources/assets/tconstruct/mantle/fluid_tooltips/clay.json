@@ -1,0 +1,13 @@
+{
+  "tag": "tconstruct:tooltips/clay",
+  "units": [
+    {
+      "key": "gui.tconstruct.fluid.block",
+      "needed": 81000
+    },
+    {
+      "key": "gui.tconstruct.fluid.brick",
+      "needed": 20250
+    }
+  ]
+}

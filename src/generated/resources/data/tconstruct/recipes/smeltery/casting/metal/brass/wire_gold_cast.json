@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/wire"
+  },
+  "cooling_time": 38,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires/brass"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "c:molten_brass"
+  },
+  "result": {
+    "tag": "c:wires/brass"
+  }
+}

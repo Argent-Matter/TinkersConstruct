@@ -1,0 +1,17 @@
+{
+  "tag": "tconstruct:tooltips/metal",
+  "units": [
+    {
+      "key": "gui.tconstruct.fluid.block",
+      "needed": 81000
+    },
+    {
+      "key": "gui.tconstruct.fluid.ingot",
+      "needed": 9000
+    },
+    {
+      "key": "gui.tconstruct.fluid.nugget",
+      "needed": 1000
+    }
+  ]
+}

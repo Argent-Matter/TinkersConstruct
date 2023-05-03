@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gear"
+  },
+  "cooling_time": 87,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/lead"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 36000,
+    "tag": "c:molten_lead"
+  },
+  "result": {
+    "tag": "c:gears/lead"
+  }
+}

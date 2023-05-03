@@ -1,0 +1,99 @@
+{
+  "type": "forge:conditional",
+  "fabric:load_conditions": [
+    {
+      "base": "c:ores/tungsten",
+      "condition": "tconstruct:tag_difference_present",
+      "registry": "minecraft:item",
+      "subtracted": [
+        "c:ore_rates/sparse",
+        "c:ore_rates/dense"
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "fabric:load_conditions": [
+        {
+          "condition": "fabric:item_tags_populated",
+          "values": [
+            "c:ingots/platinum"
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:ore_melting",
+        "byproducts": [
+          {
+            "amount": 6000,
+            "fluid": "tconstruct:molten_platinum"
+          }
+        ],
+        "ingredient": {
+          "type": "forge:difference",
+          "base": {
+            "tag": "c:ores/tungsten"
+          },
+          "subtracted": {
+            "type": "serialization_hooks:combined",
+            "children": [
+              {
+                "tag": "c:ore_rates/sparse"
+              },
+              {
+                "tag": "c:ore_rates/dense"
+              }
+            ]
+          }
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 18000,
+          "fluid": "tconstruct:molten_tungsten"
+        },
+        "temperature": 950,
+        "time": 162
+      }
+    },
+    {
+      "fabric:load_conditions": [
+        {
+          "condition": "porting_lib:true"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:ore_melting",
+        "byproducts": [
+          {
+            "amount": 18000,
+            "fluid": "tconstruct:molten_gold"
+          }
+        ],
+        "ingredient": {
+          "type": "forge:difference",
+          "base": {
+            "tag": "c:ores/tungsten"
+          },
+          "subtracted": {
+            "type": "serialization_hooks:combined",
+            "children": [
+              {
+                "tag": "c:ore_rates/sparse"
+              },
+              {
+                "tag": "c:ore_rates/dense"
+              }
+            ]
+          }
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 18000,
+          "fluid": "tconstruct:molten_tungsten"
+        },
+        "temperature": 950,
+        "time": 162
+      }
+    }
+  ]
+}

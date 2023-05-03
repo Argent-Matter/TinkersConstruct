@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#tconstruct:molten_diamond",
+    "#tconstruct:molten_debris",
+    "#c:molten_enderium",
+    "#c:molten_lumium",
+    "#c:molten_signalum",
+    "#c:molten_refined_obsidian"
+  ]
+}

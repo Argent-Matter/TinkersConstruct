@@ -1,0 +1,44 @@
+{
+  "type": "tconstruct:ore_melting",
+  "byproducts": [
+    {
+      "amount": 18000,
+      "fluid": "tconstruct:molten_iron"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "base": "c:ores/osmium",
+      "condition": "tconstruct:tag_difference_present",
+      "registry": "minecraft:item",
+      "subtracted": [
+        "c:ore_rates/sparse",
+        "c:ore_rates/dense"
+      ]
+    }
+  ],
+  "ingredient": {
+    "type": "forge:difference",
+    "base": {
+      "tag": "c:ores/osmium"
+    },
+    "subtracted": {
+      "type": "serialization_hooks:combined",
+      "children": [
+        {
+          "tag": "c:ore_rates/sparse"
+        },
+        {
+          "tag": "c:ore_rates/dense"
+        }
+      ]
+    }
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 18000,
+    "fluid": "tconstruct:molten_osmium"
+  },
+  "temperature": 975,
+  "time": 164
+}

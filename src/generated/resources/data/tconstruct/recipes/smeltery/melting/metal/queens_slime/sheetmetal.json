@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:sheetmetals/queens_slime"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:sheetmetals/queens_slime"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_queens_slime"
+  },
+  "temperature": 1150,
+  "time": 71
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "c:mushrooms"
+  },
+  "result": {
+    "amount": 13500,
+    "fluid": "tconstruct:mushroom_stew"
+  },
+  "temperature": 100,
+  "time": 333
+}

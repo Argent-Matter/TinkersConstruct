@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/iron"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:gears/iron"
+  },
+  "result": {
+    "amount": 36000,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 800,
+  "time": 120
+}

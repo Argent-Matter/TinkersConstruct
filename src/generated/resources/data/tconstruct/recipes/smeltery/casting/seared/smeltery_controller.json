@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "tconstruct:seared_bricks"
+  },
+  "cast_consumed": true,
+  "cooling_time": 100,
+  "fluid": {
+    "amount": 36000,
+    "tag": "c:molten_copper"
+  },
+  "result": "tconstruct:smeltery_controller"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/signalum"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:coins/signalum"
+  },
+  "result": {
+    "amount": 3000,
+    "fluid": "tconstruct:molten_signalum"
+  },
+  "temperature": 1125,
+  "time": 47
+}

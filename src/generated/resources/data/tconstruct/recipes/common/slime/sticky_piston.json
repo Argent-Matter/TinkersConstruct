@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "fabric:load_conditions": [
+    {
+      "condition": "tconstruct:config",
+      "prop": "slime_recipe_fix"
+    }
+  ],
+  "key": {
+    "#": {
+      "tag": "c:slimeballs"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    }
+  },
+  "pattern": [
+    "#",
+    "P"
+  ],
+  "result": {
+    "item": "minecraft:sticky_piston"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires/iron"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:wires/iron"
+  },
+  "result": {
+    "amount": 4500,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 800,
+  "time": 12
+}

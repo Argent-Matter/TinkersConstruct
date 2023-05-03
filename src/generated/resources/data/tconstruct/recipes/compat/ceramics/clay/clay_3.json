@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "ceramics"
+      ]
+    }
+  ],
+  "ingredient": [
+    {
+      "item": "ceramics:unfired_clay_bucket"
+    },
+    {
+      "item": "ceramics:clay_cistern"
+    }
+  ],
+  "result": {
+    "amount": 60750,
+    "fluid": "tconstruct:molten_clay"
+  },
+  "temperature": 450,
+  "time": 43
+}

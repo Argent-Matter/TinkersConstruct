@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/coin"
+  },
+  "cooling_time": 29,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/copper"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 3000,
+    "tag": "c:molten_copper"
+  },
+  "result": {
+    "tag": "c:coins/copper"
+  }
+}

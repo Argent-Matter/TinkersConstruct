@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tconstruct:drowned_head"
+  },
+  "result": {
+    "amount": 250,
+    "fluid": "minecraft:water"
+  },
+  "temperature": 0,
+  "time": 5
+}

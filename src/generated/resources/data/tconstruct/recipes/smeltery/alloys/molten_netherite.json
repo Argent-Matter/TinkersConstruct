@@ -1,0 +1,56 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "fabric:load_conditions": [
+        {
+          "condition": "tconstruct:config",
+          "prop": "cheaper_netherite_alloy"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:alloy",
+        "inputs": [
+          {
+            "amount": 4000,
+            "tag": "tconstruct:molten_debris"
+          },
+          {
+            "amount": 2000,
+            "tag": "c:molten_gold"
+          }
+        ],
+        "result": {
+          "amount": 1000,
+          "fluid": "tconstruct:molten_netherite"
+        },
+        "temperature": 1250
+      }
+    },
+    {
+      "fabric:load_conditions": [
+        {
+          "condition": "porting_lib:true"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:alloy",
+        "inputs": [
+          {
+            "amount": 4000,
+            "tag": "tconstruct:molten_debris"
+          },
+          {
+            "amount": 4000,
+            "tag": "c:molten_gold"
+          }
+        ],
+        "result": {
+          "amount": 1000,
+          "fluid": "tconstruct:molten_netherite"
+        },
+        "temperature": 1250
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 2025,
+      "fluid": "tconstruct:molten_quartz"
+    },
+    {
+      "amount": 3000,
+      "fluid": "tconstruct:molten_iron"
+    }
+  ],
+  "ingredient": {
+    "type": "forge:nbt",
+    "count": 1,
+    "item": "tconstruct:scorched_lantern"
+  },
+  "result": {
+    "amount": 40500,
+    "fluid": "tconstruct:scorched_stone"
+  },
+  "temperature": 500,
+  "time": 50
+}

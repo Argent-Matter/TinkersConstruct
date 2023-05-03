@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:casting_table",
+  "cooling_time": 74,
+  "fluid": {
+    "amount": 20250,
+    "tag": "c:ender"
+  },
+  "result": "minecraft:ender_pearl"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "minecraft:brick_slab"
+  },
+  "cast_consumed": true,
+  "cooling_time": 5,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "ceramics"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 50,
+    "name": "minecraft:lava"
+  },
+  "result": "ceramics:lava_bricks_slab"
+}

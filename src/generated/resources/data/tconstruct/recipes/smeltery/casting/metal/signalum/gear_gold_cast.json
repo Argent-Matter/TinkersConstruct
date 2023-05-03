@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gear"
+  },
+  "cooling_time": 140,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/signalum"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 36000,
+    "tag": "c:molten_signalum"
+  },
+  "result": {
+    "tag": "c:gears/signalum"
+  }
+}

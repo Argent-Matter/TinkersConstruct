@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "tconstruct:pattern"
+    },
+    "w": {
+      "type": "forge:difference",
+      "base": {
+        "type": "serialization_hooks:combined",
+        "children": [
+          {
+            "tag": "c:workbenches"
+          },
+          {
+            "tag": "tconstruct:tables"
+          }
+        ]
+      },
+      "subtracted": {
+        "item": "tconstruct:crafting_station"
+      }
+    }
+  },
+  "pattern": [
+    "p",
+    "w"
+  ],
+  "result": {
+    "item": "tconstruct:crafting_station"
+  }
+}

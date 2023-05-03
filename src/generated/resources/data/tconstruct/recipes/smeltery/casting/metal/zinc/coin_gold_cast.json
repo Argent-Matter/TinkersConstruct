@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/coin"
+  },
+  "cooling_time": 27,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/zinc"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 3000,
+    "tag": "c:molten_zinc"
+  },
+  "result": {
+    "tag": "c:coins/zinc"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:sheetmetals/knightslime"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:sheetmetals/knightslime"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_knightslime"
+  },
+  "temperature": 1125,
+  "time": 70
+}

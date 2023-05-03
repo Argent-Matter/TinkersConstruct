@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/nugget"
+  },
+  "cooling_time": 16,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:nuggets/zinc"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 1000,
+    "tag": "c:molten_zinc"
+  },
+  "result": {
+    "tag": "c:nuggets/zinc"
+  }
+}

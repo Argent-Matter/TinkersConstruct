@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "c:plates"
+  },
+  "cast_consumed": true,
+  "cooling_time": 57,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:plates"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 9000,
+    "tag": "c:molten_gold"
+  },
+  "result": "tconstruct:plate_cast",
+  "switch_slots": true
+}

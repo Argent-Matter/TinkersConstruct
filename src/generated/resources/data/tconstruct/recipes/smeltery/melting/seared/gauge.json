@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 405000,
+      "fluid": "tconstruct:molten_glass"
+    }
+  ],
+  "ingredient": {
+    "type": "serialization_hooks:combined",
+    "children": [
+      {
+        "type": "forge:nbt",
+        "count": 1,
+        "item": "tconstruct:seared_fuel_gauge"
+      },
+      {
+        "type": "forge:nbt",
+        "count": 1,
+        "item": "tconstruct:seared_ingot_gauge"
+      }
+    ]
+  },
+  "result": {
+    "amount": 81000,
+    "fluid": "tconstruct:seared_stone"
+  },
+  "temperature": 600,
+  "time": 107
+}

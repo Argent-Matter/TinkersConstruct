@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "result": {
+    "amount": 40500,
+    "fluid": "tconstruct:molten_diamond",
+    "unit_size": 2025
+  },
+  "temperature": 1450,
+  "time": 167
+}

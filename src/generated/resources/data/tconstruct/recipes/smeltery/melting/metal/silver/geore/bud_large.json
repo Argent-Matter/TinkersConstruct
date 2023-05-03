@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:geore_large_buds/silver"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:geore_large_buds/silver"
+  },
+  "result": {
+    "amount": 27000,
+    "fluid": "tconstruct:molten_silver"
+  },
+  "temperature": 790,
+  "time": 120
+}

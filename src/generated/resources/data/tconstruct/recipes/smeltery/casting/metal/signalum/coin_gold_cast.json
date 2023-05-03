@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/coin"
+  },
+  "cooling_time": 40,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/signalum"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 3000,
+    "tag": "c:molten_signalum"
+  },
+  "result": {
+    "tag": "c:coins/signalum"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tconstruct:stained_clear_glass",
+  "key": {
+    "#": {
+      "item": "tconstruct:clear_glass"
+    },
+    "X": {
+      "tag": "c:white_dyes"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "tconstruct:white_clear_stained_glass"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "c:nuggets/manyullyn"
+  },
+  "result": {
+    "amount": 1000,
+    "fluid": "tconstruct:molten_manyullyn"
+  },
+  "temperature": 1200,
+  "time": 24
+}

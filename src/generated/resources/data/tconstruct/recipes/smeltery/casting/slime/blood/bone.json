@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "c:bones"
+  },
+  "cast_consumed": true,
+  "cooling_time": 45,
+  "fluid": {
+    "amount": 20250,
+    "tag": "tconstruct:blood"
+  },
+  "result": "tconstruct:bloodbone"
+}

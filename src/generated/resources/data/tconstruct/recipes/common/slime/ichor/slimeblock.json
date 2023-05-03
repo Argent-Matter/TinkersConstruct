@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "slime_blocks",
+  "key": {
+    "#": {
+      "tag": "c:slimeball/ichor"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "tconstruct:ichor_slime"
+  }
+}

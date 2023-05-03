@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "type": "serialization_hooks:combined",
+    "children": [
+      {
+        "tag": "c:cobblestone"
+      },
+      {
+        "item": "minecraft:gravel"
+      }
+    ]
+  },
+  "cast_consumed": true,
+  "cooling_time": 102,
+  "fluid": {
+    "amount": 40500,
+    "tag": "tconstruct:molten_clay"
+  },
+  "result": "tconstruct:seared_cobble"
+}

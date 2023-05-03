@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/rod"
+  },
+  "cast_consumed": true,
+  "cooling_time": 45,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:rods/slimesteel"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 4500,
+    "tag": "tconstruct:molten_slimesteel"
+  },
+  "result": {
+    "tag": "c:rods/slimesteel"
+  }
+}

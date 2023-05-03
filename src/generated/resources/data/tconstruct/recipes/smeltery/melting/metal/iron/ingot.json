@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "c:ingots/iron"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 800,
+  "time": 60
+}

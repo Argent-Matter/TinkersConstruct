@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:coins/silver"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:coins/silver"
+  },
+  "result": {
+    "amount": 3000,
+    "fluid": "tconstruct:molten_silver"
+  },
+  "temperature": 790,
+  "time": 40
+}

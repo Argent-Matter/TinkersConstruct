@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:rods/pig_iron"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:rods/pig_iron"
+  },
+  "result": {
+    "amount": 4500,
+    "fluid": "tconstruct:molten_pig_iron"
+  },
+  "temperature": 811,
+  "time": 12
+}

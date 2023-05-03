@@ -1,0 +1,12 @@
+// 1.19.2	2023-05-03T16:08:57.9642515	Tags for minecraft:entity_type
+a104d9e73a1ccd89eca8971ce21eefbbb7d82c54 data\c\tags\entity_types\creepers.json
+8baae05908de3b7b01b6c8bbf01664641fb50650 data\c\tags\entity_types\illagers.json
+fd38fdeaee44893aa121e6e005f0a7c9a2096f91 data\c\tags\entity_types\slimes.json
+a2fe926d16451411d1348113f1761e56c36702f6 data\tconstruct\tags\entity_types\killagers.json
+57b7f4417246bced071f9c38de6cff58780e2a3c data\tconstruct\tags\entity_types\rare_mobs.json
+dd912f9b6c311e1bbc8259fd1c0dcc97479a001a data\c\tags\entity_types\small_armor.json
+406e53795cecc60c1a9f6c41544a2c4739bf5d98 data\c\tags\entity_types\villagers.json
+8af81a64fc34236bbf5815fdd0438b12eb92b843 data\tconstruct\tags\entity_types\melting\show_in_default.json
+738529e6dfc6194974e06f5f1c8a6a1c821f6c46 data\tconstruct\tags\entity_types\melting\hide_in_default.json
+8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\tconstruct\tags\entity_types\piggybackpack_blacklist.json
+5b5b4d699ad8f29b7cf33dcae445970b49c50c7a data\tconstruct\tags\entity_types\bacon_producer.json

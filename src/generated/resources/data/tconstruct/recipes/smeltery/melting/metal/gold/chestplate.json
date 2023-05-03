@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "minecraft:golden_chestplate"
+  },
+  "result": {
+    "amount": 72000,
+    "fluid": "tconstruct:molten_gold",
+    "unit_size": 1000
+  },
+  "temperature": 700,
+  "time": 161
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:plates/aluminum"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:plates/aluminum"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_aluminum"
+  },
+  "temperature": 425,
+  "time": 47
+}

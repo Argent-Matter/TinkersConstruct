@@ -1,0 +1,11 @@
+{
+  "type": "tconstruct:entity_melting",
+  "damage": 2,
+  "entity": {
+    "type": "minecraft:wither"
+  },
+  "result": {
+    "amount": 4050,
+    "fluid": "tconstruct:liquid_soul"
+  }
+}

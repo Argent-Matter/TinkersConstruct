@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "minecraft:andesite"
+  },
+  "cast_consumed": true,
+  "cooling_time": 20,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 1000,
+    "tag": "c:molten_iron"
+  },
+  "result": "create:andesite_alloy"
+}

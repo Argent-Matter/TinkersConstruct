@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:molding_table",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:wires"
+      ]
+    }
+  ],
+  "material": {
+    "item": "tconstruct:blank_sand_cast"
+  },
+  "pattern": {
+    "tag": "c:wires"
+  },
+  "result": "tconstruct:wire_sand_cast"
+}

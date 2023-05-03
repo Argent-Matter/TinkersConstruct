@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 40500,
+      "fluid": "tconstruct:molten_quartz"
+    }
+  ],
+  "ingredient": {
+    "type": "serialization_hooks:combined",
+    "children": [
+      {
+        "type": "forge:nbt",
+        "count": 1,
+        "item": "tconstruct:scorched_fuel_gauge"
+      },
+      {
+        "type": "forge:nbt",
+        "count": 1,
+        "item": "tconstruct:scorched_ingot_gauge"
+      }
+    ]
+  },
+  "result": {
+    "amount": 81000,
+    "fluid": "tconstruct:scorched_stone"
+  },
+  "temperature": 500,
+  "time": 100
+}

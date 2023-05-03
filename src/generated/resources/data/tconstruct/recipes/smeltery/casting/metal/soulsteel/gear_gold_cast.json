@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gear"
+  },
+  "cooling_time": 144,
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:gears/soulsteel"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 36000,
+    "tag": "tconstruct:molten_soulsteel"
+  },
+  "result": {
+    "tag": "c:gears/soulsteel"
+  }
+}

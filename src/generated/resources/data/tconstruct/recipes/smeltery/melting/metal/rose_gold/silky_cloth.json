@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tconstruct:silky_cloth"
+  },
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_rose_gold"
+  },
+  "temperature": 550,
+  "time": 52
+}

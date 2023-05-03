@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "tconstruct:earth_slime_sling"
+  },
+  "result": {
+    "amount": 141750,
+    "fluid": "tconstruct:earth_slime",
+    "unit_size": 4050
+  },
+  "temperature": 50,
+  "time": 122
+}

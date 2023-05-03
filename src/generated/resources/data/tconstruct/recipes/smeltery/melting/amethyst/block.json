@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
+  "result": {
+    "amount": 32400,
+    "fluid": "tconstruct:molten_amethyst"
+  },
+  "temperature": 950,
+  "time": 130
+}

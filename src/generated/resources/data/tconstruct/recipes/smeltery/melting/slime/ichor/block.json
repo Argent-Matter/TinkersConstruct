@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tconstruct:ichor_slime"
+  },
+  "result": {
+    "amount": 182250,
+    "fluid": "tconstruct:ichor"
+  },
+  "temperature": 700,
+  "time": 171
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tconstruct:slimesling",
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    },
+    "L": {
+      "tag": "c:slimeball/ichor"
+    },
+    "X": {
+      "item": "tconstruct:ichor_congealed_slime"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "L L",
+    " L "
+  ],
+  "result": {
+    "item": "tconstruct:ichor_slime_sling"
+  }
+}

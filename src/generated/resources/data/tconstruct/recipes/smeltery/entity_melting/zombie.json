@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:entity_melting",
+  "damage": 2,
+  "entity": {
+    "types": [
+      "minecraft:zombie",
+      "minecraft:husk",
+      "minecraft:zombified_piglin",
+      "minecraft:zoglin",
+      "minecraft:zombie_horse"
+    ]
+  },
+  "result": {
+    "amount": 2025,
+    "fluid": "tconstruct:blood"
+  }
+}
