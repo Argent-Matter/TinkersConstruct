@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-03T18:29:12.1407889	Tinkers' Construct Gadget Recipes
+// 1.19.2	2023-05-05T19:13:39.2989585	Tinkers' Construct Gadget Recipes
 98109ee21bb5dc0344967da664895853bfbe71a7 data\tconstruct\recipes\gadgets\cake\earth.json
 d6cffc0cf3689b96412518aa63f77320535b8ddf data\tconstruct\recipes\gadgets\cake\ender.json
 f9b0add7b2a8f9da2485390c1e7fd9a4039b8fd8 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\fancy_frame\reversed_reversed_gold.json
@@ -17,7 +17,7 @@ a2c74be248595264ea0ead99428a74ce1f9b61aa data\tconstruct\recipes\gadgets\frame\m
 d944d286923e237f18aac44ce7c96a34290aa0c9 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\manyullyn.json
 44959fd7a7f21cee6332500e6e258df80006a392 data\tconstruct\recipes\gadgets\slimesling\earth.json
 7f9cd883ec9dbed3a1816522cf04f5931ba6515a data\tconstruct\recipes\gadgets\slimesling\ender.json
-03b879f4193d1df08fd99e0236552e285b7286c3 data\tconstruct\recipes\gadgets\frame\diamond.json
+51481808d70d8dbd87b37bc0fd4b29b713fbcc67 data\tconstruct\recipes\gadgets\frame\diamond.json
 6ce02f3911c72fb6a2bb5bc1da6445074e238a09 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\shuriken\flint_shuriken.json
 0a81810f5bd38d9ac33219a3b1910d2d89b35e5d data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\fancy_frame\reversed_gold.json
 f73a0bd36f63befea8beeaf4fd104f888c860aa2 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\throwball\glow_ball.json
@@ -25,20 +25,20 @@ f73a0bd36f63befea8beeaf4fd104f888c860aa2 data\tconstruct\advancements\recipes\tc
 b754aa22d38461e716be4c3bcf489096ecd7ab0d data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\throwball\efln_ball.json
 fd4600cc7c48e4857b5fbe058de159c1d016caa6 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\cake\blood.json
 74dbfe9e83ac990d9c2c7700ae32426b5a050744 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\slimesling\sky.json
-efcee7dad872fdccac06fcc406de93042fb943b0 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\diamond.json
+29996162a8852bbbd9160f972de9f6ad6ae11efb data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\diamond.json
 feb0f48eeb6d04d58e0619ebd42cd3bad3700804 data\tconstruct\recipes\gadgets\piggy_backpack.json
 10ba8ebce8dc4e4615caced841a47dfc81f858fa data\tconstruct\recipes\gadgets\frame\netherite.json
-bd395b08d8a52ec63bbdda1cef99ba064dc25b5c data\tconstruct\recipes\gadgets\frame\gold.json
+4bbc882846002e071675c279abbf1e4b67fa9633 data\tconstruct\recipes\gadgets\frame\gold.json
 2a1c17d1f6b0b08e1ebb640c95517d33a23bf8d1 data\tconstruct\recipes\gadgets\slimesling\ichor.json
 75229e91c0852493662127a462b53eaaf244b736 data\tconstruct\recipes\gadgets\punji.json
 2033f8711c5636b0fe5f4de14eb35f51e6c4c2b2 data\tconstruct\recipes\gadgets\fancy_frame\reversed_reversed_gold.json
-36b83b8d3386c7a6a5c3239be43f193eb4dace11 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\fancy_frame\clear.json
+de9bc2ea471f2578e8dfb224e7644c209c6010b4 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\fancy_frame\clear.json
 aeac23f3a7724241e22f750cdaf4da7936ccef6a data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\cake\earth.json
 cc5e50686f92b40a4cc6ec9d5a61cf62255d6075 data\tconstruct\recipes\gadgets\slimesling\sky.json
 2d309381e5e8d3d7c029036d0627623f0a963e41 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\punji.json
 76a8ab58c2c15c0291e6e3bf4a7b34011aa9e5e2 data\tconstruct\recipes\gadgets\cake\sky.json
 3167ea9d30c5399ff9423c6b0cbd69d5668bf87a data\tconstruct\recipes\gadgets\throwball\glow_ball.json
-b53df3a8c0449fe4bf444409c9a46533cae069e0 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\gold.json
+fcbf3fdf72c975d296ca2a68814ce529fece5e3c data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\gold.json
 d30922f7f62462ab00ef19804866c8b7541c76f8 data\tconstruct\recipes\gadgets\cake\blood.json
 cbcfc702e1925f99f9ad730b20eace682e038395 data\tconstruct\advancements\recipes\tconstruct\gadgets\gadgets\frame\netherite.json
-da7746e8805e35caf5eff29a84fa9ba49d93f71a data\tconstruct\recipes\gadgets\fancy_frame\clear.json
+f854dfd789942ffb35867a1512d42c93e64efc6a data\tconstruct\recipes\gadgets\fancy_frame\clear.json

@@ -13,7 +13,7 @@
     }
   ],
   "ingredient": {
-    "tag": "c:ores/netherite_scrap"
+    "tag": "c:netherite_scrap_ores"
   },
   "rate": "metal",
   "result": {

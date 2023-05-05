@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.world.block;
 
 import com.google.common.collect.Lists;
-import io.github.fabricators_of_create.porting_lib.extensions.IPlantable;
+import io.github.fabricators_of_create.porting_lib.util.IPlantable;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;

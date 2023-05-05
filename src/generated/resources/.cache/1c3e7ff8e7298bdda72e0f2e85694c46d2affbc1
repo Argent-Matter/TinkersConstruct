@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-03T18:29:12.1427898	Tinkers' Construct World Recipes
+// 1.19.2	2023-05-05T19:13:39.2644594	Tinkers' Construct World Recipes
 e95c80f89e3818f9b02fc6fb21b9ee95637d8c2f data\tconstruct\recipes\world\wood\greenheart\stairs.json
 a250435f8ce9b54d78b47dcee5534b4da306fb69 data\tconstruct\recipes\world\wood\bloodshroom\pressure_plate.json
 6e141e104b90f830b3b04069b5cb326be637d1cc data\tconstruct\recipes\common\slime\ichor\congealed.json
@@ -22,12 +22,12 @@ af851f71ac539640be263936b0902436d9cfb074 data\tconstruct\recipes\world\wood\skyr
 3ee8e42282d8bd2e21a62bdd41e03b3f78d42f1b data\tconstruct\recipes\world\wood\skyroot\pressure_plate.json
 098b8ca747a0e6488c066f6d9aba062526cf4dc5 data\tconstruct\advancements\recipes\misc\common\slime\earth\slimeball_from_congealed.json
 70f2478fabaacccc9a7c75dd7ad56271dfa5ea68 data\tconstruct\advancements\recipes\tconstruct\world\world\wood\greenheart\stripped_log_to_wood.json
-a0f17354392768243234663b683982407677db3a data\tconstruct\recipes\world\wood\skyroot\sign.json
+d4eec324f95199643838944688196c7dcc6b4b4e data\tconstruct\recipes\world\wood\skyroot\sign.json
 0b033cfbaa5e4c956537218254ae68771e5297f6 data\tconstruct\recipes\common\slime\ender\slimeblock.json
 b9a9fd495e1745c2cd7ece39a4143707a7c78445 data\tconstruct\recipes\world\wood\skyroot\button.json
-149d0fef48967fc309cb4629053e6d6867c236bd data\tconstruct\recipes\world\wood\bloodshroom\sign.json
+f076fdd571bac800b0e07516a1f457689a4ecc19 data\tconstruct\recipes\world\wood\bloodshroom\sign.json
 4da40d159d1d26b0e341167567ec9ebb1d605398 data\tconstruct\recipes\common\slime\ichor\crystal_smelting.json
-aaa91d570ed98d1a6166c645b0872d1e8f1e5621 data\tconstruct\recipes\world\wood\greenheart\sign.json
+def883fda723c213f0b94e42311f1a50c8933b31 data\tconstruct\recipes\world\wood\greenheart\sign.json
 15f59fd64a1fde75926cc4081bd9a563ac1b27ff data\tconstruct\advancements\recipes\tconstruct\general\common\slime\ender\crystal_smelting.json
 af70bb77a0bf2762c7a6483ff73772578825dde8 data\tconstruct\recipes\world\wood\greenheart\fence_gate.json
 62f909da3612dfa076138276d00ceb915b354a18 data\tconstruct\advancements\recipes\tconstruct\world\world\wood\bloodshroom\stripped_log_to_wood.json
@@ -37,7 +37,7 @@ af70bb77a0bf2762c7a6483ff73772578825dde8 data\tconstruct\recipes\world\wood\gree
 8fe8041256f11c2a2329e7097f5bb2fb04f60956 data\tconstruct\recipes\common\slime\ender\slimeball_from_block.json
 9c1e5160e477e4d98ce93d8ea5c0166c3e859ac5 data\tconstruct\advancements\recipes\tconstruct\general\common\slime\ichor\slimeball_from_congealed.json
 1e07e12ad414942ed7c0407c41273a11a80f885b data\tconstruct\advancements\recipes\redstone\common\slime\sticky_piston.json
-08cdf2fca543d6fde4d330329108a30819329782 data\tconstruct\recipes\world\wood\greenheart\fence.json
+19f3606d28741e01860b52ff27b22a1d647c905e data\tconstruct\recipes\world\wood\greenheart\fence.json
 1cb2afd7b129dda1cda7f9fba3b412dc16d11403 data\tconstruct\advancements\recipes\tconstruct\world\world\wood\skyroot\door.json
 8b82dd8f85dbf61a1dc6e13a580f4ef50fbe8649 data\tconstruct\recipes\common\slime\earth\slimeball_from_congealed.json
 029e825debf8f17e2a9715b0631c3b15ec72e942 data\tconstruct\advancements\recipes\tconstruct\world\common\slime\sky\congealed.json
@@ -47,7 +47,7 @@ e0c4c615b8a8af69e92e577c791eec7b722bcfe1 data\tconstruct\recipes\world\wood\skyr
 03cd65f646097f6b29cc11cc50d6a7d77e01558b data\tconstruct\advancements\recipes\tconstruct\general\common\slime\blood\slimeball_from_block.json
 e931220b01f1b97b6b4bb36dc3bc9e9524e5c9f3 data\tconstruct\advancements\recipes\tconstruct\world\world\wood\greenheart\sign.json
 ba55ad50744bad4b66f9eda755a79e51c1b4b3dd data\tconstruct\advancements\recipes\tconstruct\general\common\slime\ichor\crystal_smelting.json
-855d9a39613676b6eed7bcafbc328dd7c377845a data\tconstruct\recipes\world\wood\bloodshroom\fence.json
+218164ba7755da39a96c6c0a635d3561e228bd69 data\tconstruct\recipes\world\wood\bloodshroom\fence.json
 79cd57bcc8704c9093582e9c7386c6dfa6e7b1d1 data\tconstruct\recipes\common\slime\magma_cream.json
 25acd07663c4c512264c574f2df61c2bdac09460 data\tconstruct\advancements\recipes\tools\common\slime\lead.json
 efb84bc55febc1fea90ee51b56db194cda887aeb data\tconstruct\recipes\world\wood\greenheart\stripped_log_to_wood.json
@@ -78,7 +78,7 @@ a14b173fdd20b745e6bdbd9307978088ea995d97 data\tconstruct\advancements\recipes\tc
 e068b3fc9c792b14aeb80a92a931e9101e96a7ab data\tconstruct\advancements\recipes\tconstruct\world\common\slime\ender\congealed.json
 fc437f2bbbca9e1dc6188a2d7fd98aab042d6da6 data\tconstruct\recipes\world\wood\bloodshroom\planks.json
 2d582214596b4990e2b35b8117cb06ea4e90de15 data\tconstruct\advancements\recipes\tconstruct\world\world\wood\skyroot\fence.json
-e126ddae61f8e70a6592e837cd0a14879b664dac data\tconstruct\recipes\world\wood\skyroot\fence.json
+5e3ad4e539e0cf1661f28dd87bfff3c57d41ebba data\tconstruct\recipes\world\wood\skyroot\fence.json
 b347f65e5f77c17afd75dcea5c3fbafa6a28c6ba data\tconstruct\recipes\world\wood\bloodshroom\stripped_log_to_wood.json
 bd20925f98a84b77abf2f0a3054597a432f96428 data\tconstruct\recipes\common\slime\ender\crystal_block.json
 98d68fc5fba197f10a4346953998473919553ff8 data\tconstruct\recipes\world\wood\greenheart\pressure_plate.json

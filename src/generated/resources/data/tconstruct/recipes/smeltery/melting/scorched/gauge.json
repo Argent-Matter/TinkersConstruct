@@ -6,21 +6,18 @@
       "fluid": "tconstruct:molten_quartz"
     }
   ],
-  "ingredient": {
-    "type": "serialization_hooks:combined",
-    "children": [
-      {
-        "type": "forge:nbt",
-        "count": 1,
-        "item": "tconstruct:scorched_fuel_gauge"
-      },
-      {
-        "type": "forge:nbt",
-        "count": 1,
-        "item": "tconstruct:scorched_ingot_gauge"
-      }
-    ]
-  },
+  "ingredient": [
+    {
+      "type": "forge:nbt",
+      "count": 1,
+      "item": "tconstruct:scorched_fuel_gauge"
+    },
+    {
+      "type": "forge:nbt",
+      "count": 1,
+      "item": "tconstruct:scorched_ingot_gauge"
+    }
+  ],
   "result": {
     "amount": 81000,
     "fluid": "tconstruct:scorched_stone"

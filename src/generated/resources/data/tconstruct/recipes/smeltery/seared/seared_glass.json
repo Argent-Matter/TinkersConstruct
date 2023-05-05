@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "G": {
-      "tag": "c:glass/colorless"
+      "tag": "c:colorless_glass"
     },
     "b": {
       "item": "tconstruct:seared_brick"

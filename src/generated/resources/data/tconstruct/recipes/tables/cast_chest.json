@@ -5,7 +5,7 @@
       "item": "tconstruct:seared_bricks"
     },
     "C": {
-      "tag": "c:chests/wooden"
+      "tag": "c:wooden_chests"
     },
     "b": {
       "item": "tconstruct:seared_brick"

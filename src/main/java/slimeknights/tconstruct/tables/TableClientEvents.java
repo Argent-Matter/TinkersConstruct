@@ -1,7 +1,7 @@
 package slimeknights.tconstruct.tables;
 
 import io.github.fabricators_of_create.porting_lib.event.client.RegisterGeometryLoadersCallback;
-import io.github.fabricators_of_create.porting_lib.model.IGeometryLoader;
+import io.github.fabricators_of_create.porting_lib.model.geometry.IGeometryLoader;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;

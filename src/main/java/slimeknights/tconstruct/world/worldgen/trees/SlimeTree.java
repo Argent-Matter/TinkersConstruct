@@ -11,6 +11,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.TinkerStructures;
+import slimeknights.tconstruct.world.TinkerStructuresData;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -28,11 +29,11 @@ public class SlimeTree extends AbstractTreeGrower {
   @Override
   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomIn, boolean largeHive) {
     return switch (this.foliageType) {
-      case EARTH -> TinkerStructures.earthSlimeTree;
-      case SKY -> TinkerStructures.skySlimeTree;
-      case ENDER -> TinkerStructures.enderSlimeTree;
-      case BLOOD -> TinkerStructures.bloodSlimeFungus;
-      case ICHOR -> TinkerStructures.ichorSlimeFungus;
+      case EARTH -> TinkerStructuresData.earthSlimeTree;
+      case SKY -> TinkerStructuresData.skySlimeTree;
+      case ENDER -> TinkerStructuresData.enderSlimeTree;
+      case BLOOD -> TinkerStructuresData.bloodSlimeFungus;
+      case ICHOR -> TinkerStructuresData.ichorSlimeFungus;
     };  }
 
   /**
@@ -40,11 +41,11 @@ public class SlimeTree extends AbstractTreeGrower {
    */
   private ConfiguredFeature<?, ?> getSlimeTreeFeature() {
     return switch (this.foliageType) {
-      case EARTH -> TinkerStructures.earthSlimeTree.value();
-      case SKY -> TinkerStructures.skySlimeTree.value();
-      case ENDER -> TinkerStructures.enderSlimeTree.value();
-      case BLOOD -> TinkerStructures.bloodSlimeFungus.value();
-      case ICHOR -> TinkerStructures.ichorSlimeFungus.value();
+      case EARTH -> TinkerStructuresData.earthSlimeTree.value();
+      case SKY -> TinkerStructuresData.skySlimeTree.value();
+      case ENDER -> TinkerStructuresData.enderSlimeTree.value();
+      case BLOOD -> TinkerStructuresData.bloodSlimeFungus.value();
+      case ICHOR -> TinkerStructuresData.ichorSlimeFungus.value();
     };
 
   }

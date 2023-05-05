@@ -5,7 +5,7 @@
       "item": "tconstruct:scorched_brick"
     },
     "C": {
-      "tag": "c:ingots/iron"
+      "tag": "c:iron_ingots"
     },
     "P": {
       "item": "tconstruct:scorched_glass_pane"

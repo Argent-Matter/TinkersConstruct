@@ -1,6 +1,5 @@
 package slimeknights.tconstruct.world.block;
 
-import io.github.fabricators_of_create.porting_lib.util.LevelUtil;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +25,6 @@ import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class SlimeGrassBlock extends SnowyDirtBlock implements BonemealableBlock {
   @Getter

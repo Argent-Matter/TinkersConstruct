@@ -11,7 +11,7 @@
       "item": "minecraft:ender_eye"
     },
     "G": {
-      "tag": "c:glass/colorless"
+      "tag": "c:colorless_glass"
     },
     "T": {
       "item": "minecraft:ghast_tear"

@@ -1,4 +1,8 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "tconstruct:greenheart_planks",
+    "tconstruct:skyroot_planks",
+    "tconstruct:bloodshroom_planks"
+  ]
 }

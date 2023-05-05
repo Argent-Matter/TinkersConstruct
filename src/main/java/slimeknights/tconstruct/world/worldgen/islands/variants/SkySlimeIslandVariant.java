@@ -1,5 +1,6 @@
 package slimeknights.tconstruct.world.worldgen.islands.variants;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -9,6 +10,7 @@ import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.TinkerStructures;
+import slimeknights.tconstruct.world.TinkerStructuresData;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 import javax.annotation.Nullable;
@@ -47,6 +49,6 @@ public class SkySlimeIslandVariant extends AbstractSlimeIslandVariant {
   @Nullable
   @Override
   public ConfiguredFeature<?,?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
-    return TinkerStructures.skySlimeIslandTree.value();
+    return registryAccess.registry(Registry.CONFIGURED_FEATURE_REGISTRY).get().get(TConstruct.getResource("sky_slime_island_tree"));
   }
 }

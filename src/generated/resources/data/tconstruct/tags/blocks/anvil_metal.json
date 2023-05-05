@@ -8,7 +8,7 @@
     "#c:storage_blocks/queens_slime",
     "#c:storage_blocks/manyullyn",
     "#c:storage_blocks/hepatizon",
-    "#c:storage_blocks/netherite",
+    "#c:netherite_blocks",
     {
       "id": "#c:storage_blocks/bronze",
       "required": false

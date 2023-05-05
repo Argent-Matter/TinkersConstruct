@@ -3,6 +3,7 @@ package slimeknights.tconstruct.world.worldgen.islands.variants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Plane;
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -15,6 +16,7 @@ import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.TinkerStructures;
+import slimeknights.tconstruct.world.TinkerStructuresData;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -43,7 +45,7 @@ public class EarthSlimeIslandVariant extends AbstractSlimeIslandVariant {
   @Nullable
   @Override
   public ConfiguredFeature<?,?> getTreeFeature(RandomSource random, RegistryAccess registryAccess) {
-    return TinkerStructures.earthSlimeIslandTree.value();
+    return registryAccess.registry(Registry.CONFIGURED_FEATURE_REGISTRY).get().get(TConstruct.getResource("earth_slime_island_tree"));
   }
 
   private static boolean isWater(WorldGenLevel world, BlockPos pos) {

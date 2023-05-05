@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-03T18:29:12.1987917	Global Loot Modifiers : tconstruct
+// 1.19.2	2023-05-05T19:13:39.2519602	Global Loot Modifiers : tconstruct
 d65529a778f7bd1c08495ba5af6c83ec73b45117 data\tconstruct\loot_modifiers\lustrous\silver.json
 ec73cfc2bdcc3d9d8f6ce36146ccc3d27bc29d38 data\tconstruct\loot_modifiers\lustrous\tin.json
 400c5427f3b3365a631ed3550a7655980c5b9b9c data\tconstruct\loot_modifiers\lustrous\tungsten.json
@@ -15,6 +15,6 @@ b5fee62c87a24bd882a7df6a57bbdaa792cb8371 data\forge\loot_modifiers\global_loot_m
 0d2a936fe326be3397d09b5af9d4ecd66d6d85f1 data\tconstruct\loot_modifiers\lustrous\gold.json
 1b68d6bc5946f065b66ff81e0493a171428c2558 data\tconstruct\loot_modifiers\lustrous\nickel.json
 c2244c6baf90ff16512577b6ed46440ef348829b data\tconstruct\loot_modifiers\lustrous\zinc.json
-324ee9ae21201b0ada67f181c985f046341d2e25 data\tconstruct\loot_modifiers\wither_bone.json
+d7d5df51e2fdb474172b72274adccc9429eb4441 data\tconstruct\loot_modifiers\wither_bone.json
 3d694b5e1d50bf74090cf05c8516e1c633f38542 data\tconstruct\loot_modifiers\lustrous\platinum.json
 7fa4a553edde0e3308ca9b73a4be4861421972e6 data\tconstruct\loot_modifiers\modifier_hook.json

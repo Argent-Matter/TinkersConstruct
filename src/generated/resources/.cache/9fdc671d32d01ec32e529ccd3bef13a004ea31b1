@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-03T18:29:12.1477874	Tinkers' Construct Smeltery Recipes
+// 1.19.2	2023-05-05T19:13:39.2719587	Tinkers' Construct Smeltery Recipes
 aa0e0344596666d439383923b31bfa9a447ea0ee data\tconstruct\recipes\smeltery\melting\metal\rose_gold\wire.json
 e0e4cbb3ad3ba1c0e8aafa71cc9c79d3f7ed8a9a data\tconstruct\recipes\smeltery\casting\metal\amethyst_bronze\block.json
 4901aed5fb0a54a133f3172c40f0005228b7991e data\tconstruct\recipes\smeltery\casting\metal\iron\coin_sand_cast.json
@@ -26,7 +26,7 @@ da1a92dc4867bb370956ae2b884ea4c10ffdb200 data\tconstruct\recipes\smeltery\meltin
 b45c1f9b887db7d16721b7b780a17de34d6566b0 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\fuel_gauge.json
 9c5def04521f5e7529699299eb9960ec5dafb894 data\tconstruct\recipes\smeltery\scorched\scorched_road_slab.json
 49d6caae05ad844263313c22b90a6d17f01ef80d data\tconstruct\recipes\smeltery\casts\gold_casts\wires.json
-09b66ff5935e2defdeef3dbc428a49c558675a33 data\tconstruct\recipes\smeltery\melting\metal\tin\ore_singular.json
+4d95f1b9d80e1ee90cb958eafe8e6fb0efc0b529 data\tconstruct\recipes\smeltery\melting\metal\tin\ore_singular.json
 4cf046abe4a3d50dc0ced5b8aeb15d1453c59188 data\tconstruct\recipes\smeltery\melting\metal\copper\sheetmetal.json
 d4a970476e8d44707c11532b82bc5f56da1a150b data\tconstruct\recipes\smeltery\seared\seared_bricks_stairs_stonecutter.json
 88b9402d4af745d189d5062c6ff1a7f38e03d395 data\tconstruct\recipes\smeltery\melting\metal\zinc\plates.json
@@ -64,8 +64,8 @@ a30541cf038844fef74401da53adfc56151402d4 data\tconstruct\recipes\smeltery\meltin
 8e0f881df759869a432e8c17ddbbafd3c1832c86 data\tconstruct\recipes\smeltery\casting\metal\slimesteel\ingot_sand_cast.json
 ef25cc857bd1ed879d406030e674620e17363732 data\tconstruct\recipes\smeltery\melting\metal\nickel\plates.json
 76f1febb33f8c8f396577e147563b0d5243e5550 data\tconstruct\recipes\smeltery\casting\metal\hepatizon\wire_sand_cast.json
-99cd2bb10070fc199dcd24a8b842a277dfcdcfae data\tconstruct\recipes\smeltery\casting\seared\glass_pane.json
-5b99a65526cd3d6d1dc239bc5c2e7e7437cbf157 data\tconstruct\recipes\smeltery\seared\chute.json
+ea5fe7aa47d9ca669f267b56e8adb3f78e08049a data\tconstruct\recipes\smeltery\casting\seared\glass_pane.json
+e3be039cd9c48f104c9b6e527ce1c5d744a125ce data\tconstruct\recipes\smeltery\seared\chute.json
 e17d454a1003a1d9bbc0ccefea6d213728518dfb data\tconstruct\recipes\smeltery\melting\metal\platinum\raw.json
 2c41081222de7a337dcd64d3e8c0bcf202bc6b99 data\tconstruct\recipes\smeltery\seared\melter.json
 5d63d8ffd407e61cfd493a4c8300e781fd27341d data\tconstruct\recipes\smeltery\melting\metal\cobalt\nugget.json
@@ -85,7 +85,7 @@ b5deab1fb043b1d4a168530ea72090031f866b28 data\tconstruct\recipes\smeltery\meltin
 e39e071238ba0d72456382587fd4fb6a6392644f data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_cobble_stairs_stonecutter.json
 682b9f6185e1958aec4aa83fb59a8b05c6b6e43f data\tconstruct\recipes\smeltery\casting\metal\gold\coin_gold_cast.json
 cf3c1ba98201e960d62d14a029874b33be0a1790 data\tconstruct\recipes\smeltery\entity_melting\snow_golem.json
-12ed2e6987726835f508a8d5df640cedae60d1a3 data\tconstruct\recipes\smeltery\melting\metal\tungsten\ore_singular.json
+dcaaa9929cda0547c149e49b70eb584592eb1665 data\tconstruct\recipes\smeltery\melting\metal\tungsten\ore_singular.json
 29404406ac78d38111d4d770d1e3cbfa725c25d0 data\tconstruct\recipes\smeltery\casting\metal\knightslime\coin_gold_cast.json
 e4bd4224759342013e24aa7d421e6f3f228663c7 data\tconstruct\recipes\smeltery\melting\slime\blood\block.json
 bacde1eb1774eadc90286a55556a019c73edd498 data\tconstruct\recipes\smeltery\melting\emerald\geore\bud_large.json
@@ -110,7 +110,7 @@ c8b0731d1b40560bb9490a9fa8267a03518a1420 data\tconstruct\recipes\smeltery\castin
 394f8a4e213d8029fb7b3f8bc901b0156e76957c data\tconstruct\recipes\smeltery\casting\metal\uranium\plate_gold_cast.json
 1d83ec3e8893dd51648286d8d81f5a61fea4fa3f data\tconstruct\recipes\smeltery\casting\metal\brass\wire_sand_cast.json
 2cb81dcdeb2d876e1a5a884d3409eecadd31c918 data\tconstruct\recipes\smeltery\melting\metal\knightslime\block.json
-b0f5d514102d38cf2397a32dfd236ac8a67b071b data\tconstruct\recipes\smeltery\casting\amethyst\glass.json
+2324b908f79397bcb9e4de3736c04ddd10a8d27d data\tconstruct\recipes\smeltery\casting\amethyst\glass.json
 e39df436189bcbbbe0143396900ece49291516c4 data\tconstruct\recipes\smeltery\melting\metal\cobalt\block.json
 3c97854d087b077bcaef196b008c1a04ee8424f5 data\tconstruct\recipes\smeltery\melting\metal\amethyst_bronze\sheetmetal.json
 df15fa94bc17e65e512829d1b42921c3405792ad data\tconstruct\recipes\smeltery\melting\metal\tin\coin.json
@@ -127,7 +127,7 @@ df96fe13e23f75ec8b1b6bf052c45be31d993bab data\tconstruct\recipes\smeltery\castin
 cc96680ca258fe853ac885b4e55f98da403074aa data\tconstruct\recipes\smeltery\melting\metal\silver\ore_sparse.json
 f7b01aeb0836d4d26651be302a0bf2c455052ff8 data\tconstruct\recipes\smeltery\casting\slime\magma_bottle.json
 f2c97c24237d2bd367c13708efcee9a306c4efe7 data\tconstruct\recipes\smeltery\casting\metal\iron\wire_gold_cast.json
-fcb45fd8ec364ca010d896c6083f3ddcb1eaf86b data\tconstruct\recipes\smeltery\casting\seared\cobble\block.json
+73c58cb63deb25ea99084f3459cd732684c93a6d data\tconstruct\recipes\smeltery\casting\seared\cobble\block.json
 d14aa2330e6ef956e969ae189874060bfa2dcd28 data\tconstruct\recipes\smeltery\casting\metal\iron\gear_sand_cast.json
 81f0de20dc3b7265cfd6894dd460f584715044d9 data\tconstruct\recipes\smeltery\melting\metal\tin\geore\block.json
 79ee8da882391b43dabb35f68c36603a90d6bc50 data\tconstruct\recipes\smeltery\melting\metal\lead\geore\cluster.json
@@ -183,11 +183,11 @@ acc81b09efb141c87b4d26098f0ebf8d7f18e62c data\tconstruct\recipes\smeltery\meltin
 e99b69767e9d6fa6f987eb8624494c4ca1f8745b data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_cobble_slab.json
 ce0cef8d30061d5b81dc7407473f3805399b359d data\tconstruct\recipes\smeltery\melting\slime\sky\block.json
 eca69a1fdf529e9089640eff3488386722d9fd1c data\tconstruct\recipes\smeltery\melting\metal\tungsten\geore\shard.json
-818c5ca24ece9f9dd4e7036fc962cd98cfe63b46 data\tconstruct\recipes\smeltery\melting\metal\nickel\ore_singular.json
+8260d068dbad3c3b6c5a68b6c323bc0497296dda data\tconstruct\recipes\smeltery\melting\metal\nickel\ore_singular.json
 a8873395fd715abe0226294611e87c5b02bced58 data\tconstruct\recipes\smeltery\seared\seared_bricks_from_brick.json
 e14e98a6b92de7d4227df05064af24600a30a8c1 data\tconstruct\recipes\smeltery\melting\metal\aluminum\raw_block.json
 6e27582172e0eccf462fbd02ab9725e3cc56d123 data\tconstruct\recipes\smeltery\melting\metal\tungsten\gear.json
-f7459278365b812fe64a6b2f4d0bb66498e64bc6 data\tconstruct\recipes\smeltery\melting\metal\osmium\ore_singular.json
+e70399269aadee13c9b2e1611224cc568d9ae9c4 data\tconstruct\recipes\smeltery\melting\metal\osmium\ore_singular.json
 1dfdbc2978a79259fa3c51bc8061ed25ebeb7e76 data\tconstruct\recipes\smeltery\entity_melting\iron_golem.json
 2570c81745b8874604cc272a40ee614fa5fc05b1 data\tconstruct\recipes\smeltery\melting\metal\netherite\gear.json
 fd431e4f30e91eb034c123ed64b3faae03b78fbd data\tconstruct\recipes\smeltery\melting\metal\osmium\geore\bud_large.json
@@ -215,7 +215,7 @@ e00633ac22db7476e9ca4ef4275b11dbe3a11511 data\tconstruct\recipes\smeltery\castin
 fc0d3e096a454beec9b8dfc3ea5a4d2d5a3d9496 data\tconstruct\recipes\smeltery\casting\metal\queens_slime\block.json
 bda6a9de1d336bf189f08dee839066d7f6794708 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\faucet.json
 f57f16ea16388ee0fb9e60d2f824e7f45a40c230 data\tconstruct\recipes\smeltery\melting\metal\constantan\gear.json
-e793ad83aec0cdf55269a8325b0c7bfd3d346b31 data\tconstruct\recipes\smeltery\melting\scorched\gauge.json
+07f5f6e135b51494a72a43769429fdfd21fb0f84 data\tconstruct\recipes\smeltery\melting\scorched\gauge.json
 6e7dd29c9baf88d814d5579c02acad0304c59f90 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_fancy_bricks_crafting.json
 3ebd89ab57ece7ca997fd99818819e4b0d21eabe data\tconstruct\recipes\smeltery\melting\metal\tungsten\wire.json
 2a517ca031ac174ed8bb461071aa060c4b8519ac data\tconstruct\recipes\smeltery\casts\sand_casts\plates.json
@@ -255,7 +255,7 @@ b957d2819371a002e3b94d0e65e8003e99f7f53d data\tconstruct\recipes\smeltery\castin
 6ad4612f5ed4dc6dfe6f938584636a42b5edc739 data\tconstruct\recipes\smeltery\casting\metal\rose_gold\block.json
 9bbbcabac340615f3423d05bfc4364c3618e3148 data\tconstruct\recipes\smeltery\melting\metal\soulsteel\gear.json
 a8ba7c8c732f72ca5a34380c8cf5ac86d0f88d4f data\tconstruct\recipes\smeltery\casting\metal\uranium\coin_gold_cast.json
-ec447558d2cbca5594b8dc4ade17a83e83a7e99e data\tconstruct\recipes\smeltery\seared\seared_fancy_bricks_stonecutting.json
+72dd34b708562d8dea89051ccef7e7a26b0e3689 data\tconstruct\recipes\smeltery\seared\seared_fancy_bricks_stonecutting.json
 ccae7f2d0b6d300c96880ac5591394390f1aa9f7 data\tconstruct\recipes\smeltery\melting\metal\nickel\ore_dense.json
 11a430a0ec531778a8a0288ffd480fae0a5513f1 data\tconstruct\recipes\smeltery\casting\metal\copper\wire_sand_cast.json
 5def46cbe52adf4cf541611a0dfdf94513b15748 data\tconstruct\recipes\smeltery\melting\metal\platinum\ore_sparse.json
@@ -357,7 +357,7 @@ eef393fee6cdc6c7dbe07ae0ef50248b73dc15cf data\tconstruct\recipes\smeltery\meltin
 835a813dd57d03f02a426b15942b2df0dae68380 data\tconstruct\recipes\smeltery\casting\metal\lumium\nugget_gold_cast.json
 fca8e21ef0f201c3270ac53a4f132ada9b36a488 data\tconstruct\recipes\smeltery\melting\metal\queens_slime\wire.json
 4c5b701610e38d03fe59514809641c75b7db7af3 data\tconstruct\recipes\smeltery\casting\metal\gold\ingot_gold_cast.json
-c3780fb56b761868f33ac62bd061438f7c99e2d3 data\tconstruct\recipes\smeltery\melting\metal\iron\ore_singular.json
+e2d88cd51c57488bd3ec943aa9a32886f1f650f7 data\tconstruct\recipes\smeltery\melting\metal\iron\ore_singular.json
 b3996830cef853851322cc72355315b651f296c6 data\tconstruct\recipes\smeltery\melting\metal\refined_obsidian\block.json
 eebd772b782712aaa2386aa90934db04cba13bed data\tconstruct\recipes\smeltery\casting\metal\constantan\rod_sand_cast.json
 e960ea81fe7724b18eca787db241b6cddd2ad99e data\tconstruct\recipes\smeltery\melting\metal\gold\leggings.json
@@ -369,7 +369,7 @@ a100ba46bfbf5930d37d2dda89d7e8d784044513 data\tconstruct\recipes\smeltery\meltin
 a54cbda2357b0bd431b110a82ebb1dece6e085ef data\tconstruct\recipes\smeltery\melting\metal\cobalt\geore\bud_small.json
 b7fcb784da82506f46b6d9a4a37176770a4ee8b4 data\tconstruct\recipes\smeltery\casting\metal\iron\block.json
 2378eca4d6f24546313637ed0302c095b969f459 data\tconstruct\recipes\smeltery\casting\metal\knightslime\plate_gold_cast.json
-71bdcf75d2330a3a846595ffd5e447852cff620c data\tconstruct\recipes\smeltery\casting\seared\glass.json
+d62a56d837ec11dbab149ec4dc308917158a8606 data\tconstruct\recipes\smeltery\casting\seared\glass.json
 d71f9aec03f6625259729f06c7630893301d78eb data\tconstruct\recipes\compat\ceramics\casting\golden_bricks_stairs.json
 70c53c22226def12bd53cba8bf06c048d4ea5ac4 data\tconstruct\recipes\smeltery\entity_melting\spider.json
 4accc57ab6fb76d3d33dec7523c84a115a662435 data\tconstruct\recipes\smeltery\seared\seared_brick_kiln.json
@@ -390,7 +390,7 @@ a985506c5eabd0865f7fcd2d7833067d5a0a2bb8 data\tconstruct\recipes\smeltery\meltin
 bc023954824dbf0fffcaa6bf7d1963fb4f0c8ed3 data\tconstruct\recipes\smeltery\melting\metal\osmium\plates.json
 9a4fffabf5fc46ad3d0c95ecf3282c460bdeca53 data\tconstruct\recipes\smeltery\melting\clay\block.json
 e577df248c917420f1489d9dc47dc38c7019a9ea data\tconstruct\recipes\smeltery\casting\metal\queens_slime\wire_gold_cast.json
-d9845e4ae46202fa673edcd2b9bdf990377f2f23 data\tconstruct\recipes\smeltery\melting\seared\gauge.json
+5e8197d94bf1b1da84f5b5defbd49285d2adbca2 data\tconstruct\recipes\smeltery\melting\seared\gauge.json
 c449b7040f8866b739ecb78ca37fb4d9f64a5ef1 data\tconstruct\recipes\smeltery\casting\metal\iron\ingot_gold_cast.json
 c42342cf5bff32a996f88188e76cbe079e832371 data\tconstruct\recipes\smeltery\casting\metal\queens_slime\coin_sand_cast.json
 df64ce3407bb79b5064d286c0f4d77acd82755c6 data\tconstruct\recipes\smeltery\melting\metal\nickel\geore\bud_medium.json
@@ -412,7 +412,7 @@ e8d4f6887ddbeb1f53cf527bd2342a46e9289be2 data\tconstruct\recipes\smeltery\meltin
 83b8bc5ba3f73a42f56a557f99dd91ae51c9f452 data\tconstruct\recipes\smeltery\melting\metal\zinc\ore_sparse.json
 b974c67c158386b1dce1b96ce28ab4ba28eb393e data\tconstruct\recipes\smeltery\melting\metal\steel\block.json
 36354ce3708891325c3d660a5d841754bc497036 data\tconstruct\recipes\smeltery\melting\metal\signalum\rod.json
-a90b33611b8ec87b78f194c3beb36a839ff8a784 data\tconstruct\recipes\smeltery\melting\ender\pearl.json
+3e53d417f5e98d03d3daef832e377e1af7804618 data\tconstruct\recipes\smeltery\melting\ender\pearl.json
 2ff1d2f8187cd987ed20e5a1d39946e41afda9fa data\tconstruct\recipes\smeltery\melting\metal\gold\geore\cluster.json
 1389e7283fe1a748ef308c9e41d112bedd865e83 data\tconstruct\recipes\smeltery\casting\metal\steel\gear_gold_cast.json
 acb70196d04a3a1b3b576a62b3cf8845d8bdfc4b data\tconstruct\recipes\smeltery\casting\metal\tin\rod_gold_cast.json
@@ -442,13 +442,13 @@ c1f217483f15cedf8da20b42df22e02fe30e60b2 data\tconstruct\recipes\smeltery\castin
 98793fdda352eba89cb6f00d94da428911afbf11 data\tconstruct\recipes\smeltery\casting\metal\osmium\wire_sand_cast.json
 9b770c057f5cbc221ffa346ea8503d0d2ce5401f data\tconstruct\recipes\smeltery\casting\metal\netherite\debris_nugget_sand_cast.json
 c0f52d27f5f98a126b2309a084ce6706344c9471 data\tconstruct\recipes\smeltery\entity_melting\heads\enderman.json
-b6ce19c35fc479352567b5ff40d11c2bffc7ee17 data\tconstruct\recipes\smeltery\melting\metal\silver\ore_singular.json
+6d5109439ce77a490fff275cffb062a9c6aa1e01 data\tconstruct\recipes\smeltery\melting\metal\silver\ore_singular.json
 876795d8fbf559acb6bce413ddaa1959423c7a20 data\tconstruct\recipes\smeltery\casting\metal\constantan\coin_gold_cast.json
-31935bbb9199ce2a9398a0b8dccacb196f75a25b data\tconstruct\recipes\compat\ceramics\porcelain\blocks.json
+adf028fadad44ed68f49ceed4ed97926e83c46e9 data\tconstruct\recipes\compat\ceramics\porcelain\blocks.json
 9c9d769ed1ca37a91d6fddbfa62200c3a161ea7d data\tconstruct\recipes\smeltery\casting\metal\pewter\gear_gold_cast.json
 18ebb399f3e538c1854a4d47ba888580ea0ff15c data\tconstruct\recipes\smeltery\melting\slime\ender\bud_large.json
 201c44efeabd448c3c0f3fd918aa7667e828fb39 data\tconstruct\recipes\smeltery\scorched\chiseled_scorched_bricks_stonecutting.json
-5991e3baf979736bf2ce736a798cdfdba024a97f data\tconstruct\recipes\smeltery\melting\metal\cobalt\ore_singular.json
+85595323bb700665a43cee379246bbf1992df1a3 data\tconstruct\recipes\smeltery\melting\metal\cobalt\ore_singular.json
 00c69428f9008f2ce78487e15c1c08d91d27a83c data\tconstruct\recipes\smeltery\melting\metal\lead\geore\shard.json
 d4ebb6afa80000fb505e4c33f236ea716345645b data\tconstruct\recipes\smeltery\alloys\molten_refined_obsidian.json
 c099c9b646ee6a6df1509649758a61ced8f35ffa data\tconstruct\recipes\smeltery\melting\quartz\geore\bud_large.json
@@ -479,7 +479,7 @@ e2955853896aefe2a6c79787ceee599fe366f21d data\tconstruct\recipes\smeltery\castin
 eff9db1cf09bf4c09df50088dcd654dd96d93e86 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\scorched_bricks_slab_stonecutter.json
 5ec5dfada487fcaecaa6734063563b54c805fd3c data\tconstruct\recipes\smeltery\melting\metal\copper\wire.json
 bae92e8c94ecf289f78c14f6ee94c4da78bf371c data\tconstruct\recipes\smeltery\melting\metal\netherite\block.json
-cb47cf200ee33e5557ed4488dbe348af402e4505 data\tconstruct\recipes\smeltery\melting\metal\platinum\ore_singular.json
+d494f970a1289952e21408a79f7ff3e152e7c3e6 data\tconstruct\recipes\smeltery\melting\metal\platinum\ore_singular.json
 2080c44882ffc1b3af010d63de217d1c953193c4 data\tconstruct\recipes\smeltery\melting\metal\tungsten\block.json
 524912e5eb2732f7e16d723a3da81a9ab24558e4 data\tconstruct\recipes\smeltery\melting\metal\gold\bell.json
 00a616d6fea9ddda8012bb70acc5aeb008aa0801 data\tconstruct\recipes\smeltery\casting\metal\tungsten\plate_sand_cast.json
@@ -539,7 +539,7 @@ b72a5f122fe7760705e152110bb7148f7df6791c data\tconstruct\advancements\recipes\tc
 5a42dc115ccf1a83b94072c0ded60d81f53c6582 data\tconstruct\recipes\smeltery\casting\metal\pig_iron\ingot_sand_cast.json
 a6ea816623047d3ab06a5f5ac80a8ba49eadc7ef data\tconstruct\recipes\smeltery\casting\metal\pig_iron\ingot_gold_cast.json
 ba7079bdfff16e99d277b8892f24182af39f5fb3 data\tconstruct\recipes\smeltery\melting\water\snowball.json
-cb0dbbe3e5d33e160f18e2b22b7ac550ca76bbce data\tconstruct\recipes\smeltery\melting\metal\copper\ore_singular.json
+23e703ffa6cb54c7dd1264fa47729fcb5851de54 data\tconstruct\recipes\smeltery\melting\metal\copper\ore_singular.json
 925f240883a279f4604c7e4aa7e8ea9a0ce77253 data\tconstruct\recipes\smeltery\casting\metal\cobalt\nugget_sand_cast.json
 0a81538baa1a026e7ee11cdb6bd92469092670ae data\tconstruct\recipes\smeltery\casting\metal\amethyst_bronze\plate_sand_cast.json
 52459c48672065c7c3a638c947fec30130c3cbf0 data\tconstruct\recipes\smeltery\casting\metal\knightslime\block.json
@@ -604,7 +604,7 @@ b81f6cb12871cde12c1ed9760f7d530c929ce665 data\tconstruct\recipes\smeltery\castin
 5db03b3916a37f69c3da95b4abced9d222366d31 data\tconstruct\recipes\smeltery\melting\metal\nickel\block.json
 634d4a039eb927a72b783d13d644c0d19864fa07 data\tconstruct\recipes\smeltery\casting\metal\amethyst_bronze\nugget_gold_cast.json
 2c204b066f20023b0104fcd55947f182292b3629 data\tconstruct\recipes\smeltery\casting\slime\blood\bottle.json
-783058b9f8528407179690a58f6b4de228d89238 data\tconstruct\recipes\smeltery\scorched\ingot_tank.json
+072aadac552311beb9657292566dfe0c63b904a0 data\tconstruct\recipes\smeltery\scorched\ingot_tank.json
 bda6916d3469f9513cdab71272ae7a833b1e7175 data\tconstruct\recipes\smeltery\melting\diamond\geore\cluster.json
 50ee9d819ad284c0388b462db813a2ec9084650e data\tconstruct\recipes\smeltery\melting\quartz\gem.json
 8af72856296e30a7bdcaa6ab3e019a2d2fce0aee data\tconstruct\recipes\smeltery\melting\metal\platinum\ingot.json
@@ -641,7 +641,7 @@ d699b39083ab4afbd2f94356d0464c7853ecdb9e data\tconstruct\recipes\smeltery\meltin
 dd0e6dadd8659ba46b98beb34438eb2f35d2fab5 data\tconstruct\recipes\smeltery\melting\metal\cobalt\ore_dense.json
 3e914fc57672603427d83b02f9942f6e1c8e4632 data\tconstruct\recipes\smeltery\casting\metal\signalum\wire_gold_cast.json
 a0ab8a4d2d2879e37fe719de54e3b9bb235b1e2d data\tconstruct\recipes\smeltery\melting\metal\soulsteel\dust.json
-4f28309de15482103abb34e0c9176c03685df189 data\tconstruct\recipes\smeltery\melting\seared\block.json
+6b54037c2a919e29c6027b43d5df99641c0ebd73 data\tconstruct\recipes\smeltery\melting\seared\block.json
 bd9bdbdddbbb0494dfa54e05c6600c496da5151d data\tconstruct\recipes\smeltery\scorched\basin.json
 147376598a4faca382d9914a923d8829bf1ba0cf data\tconstruct\recipes\smeltery\melting\metal\gold\plate.json
 e12f2086b658397bbd0a61ede5f9f2bb68291fc7 data\tconstruct\recipes\smeltery\melting\metal\gold\produce.json
@@ -662,7 +662,7 @@ f9867c007f55db7706e4ba8f2f8eb8ddd54c9236 data\tconstruct\recipes\smeltery\meltin
 845c72972c1d11a742ef23c083755a7d0af11e7c data\tconstruct\recipes\smeltery\melting\metal\silver\ingot.json
 efb34c2ee8004ecddb6adfa92aa247196c5d40b2 data\tconstruct\recipes\compat\ceramics\casting\porcelain_brick_sand_cast.json
 446ec47e96d74accf9084140b84be64f32138b0f data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\scorched_brick.json
-a531ed94d4c9dd62193acaa059e79b6b4431b223 data\tconstruct\recipes\smeltery\melting\scorched\block.json
+cb8934257d86342eefe3186125d38d2601ef2400 data\tconstruct\recipes\smeltery\melting\scorched\block.json
 34403023d3e3e5236c9f3ad0cb7d7ea98317f533 data\tconstruct\recipes\smeltery\casting\metal\signalum\block.json
 4de95f84f36686aa9deb0c24d301b3bb8068ae0d data\tconstruct\recipes\smeltery\casting\seared\stone\block_from_clay.json
 bfa3bb2b52db9ad43d3f3383aa9282a0a0dd4025 data\tconstruct\recipes\smeltery\casting\metal\electrum\rod_gold_cast.json
@@ -721,7 +721,7 @@ d45fa7af4349d2b82b071fd9e3708bfc21d6cddb data\tconstruct\recipes\smeltery\meltin
 525f650132269a871fb5bac7d86923a88d88a6f1 data\tconstruct\recipes\smeltery\casting\metal\zinc\plate_sand_cast.json
 88fa99909065587a1197ad9c6a627664e40f00eb data\tconstruct\recipes\smeltery\melting\metal\refined_obsidian\rod.json
 22e952d0c5d39787fc3061841c6a568ce44c68f4 data\tconstruct\recipes\smeltery\casting\metal\tungsten\nugget_sand_cast.json
-8534c3508c1585e2f2278c017f058b8d3f94383c data\tconstruct\recipes\smeltery\melting\metal\gold\ore_singular.json
+d089f9e9223bb7fb6929da9b5be0bfffa44a228d data\tconstruct\recipes\smeltery\melting\metal\gold\ore_singular.json
 6086aefe36a23af2d7890680720dffd6f8a8920e data\tconstruct\recipes\smeltery\alloys\molten_brass.json
 71eff4b46bbc14a499191ebe0bf2bd704dc06f1b data\tconstruct\recipes\smeltery\melting\metal\iron\geore\bud_medium.json
 c7ba6e30506048dbff47aaa648d16ac0c0e8d896 data\tconstruct\recipes\smeltery\casting\metal\invar\gear_sand_cast.json
@@ -743,7 +743,7 @@ e09f4b8a99dcbdb617f4dd89422e5113e55ad47d data\tconstruct\recipes\smeltery\castin
 ce288b22224cce4ab675bf90f554d8c4cec8175e data\tconstruct\recipes\smeltery\melting\emerald\geore\bud_medium.json
 d80db7f7bf6d2b96d64f24599574e2c69ac9002a data\tconstruct\recipes\smeltery\melting\slime\sky\bud_small.json
 9ef287e186cd156e8d18e8b9d0e61c40c5a7124d data\tconstruct\recipes\smeltery\seared\table.json
-693e84b29bb446a6b6ffd60ff16757ee2f75a3c3 data\tconstruct\recipes\smeltery\melting\metal\uranium\ore_singular.json
+e317604a5f78bcf1d9b7da06afa6eb8e070ec4e3 data\tconstruct\recipes\smeltery\melting\metal\uranium\ore_singular.json
 c63b598b62f6714f066b30ec05a9c0d0168172cc data\tconstruct\recipes\smeltery\melting\metal\electrum\nugget.json
 6ddaaa6a4010e1e07aee22e26b0f608a5bebbf74 data\tconstruct\recipes\smeltery\melting\metal\iron\geore\block.json
 445b508601382d9377160cb3f3387b85682ab876 data\tconstruct\recipes\smeltery\melting\metal\uranium\ingot.json
@@ -761,7 +761,7 @@ ff6002631f7bc76e5e96d19ec717acdc56aa4552 data\tconstruct\recipes\smeltery\meltin
 cbc892aafce66a13fa68922ac8cd0532d49a6d89 data\tconstruct\recipes\smeltery\casting\metal\rose_gold\rod_gold_cast.json
 3cb305b6dfa0f41f98d4237326f4a8be9cb6100e data\tconstruct\recipes\smeltery\casting\metal\hepatizon\nugget_gold_cast.json
 921c3da07cea7418c4124affc54defeb067cae15 data\tconstruct\recipes\smeltery\casting\metal\nickel\ingot_sand_cast.json
-6e805e4fca759351beaadc122d499741b90ec630 data\tconstruct\recipes\smeltery\seared\fuel_tank.json
+bc7eb23ba2cc65b1f1a76c05f21d3f367bd8271b data\tconstruct\recipes\smeltery\seared\fuel_tank.json
 679ebfdae7f9a6e8d458caad3555cd6d73a8fd1c data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\faucet.json
 324ef71848b6dcf2a8966b3b14f7ebd91a26c725 data\tconstruct\recipes\smeltery\entity_melting\slime.json
 d2fc38a62faa962fc020e77abde749c634afc292 data\tconstruct\recipes\smeltery\casting\filling\scorched_fuel_tank.json
@@ -804,7 +804,7 @@ cd3d4135c9b50ecf6dfe7fb2307e15cf2084525a data\tconstruct\recipes\smeltery\castin
 82f0c35b759ce71228af4a7cf2aede4a3c00f7ba data\tconstruct\recipes\smeltery\melting\metal\nickel\gear.json
 6d649c72c8181c4fab7b86d8f6926a9c8220ca65 data\tconstruct\recipes\smeltery\melting\metal\platinum\gear.json
 7af7429a43a5230bd3c571bdfa4013fc7a9b19de data\tconstruct\recipes\smeltery\casting\blaze\congealed.json
-e16747888e97454e1b969131046bf609eac53f17 data\tconstruct\recipes\smeltery\scorched\ingot_gauge.json
+bc8ab3d15c597776ce33a3b8ee39472c4084899d data\tconstruct\recipes\smeltery\scorched\ingot_gauge.json
 5f2d908d7da615f827c769683d688ff76a616af3 data\tconstruct\recipes\smeltery\casting\metal\invar\rod_gold_cast.json
 af5bec2c3f4cd2d39845dd7bf2b0d412b3bd5dd6 data\tconstruct\recipes\compat\ceramics\casting\golden_bricks_slab.json
 67554e7fdfb03d5d5b9e9acf1e8dcb5b60d760c0 data\tconstruct\recipes\smeltery\melting\metal\invar\sheetmetal.json
@@ -818,7 +818,7 @@ a633aa787bfdb941f8a7ca3c801c1ec5043d9ad8 data\tconstruct\recipes\smeltery\castin
 89ef2674ead46fe4c29807a43800d41cf6bb4743 data\tconstruct\recipes\smeltery\casting\metal\pig_iron\coin_gold_cast.json
 e86b756af5a7784f6ba5d725f2da39973b240360 data\tconstruct\recipes\smeltery\casting\water\orange_concrete.json
 11aeb6fd3064a0f0eabb6950969a898b5f9d73ee data\tconstruct\recipes\smeltery\melting\soul\glass.json
-6e76dbb3971df76dd01a260c842e8f1aeb01a9e1 data\tconstruct\recipes\smeltery\scorched\scorched_glass.json
+9a4a0ab278c6c8d9519271b0cdf8f0860bbd673d data\tconstruct\recipes\smeltery\scorched\scorched_glass.json
 7e792052798e464d691b341d60a9a5aaba7faf9a data\tconstruct\recipes\smeltery\melting\amethyst\tinted_glass.json
 1c7bd361d15bf0e2814c9e41fd4dee24a36576c7 data\tconstruct\recipes\smeltery\casting\amethyst\shard_sand_cast.json
 b1a14878749e092307adc8d306074d8e8041bcba data\tconstruct\recipes\smeltery\casting\metal\steel\nugget_sand_cast.json
@@ -905,7 +905,7 @@ b4ccab4542fb5a7cf61250ce2183c7b922f284d7 data\tconstruct\recipes\smeltery\meltin
 e62b80f4a81cad472172d42c38fc8767958eaf9c data\tconstruct\recipes\smeltery\melting\metal\uranium\coin.json
 a906ef6b772e0ba66ed2b1878dac3152e01eae55 data\tconstruct\recipes\smeltery\melting\metal\zinc\wire.json
 7403913e421ae721cda7fa09cd7e179d616b88e7 data\tconstruct\recipes\smeltery\casting\metal\cobalt\ingot_gold_cast.json
-d2184698b99ce6d5ada20bd448191b379704801d data\tconstruct\recipes\smeltery\melting\quartz\ore_singular.json
+1f12419cc84f57926b02ee1023eb6b8f7da24bdc data\tconstruct\recipes\smeltery\melting\quartz\ore_singular.json
 466aff5e10041b5df23011de39238e8a40159a37 data\tconstruct\recipes\smeltery\casting\slime\magma_block.json
 dcfc07db652d87976cf65fcafa9c2c872b2ef58f data\tconstruct\recipes\smeltery\melting\metal\aluminum\nugget.json
 3cd934fb03304c7ce01c20878ce19ba999ae5a10 data\tconstruct\recipes\smeltery\melting\metal\cobalt\geore\cluster.json
@@ -920,7 +920,7 @@ af3b1d30f6c81dcd37028ba078359b275a3906a0 data\tconstruct\recipes\smeltery\meltin
 eacfce584632d3a414b159fd46e8e350ad0b441f data\tconstruct\recipes\smeltery\casting\amethyst\shard_gold_cast.json
 7458bd6a264e16773cbb8e215641bcbbea49bdff data\tconstruct\recipes\smeltery\alloys\molten_slimesteel.json
 f532f0de618a9db7973b94a10f3f8e9fad8c9fb9 data\tconstruct\recipes\smeltery\seared\seared_stone_slab_stonecutter.json
-85fe2b6fb515537bf5556c82cc12ee8cd1dd24a4 data\tconstruct\recipes\smeltery\melting\glass\block.json
+b900c9a7740817eb8b8fd3ffd5025e7f513d471d data\tconstruct\recipes\smeltery\melting\glass\block.json
 53461a9ec5f7de5214fce8a15f23c13c44bf8a08 data\tconstruct\recipes\smeltery\casting\metal\tungsten\coin_gold_cast.json
 129639601aa1b16903f55115d558cfce1d95cf48 data\tconstruct\recipes\smeltery\scorched\scorched_bricks_stonecutting.json
 06c1beac71238ae0a24cde9b4c9266351cc8b12a data\tconstruct\recipes\smeltery\casting\water\light_gray_concrete.json
@@ -937,7 +937,7 @@ f1b5098abd57e6446b2e242100b534c037c61307 data\tconstruct\recipes\compat\ceramics
 6728798f351ab67e27b5f6570306a3caf69f932a data\tconstruct\recipes\smeltery\seared\seared_cobble_wall.json
 9fd320aea27ef7650419d8b35ba2c8c59ad9ebfe data\tconstruct\recipes\smeltery\casting\metal\signalum\rod_gold_cast.json
 229ed47f18c72a56b71a13812db1a4148b06c768 data\tconstruct\recipes\compat\ceramics\porcelain\golden_bricks_slab.json
-8f1cadd31c888d79c677567353cb0cafeb4350d7 data\tconstruct\recipes\compat\ceramics\clay\bricks_3.json
+4eab1b3a5ce9a45191e87de1cc3a03e481f9ed5f data\tconstruct\recipes\compat\ceramics\clay\bricks_3.json
 89c5088ff1b818ef9e09c00498509ed35726cc7d data\tconstruct\recipes\smeltery\casting\metal\knightslime\coin_sand_cast.json
 02ebc62ebeeb4c5976bf298dc8f9cdc97818bd75 data\tconstruct\recipes\smeltery\melting\metal\tin\nugget.json
 652543e68e941990c5c30a551d2bd2ccb2a91d6d data\tconstruct\recipes\smeltery\melting\metal\copper\geore\bud_small.json
@@ -960,7 +960,7 @@ bc0038a2ee6bbac00a98f82f562732f98495279b data\tconstruct\recipes\smeltery\meltin
 ac2a056abea27df7f25e3a8e8756fda576b7fffc data\tconstruct\recipes\smeltery\casting\metal\platinum\wire_gold_cast.json
 9d28cdc9fc0440a03004da83fce84e6769263750 data\tconstruct\recipes\smeltery\melting\metal\steel\wire.json
 11595c554e6362242e9b57d28c0f53c861140c30 data\tconstruct\recipes\smeltery\casting\metal\bronze\wire_sand_cast.json
-9b22dec8c849ac2e2e6eeffd5849a9bfeeab5822 data\tconstruct\recipes\smeltery\seared\seared_triangle_bricks_stonecutting.json
+2b8092d5942dfd61f045849cf8addb0d9ee0a1ee data\tconstruct\recipes\smeltery\seared\seared_triangle_bricks_stonecutting.json
 11f64e936428ae4dd6808bfd45bb874abbe826d1 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_paver_slab.json
 661fead812ce3c7f13f25e27e261e60de9afa506 data\tconstruct\recipes\smeltery\melting\metal\silver\wire.json
 700cace6b530f86b6056cf828d25e577d44fd68a data\tconstruct\recipes\smeltery\casting\metal\gold\melon.json
@@ -988,7 +988,7 @@ b90a92988d55a8241aab82573df55bd1dc91a3fb data\tconstruct\recipes\smeltery\castin
 d7fb5eed3802d8665f2f55e6bb7e3ea7fce2039f data\tconstruct\recipes\smeltery\melting\metal\lead\raw_block.json
 a6cff018328bff67724a1c36234fb6f94b8990b1 data\tconstruct\recipes\smeltery\melting\metal\cobalt\gear.json
 1eafea6b953a5b1702c5f671c9a24ec4d6ee80a7 data\tconstruct\recipes\smeltery\casting\metal\electrum\gear_sand_cast.json
-9b288712fe656c676a2ea1adaa80d07b6fa6f8d9 data\tconstruct\recipes\smeltery\seared\ingot_tank.json
+b5753c28ae2ced377f46dbadad18833950730769 data\tconstruct\recipes\smeltery\seared\ingot_tank.json
 d8532d3d8628847733caf068b6840c5e19d99655 data\tconstruct\recipes\smeltery\casting\metal\refined_glowstone\rod_gold_cast.json
 5e3c31ffb8923eddf20f116442a6a2ff605986c0 data\tconstruct\recipes\smeltery\melting\metal\invar\nugget.json
 63a151154e5f699c00f795612f336fbaf195e814 data\tconstruct\recipes\smeltery\casting\metal\hepatizon\coin_sand_cast.json
@@ -1009,7 +1009,7 @@ c4cac93993925bcb7a6d1b4d0903b9aca1da08cb data\tconstruct\recipes\compat\ceramics
 8fc3a06525a1917d3e64c8d91d34d6d8332e0394 data\tconstruct\recipes\smeltery\casting\emerald\gem_sand_cast.json
 3baffd7c4f6d7fe9482bc9885889b9161f5a51c3 data\tconstruct\recipes\smeltery\melting\metal\gold\reinforcement.json
 dd2a02e29065d3757c8efb85b157c5c5adb55c86 data\tconstruct\recipes\smeltery\casting\metal\rose_gold\plate_gold_cast.json
-cccfcc9083efa93108a36b17dd9611e354f54d28 data\tconstruct\recipes\smeltery\seared\ingot_gauge.json
+cabb1dbc1843698dc733acc5988dbe1e834edf92 data\tconstruct\recipes\smeltery\seared\ingot_gauge.json
 4be314c02b2de5eb2e67e9f4f7fdcbac71748c09 data\tconstruct\recipes\smeltery\melting\metal\tungsten\ore_sparse.json
 664c07ec8e82273b02c3397df5c3dfb0c3dfcc92 data\tconstruct\recipes\smeltery\casting\metal\cobalt\gear_sand_cast.json
 28327ca19cfd532d0a384d428751a7b01e903aa5 data\tconstruct\recipes\smeltery\casting\metal\tin\nugget_sand_cast.json
@@ -1021,7 +1021,7 @@ e100b2d6f84671d1265ed2036484298fd6382ef1 data\tconstruct\recipes\smeltery\castin
 99abe7c6cbcfdd6359376bb15c5a3ee5dfe29e87 data\tconstruct\recipes\smeltery\casting\metal\aluminum\coin_gold_cast.json
 c18b35f3181dcfb054c0334002f3b4656bfc8591 data\tconstruct\recipes\smeltery\casting\metal\soulsteel\wire_gold_cast.json
 c6d202393872a0f9b0edfa3457507f02ba46a78a data\tconstruct\recipes\smeltery\casting\metal\electrum\coin_sand_cast.json
-fec0dd4a719f08aeb60a18926d3fd3ef5512763c data\tconstruct\recipes\smeltery\melting\metal\molten_debris\ore.json
+3dc9ead3a9dc93766136e799f856f8ea3c823136 data\tconstruct\recipes\smeltery\melting\metal\molten_debris\ore.json
 e3e34a9457abf112814ca9f6edbd5e7983083bf1 data\tconstruct\recipes\smeltery\melting\metal\iron\chain.json
 1cf07203d2e06dd7b91860602b62ae017b73979e data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\chute.json
 b51729f913d0938461c67c32315dba717aa94d64 data\tconstruct\recipes\smeltery\casting\metal\knightslime\wire_gold_cast.json
@@ -1047,8 +1047,8 @@ dd79b1e499c11fb8e4b641010c04ce37b764d1cf data\tconstruct\recipes\smeltery\meltin
 1ae74d80da8d393eccbaabf29ae5393335684b39 data\tconstruct\recipes\smeltery\melting\metal\tin\geore\bud_medium.json
 30d8a2ee04bb490b6a55647cd187f4fbf27de269 data\tconstruct\recipes\smeltery\melting\metal\brass\nugget.json
 5da74f6f5c197391b13ef47f108041aff9f360a6 data\tconstruct\recipes\smeltery\casting\filling\scorched_ingot_gauge.json
-8348503c7f4e51f849635c4cd393f6fec753b99d data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\copper_can.json
-89d50023855cd5b1f5ecbe659f30fbbe080378d6 data\tconstruct\recipes\smeltery\red_sand_cast.json
+c71609cc64d9d58e464b519245b0b8316c4a509d data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\copper_can.json
+532769071270e219ac802dc43843f68ee4aaea5c data\tconstruct\recipes\smeltery\red_sand_cast.json
 38805c4a08e6a4d01613e917e878b099ed3df52d data\tconstruct\recipes\smeltery\casting\metal\copper\block.json
 23f2c0ea683e1f3ee616f074dc60228bcbc87472 data\tconstruct\recipes\smeltery\casting\filling\scorched_ingot_tank.json
 9878ea4e0692a10c771b6e10501f6ebd401dbfec data\tconstruct\recipes\smeltery\casting\metal\enderium\block.json
@@ -1071,7 +1071,7 @@ ed573c3c4d67bca8e803eb9804d1cca422e2dc42 data\tconstruct\recipes\compat\ceramics
 0b1e935831c67ae4f2cfdbe15e1e27b172da2194 data\tconstruct\recipes\smeltery\melting\metal\copper\platform.json
 ff6257495b635668f0c2ee8f3e2e22b560f8f853 data\tconstruct\recipes\smeltery\casting\metal\uranium\nugget_gold_cast.json
 1e04ea34281a02a19a2df0ecb8b6b2cf6d818bd3 data\tconstruct\recipes\smeltery\casting\metal\uranium\coin_sand_cast.json
-241b4bce293cc8052c3a7bc5b82bf5f810a0be78 data\tconstruct\recipes\smeltery\sand_cast.json
+922dc121dc357c841206004536220c6d09a03183 data\tconstruct\recipes\smeltery\sand_cast.json
 f143347396d6e24fa96d659eb68b0e7e5678c00b data\tconstruct\recipes\smeltery\casting\metal\hepatizon\gear_sand_cast.json
 c68df4d233d699bf8fb479058779daf2646d5d57 data\tconstruct\recipes\smeltery\casting\metal\bronze\gear_gold_cast.json
 85f58a464fd785fc6b4519726ba3f433ded5b875 data\tconstruct\recipes\smeltery\casting\metal\copper\wire_gold_cast.json
@@ -1165,9 +1165,9 @@ d8ca20c24fbb0cf1647c9a4f6ecfb5311f911f01 data\tconstruct\recipes\smeltery\castin
 3d84847352bf7defa307ddb37214607fc0912752 data\tconstruct\recipes\smeltery\casting\metal\aluminum\wire_sand_cast.json
 704c72e01fe4476ad4c5b9e75c6659eb2437dcc9 data\tconstruct\recipes\smeltery\seared\basin.json
 02a6dd1c198a3c4fd4f8c8d39db5777c2c6a84a8 data\tconstruct\recipes\smeltery\melting\metal\cobalt\geore\bud_medium.json
-e51a8174fe359fb4571c5ca06753e11de2de795a data\tconstruct\recipes\smeltery\scorched\fuel_gauge.json
+65295ea806929a6ccecf8ccf7cb58070a7a7c764 data\tconstruct\recipes\smeltery\scorched\fuel_gauge.json
 ad50511b75f0dc89a2856e3947cbef130bc79f03 data\tconstruct\recipes\smeltery\melting\metal\enderium\gear.json
-2f3930e4124faf029cd5e226da89943008cf1b11 data\tconstruct\recipes\smeltery\seared\seared_glass.json
+1df452478f3b853af6fd115e32ad345496131fc2 data\tconstruct\recipes\smeltery\seared\seared_glass.json
 39f4947a758d4a8396b5daf524af1d9269e7a511 data\tconstruct\recipes\smeltery\casting\metal\lead\rod_gold_cast.json
 6b3de0c53de42ab4128b5f1ab9791bffef74eab9 data\tconstruct\recipes\smeltery\casting\metal\refined_glowstone\plate_sand_cast.json
 4272abf85d6fe121076e42dae18204bf30e6838d data\tconstruct\recipes\smeltery\melting\metal\knightslime\rod.json
@@ -1235,9 +1235,9 @@ f68cab02c36ef1da8c2b0c0512df29b3ea2cda2b data\tconstruct\recipes\smeltery\castin
 4b67f535c61dc7cf60c1f0e4477f1fe823d9e4b0 data\tconstruct\recipes\smeltery\casting\metal\tungsten\rod_gold_cast.json
 6a7cb6546a06e74ffae775d8ac2cc6e8816aca30 data\tconstruct\recipes\smeltery\melting\metal\nickel\wire.json
 c587454fb233d142f53ea2d12b8d585221a8fd7b data\tconstruct\recipes\smeltery\melting\slime\ender\sapling.json
-45f5c8b385ae58acfc97aa7b1845622e7de34153 data\tconstruct\recipes\smeltery\melting\metal\zinc\ore_singular.json
+a12aa998db5ee0b0d6bee59925503fa125c043ff data\tconstruct\recipes\smeltery\melting\metal\zinc\ore_singular.json
 b2a6ebc82a208a7157b149d2200de16be5bbbfb5 data\tconstruct\recipes\smeltery\casting\metal\lead\gear_gold_cast.json
-f630b4d5868937acbbf0d4e2ac65f4f54302f15f data\tconstruct\recipes\smeltery\seared\fuel_gauge.json
+3c8183b05f030dd0ee402af6877b57039cbca8b5 data\tconstruct\recipes\smeltery\seared\fuel_gauge.json
 d24d0a9bafe2ecf320ad20dcc1746fdef32ee720 data\tconstruct\recipes\smeltery\melting\metal\osmium\rod.json
 5854562082a040d74dc33736ac447b0e65541d8e data\tconstruct\recipes\smeltery\casting\metal\knightslime\rod_gold_cast.json
 e57b519670676a5be2b33d6e78631f6d0966df14 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_bricks_crafting.json
@@ -1281,7 +1281,7 @@ b7ad5f5937f1210106f9f491737afba83fe7eeb8 data\tconstruct\recipes\smeltery\scorch
 b5ce9a526b0ef0147b4237ef28b703482302190b data\tconstruct\recipes\smeltery\melting\metal\platinum\wire.json
 b48285f00cc2c50ec51aa26fb2d61d102da01bbf data\tconstruct\recipes\smeltery\melting\metal\gold\rod.json
 6d7d4b5f3316478d152f59019ddefbcdfe2d75ac data\tconstruct\recipes\smeltery\casting\filling\bottle.json
-473182fc3cf50566fc622e98377683059ece6d6f data\tconstruct\recipes\smeltery\melting\diamond\ore_singular.json
+de88e58be91b3b169d77375f321f8661e9a763ab data\tconstruct\recipes\smeltery\melting\diamond\ore_singular.json
 8aa985af2c36e434ef4eab75184d8476f384eee9 data\tconstruct\recipes\smeltery\casting\metal\pig_iron\plate_gold_cast.json
 772f301f570ffcdd7f3d11aae88a76a382402cf1 data\tconstruct\recipes\smeltery\melting\glass\sand.json
 470145ca1f7ebd186a6a588bca75b214d5a91ea0 data\tconstruct\recipes\smeltery\casting\metal\aluminum\block.json
@@ -1401,12 +1401,12 @@ fb543267d669ccfe89c316c22ca7aff4c9705a2c data\tconstruct\advancements\recipes\tc
 33c84a436b21ceee5f4d82d403e49031c1515d4a data\tconstruct\recipes\smeltery\casting\metal\nickel\nugget_gold_cast.json
 53f759f7dd78316962b8ceb431d7c5b76cce3d3b data\tconstruct\recipes\smeltery\entity_melting\guardian.json
 1cb69b7f75f1483847665716580e3693a0675d99 data\tconstruct\recipes\smeltery\melting\metal\cobalt\raw_block.json
-3fd8f97e49576d8d902dc9d1b0dd5efa2d99a0c2 data\tconstruct\recipes\smeltery\melting\emerald\ore_singular.json
+8bc594611afc2abc42e1a1a3ac14b425d68a4eee data\tconstruct\recipes\smeltery\melting\emerald\ore_singular.json
 2847150e81fec35837aa6f783a97cfa2632aac0d data\tconstruct\recipes\smeltery\casts\sand_casts\gems.json
 c414fedd7b62e8bb45f6172c6df08ca14bfdb5b9 data\tconstruct\recipes\smeltery\casting\metal\manyullyn\wire_gold_cast.json
 a02547efd3894ab995060e412b5253906d1a53ae data\tconstruct\recipes\smeltery\casting\metal\refined_obsidian\nugget_sand_cast.json
 afa798b6694263bedda609cbb53c9d5c8d00ee25 data\tconstruct\recipes\smeltery\melting\metal\lead\plates.json
-4bc908f4f639ff014dd407da7e7b538ec33f1343 data\tconstruct\recipes\smeltery\copper_can.json
+6a5796f4dddf893f31bca5e0bafe93800f0f67d9 data\tconstruct\recipes\smeltery\copper_can.json
 f7e33bff87ab6efdb3442003ac07176e83143e73 data\tconstruct\recipes\smeltery\melting\seared\faucet.json
 1a7ce240a63e9589300f45780010dfb1451ca1e0 data\tconstruct\recipes\smeltery\melting\metal\soulsteel\sheetmetal.json
 81c27ff3a2f679b22e82fb95ccc1aa3ec100b73c data\tconstruct\recipes\smeltery\seared\seared_bricks_wall_stonecutter.json
@@ -1421,7 +1421,7 @@ f5cec713e447fa45a729ebd30c851ecaa7de1c43 data\tconstruct\recipes\smeltery\meltin
 bb3edf491b5a2ebdc7a35ea17f91e3784b056b89 data\tconstruct\recipes\smeltery\melting\metal\osmium\block.json
 dea24b7fed31fcc47a48dd849e17582b86ea39a0 data\tconstruct\recipes\smeltery\melting\metal\aluminum\block.json
 903f2e839eb7d1dfc94a80ec780db219361aa2a1 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_brick.json
-fe236282f0b66a391cf13a2fbccfbe7dee837235 data\tconstruct\recipes\smeltery\seared\drain.json
+06259b57cfb67b195e51710baee59d5860f261cd data\tconstruct\recipes\smeltery\seared\drain.json
 e715280ac90a1b114181adb10cffc96f318035c6 data\tconstruct\recipes\smeltery\melting\metal\enderium\wire.json
 c6016bbeec48f6f525720b3ff26428dad5a3f0f5 data\tconstruct\recipes\smeltery\casting\metal\tin\ingot_sand_cast.json
 6ca75716f8851bf278c963c4b2b0ddb4438811fb data\tconstruct\recipes\compat\ceramics\filling_clay_bucket.json
@@ -1435,7 +1435,7 @@ c60f6fe8760a9417d0d55a68f13299cc36134fab data\tconstruct\recipes\smeltery\castin
 2314861f55c7e6cc99a7283d8f7ddc72a6baf69b data\tconstruct\recipes\smeltery\melting\metal\iron\cauldron.json
 e9786b8fe8b78327c755c7bc4ef1979f5df86458 data\tconstruct\recipes\smeltery\melting\metal\refined_glowstone\ingot.json
 816b6a221c879bd6da410fd426e2a42c08e90c62 data\tconstruct\recipes\smeltery\melting\metal\copper\can.json
-f17bd1b05e88a3f29caf202399ccbda7f0d625a5 data\tconstruct\recipes\smeltery\melting\metal\lead\ore_singular.json
+2feef23e3da03681c2fc321fa1ae7bc86329cae5 data\tconstruct\recipes\smeltery\melting\metal\lead\ore_singular.json
 30d956285f9e638c9bd3100a921fa7c34c171709 data\tconstruct\recipes\smeltery\casting\soup\mushroom.json
 370b1e07e6ab72ceb7594846eb9645c6acbfe4fc data\tconstruct\recipes\smeltery\melting\metal\nickel\sheetmetal.json
 3d7b80dae7f87aa5807fe5a04927bc73a44c1a8a data\tconstruct\recipes\smeltery\casting\metal\zinc\ingot_gold_cast.json
@@ -1569,7 +1569,7 @@ cad1b9da7c8f068480108c55a0c3284e94b04c5d data\tconstruct\recipes\smeltery\castin
 bfaa1d44f989f7a4bdd8de7515ad7ff392fb1493 data\tconstruct\recipes\smeltery\melting\metal\copper\rod.json
 dd07c4d354667ab3ffc550593f7b4cb49bf19fcd data\tconstruct\recipes\smeltery\melting\metal\manyullyn\nugget.json
 367fb6dbbd0f308d511851b178fbf2bb6d37c6d3 data\tconstruct\recipes\smeltery\casting\metal\gold\nugget_sand_cast.json
-4c1302a26789303fc9ff3a95c0a5e078639f4f83 data\tconstruct\recipes\smeltery\scorched\lantern.json
+b6e29f2ff0beb24d478bf7d1d33e9088120ed85a data\tconstruct\recipes\smeltery\scorched\lantern.json
 e3f3686c23e88fa831dceed212753d1a608a53c0 data\tconstruct\recipes\smeltery\casting\metal\netherite\nugget_gold_cast.json
 5a73b3f4ce800b5271496ecb80d9fbb717e2711b data\tconstruct\recipes\smeltery\casting\metal\constantan\wire_sand_cast.json
 d8331c867ad92585edaa6122e9b322c182c40d91 data\tconstruct\recipes\smeltery\melting\metal\silver\geore\shard.json
@@ -1589,7 +1589,7 @@ c9a03282392a373e5009511e93acee31582ec5f4 data\tconstruct\recipes\smeltery\castin
 6297dbbabc4a77e70ae6d61d0015063cf3f249ad data\tconstruct\recipes\smeltery\melting\scorched\faucet.json
 ba5fdbed1848537969ed5fcd947de3165f763d74 data\tconstruct\recipes\smeltery\entity_melting\ender.json
 f62299532dc0bb5fc984c20565fdae967bbb131a data\tconstruct\recipes\smeltery\seared\seared_cracked_bricks_smelting.json
-8a802cb1d6664bf6c660d471dcb54f31603a2e7e data\tconstruct\recipes\smeltery\seared\seared_bricks_stonecutting.json
+02ba754caa279f4e25c6444c565df2b1c4bf531f data\tconstruct\recipes\smeltery\seared\seared_bricks_stonecutting.json
 6948cc63adc6ccd722b168b1dca7d721d4c6bb90 data\tconstruct\recipes\smeltery\melting\fuel\lava.json
 4df55dae18d8380f1cf4d377e1dea1a44e92e94b data\tconstruct\recipes\smeltery\melting\metal\iron\small.json
 9b1e81324a93754deb64d147e56dcc0471d002c2 data\tconstruct\recipes\smeltery\melting\metal\knightslime\coin.json
@@ -1612,7 +1612,7 @@ a3b4608187ab30e091b5c78289f8cbd3439bddf3 data\tconstruct\advancements\recipes\tc
 c4e821de5903493e934036462b88982a5add3982 data\tconstruct\recipes\smeltery\casting\metal\constantan\block.json
 8cff621edc4056521138bbe3350af06a4ea10f33 data\tconstruct\recipes\smeltery\melting\metal\iron\nugget_3.json
 68561b04a89f18517c1baa95cb392ee3e83f475e data\tconstruct\recipes\smeltery\melting\metal\platinum\geore\bud_medium.json
-d16151efa942c71f0c97d5865c40b4caffbce2be data\tconstruct\recipes\smeltery\scorched\fuel_tank.json
+ef787f716f10d84ea6a6c3f31cb865a9bce0938f data\tconstruct\recipes\smeltery\scorched\fuel_tank.json
 0f80583348de30417682519d164dda642bfa9ebe data\tconstruct\recipes\smeltery\melting\obsidian\beacon.json
 7679ff1c8622b7fc44ad52450ec3f19640a8bb17 data\tconstruct\recipes\smeltery\melting\metal\iron\raw_block.json
 cfbf24bc02ad4ba4b02c14491b68d60069b74fa0 data\tconstruct\recipes\smeltery\melting\diamond\horse_armor.json
@@ -1628,7 +1628,7 @@ ec2c5ceed03dc1f00bfb73deb7a92cbf62c18b4a data\tconstruct\recipes\smeltery\meltin
 59bd9c1e9a0bff11e8cd588126576287a4422d10 data\tconstruct\recipes\smeltery\casting\metal\refined_glowstone\ingot_sand_cast.json
 9e15c00c6a3953f7ee876d60c313afde0caa3ab7 data\tconstruct\recipes\smeltery\melting\metal\pig_iron\ingot.json
 cb9194a70dc4ead0c91a1ef40db3bb84a40e589c data\tconstruct\recipes\smeltery\casting\metal\amethyst_bronze\coin_sand_cast.json
-177ee158ed9461e2bd8629a978676767e569d443 data\tconstruct\recipes\smeltery\melting\metal\aluminum\ore_singular.json
+2cd254c2ecb2ac4ca1b8fef1cdd0c2ff35d24ff4 data\tconstruct\recipes\smeltery\melting\metal\aluminum\ore_singular.json
 e29bdd22ffe7c6f2d70ae88285a4e898767f4134 data\tconstruct\recipes\smeltery\casting\quartz\granite.json
 565039f45dbc71af2a09d5579046552c177f9999 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\melter.json
 398aac90b0d520bab73e33cb899d97f76a4fdfd3 data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\scorched\drain.json
@@ -1668,7 +1668,7 @@ ae721f343e988853a4212ced90b13bdb39c617ea data\tconstruct\recipes\smeltery\castin
 ea009d1562e345377243a9fb04a23f465bb83270 data\tconstruct\recipes\smeltery\casting\metal\iron\compass.json
 c100e0535be2c837fe1cd528afe07791a055789c data\tconstruct\recipes\smeltery\melting\metal\platinum\geore\shard.json
 12cfb59a8d67adf73d14adf5086d55404cbca6bb data\tconstruct\advancements\recipes\tconstruct\smeltery\smeltery\seared\seared_triangle_bricks_stonecutting.json
-3da197782847fb0e017043c1a42f97e956e4fa07 data\tconstruct\recipes\smeltery\seared\lantern.json
+4da77d453100068d671a1a5b3048aa7eb5eda8bd data\tconstruct\recipes\smeltery\seared\lantern.json
 45912aab4f66ddd3a758b0d94a68952499fda8f8 data\tconstruct\recipes\smeltery\casting\metal\copper\nugget_gold_cast.json
 a679232f0df2d7c57be51a53331e29249be94048 data\tconstruct\recipes\compat\ceramics\filling_cracked_clay_bucket.json
 16521f4334671aa7bfda0a68d57858232e6d6b97 data\tconstruct\recipes\smeltery\melting\metal\manyullyn\block.json

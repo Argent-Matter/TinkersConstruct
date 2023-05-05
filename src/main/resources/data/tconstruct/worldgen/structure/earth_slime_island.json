@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:earth_slime_island",
+  "biomes": "#tconstruct:islands/earthslime",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "tconstruct:earth_slime",
+          "weight": 1,
+          "minCount": 4,
+          "maxCount": 4
+        }
+      ]
+    }
+  }
+}

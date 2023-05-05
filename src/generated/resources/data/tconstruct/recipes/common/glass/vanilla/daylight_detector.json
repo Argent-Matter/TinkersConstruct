@@ -8,7 +8,7 @@
   ],
   "key": {
     "G": {
-      "tag": "c:glass/colorless"
+      "tag": "c:colorless_glass"
     },
     "Q": {
       "item": "minecraft:quartz"

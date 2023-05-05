@@ -22,17 +22,14 @@
     "base": {
       "tag": "c:ores/diamond"
     },
-    "subtracted": {
-      "type": "serialization_hooks:combined",
-      "children": [
-        {
-          "tag": "c:ore_rates/sparse"
-        },
-        {
-          "tag": "c:ore_rates/dense"
-        }
-      ]
-    }
+    "subtracted": [
+      {
+        "tag": "c:ore_rates/sparse"
+      },
+      {
+        "tag": "c:ore_rates/dense"
+      }
+    ]
   },
   "rate": "gem",
   "result": {

@@ -1,4 +1,8 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "#tconstruct:greenheart_logs",
+    "#tconstruct:skyroot_logs",
+    "#tconstruct:bloodshroom_logs"
+  ]
 }

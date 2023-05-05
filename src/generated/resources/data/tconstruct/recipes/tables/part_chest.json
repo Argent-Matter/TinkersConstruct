@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "C": {
-      "tag": "c:chests/wooden"
+      "tag": "c:wooden_chests"
     },
     "p": {
       "item": "tconstruct:pattern"
     },
     "s": {
-      "tag": "c:rods/wooden"
+      "tag": "c:wooden_rods"
     },
     "w": {
       "tag": "minecraft:planks"

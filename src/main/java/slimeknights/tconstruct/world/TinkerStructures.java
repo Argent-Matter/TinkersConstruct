@@ -1,6 +1,7 @@
 package slimeknights.tconstruct.world;
 
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
+import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -49,6 +50,7 @@ import slimeknights.tconstruct.world.worldgen.trees.feature.SlimeFungusFeature;
 import slimeknights.tconstruct.world.worldgen.trees.feature.SlimeTreeFeature;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Contains any logic relevant to structure generation, including trees and islands
@@ -70,91 +72,6 @@ public final class TinkerStructures extends TinkerModule {
   /** Nether variant of slimy trees */
   public static final RegistryObject<SlimeFungusFeature> slimeFungus = FEATURES.register("slime_fungus", () -> new SlimeFungusFeature(SlimeFungusConfig.CODEC));
 
-  /** Greenheart tree variant */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeTree = registerTree(
-    "earth_slime_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .planted()
-      .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState())
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.EARTH).defaultBlockState())
-      .baseHeight(4).randomHeight(3)
-      .build());
-  /** Greenheart tree variant on islands */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> earthSlimeIslandTree = registerTree(
-    "earth_slime_island_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState())
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.EARTH).defaultBlockState())
-      .baseHeight(4).randomHeight(3)
-      .build());
-
-  /** Skyroot tree variant */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> skySlimeTree = registerTree(
-    "sky_slime_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .planted().canDoubleHeight()
-      .trunk(() -> TinkerWorld.skyroot.getLog().defaultBlockState())
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.SKY).defaultBlockState())
-      .build());
-  /** Skyroot tree variant on islands */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> skySlimeIslandTree = registerTree(
-    "sky_slime_island_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .canDoubleHeight()
-      .trunk(() -> TinkerWorld.skyroot.getLog().defaultBlockState())
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.SKY).defaultBlockState())
-      .vines(() -> TinkerWorld.skySlimeVine.get().defaultBlockState().setValue(SlimeVineBlock.STAGE, VineStage.MIDDLE))
-      .build());
-
-  /** Enderslime island tree variant */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> enderSlimeTree = registerTree(
-    "ender_slime_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .planted()
-      .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState()) // TODO: temporary until we have proper green trees and ender shrooms
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.ENDER).defaultBlockState())
-      .build());
-  /** Enderslime island tree variant on islands */
-  public static final Holder<ConfiguredFeature<SlimeTreeConfig,SlimeTreeFeature>> enderSlimeIslandTree = registerTree(
-    "ender_slime_island_tree", slimeTree.get(),
-    new SlimeTreeConfig.Builder()
-      .trunk(() -> TinkerWorld.greenheart.getLog().defaultBlockState()) // TODO: temporary until we have proper green trees and ender shrooms
-      .leaves(() -> TinkerWorld.slimeLeaves.get(SlimeType.ENDER).defaultBlockState())
-      .vines(() -> TinkerWorld.enderSlimeVine.get().defaultBlockState().setValue(SlimeVineBlock.STAGE, VineStage.MIDDLE))
-      .build());
-
-  /** Bloodshroom tree variant */
-  public static final Holder<ConfiguredFeature<HugeFungusConfiguration,SlimeFungusFeature>> bloodSlimeFungus = registerTree(
-    "blood_slime_fungus", slimeFungus.get(),
-    new SlimeFungusConfig(
-      TinkerTags.Blocks.SLIMY_SOIL,
-      TinkerWorld.bloodshroom.getLog().defaultBlockState(),
-      TinkerWorld.slimeLeaves.get(SlimeType.BLOOD).defaultBlockState(),
-      TinkerWorld.congealedSlime.get(SlimeType.ICHOR).defaultBlockState(),
-      true));
-  /** Bloodshroom island tree variant */
-  public static final Holder<ConfiguredFeature<HugeFungusConfiguration,SlimeFungusFeature>> bloodSlimeIslandFungus = registerTree(
-    "blood_slime_island_fungus", slimeFungus.get(),
-    new SlimeFungusConfig(
-      TinkerTags.Blocks.SLIMY_NYLIUM,
-      TinkerWorld.bloodshroom.getLog().defaultBlockState(),
-      TinkerWorld.slimeLeaves.get(SlimeType.BLOOD).defaultBlockState(),
-      TinkerWorld.congealedSlime.get(SlimeType.ICHOR).defaultBlockState(),
-      false));
-  /* Deprecated ichor tree */
-  public static final Holder<ConfiguredFeature<HugeFungusConfiguration,SlimeFungusFeature>> ichorSlimeFungus = registerTree(
-    "ichor_slime_fungus", slimeFungus.get(),
-    new SlimeFungusConfig(
-      TinkerTags.Blocks.SLIMY_SOIL,
-      TinkerWorld.bloodshroom.getLog().defaultBlockState(),
-      TinkerWorld.slimeLeaves.get(SlimeType.ICHOR).defaultBlockState(),
-      TinkerWorld.congealedSlime.get(SlimeType.ICHOR).defaultBlockState(),
-      false));
-
-  public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC,F>> registerTree(String name, F key, FC feature) {
-    return BuiltinRegistries.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, TConstruct.resourceString(name), new ConfiguredFeature<>(key, feature));
-  }
-
   /*
    * Structures
    */
@@ -163,61 +80,30 @@ public final class TinkerStructures extends TinkerModule {
   // earthslime
   public static final RegistryObject<StructureType<EarthSlimeIslandStructure>> earthSlimeIsland = STRUCTURE_TYPES.register("earth_slime_island", () -> () -> EarthSlimeIslandStructure.CODEC);
   public static final ResourceKey<Structure> earthSlimeIslandKey = registerKey("earth_slime_island");
-  public static final Holder<Structure> earthSlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, earthSlimeIslandKey, new EarthSlimeIslandStructure(
-    new Structure.StructureSettings(
-      biomes(TinkerTags.Biomes.EARTHSLIME_ISLANDS), monsterOverride(TinkerWorld.earthSlimeEntity.get(), 4, 4),
-      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
-  );
+
 
   // skyslime
   public static final RegistryObject<StructureType<SkySlimeIslandStructure>> skySlimeIsland = STRUCTURE_TYPES.register("sky_slime_island", () -> () -> SkySlimeIslandStructure.CODEC);
   public static final ResourceKey<Structure> skySlimeIslandKey = registerKey("sky_slime_island");
-  public static final Holder<Structure> skySlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, skySlimeIslandKey, new SkySlimeIslandStructure(
-    new Structure.StructureSettings(
-      biomes(TinkerTags.Biomes.SKYSLIME_ISLANDS), monsterOverride(TinkerWorld.skySlimeEntity.get(), 3, 4),
-      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
-  );
 
   // clay
   public static final RegistryObject<StructureType<ClayIslandStructure>> clayIsland = STRUCTURE_TYPES.register("clay_island", () -> () -> ClayIslandStructure.CODEC);
   public static final ResourceKey<Structure> clayIslandKey = registerKey("clay_island");
-  public static final Holder<Structure> clayIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, clayIslandKey, new ClayIslandStructure(
-    new Structure.StructureSettings(
-      biomes(TinkerTags.Biomes.CLAY_ISLANDS), monsterOverride(TinkerWorld.terracubeEntity.get(), 2, 4),
-      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
-  );
+
 
   // nether
   public static final RegistryObject<StructureType<BloodSlimeIslandStructure>> bloodIsland = STRUCTURE_TYPES.register("blood_island", () -> () -> BloodSlimeIslandStructure.CODEC);
   public static final ResourceKey<Structure> bloodIslandKey = registerKey("blood_island");
-  public static final Holder<Structure> bloodIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, bloodIslandKey, new BloodSlimeIslandStructure(
-    new Structure.StructureSettings(
-      biomes(TinkerTags.Biomes.BLOOD_ISLANDS), monsterOverride(EntityType.MAGMA_CUBE, 4, 6),
-      GenerationStep.Decoration.UNDERGROUND_DECORATION, TerrainAdjustment.NONE))
-  );
+
 
   // end
   public static final RegistryObject<StructureType<EnderSlimeIslandStructure>> endSlimeIsland = STRUCTURE_TYPES.register("end_slime_island", () -> () -> EnderSlimeIslandStructure.CODEC);
   public static final ResourceKey<Structure> endSlimeIslandKey = registerKey("end_slime_island");
-  public static final Holder<Structure> endSlimeIslandStructure = BuiltinRegistries.register(BuiltinRegistries.STRUCTURES, endSlimeIslandKey, new EnderSlimeIslandStructure(
-    new Structure.StructureSettings(
-      biomes(TinkerTags.Biomes.ENDERSLIME_ISLANDS), monsterOverride(TinkerWorld.enderSlimeEntity.get(), 4, 4),
-      GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE))
-  );
+
 
   public static ResourceKey<Structure> registerKey(String name) {
     return ResourceKey.create(Registry.STRUCTURE_REGISTRY, TConstruct.getResource(name));
   }
-
-  private static HolderSet<Biome> biomes(TagKey<Biome> tagKey) {
-    return BuiltinRegistries.BIOME.getOrCreateTag(tagKey);
-  }
-
-  /** Creates a spawn override for a single mob */
-  private static Map<MobCategory,StructureSpawnOverride> monsterOverride(EntityType<?> entity, int min, int max) {
-    return Map.of(MobCategory.MONSTER, new StructureSpawnOverride(BoundingBoxType.STRUCTURE, WeightedRandomList.create(new MobSpawnSettings.SpawnerData(entity, 1, min, max))));
-  }
-
   public static void init() {
 
   }

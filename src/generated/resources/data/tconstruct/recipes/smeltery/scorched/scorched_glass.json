@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "G": {
-      "tag": "c:gems/quartz"
+      "tag": "c:quartz"
     },
     "b": {
       "item": "tconstruct:scorched_brick"

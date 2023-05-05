@@ -1,13 +1,16 @@
 package slimeknights.tconstruct.fluids;
 
+import com.google.common.collect.Streams;
 import io.github.fabricators_of_create.porting_lib.brewing.BrewingRecipe;
 import io.github.fabricators_of_create.porting_lib.brewing.BrewingRecipeRegistry;
 import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import io.github.fabricators_of_create.porting_lib.util.RegistryObject;
 import io.github.tropheusj.milk.Milk;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
+import net.minecraft.core.Registry;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
@@ -50,8 +53,10 @@ import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.TinkerWorld;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Contains all fluids used throughout the mod
@@ -220,15 +225,31 @@ public final class TinkerFluids extends TinkerModule {
   }
 
   void commonSetup() {
-    CauldronInteraction.WATER.put(splashBottle.get(), new FillBottle(Items.SPLASH_POTION));
-    CauldronInteraction.WATER.put(lingeringBottle.get(), new FillBottle(Items.LINGERING_POTION));
+    RegistryEntryAddedCallback.event(Registry.ITEM).register((intId, id, object) -> {
+      if (id.equals(splashBottle.getRegistryName())) {
+        CauldronInteraction.WATER.put(splashBottle.get(), new FillBottle(Items.SPLASH_POTION));
+        BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Items.POTION, Items.SPLASH_POTION, new ItemStack(splashBottle)));
+      } else if (id.equals(lingeringBottle.getRegistryName())) {
+        CauldronInteraction.WATER.put(lingeringBottle.get(), new FillBottle(Items.LINGERING_POTION));
+        BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(TinkerTags.Items.SPLASH_BOTTLE), Items.SPLASH_POTION, Items.LINGERING_POTION, new ItemStack(lingeringBottle)));
+      } else if (Arrays.stream(SlimeType.values()).map(slimeBottle::getSupplier).allMatch(value -> value instanceof RegistryObject<? extends Item> registryObject && registryObject.isPresent())) {
+        // brew congealed slime into bottles to get slime bottles, easy melting
+        for (SlimeType slime : SlimeType.values()) {
+          BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Ingredient.of(TinkerWorld.congealedSlime.get(slime)), new ItemStack(TinkerFluids.slimeBottle.get(slime))));
+        }
+      } else if (id.equals(magmaBottle.getRegistryName())) {
+        BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Ingredient.of(Blocks.MAGMA_BLOCK), new ItemStack(TinkerFluids.magmaBottle)));
+      }
+    });
+    //CauldronInteraction.WATER.put(splashBottle.get(), new FillBottle(Items.SPLASH_POTION));
+    //CauldronInteraction.WATER.put(lingeringBottle.get(), new FillBottle(Items.LINGERING_POTION));
     CauldronInteraction.WATER.put(Items.SPLASH_POTION,    new EmptyBottleIntoWater(splashBottle,    CauldronInteraction.WATER.get(Items.SPLASH_POTION)));
     CauldronInteraction.WATER.put(Items.LINGERING_POTION, new EmptyBottleIntoWater(lingeringBottle, CauldronInteraction.WATER.get(Items.LINGERING_POTION)));
     CauldronInteraction.EMPTY.put(Items.SPLASH_POTION,    new EmptyBottleIntoEmpty(splashBottle,    CauldronInteraction.EMPTY.get(Items.SPLASH_POTION)));
     CauldronInteraction.EMPTY.put(Items.LINGERING_POTION, new EmptyBottleIntoEmpty(lingeringBottle, CauldronInteraction.EMPTY.get(Items.LINGERING_POTION)));
     // brew bottles into each other, bit weird but feels better than shapeless
-    BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Items.POTION, Items.SPLASH_POTION, new ItemStack(splashBottle)));
-    BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(TinkerTags.Items.SPLASH_BOTTLE), Items.SPLASH_POTION, Items.LINGERING_POTION, new ItemStack(lingeringBottle)));
+    //BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Items.POTION, Items.SPLASH_POTION, new ItemStack(splashBottle)));
+    //BrewingRecipeRegistry.addRecipe(new BottleBrewingRecipe(Ingredient.of(TinkerTags.Items.SPLASH_BOTTLE), Items.SPLASH_POTION, Items.LINGERING_POTION, new ItemStack(lingeringBottle)));
 
     // dispense buckets
     DispenseItemBehavior dispenseBucket = new DefaultDispenseItemBehavior() {
@@ -248,7 +269,7 @@ public final class TinkerFluids extends TinkerModule {
       }
     };
     // slime
-    DispenserBlock.registerBehavior(blood, dispenseBucket);
+    /*DispenserBlock.registerBehavior(blood, dispenseBucket);
     DispenserBlock.registerBehavior(venom, dispenseBucket);
     DispenserBlock.registerBehavior(earthSlime, dispenseBucket);
     DispenserBlock.registerBehavior(skySlime, dispenseBucket);
@@ -315,12 +336,8 @@ public final class TinkerFluids extends TinkerModule {
     DispenserBlock.registerBehavior(moltenLumium, dispenseBucket);
     DispenserBlock.registerBehavior(moltenSignalum, dispenseBucket);
     DispenserBlock.registerBehavior(moltenRefinedGlowstone, dispenseBucket);
-    DispenserBlock.registerBehavior(moltenRefinedObsidian, dispenseBucket);
+    DispenserBlock.registerBehavior(moltenRefinedObsidian, dispenseBucket);*/
 
-    // brew congealed slime into bottles to get slime bottles, easy melting
-    for (SlimeType slime : SlimeType.values()) {
-      BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Ingredient.of(TinkerWorld.congealedSlime.get(slime)), new ItemStack(TinkerFluids.slimeBottle.get(slime))));
-    }
-    BrewingRecipeRegistry.addRecipe(new BrewingRecipe(Ingredient.of(Items.GLASS_BOTTLE), Ingredient.of(Blocks.MAGMA_BLOCK), new ItemStack(TinkerFluids.magmaBottle)));
+
   }
 }

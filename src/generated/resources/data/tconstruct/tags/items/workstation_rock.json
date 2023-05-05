@@ -1,4 +1,12 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "#c:normal_stone",
+    "#c:blackstone",
+    "#c:granite",
+    "#c:diorite",
+    "#c:andesite",
+    "#c:deepslate",
+    "#c:basalt"
+  ]
 }

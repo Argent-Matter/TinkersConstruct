@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#c:ores/gold",
+    "#c:gold_ores",
     "minecraft:gilded_blackstone"
   ]
 }

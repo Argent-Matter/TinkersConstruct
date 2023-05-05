@@ -1,16 +1,13 @@
 {
   "type": "tconstruct:melting",
-  "ingredient": {
-    "type": "serialization_hooks:combined",
-    "children": [
-      {
-        "tag": "c:ender_pearls"
-      },
-      {
-        "item": "minecraft:ender_eye"
-      }
-    ]
-  },
+  "ingredient": [
+    {
+      "tag": "c:ender_pearls"
+    },
+    {
+      "item": "minecraft:ender_eye"
+    }
+  ],
   "result": {
     "amount": 20250,
     "fluid": "tconstruct:molten_ender"

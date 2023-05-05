@@ -3,7 +3,7 @@
   "group": "wooden_fence",
   "key": {
     "#": {
-      "tag": "c:rods/wooden"
+      "tag": "c:wooden_rods"
     },
     "W": {
       "item": "tconstruct:bloodshroom_planks"
