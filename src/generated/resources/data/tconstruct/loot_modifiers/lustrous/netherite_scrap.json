@@ -3,7 +3,7 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:ores/netherite_scrap"
+      "tag": "forge:netherite_scrap_ores"
     },
     {
       "condition": "tconstruct:has_modifier",
@@ -40,7 +40,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:ores/netherite_scrap"
+          "tag": "forge:netherite_scrap_ores"
         }
       }
     }

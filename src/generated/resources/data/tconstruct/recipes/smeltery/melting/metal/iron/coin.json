@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/iron"
+        "c:iron_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/iron"
+    "tag": "c:iron_coins"
   },
   "result": {
     "amount": 3000,

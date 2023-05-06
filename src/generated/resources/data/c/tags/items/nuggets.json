@@ -1,18 +1,18 @@
 {
   "replace": false,
   "values": [
-    "#c:nuggets/copper",
-    "#c:nuggets/netherite",
-    "#c:nuggets/netherite_scrap",
-    "#c:nuggets/cobalt",
-    "#c:nuggets/slimesteel",
-    "#c:nuggets/amethyst_bronze",
-    "#c:nuggets/rose_gold",
-    "#c:nuggets/pig_iron",
-    "#c:nuggets/queens_slime",
-    "#c:nuggets/manyullyn",
-    "#c:nuggets/hepatizon",
-    "#c:nuggets/soulsteel",
-    "#c:nuggets/knightslime"
+    "#c:copper_nuggets",
+    "#c:netherite_nuggets",
+    "#c:netherite_scrap_nuggets",
+    "#c:cobalt_nuggets",
+    "#c:slimesteel_nuggets",
+    "#c:amethyst_bronze_nuggets",
+    "#c:rose_gold_nuggets",
+    "#c:pig_iron_nuggets",
+    "#c:queens_slime_nuggets",
+    "#c:manyullyn_nuggets",
+    "#c:hepatizon_nuggets",
+    "#c:soulsteel_nuggets",
+    "#c:knightslime_nuggets"
   ]
 }

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/lumium"
+        "c:lumium_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/lumium"
+    "tag": "c:lumium_blocks"
   },
   "result": {
     "amount": 81000,

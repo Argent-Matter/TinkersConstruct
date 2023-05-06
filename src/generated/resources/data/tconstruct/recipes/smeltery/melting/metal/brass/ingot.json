@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/brass"
+        "c:brass_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/brass"
+    "tag": "c:brass_ingots"
   },
   "result": {
     "amount": 9000,

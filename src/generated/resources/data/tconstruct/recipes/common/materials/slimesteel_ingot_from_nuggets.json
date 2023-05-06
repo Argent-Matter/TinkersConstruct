@@ -3,7 +3,7 @@
   "group": "tconstruct:slimesteel_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/slimesteel"
+      "tag": "c:slimesteel_nuggets"
     },
     "*": {
       "item": "tconstruct:slimesteel_nugget"

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/zinc"
+        "c:zinc_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/zinc"
+    "tag": "c:zinc_rods"
   },
   "result": {
     "amount": 4500,

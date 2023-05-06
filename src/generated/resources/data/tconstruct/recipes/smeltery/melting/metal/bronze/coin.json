@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/bronze"
+        "c:bronze_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/bronze"
+    "tag": "c:bronze_coins"
   },
   "result": {
     "amount": 3000,

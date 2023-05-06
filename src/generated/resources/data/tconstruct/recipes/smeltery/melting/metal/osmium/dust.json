@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/osmium"
+        "c:osmium_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/osmium"
+    "tag": "c:osmium_dusts"
   },
   "result": {
     "amount": 9000,

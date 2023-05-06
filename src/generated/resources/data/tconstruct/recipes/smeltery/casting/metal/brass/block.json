@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/brass"
+        "c:brass_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_brass"
   },
   "result": {
-    "tag": "c:storage_blocks/brass"
+    "tag": "c:brass_blocks"
   }
 }

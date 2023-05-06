@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/signalum"
+        "c:signalum_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/signalum"
+    "tag": "c:signalum_nuggets"
   },
   "result": {
     "amount": 1000,

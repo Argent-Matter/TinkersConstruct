@@ -32,7 +32,7 @@ public class ToolContainerMenu extends AbstractContainerMenu {
   private final ItemStack stack;
   /** Item handler being rendered */
   @Getter
-  private final IItemHandler itemHandler;
+  private final IItemHandlerModifiable itemHandler;
   private final Player player;
   @Getter
   private final int selectedHotbarSlot;
@@ -51,11 +51,11 @@ public class ToolContainerMenu extends AbstractContainerMenu {
     ItemStack stack = inventory.player.getItemBySlot(slotType);
     // TODO: PORT
     // FAPI does not have the ability to search for item storages in items. Oh no.
-    IItemHandler handler = null;//stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).filter(cap -> cap instanceof IItemHandlerModifiable).orElse(EmptyItemHandler.INSTANCE);
+    IItemHandlerModifiable handler = null;//stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).filter(cap -> cap instanceof IItemHandlerModifiable).orElse(EmptyItemHandler.INSTANCE);
     return new ToolContainerMenu(TinkerTools.toolContainer.get(), id, inventory, stack, handler, slotType);
   }
 
-  protected ToolContainerMenu(@Nullable MenuType<?> type, int id, Inventory playerInventory, ItemStack stack, IItemHandler handler, EquipmentSlot slotType) {
+  protected ToolContainerMenu(@Nullable MenuType<?> type, int id, Inventory playerInventory, ItemStack stack, IItemHandlerModifiable handler, EquipmentSlot slotType) {
     super(type, id);
     this.stack = stack;
     this.itemHandler = handler;
@@ -135,7 +135,7 @@ public class ToolContainerMenu extends AbstractContainerMenu {
 
     private final int index;
 
-    public ToolContainerSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+    public ToolContainerSlot(IItemHandlerModifiable itemHandler, int index, int xPosition, int yPosition) {
       super(itemHandler, index, xPosition, yPosition);
       this.index = index;
     }

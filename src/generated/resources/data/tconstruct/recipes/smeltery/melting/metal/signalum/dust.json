@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/signalum"
+        "c:signalum_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/signalum"
+    "tag": "c:signalum_dusts"
   },
   "result": {
     "amount": 9000,

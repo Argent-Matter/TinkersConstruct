@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/nickel"
+        "c:nickel_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/nickel"
+    "tag": "c:nickel_ingots"
   },
   "result": {
     "amount": 9000,

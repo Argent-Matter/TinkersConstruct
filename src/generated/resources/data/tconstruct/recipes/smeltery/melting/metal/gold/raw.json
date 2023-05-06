@@ -7,7 +7,7 @@
     }
   ],
   "ingredient": {
-    "tag": "c:raw_materials/gold"
+    "tag": "c:raw_gold_ores"
   },
   "rate": "metal",
   "result": {

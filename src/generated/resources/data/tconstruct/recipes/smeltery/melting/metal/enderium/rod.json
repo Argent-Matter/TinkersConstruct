@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/enderium"
+        "c:enderium_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/enderium"
+    "tag": "c:enderium_rods"
   },
   "result": {
     "amount": 4500,

@@ -10,12 +10,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/raw_platinum"
+        "c:raw_platinum_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/raw_platinum"
+    "tag": "c:raw_platinum_blocks"
   },
   "rate": "metal",
   "result": {

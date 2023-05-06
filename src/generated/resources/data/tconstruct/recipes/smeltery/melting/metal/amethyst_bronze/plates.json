@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/amethyst_bronze"
+        "c:amethyst_bronze_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/amethyst_bronze"
+    "tag": "c:amethyst_bronze_plates"
   },
   "result": {
     "amount": 9000,

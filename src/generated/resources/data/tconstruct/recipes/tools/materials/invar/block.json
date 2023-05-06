@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/invar"
+        "c:invar_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/invar"
+    "tag": "c:invar_blocks"
   },
   "leftover": {
     "tag": "c:ingots/invar"

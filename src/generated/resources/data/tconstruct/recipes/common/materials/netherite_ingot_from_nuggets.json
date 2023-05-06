@@ -3,7 +3,7 @@
   "group": "minecraft:netherite_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/netherite"
+      "tag": "c:netherite_nuggets"
     },
     "*": {
       "item": "tconstruct:netherite_nugget"

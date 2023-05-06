@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/cobalt"
+        "c:cobalt_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/cobalt"
+    "tag": "c:cobalt_gears"
   },
   "result": {
     "amount": 36000,

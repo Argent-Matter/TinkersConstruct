@@ -2,7 +2,7 @@
   "type": "forge:conditional",
   "fabric:load_conditions": [
     {
-      "base": "c:ores/silver",
+      "base": "c:silver_ores",
       "condition": "tconstruct:tag_difference_present",
       "registry": "minecraft:item",
       "subtracted": [
@@ -17,7 +17,7 @@
         {
           "condition": "fabric:item_tags_populated",
           "values": [
-            "c:ingots/lead"
+            "c:lead_ingots"
           ]
         }
       ],
@@ -32,7 +32,7 @@
         "ingredient": {
           "type": "forge:difference",
           "base": {
-            "tag": "c:ores/silver"
+            "tag": "c:silver_ores"
           },
           "subtracted": [
             {
@@ -69,7 +69,7 @@
         "ingredient": {
           "type": "forge:difference",
           "base": {
-            "tag": "c:ores/silver"
+            "tag": "c:silver_ores"
           },
           "subtracted": [
             {

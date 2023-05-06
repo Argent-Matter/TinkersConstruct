@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/copper"
+        "c:copper_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/copper"
+    "tag": "c:copper_coins"
   },
   "result": {
     "amount": 3000,

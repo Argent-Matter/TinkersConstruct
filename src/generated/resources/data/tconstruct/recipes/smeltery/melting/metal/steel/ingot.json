@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/steel"
+        "c:steel_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/steel"
+    "tag": "c:steel_ingots"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/slimesteel"
+        "c:slimesteel_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/slimesteel"
+    "tag": "c:slimesteel_dusts"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/lumium"
+        "c:lumium_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/lumium"
+    "tag": "c:lumium_plates"
   },
   "result": {
     "amount": 9000,

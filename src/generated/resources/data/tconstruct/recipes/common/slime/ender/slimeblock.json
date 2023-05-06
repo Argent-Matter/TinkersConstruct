@@ -3,7 +3,7 @@
   "group": "slime_blocks",
   "key": {
     "#": {
-      "tag": "c:slimeball/ender"
+      "tag": "c:ender_slimeballs"
     }
   },
   "pattern": [

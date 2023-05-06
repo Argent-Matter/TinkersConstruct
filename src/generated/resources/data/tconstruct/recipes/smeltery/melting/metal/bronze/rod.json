@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/bronze"
+        "c:bronze_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/bronze"
+    "tag": "c:bronze_rods"
   },
   "result": {
     "amount": 4500,

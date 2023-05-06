@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/pewter"
+        "c:pewter_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/pewter"
+    "tag": "c:pewter_nuggets"
   },
   "result": {
     "amount": 1000,

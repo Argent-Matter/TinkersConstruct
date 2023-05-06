@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/lumium"
+        "c:lumium_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/lumium"
+    "tag": "c:lumium_rods"
   },
   "result": {
     "amount": 4500,

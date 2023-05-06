@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/uranium"
+        "c:uranium_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/uranium"
+    "tag": "c:uranium_sheetmetals"
   },
   "result": {
     "amount": 9000,

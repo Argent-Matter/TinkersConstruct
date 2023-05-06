@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/zinc"
+        "c:zinc_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/zinc"
+    "tag": "c:zinc_gears"
   },
   "result": {
     "amount": 36000,

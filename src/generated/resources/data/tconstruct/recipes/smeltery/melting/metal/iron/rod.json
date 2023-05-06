@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/iron"
+        "c:iron_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/iron"
+    "tag": "c:iron_rods"
   },
   "result": {
     "amount": 4500,

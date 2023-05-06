@@ -11,7 +11,7 @@
       "condition": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
-        "c:ores/osmium",
+        "c:osmium_ores",
         "c:ore_rates/dense"
       ]
     }
@@ -20,7 +20,7 @@
     "type": "forge:intersection",
     "children": [
       {
-        "tag": "c:ores/osmium"
+        "tag": "c:osmium_ores"
       },
       {
         "tag": "c:ore_rates/dense"

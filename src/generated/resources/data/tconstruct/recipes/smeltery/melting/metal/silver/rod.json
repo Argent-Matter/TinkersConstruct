@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/silver"
+        "c:silver_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/silver"
+    "tag": "c:silver_rods"
   },
   "result": {
     "amount": 4500,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/zinc"
+        "c:zinc_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/zinc"
+    "tag": "c:zinc_ingots"
   },
   "result": {
     "amount": 9000,

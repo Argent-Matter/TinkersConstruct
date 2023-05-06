@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/rose_gold"
+        "c:rose_gold_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/rose_gold"
+    "tag": "c:rose_gold_plates"
   },
   "result": {
     "amount": 9000,

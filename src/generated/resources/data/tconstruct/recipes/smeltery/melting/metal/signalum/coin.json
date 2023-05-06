@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/signalum"
+        "c:signalum_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/signalum"
+    "tag": "c:signalum_coins"
   },
   "result": {
     "amount": 3000,

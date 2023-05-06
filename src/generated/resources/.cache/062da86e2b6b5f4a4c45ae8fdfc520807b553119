@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-06T13:26:12.3442184	Tinkers' Construct Tool Recipes
+// 1.19.2	2023-05-06T14:52:03.7662344	Tinkers' Construct Tool Recipes
 4eff76805c87e751d8910aa9199538108a1dd1e1 data\tconstruct\recipes\armor\building\slime_skull\string.json
 7ce572d73775a3cfa07675aa607519f0aa0f533c data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\travelers_chestplate.json
 4d12c951b7380a9c8df59c6ee23307601b4e85cf data\tconstruct\recipes\smeltery\casts\gold_casts\broad_axe_head.json
@@ -13,11 +13,11 @@ f50aed035d7b59e3f0e131c2aa509497aaa4ad84 data\tconstruct\recipes\tools\parts\cas
 133acd55d3255470c1a8a1cf9afeefaf2628e200 data\tconstruct\recipes\smeltery\casts\gold_casts\large_plate.json
 1b1560114b687baace07794437eaf131913969c0 data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\travelers_goggles.json
 99b8bc2951b5a0745cd109541f255e882acc1113 data\tconstruct\recipes\smeltery\casts\sand_casts\pick_head.json
-bedd9c0edbfa7961f79ac21f9951f9a7cab0bfe7 data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_leggings.json
+b8df0e477e8f4f9297dbcd8457bf331779ab3d24 data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_leggings.json
 ad16290c072840ffd9de58327484fb8a5d8b730b data\tconstruct\recipes\tools\building\flint_and_brick.json
 d99789c5bc27f26fa54bae45a65b8275c616b8dc data\tconstruct\recipes\armor\repair\slimesuit_repair_kit.json
 062220be9c291ae250ceb96e1899390262a4c2d5 data\tconstruct\recipes\tools\parts\builder\tool_binding.json
-ede8dd94d6f06703f68b8b90516bdee6fdd87e75 data\tconstruct\recipes\armor\building\plate_helmet.json
+b9a58ce80ee4fd9f523fe37941565787175d1f03 data\tconstruct\recipes\armor\building\plate_helmet.json
 d23ebf955ec99a1303823ff1c7872883dad45b6d data\tconstruct\recipes\tools\parts\casting\broad_blade_composite.json
 cde82379d9aef417162bafa2fb1de060d3dd0ecb data\tconstruct\recipes\smeltery\casts\gold_casts\tough_handle.json
 c8a2f0e1a63a0a100c479c45ebc8c1b19160ff9c data\tconstruct\recipes\tools\parts\casting\hammer_head_gold_cast.json
@@ -58,7 +58,7 @@ d7f9ae081fefce6b7a2d018f3f43172c60d98b4f data\tconstruct\recipes\smeltery\casts\
 ff2008ed82941ca84d8e817351f9ee1ffebb5af7 data\tconstruct\recipes\tools\parts\casting\hammer_head_composite.json
 2d9bc494dac8f6c667883036fbce3f0f68758712 data\tconstruct\recipes\armor\repair\slimelytra_station.json
 f6c3264e4287c4cf75a1551edef6c8ee697cff2b data\tconstruct\recipes\armor\repair\travelers_leather_repair_kit.json
-8d583b6ba345194213604ca23fe68499720284be data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_helmet.json
+41a97343f5c13a9eaa07b94a8ab7baf0a48db78f data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_helmet.json
 e467c87c32c75add21e6d5fe96e9f9ef94d1d6fd data\tconstruct\recipes\armor\building\slime_skull\darkthread.json
 9543bc3059ae4a742953bd57958954803d142629 data\tconstruct\recipes\smeltery\casts\sand_casts\small_blade.json
 aca22013569234a3bab4892d45a4087f4a4afc9e data\tconstruct\recipes\smeltery\casts\red_sand_casts\tool_handle.json
@@ -66,7 +66,7 @@ aca22013569234a3bab4892d45a4087f4a4afc9e data\tconstruct\recipes\smeltery\casts\
 664d4167b5d878f36d82f8a01c63bc579dea7b31 data\tconstruct\advancements\recipes\tconstruct\tools\tools\building\flint_and_brick.json
 38b2c886a992a40168ee0f3ce851b4afda860d8f data\tconstruct\recipes\tools\parts\casting\hammer_head_sand_cast.json
 a093543c6605a0c697e33e16724fe6dd3913b5e2 data\tconstruct\recipes\tools\parts\casting\repair_kit_gold_cast.json
-ac415c6052ef6c90c7ba0535c0a1c95654a70a50 data\tconstruct\recipes\armor\building\plate_chestplate.json
+3609a3a80b5204eaa9d4198c3346fc5637cc90c9 data\tconstruct\recipes\armor\building\plate_chestplate.json
 9f56ead94bf7d5562e635026056f8052921bce0c data\tconstruct\recipes\tools\building\hand_axe.json
 33f2503e51e53b104f2b664f1d8629c75260f4d1 data\tconstruct\recipes\tools\parts\builder\tool_handle.json
 ac9ea82e6140c3d7f6abad352d8e419995fb0475 data\tconstruct\recipes\tools\parts\casting\repair_kit_composite.json
@@ -91,8 +91,8 @@ a4b5b8997e12a5a273364e9c50becf9f795b83eb data\tconstruct\recipes\tools\parts\cas
 8f8e80d8b691263d80a1d9f4c8ad02ac2de83912 data\tconstruct\recipes\smeltery\casts\gold_casts\small_axe_head.json
 2ae20569cb11313f4ce29531aebe87fc69cc2c10 data\tconstruct\recipes\armor\building\travelers_chestplate.json
 ecae834800d6da7ef50ed1db6487a8f192d214d7 data\tconstruct\recipes\smeltery\casts\sand_casts\bow_grip.json
-eb2681352c30837defe76f19039ec6a09e3158bc data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_chestplate.json
-3e3072a51077e100626b03679593560298318f5e data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_boots.json
+374085531cc6b23e0946663ab1131bcb23d6c9d4 data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_chestplate.json
+09b7beb901c16818519f24c15daa2b790d3691e4 data\tconstruct\advancements\recipes\tconstruct\tools\armor\building\plate_boots.json
 651fe221ac7c5d9ec7804823a32e266e20fdd915 data\tconstruct\recipes\tools\parts\casting\pick_head_composite.json
 a1cd8402eedceee548f5788588e7c6289f710809 data\tconstruct\recipes\tools\building\pickaxe.json
 92fa1b315860af755c3b745112a2c0074c23b0b8 data\tconstruct\recipes\tools\building\vein_hammer.json
@@ -125,7 +125,7 @@ f9ba6006b79bbfd650a9948d11d4349d862fdc64 data\tconstruct\recipes\armor\repair\sl
 6a8d636ccf303d1b36fe7aa81b793d4f7643d6f9 data\tconstruct\recipes\armor\building\slime_skull\blazing_bone.json
 fbd34063b0199843eb918d6110e19e4f1984f2f5 data\tconstruct\recipes\smeltery\casts\sand_casts\tool_binding.json
 9d0cf575332e7f9083a02beb7f60b28520e2b419 data\tconstruct\recipes\tools\parts\builder\round_plate.json
-2556ee0c954b67802be0962905294d1a69ba55e4 data\tconstruct\recipes\armor\building\plate_leggings.json
+b5d2184013dd8d869fa22a1e47555e4cca2d98ca data\tconstruct\recipes\armor\building\plate_leggings.json
 0c02f90affc854a3880c4d3f61fb72ce462bcf84 data\tconstruct\recipes\armor\building\slime_skull\iron.json
 e3a51a80787ac52079ff2a17a0402405d314ffb3 data\tconstruct\recipes\smeltery\casts\red_sand_casts\hammer_head.json
 9e4388b6fb88799b26b489919212a46bcb870fff data\tconstruct\recipes\armor\building\slimelytra.json
@@ -137,7 +137,7 @@ b28ccf05864b2a6592e38916df7e5dd161ef374d data\tconstruct\recipes\tools\parts\cas
 026334ba4b8dfaceccc1f11f998881674451dbc0 data\tconstruct\recipes\smeltery\casts\sand_casts\small_axe_head.json
 ad9d18940ca556661273a41ec7d76ced6f180ef0 data\tconstruct\recipes\tools\parts\builder\small_axe_head.json
 292f7d5d1583eed76a75bd8ac8d404611b19b18c data\tconstruct\recipes\smeltery\casts\sand_casts\broad_axe_head.json
-d82657cb84e3afd7777d785c73b3326e36900bee data\tconstruct\recipes\armor\building\plate_boots.json
+93f57bea4eed15e98fcc0ef0ff30c6d94e43b7b3 data\tconstruct\recipes\armor\building\plate_boots.json
 6ccfd51734c33353cf46ace50fed1a5cd78c2306 data\tconstruct\recipes\tools\repair\flint_and_brick_scorched_station.json
 d2d785574f4b18322bc270b236b3245a136dcdc4 data\tconstruct\recipes\smeltery\casts\sand_casts\repair_kit.json
 85623570342c6b75e9dec19e78b95ab9c5a60ab1 data\tconstruct\recipes\tools\repair\flint_and_brick_seared_repair_kit.json

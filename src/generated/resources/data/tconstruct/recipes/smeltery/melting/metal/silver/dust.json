@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/silver"
+        "c:silver_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/silver"
+    "tag": "c:silver_dusts"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/tungsten"
+        "c:tungsten_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/tungsten"
+    "tag": "c:tungsten_ingots"
   },
   "result": {
     "amount": 9000,

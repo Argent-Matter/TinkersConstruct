@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:storage_blocks/manyullyn"
+    "tag": "c:manyullyn_blocks"
   },
   "leftover": {
     "tag": "c:ingots/manyullyn"

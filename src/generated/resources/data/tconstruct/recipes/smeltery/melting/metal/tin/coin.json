@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/tin"
+        "c:tin_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/tin"
+    "tag": "c:tin_coins"
   },
   "result": {
     "amount": 3000,

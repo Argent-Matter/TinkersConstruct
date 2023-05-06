@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/steel"
+        "c:steel_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/steel"
+    "tag": "c:steel_wires"
   },
   "result": {
     "amount": 4500,

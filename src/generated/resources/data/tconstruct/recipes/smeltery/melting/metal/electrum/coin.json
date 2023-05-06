@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/electrum"
+        "c:electrum_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/electrum"
+    "tag": "c:electrum_coins"
   },
   "result": {
     "amount": 3000,

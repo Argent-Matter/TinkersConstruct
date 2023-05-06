@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/lead"
+        "c:lead_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/lead"
+    "tag": "c:lead_nuggets"
   },
   "result": {
     "amount": 1000,

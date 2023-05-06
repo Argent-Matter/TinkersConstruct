@@ -3,7 +3,7 @@
   "group": "tconstruct:hepatizon_block",
   "key": {
     "#": {
-      "tag": "c:ingots/hepatizon"
+      "tag": "c:hepatizon_ingots"
     },
     "*": {
       "item": "tconstruct:hepatizon_ingot"

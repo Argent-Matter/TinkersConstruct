@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/lead"
+        "c:lead_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/lead"
+    "tag": "c:lead_coins"
   },
   "result": {
     "amount": 3000,

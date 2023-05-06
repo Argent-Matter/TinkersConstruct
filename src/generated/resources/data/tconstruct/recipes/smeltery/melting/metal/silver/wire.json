@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/silver"
+        "c:silver_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/silver"
+    "tag": "c:silver_wires"
   },
   "result": {
     "amount": 4500,

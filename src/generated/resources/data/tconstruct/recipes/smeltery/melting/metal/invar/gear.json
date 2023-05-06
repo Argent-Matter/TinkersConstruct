@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/invar"
+        "c:invar_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/invar"
+    "tag": "c:invar_gears"
   },
   "result": {
     "amount": 36000,

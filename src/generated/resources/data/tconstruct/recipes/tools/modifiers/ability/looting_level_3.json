@@ -2,13 +2,13 @@
   "type": "tconstruct:modifier",
   "inputs": [
     {
-      "tag": "c:ingots/rose_gold"
+      "tag": "c:rose_gold_ingots"
     },
     {
       "item": "minecraft:rabbit_foot"
     },
     {
-      "tag": "c:ingots/rose_gold"
+      "tag": "c:rose_gold_ingots"
     },
     {
       "tag": "c:diamonds"

@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:ingots/manyullyn"
+    "tag": "c:manyullyn_ingots"
   },
   "result": {
     "amount": 9000,

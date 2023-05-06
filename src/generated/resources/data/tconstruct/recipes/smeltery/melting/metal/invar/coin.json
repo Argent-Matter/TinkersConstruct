@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/invar"
+        "c:invar_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/invar"
+    "tag": "c:invar_coins"
   },
   "result": {
     "amount": 3000,

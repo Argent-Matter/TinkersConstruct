@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/constantan"
+        "c:constantan_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/constantan"
+    "tag": "c:constantan_wires"
   },
   "result": {
     "amount": 4500,

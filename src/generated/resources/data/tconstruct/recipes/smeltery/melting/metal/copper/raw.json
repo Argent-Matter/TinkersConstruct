@@ -7,7 +7,7 @@
     }
   ],
   "ingredient": {
-    "tag": "c:raw_materials/copper"
+    "tag": "c:raw_copper_ores"
   },
   "rate": "metal",
   "result": {

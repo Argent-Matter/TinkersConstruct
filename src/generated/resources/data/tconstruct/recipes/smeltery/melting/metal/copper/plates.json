@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/copper"
+        "c:copper_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/copper"
+    "tag": "c:copper_plates"
   },
   "result": {
     "amount": 9000,

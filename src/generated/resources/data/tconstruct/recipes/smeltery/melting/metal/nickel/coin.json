@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/nickel"
+        "c:nickel_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/nickel"
+    "tag": "c:nickel_coins"
   },
   "result": {
     "amount": 3000,

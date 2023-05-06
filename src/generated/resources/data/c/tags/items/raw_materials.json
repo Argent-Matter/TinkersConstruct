@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#c:raw_materials/cobalt"
+    "#c:raw_cobalt_ores"
   ]
 }

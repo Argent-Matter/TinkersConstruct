@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#c:ores/cobalt"
+    "#c:cobalt_ores"
   ]
 }

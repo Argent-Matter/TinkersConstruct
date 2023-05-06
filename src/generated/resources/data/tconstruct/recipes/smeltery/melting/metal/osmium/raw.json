@@ -10,12 +10,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:raw_materials/osmium"
+        "c:raw_osmium_ores"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:raw_materials/osmium"
+    "tag": "c:raw_osmium_ores"
   },
   "rate": "metal",
   "result": {

@@ -4,7 +4,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:raw_materials/zinc"
+        "c:raw_zinc_ores"
       ]
     }
   ],
@@ -14,7 +14,7 @@
         {
           "condition": "fabric:item_tags_populated",
           "values": [
-            "c:ingots/tin"
+            "c:tin_ingots"
           ]
         }
       ],
@@ -27,7 +27,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:raw_materials/zinc"
+          "tag": "c:raw_zinc_ores"
         },
         "rate": "metal",
         "result": {
@@ -53,7 +53,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:raw_materials/zinc"
+          "tag": "c:raw_zinc_ores"
         },
         "rate": "metal",
         "result": {

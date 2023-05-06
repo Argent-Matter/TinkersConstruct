@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/queens_slime"
+        "c:queens_slime_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/queens_slime"
+    "tag": "c:queens_slime_dusts"
   },
   "result": {
     "amount": 9000,

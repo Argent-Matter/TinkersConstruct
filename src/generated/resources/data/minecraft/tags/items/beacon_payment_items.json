@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#c:ingots/cobalt",
-    "#c:ingots/queens_slime",
-    "#c:ingots/manyullyn",
-    "#c:ingots/hepatizon"
+    "#c:cobalt_ingots",
+    "#c:queens_slime_ingots",
+    "#c:manyullyn_ingots",
+    "#c:hepatizon_ingots"
   ]
 }

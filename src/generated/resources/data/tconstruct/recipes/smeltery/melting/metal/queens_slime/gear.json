@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/queens_slime"
+        "c:queens_slime_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/queens_slime"
+    "tag": "c:queens_slime_gears"
   },
   "result": {
     "amount": 36000,

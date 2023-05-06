@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/pig_iron"
+        "c:pig_iron_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/pig_iron"
+    "tag": "c:pig_iron_plates"
   },
   "result": {
     "amount": 9000,

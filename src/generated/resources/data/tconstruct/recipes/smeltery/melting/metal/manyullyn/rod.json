@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/manyullyn"
+        "c:manyullyn_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/manyullyn"
+    "tag": "c:manyullyn_rods"
   },
   "result": {
     "amount": 4500,

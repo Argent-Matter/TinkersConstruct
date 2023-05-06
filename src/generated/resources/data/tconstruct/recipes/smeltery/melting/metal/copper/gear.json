@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/copper"
+        "c:copper_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/copper"
+    "tag": "c:copper_gears"
   },
   "result": {
     "amount": 36000,

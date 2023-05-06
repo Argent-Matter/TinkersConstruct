@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/electrum"
+        "c:electrum_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/electrum"
+    "tag": "c:electrum_dusts"
   },
   "result": {
     "amount": 9000,

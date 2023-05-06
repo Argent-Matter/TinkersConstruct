@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/netherite"
+        "c:netherite_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/netherite"
+    "tag": "c:netherite_coins"
   },
   "result": {
     "amount": 3000,

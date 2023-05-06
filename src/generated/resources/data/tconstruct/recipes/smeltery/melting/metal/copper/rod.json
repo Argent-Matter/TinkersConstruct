@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/copper"
+        "c:copper_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/copper"
+    "tag": "c:copper_rods"
   },
   "result": {
     "amount": 4500,

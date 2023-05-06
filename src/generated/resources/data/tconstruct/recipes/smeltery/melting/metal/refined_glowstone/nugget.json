@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/refined_glowstone"
+        "c:refined_glowstone_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/refined_glowstone"
+    "tag": "c:refined_glowstone_nuggets"
   },
   "result": {
     "amount": 1000,

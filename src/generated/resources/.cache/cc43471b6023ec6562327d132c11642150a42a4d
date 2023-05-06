@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-06T13:26:12.3977179	Tinkers' Construct Advancements
+// 1.19.2	2023-05-06T14:52:03.7042339	Tinkers' Construct Advancements
 ce6ab07b data\tconstruct\advancements\smeltery\abilities.json
 c951831e data\tconstruct\advancements\tools\tool_smith.json
 8d0138f3 data\tconstruct\advancements\world\clay_island.json
@@ -27,7 +27,7 @@ bd13fffe data\tconstruct\advancements\tools\part_builder.json
 32f8b94e data\tconstruct\advancements\world\slimesuit.json
 ae7e45f7 data\tconstruct\advancements\smeltery\cast_collector.json
 35c7a15d data\tconstruct\advancements\world\blood_island.json
-cb89fe4c data\tconstruct\advancements\world\slime_collector.json
+d07668ef data\tconstruct\advancements\world\slime_collector.json
 3315fb02 data\tconstruct\advancements\smeltery\gold_casting.json
 7bc618de data\tconstruct\advancements\foundry\plate_armor.json
 2dde4cd8 data\tconstruct\advancements\world\ender_island.json

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/lumium"
+        "c:lumium_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/lumium"
+    "tag": "c:lumium_wires"
   },
   "result": {
     "amount": 4500,

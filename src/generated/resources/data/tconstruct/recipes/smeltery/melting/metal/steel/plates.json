@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/steel"
+        "c:steel_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/steel"
+    "tag": "c:steel_plates"
   },
   "result": {
     "amount": 9000,

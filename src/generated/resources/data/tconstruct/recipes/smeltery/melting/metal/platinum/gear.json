@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/platinum"
+        "c:platinum_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/platinum"
+    "tag": "c:platinum_gears"
   },
   "result": {
     "amount": 36000,

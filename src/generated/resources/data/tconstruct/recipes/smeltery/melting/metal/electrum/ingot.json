@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/electrum"
+        "c:electrum_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/electrum"
+    "tag": "c:electrum_ingots"
   },
   "result": {
     "amount": 9000,

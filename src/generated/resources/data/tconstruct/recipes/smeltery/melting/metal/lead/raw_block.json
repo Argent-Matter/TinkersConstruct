@@ -4,7 +4,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/raw_lead"
+        "c:raw_lead_blocks"
       ]
     }
   ],
@@ -14,7 +14,7 @@
         {
           "condition": "fabric:item_tags_populated",
           "values": [
-            "c:ingots/silver"
+            "c:silver_ingots"
           ]
         }
       ],
@@ -27,7 +27,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:storage_blocks/raw_lead"
+          "tag": "c:raw_lead_blocks"
         },
         "rate": "metal",
         "result": {
@@ -53,7 +53,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:storage_blocks/raw_lead"
+          "tag": "c:raw_lead_blocks"
         },
         "rate": "metal",
         "result": {

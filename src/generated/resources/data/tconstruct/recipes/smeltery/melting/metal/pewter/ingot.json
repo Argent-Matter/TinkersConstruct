@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/pewter"
+        "c:pewter_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/pewter"
+    "tag": "c:pewter_ingots"
   },
   "result": {
     "amount": 9000,

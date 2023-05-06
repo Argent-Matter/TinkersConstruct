@@ -3,7 +3,7 @@
   "group": "slime_blocks",
   "key": {
     "#": {
-      "tag": "c:slimeball/ichor"
+      "tag": "c:ichor_slimeballs"
     }
   },
   "pattern": [

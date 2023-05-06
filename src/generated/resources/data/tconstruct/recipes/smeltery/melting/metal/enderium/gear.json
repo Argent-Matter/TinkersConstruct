@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/enderium"
+        "c:enderium_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/enderium"
+    "tag": "c:enderium_gears"
   },
   "result": {
     "amount": 36000,

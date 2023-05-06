@@ -1,7 +1,7 @@
 {
   "type": "mantle:fill_item",
   "input": {
-    "tag": "c:bottles/lingering"
+    "tag": "c:lingering_bottles"
   },
   "filled": {
     "item": "minecraft:lingering_potion",

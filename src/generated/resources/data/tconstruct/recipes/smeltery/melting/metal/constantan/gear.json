@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/constantan"
+        "c:constantan_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/constantan"
+    "tag": "c:constantan_gears"
   },
   "result": {
     "amount": 36000,

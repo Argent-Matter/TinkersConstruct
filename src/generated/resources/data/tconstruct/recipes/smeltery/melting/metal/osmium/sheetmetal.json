@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/osmium"
+        "c:osmium_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/osmium"
+    "tag": "c:osmium_sheetmetals"
   },
   "result": {
     "amount": 9000,

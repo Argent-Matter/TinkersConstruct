@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/gold"
+        "c:gold_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/gold"
+    "tag": "c:gold_dusts"
   },
   "result": {
     "amount": 9000,

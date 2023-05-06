@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/tin"
+        "c:tin_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/tin"
+    "tag": "c:tin_blocks"
   },
   "result": {
     "amount": 81000,

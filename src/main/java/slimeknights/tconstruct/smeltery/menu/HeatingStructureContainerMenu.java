@@ -23,7 +23,7 @@ public class HeatingStructureContainerMenu extends TriggeringMultiModuleContaine
       // can hold 7 in a column, so try to fill the first column first
       // cap to 4 columns
       MeltingModuleInventory inventory = structure.getMeltingInventory();
-      sideInventory = new SideInventoryContainer<>(TinkerSmeltery.smelteryContainer.get(), id, inv, structure, -40, 8, calcColumns(inventory.getSlots()));
+      sideInventory = new SideInventoryContainer<>(TinkerSmeltery.smelteryContainer.get(), id, inv, structure, 0, 0, calcColumns(inventory.getSlots()));
       addSubContainer(sideInventory, true);
 
       Consumer<DataSlot> referenceConsumer = this::addDataSlot;

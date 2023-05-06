@@ -314,8 +314,8 @@ public class ToolModel implements IUnbakedGeometry<ToolModel> {
       }
     }
 
-    // bake model - while the transform may not be identity, it never has rotation so its safe to say untransformed
-    ImmutableMap<TransformType, Transformation> transformMap = Maps.immutableEnumMap(PerspectiveMapWrapper.getTransforms(new SimpleModelState(owner.getRootTransform())));
+    // bake model - while the transform may not be identity, it never has rotation, so it's safe to say untransformed
+    ImmutableMap<TransformType, Transformation> transformMap = Maps.immutableEnumMap(PerspectiveMapWrapper.getTransforms(owner.getTransforms()));
 
     // large models use a custom model here
     if (largeTransforms != null) {

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/slimesteel"
+        "c:slimesteel_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/slimesteel"
+    "tag": "c:slimesteel_coins"
   },
   "result": {
     "amount": 3000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/osmium"
+        "c:osmium_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/osmium"
+    "tag": "c:osmium_rods"
   },
   "result": {
     "amount": 4500,

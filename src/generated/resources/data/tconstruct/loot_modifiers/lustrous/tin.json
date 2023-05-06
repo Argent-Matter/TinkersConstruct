@@ -3,7 +3,7 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:ores/tin"
+      "tag": "forge:tin_ores"
     },
     {
       "condition": "tconstruct:tag_not_empty",
@@ -45,7 +45,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:ores/tin"
+          "tag": "forge:tin_ores"
         }
       }
     }

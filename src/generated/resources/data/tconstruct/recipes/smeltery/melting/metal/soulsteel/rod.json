@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/soulsteel"
+        "c:soulsteel_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/soulsteel"
+    "tag": "c:soulsteel_rods"
   },
   "result": {
     "amount": 4500,

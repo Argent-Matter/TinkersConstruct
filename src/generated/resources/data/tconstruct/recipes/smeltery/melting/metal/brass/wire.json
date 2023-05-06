@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/brass"
+        "c:brass_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/brass"
+    "tag": "c:brass_wires"
   },
   "result": {
     "amount": 4500,

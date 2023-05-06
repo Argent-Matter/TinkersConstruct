@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/brass"
+        "c:brass_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/brass"
+    "tag": "c:brass_coins"
   },
   "result": {
     "amount": 3000,

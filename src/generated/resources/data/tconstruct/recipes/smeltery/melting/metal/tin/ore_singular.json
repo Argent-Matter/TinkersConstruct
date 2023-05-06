@@ -8,7 +8,7 @@
   ],
   "fabric:load_conditions": [
     {
-      "base": "c:ores/tin",
+      "base": "c:tin_ores",
       "condition": "tconstruct:tag_difference_present",
       "registry": "minecraft:item",
       "subtracted": [
@@ -20,7 +20,7 @@
   "ingredient": {
     "type": "forge:difference",
     "base": {
-      "tag": "c:ores/tin"
+      "tag": "c:tin_ores"
     },
     "subtracted": [
       {

@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:storage_blocks/slimesteel"
+    "tag": "c:slimesteel_blocks"
   },
   "result": {
     "amount": 81000,

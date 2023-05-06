@@ -3,7 +3,7 @@
   "group": "tconstruct:cobalt_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/cobalt"
+      "tag": "c:cobalt_nuggets"
     },
     "*": {
       "item": "tconstruct:cobalt_nugget"

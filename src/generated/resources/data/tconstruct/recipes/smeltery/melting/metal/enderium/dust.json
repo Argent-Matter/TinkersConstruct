@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/enderium"
+        "c:enderium_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/enderium"
+    "tag": "c:enderium_dusts"
   },
   "result": {
     "amount": 9000,

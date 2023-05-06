@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/tungsten"
+        "c:tungsten_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/tungsten"
+    "tag": "c:tungsten_gears"
   },
   "result": {
     "amount": 36000,

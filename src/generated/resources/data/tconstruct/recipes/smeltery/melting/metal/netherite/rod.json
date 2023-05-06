@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/netherite"
+        "c:netherite_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/netherite"
+    "tag": "c:netherite_rods"
   },
   "result": {
     "amount": 4500,

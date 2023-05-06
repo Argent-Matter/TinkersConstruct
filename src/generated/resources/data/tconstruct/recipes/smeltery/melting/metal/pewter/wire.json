@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/pewter"
+        "c:pewter_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/pewter"
+    "tag": "c:pewter_wires"
   },
   "result": {
     "amount": 4500,

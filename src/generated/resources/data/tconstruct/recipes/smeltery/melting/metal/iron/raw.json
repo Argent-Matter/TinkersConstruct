@@ -6,7 +6,7 @@
         {
           "condition": "fabric:item_tags_populated",
           "values": [
-            "c:ingots/nickel"
+            "c:nickel_ingots"
           ]
         }
       ],
@@ -19,7 +19,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:raw_materials/iron"
+          "tag": "c:raw_iron_ores"
         },
         "rate": "metal",
         "result": {
@@ -45,7 +45,7 @@
           }
         ],
         "ingredient": {
-          "tag": "c:raw_materials/iron"
+          "tag": "c:raw_iron_ores"
         },
         "rate": "metal",
         "result": {

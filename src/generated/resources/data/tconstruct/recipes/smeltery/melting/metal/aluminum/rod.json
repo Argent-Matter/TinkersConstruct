@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/aluminum"
+        "c:aluminum_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/aluminum"
+    "tag": "c:aluminum_rods"
   },
   "result": {
     "amount": 4500,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/nickel"
+        "c:nickel_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/nickel"
+    "tag": "c:nickel_nuggets"
   },
   "result": {
     "amount": 1000,

@@ -3,7 +3,7 @@
   "group": "tconstruct:congealed_slime",
   "key": {
     "#": {
-      "tag": "c:slimeball/ender"
+      "tag": "c:ender_slimeballs"
     }
   },
   "pattern": [

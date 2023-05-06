@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/pewter"
+        "c:pewter_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/pewter"
+    "tag": "c:pewter_blocks"
   },
   "result": {
     "amount": 81000,

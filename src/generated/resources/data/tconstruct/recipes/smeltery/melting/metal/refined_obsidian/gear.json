@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/refined_obsidian"
+        "c:refined_obsidian_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/refined_obsidian"
+    "tag": "c:refined_obsidian_gears"
   },
   "result": {
     "amount": 36000,

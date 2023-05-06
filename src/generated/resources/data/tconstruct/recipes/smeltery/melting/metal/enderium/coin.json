@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/enderium"
+        "c:enderium_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/enderium"
+    "tag": "c:enderium_coins"
   },
   "result": {
     "amount": 3000,

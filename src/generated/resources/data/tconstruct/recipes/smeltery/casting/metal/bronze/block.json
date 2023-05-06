@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/bronze"
+        "c:bronze_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:storage_blocks/bronze"
+    "tag": "c:bronze_blocks"
   }
 }

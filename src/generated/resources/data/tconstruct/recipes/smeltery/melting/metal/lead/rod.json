@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/lead"
+        "c:lead_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/lead"
+    "tag": "c:lead_rods"
   },
   "result": {
     "amount": 4500,

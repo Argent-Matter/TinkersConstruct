@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/osmium"
+        "c:osmium_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/osmium"
+    "tag": "c:osmium_coins"
   },
   "result": {
     "amount": 3000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/gold"
+        "c:gold_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/gold"
+    "tag": "c:gold_rods"
   },
   "result": {
     "amount": 4500,

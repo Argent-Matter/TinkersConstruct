@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/refined_glowstone"
+        "c:refined_glowstone_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/refined_glowstone"
+    "tag": "c:refined_glowstone_ingots"
   },
   "result": {
     "amount": 9000,

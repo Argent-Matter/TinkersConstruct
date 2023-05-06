@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/pewter"
+        "c:pewter_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/pewter"
+    "tag": "c:pewter_sheetmetals"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/knightslime"
+        "c:knightslime_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/knightslime"
+    "tag": "c:knightslime_dusts"
   },
   "result": {
     "amount": 9000,

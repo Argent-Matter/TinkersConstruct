@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/nickel"
+        "c:nickel_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/nickel"
+    "tag": "c:nickel_sheetmetals"
   },
   "result": {
     "amount": 9000,

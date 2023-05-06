@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/bronze"
+        "c:bronze_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/bronze"
+    "tag": "c:bronze_dusts"
   },
   "result": {
     "amount": 9000,

@@ -10,12 +10,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/raw_aluminum"
+        "c:raw_aluminum_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/raw_aluminum"
+    "tag": "c:raw_aluminum_blocks"
   },
   "rate": "metal",
   "result": {

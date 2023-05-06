@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/netherite"
+        "c:netherite_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/netherite"
+    "tag": "c:netherite_dusts"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/soulsteel"
+        "c:soulsteel_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/soulsteel"
+    "tag": "c:soulsteel_gears"
   },
   "result": {
     "amount": 36000,

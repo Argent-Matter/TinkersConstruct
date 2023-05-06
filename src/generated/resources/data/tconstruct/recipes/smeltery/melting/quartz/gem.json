@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:gems/quartz"
+    "tag": "c:quartz_gems"
   },
   "result": {
     "amount": 8100,

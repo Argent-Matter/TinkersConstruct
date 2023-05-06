@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/cobalt"
+        "c:cobalt_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/cobalt"
+    "tag": "c:cobalt_rods"
   },
   "result": {
     "amount": 4500,

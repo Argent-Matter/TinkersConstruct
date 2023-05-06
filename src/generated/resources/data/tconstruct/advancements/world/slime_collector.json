@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:slimeball/earth"
+            "tag": "c:earth_slimeballs"
           }
         ]
       }
@@ -31,7 +31,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:slimeball/sky"
+            "tag": "c:sky_slimeballs"
           }
         ]
       }
@@ -41,7 +41,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:slimeball/ichor"
+            "tag": "c:ichor_slimeballs"
           }
         ]
       }
@@ -51,7 +51,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:slimeball/ender"
+            "tag": "c:ender_slimeballs"
           }
         ]
       }
@@ -61,7 +61,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:slimeball/blood"
+            "tag": "c:blood_slimeballs"
           }
         ]
       }

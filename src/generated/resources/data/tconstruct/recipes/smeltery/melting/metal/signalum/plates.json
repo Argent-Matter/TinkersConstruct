@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/signalum"
+        "c:signalum_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/signalum"
+    "tag": "c:signalum_plates"
   },
   "result": {
     "amount": 9000,

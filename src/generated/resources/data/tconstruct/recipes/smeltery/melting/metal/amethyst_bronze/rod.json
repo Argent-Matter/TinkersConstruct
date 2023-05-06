@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/amethyst_bronze"
+        "c:amethyst_bronze_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/amethyst_bronze"
+    "tag": "c:amethyst_bronze_rods"
   },
   "result": {
     "amount": 4500,

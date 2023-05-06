@@ -151,7 +151,7 @@ dependencies {
     modImplementation(include("curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"))
     modImplementation("com.github.AlphaMode:fakeconfig:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
     modImplementation("com.github.AlphaMode:fakeconfigtoml:fb8d12b") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation(include("slimeknights.mantle:Mantle:1.19.2-1.9.DEV.9eb3871e"))
+    modImplementation(include("slimeknights.mantle:Mantle:1.19.2-1.9.DEV.b9ad9eaa"))
     include("io.github.tropheusj:serialization-hooks:0.3.26")
     modImplementation(include("io.github.tropheusj:milk-lib:1.0.51"))
     modImplementation(include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"))

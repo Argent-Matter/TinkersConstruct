@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/invar"
+        "c:invar_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/invar"
+    "tag": "c:invar_rods"
   },
   "result": {
     "amount": 4500,

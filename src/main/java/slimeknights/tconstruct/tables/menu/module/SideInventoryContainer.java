@@ -54,7 +54,7 @@ public class SideInventoryContainer<TILE extends BlockEntity> extends BaseContai
           break;
         }
 
-        this.addSlot(createSlot(handler, index, x + c * 22, y + r * 18));
+        this.addSlot(createSlot(handler, index, x + c * 18, y + r * 18));
         index++;
       }
     }

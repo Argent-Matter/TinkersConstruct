@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/osmium"
+        "c:osmium_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:storage_blocks/osmium"
+    "tag": "c:osmium_blocks"
   }
 }

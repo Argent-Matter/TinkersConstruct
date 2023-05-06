@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/iron"
+        "c:iron_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/iron"
+    "tag": "c:iron_sheetmetals"
   },
   "result": {
     "amount": 9000,

@@ -13,7 +13,7 @@ import slimeknights.mantle.client.screen.SliderWidget;
 import slimeknights.tconstruct.library.client.RenderUtils;
 
 // TODO: fix generics
-public class DynamicContainerScreen extends ModuleScreen {
+public class DynamicContainerScreen extends ModuleScreen<MultiModuleScreen<?>, AbstractContainerMenu> {
 
   // Graphic Resources
   protected static final ScalableElementScreen slot = GenericScreen.slot;

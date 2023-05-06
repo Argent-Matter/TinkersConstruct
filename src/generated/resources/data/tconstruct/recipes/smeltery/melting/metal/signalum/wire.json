@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/signalum"
+        "c:signalum_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/signalum"
+    "tag": "c:signalum_wires"
   },
   "result": {
     "amount": 4500,

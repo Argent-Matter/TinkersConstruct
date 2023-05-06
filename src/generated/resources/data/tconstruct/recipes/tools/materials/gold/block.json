@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:storage_blocks/gold"
+    "tag": "c:gold_blocks"
   },
   "leftover": {
     "tag": "c:ingots/gold"

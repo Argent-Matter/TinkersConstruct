@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/cobalt"
+        "c:cobalt_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/cobalt"
+    "tag": "c:cobalt_plates"
   },
   "result": {
     "amount": 9000,

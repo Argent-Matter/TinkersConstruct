@@ -3,7 +3,7 @@
   "group": "tconstruct:pig_iron_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/pig_iron"
+      "tag": "c:pig_iron_nuggets"
     },
     "*": {
       "item": "tconstruct:pig_iron_nugget"

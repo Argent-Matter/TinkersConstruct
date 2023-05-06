@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/refined_glowstone"
+        "c:refined_glowstone_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/refined_glowstone"
+    "tag": "c:refined_glowstone_coins"
   },
   "result": {
     "amount": 3000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/manyullyn"
+        "c:manyullyn_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/manyullyn"
+    "tag": "c:manyullyn_wires"
   },
   "result": {
     "amount": 4500,

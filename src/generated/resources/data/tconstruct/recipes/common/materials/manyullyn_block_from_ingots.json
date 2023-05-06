@@ -3,7 +3,7 @@
   "group": "tconstruct:manyullyn_block",
   "key": {
     "#": {
-      "tag": "c:ingots/manyullyn"
+      "tag": "c:manyullyn_ingots"
     },
     "*": {
       "item": "tconstruct:manyullyn_ingot"

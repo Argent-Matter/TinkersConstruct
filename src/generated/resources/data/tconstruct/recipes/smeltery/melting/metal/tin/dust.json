@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/tin"
+        "c:tin_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/tin"
+    "tag": "c:tin_dusts"
   },
   "result": {
     "amount": 9000,

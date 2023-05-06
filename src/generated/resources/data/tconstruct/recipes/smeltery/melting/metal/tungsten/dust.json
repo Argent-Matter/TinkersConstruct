@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/tungsten"
+        "c:tungsten_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/tungsten"
+    "tag": "c:tungsten_dusts"
   },
   "result": {
     "amount": 9000,

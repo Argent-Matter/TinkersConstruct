@@ -3,7 +3,7 @@
   "group": "tconstruct:queens_slime_block",
   "key": {
     "#": {
-      "tag": "c:ingots/queens_slime"
+      "tag": "c:queens_slime_ingots"
     },
     "*": {
       "item": "tconstruct:queens_slime_ingot"

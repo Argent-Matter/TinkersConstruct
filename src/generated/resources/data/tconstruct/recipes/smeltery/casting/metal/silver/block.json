@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/silver"
+        "c:silver_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:storage_blocks/silver"
+    "tag": "c:silver_blocks"
   }
 }

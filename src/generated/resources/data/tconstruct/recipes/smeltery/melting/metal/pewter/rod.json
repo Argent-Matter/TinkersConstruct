@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/pewter"
+        "c:pewter_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/pewter"
+    "tag": "c:pewter_rods"
   },
   "result": {
     "amount": 4500,

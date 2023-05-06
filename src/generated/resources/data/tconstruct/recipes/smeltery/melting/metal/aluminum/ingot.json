@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/aluminum"
+        "c:aluminum_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/aluminum"
+    "tag": "c:aluminum_ingots"
   },
   "result": {
     "amount": 9000,

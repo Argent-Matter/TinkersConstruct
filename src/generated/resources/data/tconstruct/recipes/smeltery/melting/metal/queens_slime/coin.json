@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/queens_slime"
+        "c:queens_slime_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/queens_slime"
+    "tag": "c:queens_slime_coins"
   },
   "result": {
     "amount": 3000,

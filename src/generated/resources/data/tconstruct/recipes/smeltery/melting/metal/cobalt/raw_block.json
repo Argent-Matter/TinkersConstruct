@@ -7,7 +7,7 @@
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/raw_cobalt"
+    "tag": "c:raw_cobalt_blocks"
   },
   "rate": "metal",
   "result": {

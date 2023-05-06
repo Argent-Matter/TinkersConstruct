@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
-public class InfoPanelScreen extends ModuleScreen {
+public class InfoPanelScreen extends ModuleScreen<MultiModuleScreen<?>, AbstractContainerMenu> {
   private static final int resW = 118;
   private static final int resH = 75;
 

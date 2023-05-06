@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/platinum"
+        "c:platinum_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_platinum"
   },
   "result": {
-    "tag": "c:storage_blocks/platinum"
+    "tag": "c:platinum_blocks"
   }
 }

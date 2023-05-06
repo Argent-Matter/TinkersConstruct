@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/bronze"
+        "c:bronze_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/bronze"
+    "tag": "c:bronze_gears"
   },
   "result": {
     "amount": 36000,

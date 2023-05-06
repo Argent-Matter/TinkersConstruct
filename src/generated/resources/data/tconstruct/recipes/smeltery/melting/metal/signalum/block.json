@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/signalum"
+        "c:signalum_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/signalum"
+    "tag": "c:signalum_blocks"
   },
   "result": {
     "amount": 81000,

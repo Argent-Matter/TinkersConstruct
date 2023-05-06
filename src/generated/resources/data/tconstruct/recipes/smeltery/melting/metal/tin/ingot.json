@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/tin"
+        "c:tin_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/tin"
+    "tag": "c:tin_ingots"
   },
   "result": {
     "amount": 9000,

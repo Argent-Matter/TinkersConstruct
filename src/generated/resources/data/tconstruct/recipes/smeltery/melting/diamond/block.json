@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:storage_blocks/diamond"
+    "tag": "c:diamond_blocks"
   },
   "result": {
     "amount": 72900,

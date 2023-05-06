@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/tungsten"
+        "c:tungsten_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/tungsten"
+    "tag": "c:tungsten_wires"
   },
   "result": {
     "amount": 4500,

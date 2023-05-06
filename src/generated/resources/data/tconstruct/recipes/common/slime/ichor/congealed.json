@@ -3,7 +3,7 @@
   "group": "tconstruct:congealed_slime",
   "key": {
     "#": {
-      "tag": "c:slimeball/ichor"
+      "tag": "c:ichor_slimeballs"
     }
   },
   "pattern": [

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/electrum"
+        "c:electrum_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/electrum"
+    "tag": "c:electrum_sheetmetals"
   },
   "result": {
     "amount": 9000,

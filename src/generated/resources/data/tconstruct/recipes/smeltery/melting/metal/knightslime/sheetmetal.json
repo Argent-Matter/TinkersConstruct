@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/knightslime"
+        "c:knightslime_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/knightslime"
+    "tag": "c:knightslime_sheetmetals"
   },
   "result": {
     "amount": 9000,

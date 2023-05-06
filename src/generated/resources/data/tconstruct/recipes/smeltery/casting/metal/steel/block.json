@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/steel"
+        "c:steel_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_steel"
   },
   "result": {
-    "tag": "c:storage_blocks/steel"
+    "tag": "c:steel_blocks"
   }
 }

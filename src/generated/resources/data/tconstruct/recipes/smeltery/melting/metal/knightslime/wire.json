@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/knightslime"
+        "c:knightslime_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/knightslime"
+    "tag": "c:knightslime_wires"
   },
   "result": {
     "amount": 4500,

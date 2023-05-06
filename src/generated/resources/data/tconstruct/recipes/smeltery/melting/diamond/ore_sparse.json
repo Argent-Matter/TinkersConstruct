@@ -11,7 +11,7 @@
       "condition": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
-        "c:ores/diamond",
+        "c:diamond_ores",
         "c:ore_rates/sparse"
       ]
     }
@@ -20,7 +20,7 @@
     "type": "forge:intersection",
     "children": [
       {
-        "tag": "c:ores/diamond"
+        "tag": "c:diamond_ores"
       },
       {
         "tag": "c:ore_rates/sparse"

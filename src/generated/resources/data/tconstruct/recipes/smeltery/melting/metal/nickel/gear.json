@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/nickel"
+        "c:nickel_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/nickel"
+    "tag": "c:nickel_gears"
   },
   "result": {
     "amount": 36000,

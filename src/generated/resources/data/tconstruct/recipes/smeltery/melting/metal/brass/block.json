@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/brass"
+        "c:brass_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/brass"
+    "tag": "c:brass_blocks"
   },
   "result": {
     "amount": 81000,

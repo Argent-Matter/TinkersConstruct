@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/refined_glowstone"
+        "c:refined_glowstone_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:storage_blocks/refined_glowstone"
+    "tag": "c:refined_glowstone_blocks"
   }
 }

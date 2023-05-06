@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/tin"
+        "c:tin_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/tin"
+    "tag": "c:tin_rods"
   },
   "result": {
     "amount": 4500,

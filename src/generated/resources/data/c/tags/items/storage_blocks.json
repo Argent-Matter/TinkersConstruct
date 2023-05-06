@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "#c:storage_blocks/cobalt",
-    "#c:storage_blocks/slimesteel",
-    "#c:storage_blocks/amethyst_bronze",
-    "#c:storage_blocks/rose_gold",
-    "#c:storage_blocks/pig_iron",
-    "#c:storage_blocks/queens_slime",
-    "#c:storage_blocks/manyullyn",
-    "#c:storage_blocks/hepatizon",
-    "#c:storage_blocks/soulsteel",
-    "#c:storage_blocks/knightslime",
-    "#c:storage_blocks/raw_cobalt"
+    "#c:cobalt_blocks",
+    "#c:slimesteel_blocks",
+    "#c:amethyst_bronze_blocks",
+    "#c:rose_gold_blocks",
+    "#c:pig_iron_blocks",
+    "#c:queens_slime_blocks",
+    "#c:manyullyn_blocks",
+    "#c:hepatizon_blocks",
+    "#c:soulsteel_blocks",
+    "#c:knightslime_blocks",
+    "#c:raw_cobalt_blocks"
   ]
 }

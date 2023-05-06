@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#c:storage_blocks/cobalt",
-    "#c:storage_blocks/queens_slime",
-    "#c:storage_blocks/manyullyn",
-    "#c:storage_blocks/hepatizon",
-    "#c:storage_blocks/soulsteel"
+    "#c:cobalt_blocks",
+    "#c:queens_slime_blocks",
+    "#c:manyullyn_blocks",
+    "#c:hepatizon_blocks",
+    "#c:soulsteel_blocks"
   ]
 }

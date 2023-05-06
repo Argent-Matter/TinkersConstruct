@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/queens_slime"
+        "c:queens_slime_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/queens_slime"
+    "tag": "c:queens_slime_sheetmetals"
   },
   "result": {
     "amount": 9000,

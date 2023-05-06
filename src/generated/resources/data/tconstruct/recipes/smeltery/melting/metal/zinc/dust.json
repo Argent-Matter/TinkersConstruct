@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/zinc"
+        "c:zinc_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/zinc"
+    "tag": "c:zinc_dusts"
   },
   "result": {
     "amount": 9000,

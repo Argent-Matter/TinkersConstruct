@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:slimeball/earth"
+    "tag": "c:earth_slimeballs"
   },
   "result": {
     "amount": 20250,

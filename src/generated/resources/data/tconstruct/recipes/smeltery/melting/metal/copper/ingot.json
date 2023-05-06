@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:melting",
   "ingredient": {
-    "tag": "c:ingots/copper"
+    "tag": "c:copper_ingots"
   },
   "result": {
     "amount": 9000,

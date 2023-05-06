@@ -194,7 +194,7 @@ public class MaterialModel implements IUnbakedGeometry<MaterialModel> {
     TextureAtlasSprite particle = getPartQuads(mutableList::setValue, owner, spriteGetter, transform, "texture", index, material);
 
     // bake model - while the transform may not be identity, it never has rotation so its safe to say untransformed
-    ImmutableMap<ItemTransforms.TransformType, Transformation> transformMap = PerspectiveMapWrapper.getTransforms(new SimpleModelState(owner.getRootTransform()));
+    ImmutableMap<ItemTransforms.TransformType, Transformation> transformMap = PerspectiveMapWrapper.getTransforms(owner.getTransforms());
     return new BakedItemModel(mutableList.getValue(), particle, Maps.immutableEnumMap(transformMap), overrides, true, owner.useBlockLight());
   }
 

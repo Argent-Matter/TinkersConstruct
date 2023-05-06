@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/invar"
+        "c:invar_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/invar"
+    "tag": "c:invar_nuggets"
   },
   "result": {
     "amount": 1000,

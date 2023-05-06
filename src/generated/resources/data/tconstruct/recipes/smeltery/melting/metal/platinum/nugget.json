@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/platinum"
+        "c:platinum_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/platinum"
+    "tag": "c:platinum_nuggets"
   },
   "result": {
     "amount": 1000,

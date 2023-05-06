@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/tin"
+        "c:tin_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/tin"
+    "tag": "c:tin_wires"
   },
   "result": {
     "amount": 4500,

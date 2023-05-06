@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/lumium"
+        "c:lumium_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/lumium"
+    "tag": "c:lumium_dusts"
   },
   "result": {
     "amount": 9000,

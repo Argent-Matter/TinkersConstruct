@@ -3,7 +3,7 @@
   "group": "minecraft:copper_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/copper"
+      "tag": "c:copper_nuggets"
     },
     "*": {
       "item": "tconstruct:copper_nugget"

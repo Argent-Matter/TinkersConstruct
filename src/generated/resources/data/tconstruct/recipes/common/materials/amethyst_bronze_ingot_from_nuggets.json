@@ -3,7 +3,7 @@
   "group": "tconstruct:amethyst_bronze_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/amethyst_bronze"
+      "tag": "c:amethyst_bronze_nuggets"
     },
     "*": {
       "item": "tconstruct:amethyst_bronze_nugget"

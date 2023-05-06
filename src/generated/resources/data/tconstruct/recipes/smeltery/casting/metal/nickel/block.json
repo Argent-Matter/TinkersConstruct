@@ -5,7 +5,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/nickel"
+        "c:nickel_blocks"
       ]
     }
   ],
@@ -14,6 +14,6 @@
     "tag": "c:molten_nickel"
   },
   "result": {
-    "tag": "c:storage_blocks/nickel"
+    "tag": "c:nickel_blocks"
   }
 }

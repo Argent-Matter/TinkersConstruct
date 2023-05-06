@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/zinc"
+        "c:zinc_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/zinc"
+    "tag": "c:zinc_nuggets"
   },
   "result": {
     "amount": 1000,

@@ -5,7 +5,7 @@
       "condition": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
-        "c:ores/nickel",
+        "c:nickel_ores",
         "c:ore_rates/dense"
       ]
     }
@@ -16,7 +16,7 @@
         {
           "condition": "fabric:item_tags_populated",
           "values": [
-            "c:ingots/platinum"
+            "c:platinum_ingots"
           ]
         }
       ],
@@ -32,7 +32,7 @@
           "type": "forge:intersection",
           "children": [
             {
-              "tag": "c:ores/nickel"
+              "tag": "c:nickel_ores"
             },
             {
               "tag": "c:ore_rates/dense"
@@ -66,7 +66,7 @@
           "type": "forge:intersection",
           "children": [
             {
-              "tag": "c:ores/nickel"
+              "tag": "c:nickel_ores"
             },
             {
               "tag": "c:ore_rates/dense"

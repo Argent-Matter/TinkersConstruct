@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/refined_obsidian"
+        "c:refined_obsidian_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/refined_obsidian"
+    "tag": "c:refined_obsidian_rods"
   },
   "result": {
     "amount": 4500,

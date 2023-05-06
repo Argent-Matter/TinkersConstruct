@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/signalum"
+        "c:signalum_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/signalum"
+    "tag": "c:signalum_gears"
   },
   "result": {
     "amount": 36000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/pewter"
+        "c:pewter_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/pewter"
+    "tag": "c:pewter_gears"
   },
   "result": {
     "amount": 36000,

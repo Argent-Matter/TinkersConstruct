@@ -5,16 +5,16 @@
       "item": "minecraft:piston"
     },
     {
-      "tag": "c:ingots/amethyst_bronze"
+      "tag": "c:amethyst_bronze_ingots"
     },
     {
       "item": "minecraft:piston"
     },
     {
-      "tag": "c:slimeball/ichor"
+      "tag": "c:ichor_slimeballs"
     },
     {
-      "tag": "c:slimeball/ichor"
+      "tag": "c:ichor_slimeballs"
     }
   ],
   "result": {

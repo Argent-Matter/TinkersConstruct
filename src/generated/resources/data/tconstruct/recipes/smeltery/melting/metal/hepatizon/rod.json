@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/hepatizon"
+        "c:hepatizon_rods"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:rods/hepatizon"
+    "tag": "c:hepatizon_rods"
   },
   "result": {
     "amount": 4500,

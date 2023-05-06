@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/zinc"
+        "c:zinc_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/zinc"
+    "tag": "c:zinc_coins"
   },
   "result": {
     "amount": 3000,

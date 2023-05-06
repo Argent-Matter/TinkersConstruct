@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/brass"
+        "c:brass_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/brass"
+    "tag": "c:brass_sheetmetals"
   },
   "result": {
     "amount": 9000,

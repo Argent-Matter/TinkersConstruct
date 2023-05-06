@@ -5,16 +5,16 @@
       "item": "minecraft:piston"
     },
     {
-      "tag": "c:ingots/queens_slime"
+      "tag": "c:queens_slime_ingots"
     },
     {
       "item": "minecraft:piston"
     },
     {
-      "tag": "c:slimeball/ender"
+      "tag": "c:ender_slimeballs"
     },
     {
-      "tag": "c:slimeball/ender"
+      "tag": "c:ender_slimeballs"
     }
   ],
   "result": {

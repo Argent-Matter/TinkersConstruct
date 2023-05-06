@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/tungsten"
+        "c:tungsten_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/tungsten"
+    "tag": "c:tungsten_plates"
   },
   "result": {
     "amount": 9000,

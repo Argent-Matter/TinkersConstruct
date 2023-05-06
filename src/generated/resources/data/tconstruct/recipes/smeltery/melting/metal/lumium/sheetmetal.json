@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/lumium"
+        "c:lumium_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/lumium"
+    "tag": "c:lumium_sheetmetals"
   },
   "result": {
     "amount": 9000,

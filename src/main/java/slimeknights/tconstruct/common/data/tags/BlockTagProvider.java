@@ -122,7 +122,7 @@ public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
         .forceAddTag(Tags.Blocks.STORAGE_BLOCKS_NETHERITE);
     for (SmelteryCompat compat : SmelteryCompat.values()) {
       if (!compat.isOre()) {
-        builder.addOptionalTag(new ResourceLocation("c", "storage_blocks/" + compat.getName()));
+        builder.addOptionalTag(new ResourceLocation("c", compat.getName() + "_blocks"));
       }
     }
 

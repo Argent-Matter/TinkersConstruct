@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:storage_blocks/refined_glowstone"
+        "c:refined_glowstone_blocks"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:storage_blocks/refined_glowstone"
+    "tag": "c:refined_glowstone_blocks"
   },
   "result": {
     "amount": 81000,

@@ -3,7 +3,7 @@
   "group": "tconstruct:rose_gold_ingot",
   "key": {
     "#": {
-      "tag": "c:nuggets/rose_gold"
+      "tag": "c:rose_gold_nuggets"
     },
     "*": {
       "item": "tconstruct:rose_gold_nugget"

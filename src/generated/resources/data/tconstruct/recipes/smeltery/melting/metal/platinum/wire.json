@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/platinum"
+        "c:platinum_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/platinum"
+    "tag": "c:platinum_wires"
   },
   "result": {
     "amount": 4500,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/electrum"
+        "c:electrum_gears"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:gears/electrum"
+    "tag": "c:electrum_gears"
   },
   "result": {
     "amount": 36000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:dusts/aluminum"
+        "c:aluminum_dusts"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:dusts/aluminum"
+    "tag": "c:aluminum_dusts"
   },
   "result": {
     "amount": 9000,

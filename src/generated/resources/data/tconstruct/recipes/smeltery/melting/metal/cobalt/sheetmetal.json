@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/cobalt"
+        "c:cobalt_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/cobalt"
+    "tag": "c:cobalt_sheetmetals"
   },
   "result": {
     "amount": 9000,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/hepatizon"
+        "c:hepatizon_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/hepatizon"
+    "tag": "c:hepatizon_coins"
   },
   "result": {
     "amount": 3000,

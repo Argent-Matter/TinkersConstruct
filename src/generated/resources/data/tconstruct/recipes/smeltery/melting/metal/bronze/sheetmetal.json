@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/bronze"
+        "c:bronze_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/bronze"
+    "tag": "c:bronze_sheetmetals"
   },
   "result": {
     "amount": 9000,

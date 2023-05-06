@@ -3,7 +3,7 @@
   "group": "slime_blocks",
   "key": {
     "#": {
-      "tag": "c:slimeball/blood"
+      "tag": "c:blood_slimeballs"
     }
   },
   "pattern": [

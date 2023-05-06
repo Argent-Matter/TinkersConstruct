@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/uranium"
+        "c:uranium_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/uranium"
+    "tag": "c:uranium_ingots"
   },
   "result": {
     "amount": 9000,

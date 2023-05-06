@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/hepatizon"
+        "c:hepatizon_wires"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:wires/hepatizon"
+    "tag": "c:hepatizon_wires"
   },
   "result": {
     "amount": 4500,

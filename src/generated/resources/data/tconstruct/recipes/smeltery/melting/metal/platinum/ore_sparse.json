@@ -11,7 +11,7 @@
       "condition": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
-        "c:ores/platinum",
+        "c:platinum_ores",
         "c:ore_rates/sparse"
       ]
     }
@@ -20,7 +20,7 @@
     "type": "forge:intersection",
     "children": [
       {
-        "tag": "c:ores/platinum"
+        "tag": "c:platinum_ores"
       },
       {
         "tag": "c:ore_rates/sparse"

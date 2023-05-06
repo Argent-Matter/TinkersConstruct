@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/tin"
+        "c:tin_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/tin"
+    "tag": "c:tin_nuggets"
   },
   "result": {
     "amount": 1000,

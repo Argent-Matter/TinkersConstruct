@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/tungsten"
+        "c:tungsten_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/tungsten"
+    "tag": "c:tungsten_sheetmetals"
   },
   "result": {
     "amount": 9000,

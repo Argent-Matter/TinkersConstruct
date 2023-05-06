@@ -2,19 +2,19 @@
   "type": "tconstruct:modifier",
   "inputs": [
     {
-      "tag": "c:ingots/manyullyn"
+      "tag": "c:manyullyn_ingots"
     },
     {
       "item": "minecraft:nautilus_shell"
     },
     {
-      "tag": "c:ingots/manyullyn"
+      "tag": "c:manyullyn_ingots"
     },
     {
-      "tag": "c:slimeball/sky"
+      "tag": "c:sky_slimeballs"
     },
     {
-      "tag": "c:slimeball/sky"
+      "tag": "c:sky_slimeballs"
     }
   ],
   "max_level": 1,

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/aluminum"
+        "c:aluminum_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/aluminum"
+    "tag": "c:aluminum_plates"
   },
   "result": {
     "amount": 9000,

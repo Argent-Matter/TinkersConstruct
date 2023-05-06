@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/soulsteel"
+        "c:soulsteel_coins"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:coins/soulsteel"
+    "tag": "c:soulsteel_coins"
   },
   "result": {
     "amount": 3000,

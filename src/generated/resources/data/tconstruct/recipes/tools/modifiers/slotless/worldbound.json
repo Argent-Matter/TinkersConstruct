@@ -2,7 +2,7 @@
   "type": "tconstruct:modifier",
   "inputs": [
     {
-      "tag": "c:ingots/netherite_scrap"
+      "tag": "c:netherite_scrap_ingots"
     }
   ],
   "max_level": 1,

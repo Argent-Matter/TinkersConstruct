@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:sheetmetals/tin"
+        "c:tin_sheetmetals"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:sheetmetals/tin"
+    "tag": "c:tin_sheetmetals"
   },
   "result": {
     "amount": 9000,

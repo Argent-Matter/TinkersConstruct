@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/silver"
+        "c:silver_plates"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:plates/silver"
+    "tag": "c:silver_plates"
   },
   "result": {
     "amount": 9000,

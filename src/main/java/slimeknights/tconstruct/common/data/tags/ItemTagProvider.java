@@ -128,9 +128,9 @@ public class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
     copy(Tags.Blocks.STAINED_GLASS, Tags.Items.STAINED_GLASS);
     copy(Tags.Blocks.STAINED_GLASS_PANES, Tags.Items.STAINED_GLASS_PANES);
     for (DyeColor color : DyeColor.values()) {
-      ResourceLocation name = new ResourceLocation("c", "glass/" + color.getSerializedName());
+      ResourceLocation name = new ResourceLocation("c", color.getSerializedName() + "_glass");
       copy(TagKey.create(Registry.BLOCK_REGISTRY, name), TagKey.create(Registry.ITEM_REGISTRY, name));
-      name = new ResourceLocation("c", "glass_panes/" + color.getSerializedName());
+      name = new ResourceLocation("c", color.getSerializedName() + "_glass_panes");
       copy(TagKey.create(Registry.BLOCK_REGISTRY, name), TagKey.create(Registry.ITEM_REGISTRY, name));
     }
 
