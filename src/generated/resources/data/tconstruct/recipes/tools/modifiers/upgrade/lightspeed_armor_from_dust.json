@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "tag": "c:dusts/glowstone"
+  },
+  "max_level": 3,
+  "needed_per_level": 64,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:lightspeed_armor"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
+}

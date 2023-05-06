@@ -1,0 +1,7 @@
+{
+  "type": "tconstruct:stat_boost",
+  "level_display": "tconstruct:default",
+  "flags": [
+    "tconstruct:elyta"
+  ]
+}

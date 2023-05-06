@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/osmium"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:storage_blocks/osmium"
+  },
+  "leftover": {
+    "tag": "c:ingots/osmium"
+  },
+  "material": "tconstruct:osmium",
+  "needed": 1,
+  "value": 9
+}

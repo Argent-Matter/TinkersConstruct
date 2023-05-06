@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:emeralds"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:emerald"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

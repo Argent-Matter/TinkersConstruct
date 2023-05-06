@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "minecraft:target"
+  },
+  "max_level": 3,
+  "needed_per_level": 10,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:trueshot"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/ranged"
+  }
+}

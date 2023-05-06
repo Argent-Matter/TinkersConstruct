@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/zinc"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 9000,
+    "tag": "c:molten_zinc"
+  },
+  "input": "tconstruct:rock",
+  "output": "tconstruct:whitestone",
+  "temperature": 420
+}

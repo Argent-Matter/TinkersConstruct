@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "tconstruct:tanks"
+    }
+  ],
+  "max_level": 5,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:tank"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/interactable"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/helmets"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/leggings"
+    }
+  ]
+}

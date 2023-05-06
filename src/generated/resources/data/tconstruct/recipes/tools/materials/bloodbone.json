@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tconstruct:bloodbone"
+  },
+  "material": "tconstruct:bloodbone",
+  "needed": 1,
+  "value": 1
+}

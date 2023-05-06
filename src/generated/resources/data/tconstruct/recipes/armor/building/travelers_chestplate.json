@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "tag": "c:copper_ingots"
+    },
+    "l": {
+      "tag": "c:leather"
+    }
+  },
+  "pattern": [
+    "l l",
+    "lcl",
+    "lcl"
+  ],
+  "result": {
+    "item": "tconstruct:travelers_chestplate"
+  }
+}

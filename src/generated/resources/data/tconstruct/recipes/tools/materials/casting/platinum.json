@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/platinum"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 9000,
+    "tag": "c:molten_platinum"
+  },
+  "output": "tconstruct:platinum",
+  "temperature": 970
+}

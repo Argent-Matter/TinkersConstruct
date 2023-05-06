@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "minecraft:music_discs"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:harmonious"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

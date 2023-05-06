@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:netherite_ingots"
+    }
+  ],
+  "max_level": 1,
+  "requirements": {
+    "error": "recipe.tconstruct.modifier.netherite_requirements",
+    "level": 1,
+    "tag": "tconstruct:gems"
+  },
+  "result": {
+    "level": 1,
+    "name": "tconstruct:netherite"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:prismarine_bricks"
+    },
+    {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    {
+      "item": "minecraft:prismarine_bricks"
+    },
+    {
+      "item": "minecraft:dark_prismarine"
+    },
+    {
+      "item": "minecraft:dark_prismarine"
+    }
+  ],
+  "result": {
+    "level": 1,
+    "name": "tconstruct:aqua_affinity"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  }
+}

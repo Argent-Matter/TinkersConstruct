@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/platinum"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:ingots/platinum"
+  },
+  "material": "tconstruct:platinum",
+  "needed": 1,
+  "value": 1
+}

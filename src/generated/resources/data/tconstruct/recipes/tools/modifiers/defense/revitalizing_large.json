@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "tconstruct:jeweled_apple"
+  },
+  "max_level": 3,
+  "needed_per_level": 2,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:revitalizing"
+  },
+  "slots": {
+    "defense": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/leggings"
+    }
+  ]
+}

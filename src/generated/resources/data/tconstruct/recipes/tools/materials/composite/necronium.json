@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/uranium"
+      ]
+    }
+  ],
+  "fluid": {
+    "amount": 9000,
+    "tag": "c:molten_uranium"
+  },
+  "input": "tconstruct:necrotic_bone",
+  "output": "tconstruct:necronium",
+  "temperature": 830
+}

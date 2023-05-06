@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/constantan"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:storage_blocks/constantan"
+  },
+  "leftover": {
+    "tag": "c:ingots/constantan"
+  },
+  "material": "tconstruct:constantan",
+  "needed": 1,
+  "value": 9
+}

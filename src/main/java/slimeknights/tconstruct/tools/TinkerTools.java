@@ -189,20 +189,20 @@ public final class TinkerTools extends TinkerModule {
   }
 
   public static void gatherData(FabricDataGenerator generator, ExistingFileHelper existingFileHelper) {
-    generator.addProvider(generator.isStrictValidationEnabled(), new ToolsRecipeProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialRecipeProvider(generator));
+    generator.addProvider(true, new ToolsRecipeProvider(generator));
+    generator.addProvider(true, new MaterialRecipeProvider(generator));
     MaterialDataProvider materials = new MaterialDataProvider(generator);
-    generator.addProvider(generator.isStrictValidationEnabled(), materials);
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialStatsDataProvider(generator, materials));
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialTraitsDataProvider(generator, materials));
-    generator.addProvider(generator.isStrictValidationEnabled(), new ToolDefinitionDataProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new StationSlotLayoutProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialTagProvider(generator, existingFileHelper));
+    generator.addProvider(true, materials);
+    generator.addProvider(true, new MaterialStatsDataProvider(generator, materials));
+    generator.addProvider(true, new MaterialTraitsDataProvider(generator, materials));
+    generator.addProvider(true, new ToolDefinitionDataProvider(generator));
+    generator.addProvider(true, new StationSlotLayoutProvider(generator));
+    generator.addProvider(true, new MaterialTagProvider(generator, existingFileHelper));
 
     TinkerMaterialSpriteProvider materialSprites = new TinkerMaterialSpriteProvider();
     TinkerPartSpriteProvider partSprites = new TinkerPartSpriteProvider();
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialRenderInfoProvider(generator, materialSprites));
-    generator.addProvider(generator.isStrictValidationEnabled(), new GeneratorPartTextureJsonGenerator(generator, TConstruct.MOD_ID, partSprites));
-    generator.addProvider(generator.isStrictValidationEnabled(), new MaterialPartTextureGenerator(generator, existingFileHelper, partSprites, materialSprites));
+    generator.addProvider(true, new MaterialRenderInfoProvider(generator, materialSprites));
+    generator.addProvider(true, new GeneratorPartTextureJsonGenerator(generator, TConstruct.MOD_ID, partSprites));
+    generator.addProvider(true, new MaterialPartTextureGenerator(generator, existingFileHelper, partSprites, materialSprites));
   }
 }

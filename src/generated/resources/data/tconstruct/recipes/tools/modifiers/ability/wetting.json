@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "tconstruct:tanks"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:copper_ingots"
+    },
+    {
+      "tag": "c:copper_ingots"
+    }
+  ],
+  "result": {
+    "level": 1,
+    "name": "tconstruct:wetting"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/leggings"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "texture": "tconstruct:slimewood_greenheart",
+  "fallbacks": [
+    "wood",
+    "primitive"
+  ],
+  "color": "82C873",
+  "luminosity": 0
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "tag": "c:storage_blocks/copper"
+  },
+  "leftover": {
+    "tag": "c:ingots/copper"
+  },
+  "material": "tconstruct:copper",
+  "needed": 1,
+  "value": 9
+}

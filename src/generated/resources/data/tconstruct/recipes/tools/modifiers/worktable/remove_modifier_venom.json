@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:remove_modifier",
+  "inputs": [
+    {
+      "ingredient": [
+        {
+          "type": "mantle:fluid_container",
+          "amount": 81000,
+          "display": {
+            "item": "tconstruct:venom_bucket"
+          },
+          "tag": "tconstruct:venom"
+        },
+        {
+          "type": "mantle:fluid_container",
+          "amount": 27000,
+          "display": {
+            "item": "tconstruct:venom_bottle"
+          },
+          "tag": "tconstruct:venom"
+        }
+      ]
+    }
+  ]
+}

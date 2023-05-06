@@ -1,0 +1,10 @@
+{
+  "redirect": [
+    {
+      "id": "tconstruct:bronze"
+    },
+    {
+      "id": "tconstruct:copper"
+    }
+  ]
+}

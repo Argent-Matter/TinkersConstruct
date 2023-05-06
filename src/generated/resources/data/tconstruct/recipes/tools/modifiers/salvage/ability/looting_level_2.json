@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "max_level": 2,
+  "min_level": 2,
+  "modifier": "tconstruct:looting",
+  "tools": {
+    "type": "forge:difference",
+    "base": [
+      {
+        "tag": "tconstruct:modifiable/melee_or_unarmed"
+      },
+      {
+        "tag": "tconstruct:modifiable/ranged"
+      }
+    ],
+    "subtracted": {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  }
+}

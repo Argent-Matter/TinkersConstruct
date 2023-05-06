@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "tag": "c:ender_pearls"
+    },
+    {
+      "tag": "c:ender_pearls"
+    }
+  ],
+  "max_level": 2,
+  "requirements": {
+    "error": "recipe.tconstruct.modifier.luck.level_2",
+    "level": 1,
+    "name": "tconstruct:luck"
+  },
+  "result": {
+    "level": 1,
+    "name": "tconstruct:luck"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/silver"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:storage_blocks/silver"
+  },
+  "leftover": {
+    "tag": "c:ingots/silver"
+  },
+  "material": "tconstruct:silver",
+  "needed": 1,
+  "value": 9
+}

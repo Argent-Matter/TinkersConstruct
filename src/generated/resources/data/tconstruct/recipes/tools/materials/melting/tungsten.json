@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material_melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/tungsten"
+      ]
+    }
+  ],
+  "input": "tconstruct:tungsten",
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_tungsten"
+  },
+  "temperature": 950
+}

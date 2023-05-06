@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "tag": "minecraft:wool"
+    },
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "max_level": 3,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:padded"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/melee_or_unarmed"
+  }
+}

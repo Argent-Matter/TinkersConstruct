@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier_set_worktable",
+  "add_to_set": false,
+  "blacklist": "tconstruct:invisible_ink_blacklist",
+  "data_key": "tconstruct:invisible_modifiers",
+  "inputs": [
+    {
+      "type": "mantle:fluid_container",
+      "amount": 1000,
+      "display": {
+        "item": "minecraft:milk_bucket"
+      },
+      "name": "milk:still_milk"
+    }
+  ]
+}

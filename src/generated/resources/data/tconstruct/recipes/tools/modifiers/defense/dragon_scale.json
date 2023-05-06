@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "tconstruct:dragon_scale"
+  },
+  "needed_per_level": 10,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:dragonborn"
+  },
+  "slots": {
+    "defense": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
+}

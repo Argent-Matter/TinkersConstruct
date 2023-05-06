@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/osmium"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:ingots/osmium"
+  },
+  "material": "tconstruct:osmium",
+  "needed": 1,
+  "value": 1
+}

@@ -1,0 +1,36 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ],
+  "max_level": 5,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:experienced"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee_or_unarmed"
+    },
+    {
+      "tag": "tconstruct:modifiable/harvest"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/leggings"
+    }
+  ]
+}

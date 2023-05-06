@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:string"
+    },
+    {
+      "item": "minecraft:spyglass"
+    },
+    {
+      "tag": "c:string"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    },
+    {
+      "tag": "c:dusts/redstone"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:scope"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/ranged/longbows"
+  }
+}

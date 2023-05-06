@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "max_level": 2,
+  "min_level": 2,
+  "modifier": "tconstruct:luck",
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

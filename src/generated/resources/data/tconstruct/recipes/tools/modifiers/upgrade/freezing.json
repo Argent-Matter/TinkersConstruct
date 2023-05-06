@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:powder_snow_bucket"
+    }
+  ],
+  "max_level": 2,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:freezing"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/ranged/bows"
+  }
+}

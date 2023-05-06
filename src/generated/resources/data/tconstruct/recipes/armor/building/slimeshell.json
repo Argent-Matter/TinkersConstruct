@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "minecraft:shulker_shell"
+  },
+  "cast_consumed": true,
+  "cooling_time": 252,
+  "fluid": {
+    "amount": 567000,
+    "tag": "tconstruct:ender_slime"
+  },
+  "result": "tconstruct:slime_leggings"
+}

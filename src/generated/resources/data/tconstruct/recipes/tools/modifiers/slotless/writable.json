@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:writable_book"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:writable"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

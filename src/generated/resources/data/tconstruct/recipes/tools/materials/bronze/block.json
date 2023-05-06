@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/bronze"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:storage_blocks/bronze"
+  },
+  "leftover": {
+    "tag": "c:ingots/bronze"
+  },
+  "material": "tconstruct:bronze",
+  "needed": 1,
+  "value": 9
+}

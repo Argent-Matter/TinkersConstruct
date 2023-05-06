@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "tag": "c:colorless_glass"
+    },
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "item": "minecraft:kelp"
+    },
+    {
+      "item": "minecraft:kelp"
+    }
+  ],
+  "max_level": 3,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:respiration"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  }
+}

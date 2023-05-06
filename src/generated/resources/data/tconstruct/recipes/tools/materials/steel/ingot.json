@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/steel"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:ingots/steel"
+  },
+  "material": "tconstruct:steel",
+  "needed": 1,
+  "value": 1
+}

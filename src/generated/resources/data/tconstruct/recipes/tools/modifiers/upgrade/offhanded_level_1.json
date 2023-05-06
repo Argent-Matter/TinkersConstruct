@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:fire_charge"
+    },
+    {
+      "tag": "c:slimeball/ichor"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:offhanded"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/interactable/right"
+  }
+}

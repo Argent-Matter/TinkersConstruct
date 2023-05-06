@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "tag": "c:ingots/hepatizon"
+    },
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "max_level": 5,
+  "requirements": {
+    "error": "recipe.tconstruct.modifier.tool_belt",
+    "level": 4,
+    "name": "tconstruct:tool_belt"
+  },
+  "result": {
+    "level": 1,
+    "name": "tconstruct:tool_belt"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/leggings"
+  }
+}

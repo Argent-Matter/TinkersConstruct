@@ -1,0 +1,49 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:copper_ingots"
+    },
+    {
+      "ingredient": [
+        {
+          "item": "minecraft:cornflower"
+        },
+        {
+          "item": "minecraft:blue_orchid"
+        }
+      ]
+    },
+    {
+      "tag": "c:copper_ingots"
+    },
+    {
+      "tag": "c:lapis_blocks"
+    },
+    {
+      "tag": "c:lapis_blocks"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:looting"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "type": "forge:difference",
+    "base": [
+      {
+        "tag": "tconstruct:modifiable/melee_or_unarmed"
+      },
+      {
+        "tag": "tconstruct:modifiable/ranged"
+      }
+    ],
+    "subtracted": {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  }
+}

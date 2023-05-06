@@ -107,7 +107,7 @@ loom {
             vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
             vmArg "-Dfabric-api.datagen.modid=tconstruct"
             // from ae2
-            property "slimeknights.tconstruct.existingData", file("src/main/resources").absolutePath
+            property "porting_lib.datagen.existing_resources", file("src/main/resources").absolutePath
 
             runDir "build/datagen"
         }

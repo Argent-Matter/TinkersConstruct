@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material_melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/bronze"
+      ]
+    }
+  ],
+  "input": "tconstruct:bronze",
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_bronze"
+  },
+  "temperature": 700
+}

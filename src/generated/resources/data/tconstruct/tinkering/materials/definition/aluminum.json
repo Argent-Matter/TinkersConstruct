@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "fabric:load_conditions": [
+      {
+        "condition": "fabric:or",
+        "values": [
+          {
+            "condition": "tconstruct:config",
+            "prop": "force_integration_materials"
+          },
+          {
+            "condition": "fabric:item_tags_populated",
+            "values": [
+              "c:ingots/aluminum"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "craftable": false,
+  "tier": 2,
+  "sortOrder": 9,
+  "hidden": false
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "tag": "c:copper_ingots"
+    },
+    "g": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "l": {
+      "tag": "c:leather"
+    }
+  },
+  "pattern": [
+    "l l",
+    "glg",
+    "c c"
+  ],
+  "result": {
+    "item": "tconstruct:travelers_helmet"
+  }
+}

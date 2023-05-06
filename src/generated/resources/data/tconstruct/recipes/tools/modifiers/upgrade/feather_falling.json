@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "minecraft:feather"
+  },
+  "max_level": 4,
+  "needed_per_level": 40,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:feather_falling"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
+}

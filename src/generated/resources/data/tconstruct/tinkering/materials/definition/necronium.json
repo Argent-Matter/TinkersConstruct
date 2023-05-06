@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "fabric:load_conditions": [
+      {
+        "condition": "fabric:or",
+        "values": [
+          {
+            "condition": "tconstruct:config",
+            "prop": "force_integration_materials"
+          },
+          {
+            "condition": "fabric:item_tags_populated",
+            "values": [
+              "c:ingots/uranium"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "craftable": true,
+  "tier": 3,
+  "sortOrder": 7,
+  "hidden": false
+}

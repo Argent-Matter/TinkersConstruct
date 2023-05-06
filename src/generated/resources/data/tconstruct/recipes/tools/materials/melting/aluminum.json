@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material_melting",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/aluminum"
+      ]
+    }
+  ],
+  "input": "tconstruct:aluminum",
+  "result": {
+    "amount": 9000,
+    "fluid": "tconstruct:molten_aluminum"
+  },
+  "temperature": 425
+}

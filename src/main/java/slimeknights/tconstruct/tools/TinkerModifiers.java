@@ -544,9 +544,9 @@ public final class TinkerModifiers extends TinkerModule {
   }
 
   public static void gatherData(FabricDataGenerator generator, ExistingFileHelper helper) {
-    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierRecipeProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new SpillingFluidProvider(generator));
-    generator.addProvider(generator.isStrictValidationEnabled(), new ModifierTagProvider(generator, helper));
+    generator.addProvider(true, new ModifierProvider(generator));
+    generator.addProvider(true, new ModifierRecipeProvider(generator));
+    generator.addProvider(true, new SpillingFluidProvider(generator));
+    generator.addProvider(true, new ModifierTagProvider(generator, helper));
   }
 }

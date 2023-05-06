@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "minecraft:blaze_powder"
+  },
+  "max_level": 5,
+  "needed_per_level": 25,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:fiery"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee_or_unarmed"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged/bows"
+    }
+  ]
+}

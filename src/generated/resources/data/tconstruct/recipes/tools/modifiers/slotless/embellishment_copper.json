@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:swappable_modifier",
+  "inputs": [
+    {
+      "tag": "c:ingots/copper"
+    },
+    {
+      "tag": "c:ingots/copper"
+    },
+    {
+      "tag": "c:ingots/copper"
+    }
+  ],
+  "result": {
+    "name": "tconstruct:embellishment",
+    "value": "tconstruct:copper"
+  },
+  "tools": [
+    {
+      "item": "tconstruct:plate_boots"
+    },
+    {
+      "item": "tconstruct:plate_leggings"
+    },
+    {
+      "item": "tconstruct:plate_chestplate"
+    },
+    {
+      "item": "tconstruct:plate_helmet"
+    }
+  ]
+}

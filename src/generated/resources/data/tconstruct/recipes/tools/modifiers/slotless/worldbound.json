@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:ingots/netherite_scrap"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:worldbound"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:nuggets/silver"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:nuggets/silver"
+  },
+  "material": "tconstruct:silver",
+  "needed": 9,
+  "value": 1
+}

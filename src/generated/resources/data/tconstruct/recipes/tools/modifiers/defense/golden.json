@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "tag": "c:gold_ingots"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:golden"
+  },
+  "slots": {
+    "defense": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
+}

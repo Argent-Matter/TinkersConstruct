@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "type": "forge:difference",
+      "base": {
+        "tag": "c:heads"
+      },
+      "subtracted": {
+        "item": "minecraft:dragon_head"
+      }
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:recapitated"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

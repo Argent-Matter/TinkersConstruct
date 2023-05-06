@@ -1,0 +1,45 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "ingredient": [
+        {
+          "item": "tconstruct:seared_faucet"
+        },
+        {
+          "item": "tconstruct:scorched_faucet"
+        }
+      ]
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "ingredient": [
+        {
+          "item": "tconstruct:seared_faucet"
+        },
+        {
+          "item": "tconstruct:scorched_faucet"
+        }
+      ]
+    },
+    {
+      "tag": "c:ender_pearls"
+    },
+    {
+      "tag": "c:ender_pearls"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:bucketing"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/interactable"
+  }
+}

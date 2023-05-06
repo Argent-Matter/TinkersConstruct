@@ -84,6 +84,7 @@ public abstract class TinkerModule {
   protected static final LazyRegistrar<LootPoolEntryType> LOOT_ENTRIES = LazyRegistrar.create(Registry.LOOT_ENTRY_REGISTRY, TConstruct.MOD_ID);
   // worldgen
   protected static final LazyRegistrar<Feature<?>> FEATURES = LazyRegistrar.create(Registry.FEATURE, TConstruct.MOD_ID);
+  protected static final ConfiguredFeatureDeferredRegister CONFIGURED_FEATURES = new ConfiguredFeatureDeferredRegister(TConstruct.MOD_ID);
   protected static final LazyRegistrar<StructureType<?>> STRUCTURE_TYPES = LazyRegistrar.create(Registry.STRUCTURE_TYPES, TConstruct.MOD_ID);
   protected static final LazyRegistrar<StructurePieceType> STRUCTURE_PIECE = LazyRegistrar.create(Registry.STRUCTURE_PIECE, TConstruct.MOD_ID);
   protected static final LazyRegistrar<BlockStateProviderType<?>> BLOCK_STATE_PROVIDER_TYPES = LazyRegistrar.create(Registry.BLOCKSTATE_PROVIDER_TYPES, TConstruct.MOD_ID);
@@ -125,6 +126,7 @@ public abstract class TinkerModule {
     TinkerRecipeTypes.init();
     // worldgen
     FEATURES.register();
+    CONFIGURED_FEATURES.register();
     STRUCTURE_TYPES.register();
     STRUCTURE_PIECE.register();
     BLOCK_STATE_PROVIDER_TYPES.register();

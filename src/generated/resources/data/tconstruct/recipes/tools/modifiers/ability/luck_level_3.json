@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:ingots/rose_gold"
+    },
+    {
+      "item": "minecraft:rabbit_foot"
+    },
+    {
+      "tag": "c:ingots/rose_gold"
+    },
+    {
+      "tag": "c:diamonds"
+    },
+    {
+      "item": "minecraft:name_tag"
+    }
+  ],
+  "max_level": 3,
+  "requirements": {
+    "error": "recipe.tconstruct.modifier.luck.level_3",
+    "level": 2,
+    "name": "tconstruct:luck"
+  },
+  "result": {
+    "level": 1,
+    "name": "tconstruct:luck"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:raw_materials"
+    },
+    {
+      "item": "minecraft:blast_furnace"
+    },
+    {
+      "tag": "c:ingots"
+    },
+    {
+      "tag": "c:coal_blocks"
+    },
+    {
+      "tag": "c:coal_blocks"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:autosmelt"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

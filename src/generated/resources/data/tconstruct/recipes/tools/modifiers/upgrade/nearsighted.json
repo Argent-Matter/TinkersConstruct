@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 1,
+  "input": {
+    "item": "minecraft:ink_sac"
+  },
+  "needed_per_level": 45,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:nearsighted"
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

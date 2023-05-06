@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "amount": 20250,
+    "tag": "tconstruct:blood"
+  },
+  "input": "tconstruct:bone",
+  "output": "tconstruct:bloodbone",
+  "temperature": 36
+}

@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:piston"
+    },
+    {
+      "tag": "c:ingots/queens_slime"
+    },
+    {
+      "item": "minecraft:piston"
+    },
+    {
+      "tag": "c:slimeball/ender"
+    },
+    {
+      "tag": "c:slimeball/ender"
+    }
+  ],
+  "result": {
+    "level": 1,
+    "name": "tconstruct:reach"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  }
+}

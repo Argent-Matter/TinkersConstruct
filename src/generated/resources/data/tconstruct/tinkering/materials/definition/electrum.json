@@ -1,0 +1,25 @@
+{
+  "condition": {
+    "fabric:load_conditions": [
+      {
+        "condition": "fabric:or",
+        "values": [
+          {
+            "condition": "tconstruct:config",
+            "prop": "force_integration_materials"
+          },
+          {
+            "condition": "fabric:item_tags_populated",
+            "values": [
+              "c:ingots/electrum"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "craftable": false,
+  "tier": 3,
+  "sortOrder": 8,
+  "hidden": false
+}

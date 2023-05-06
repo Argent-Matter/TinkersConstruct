@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:ingots/lead"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:ingots/lead"
+  },
+  "material": "tconstruct:lead",
+  "needed": 1,
+  "value": 1
+}

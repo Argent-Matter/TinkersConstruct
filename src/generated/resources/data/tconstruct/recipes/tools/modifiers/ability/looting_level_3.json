@@ -1,0 +1,44 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "tag": "c:ingots/rose_gold"
+    },
+    {
+      "item": "minecraft:rabbit_foot"
+    },
+    {
+      "tag": "c:ingots/rose_gold"
+    },
+    {
+      "tag": "c:diamonds"
+    },
+    {
+      "item": "minecraft:name_tag"
+    }
+  ],
+  "max_level": 3,
+  "requirements": {
+    "error": "recipe.tconstruct.modifier.looting.level_3",
+    "level": 2,
+    "name": "tconstruct:looting"
+  },
+  "result": {
+    "level": 1,
+    "name": "tconstruct:looting"
+  },
+  "tools": {
+    "type": "forge:difference",
+    "base": [
+      {
+        "tag": "tconstruct:modifiable/melee_or_unarmed"
+      },
+      {
+        "tag": "tconstruct:modifiable/ranged"
+      }
+    ],
+    "subtracted": {
+      "tag": "tconstruct:modifiable/harvest"
+    }
+  }
+}

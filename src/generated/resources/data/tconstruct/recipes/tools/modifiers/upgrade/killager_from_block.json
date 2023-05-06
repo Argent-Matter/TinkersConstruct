@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:incremental_modifier",
+  "amount_per_item": 9,
+  "input": {
+    "tag": "c:lapis_blocks"
+  },
+  "max_level": 5,
+  "needed_per_level": 45,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:killager"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/melee_or_unarmed"
+  }
+}

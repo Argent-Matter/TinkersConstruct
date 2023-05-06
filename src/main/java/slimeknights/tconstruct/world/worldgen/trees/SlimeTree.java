@@ -29,23 +29,24 @@ public class SlimeTree extends AbstractTreeGrower {
   @Override
   protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource randomIn, boolean largeHive) {
     return switch (this.foliageType) {
-      case EARTH -> TinkerStructuresData.earthSlimeTree;
-      case SKY -> TinkerStructuresData.skySlimeTree;
-      case ENDER -> TinkerStructuresData.enderSlimeTree;
-      case BLOOD -> TinkerStructuresData.bloodSlimeFungus;
-      case ICHOR -> TinkerStructuresData.ichorSlimeFungus;
-    };  }
+      case EARTH -> TinkerStructures.earthSlimeTree.getHolder().orElseThrow();
+      case SKY -> TinkerStructures.skySlimeTree.getHolder().orElseThrow();
+      case ENDER -> TinkerStructures.enderSlimeTree.getHolder().orElseThrow();
+      case BLOOD -> TinkerStructures.bloodSlimeFungus.getHolder().orElseThrow();
+      case ICHOR -> TinkerStructures.ichorSlimeFungus.getHolder().orElseThrow();
+    };
+  }
 
   /**
    * Get a {@link ConfiguredFeature} of tree
    */
   private ConfiguredFeature<?, ?> getSlimeTreeFeature() {
     return switch (this.foliageType) {
-      case EARTH -> TinkerStructuresData.earthSlimeTree.value();
-      case SKY -> TinkerStructuresData.skySlimeTree.value();
-      case ENDER -> TinkerStructuresData.enderSlimeTree.value();
-      case BLOOD -> TinkerStructuresData.bloodSlimeFungus.value();
-      case ICHOR -> TinkerStructuresData.ichorSlimeFungus.value();
+      case EARTH -> TinkerStructures.earthSlimeTree.get();
+      case SKY -> TinkerStructures.skySlimeTree.get();
+      case ENDER -> TinkerStructures.enderSlimeTree.get();
+      case BLOOD -> TinkerStructures.bloodSlimeFungus.get();
+      case ICHOR -> TinkerStructures.ichorSlimeFungus.get();
     };
 
   }

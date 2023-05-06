@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "tag": "c:diamonds"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "tag": "c:string"
+    },
+    {
+      "tag": "c:string"
+    }
+  ],
+  "max_level": 1,
+  "result": {
+    "level": 1,
+    "name": "tconstruct:ambidextrous"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/unarmed"
+  }
+}

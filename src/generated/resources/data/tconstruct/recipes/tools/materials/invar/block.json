@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:material",
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:item_tags_populated",
+      "values": [
+        "c:storage_blocks/invar"
+      ]
+    }
+  ],
+  "ingredient": {
+    "tag": "c:storage_blocks/invar"
+  },
+  "leftover": {
+    "tag": "c:ingots/invar"
+  },
+  "material": "tconstruct:invar",
+  "needed": 1,
+  "value": 9
+}
