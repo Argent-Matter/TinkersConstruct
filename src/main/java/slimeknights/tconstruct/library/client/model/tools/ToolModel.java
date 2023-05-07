@@ -50,6 +50,7 @@ import net.minecraft.world.phys.Vec2;
 import slimeknights.mantle.client.model.util.BakedItemModel;
 import slimeknights.mantle.client.model.util.MantleItemLayerModel;
 import io.github.fabricators_of_create.porting_lib.render.TransformTypeDependentItemBakedModel;
+import slimeknights.mantle.client.model.util.ModelHelper;
 import slimeknights.mantle.util.ItemLayerPixels;
 import slimeknights.mantle.util.JsonHelper;
 import slimeknights.mantle.util.ReversedListBuilder;
@@ -522,7 +523,7 @@ public class ToolModel implements IUnbakedGeometry<ToolModel> {
       if (type == TransformType.GUI) {
         return ((TransformTypeDependentItemBakedModel)this.guiModel).handlePerspective(type, mat);
       }
-      return PerspectiveMapWrapper.handlePerspective(this, transforms, type, mat);
+      return ModelHelper.handlePerspective(this, transforms, type, mat);
     }
 
     /* Misc properties */
