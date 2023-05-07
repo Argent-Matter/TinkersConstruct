@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/lumium"
+        "c:lumium_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lumium"
   },
   "result": {
-    "tag": "c:wires/lumium"
+    "tag": "c:lumium_wires"
   }
 }

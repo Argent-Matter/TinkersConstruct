@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/tin"
+        "c:tin_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_tin"
   },
   "result": {
-    "tag": "c:plates/tin"
+    "tag": "c:tin_plates"
   }
 }

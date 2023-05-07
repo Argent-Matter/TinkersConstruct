@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:ingots/iron"
+    "tag": "c:iron_ingots"
   },
   "material": "tconstruct:iron",
   "needed": 1,

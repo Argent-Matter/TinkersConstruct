@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/enderium"
+        "c:enderium_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_enderium"
   },
   "result": {
-    "tag": "c:plates/enderium"
+    "tag": "c:enderium_plates"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/signalum"
+        "c:signalum_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_signalum"
   },
   "result": {
-    "tag": "c:gears/signalum"
+    "tag": "c:signalum_gears"
   }
 }

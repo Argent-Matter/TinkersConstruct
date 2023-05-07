@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/brass"
+        "c:brass_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_brass"
   },
   "result": {
-    "tag": "c:gears/brass"
+    "tag": "c:brass_gears"
   }
 }

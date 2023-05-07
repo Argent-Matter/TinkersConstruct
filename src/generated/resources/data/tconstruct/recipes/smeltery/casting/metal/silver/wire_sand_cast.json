@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/silver"
+        "c:silver_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:wires/silver"
+    "tag": "c:silver_wires"
   }
 }

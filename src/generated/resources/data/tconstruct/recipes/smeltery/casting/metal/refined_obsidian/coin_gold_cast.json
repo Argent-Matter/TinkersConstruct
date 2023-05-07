@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/refined_obsidian"
+        "c:refined_obsidian_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_refined_obsidian"
   },
   "result": {
-    "tag": "c:coins/refined_obsidian"
+    "tag": "c:refined_obsidian_coins"
   }
 }

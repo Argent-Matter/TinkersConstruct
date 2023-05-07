@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/nickel"
+        "c:nickel_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_nickel"
   },
   "result": {
-    "tag": "c:gears/nickel"
+    "tag": "c:nickel_gears"
   }
 }

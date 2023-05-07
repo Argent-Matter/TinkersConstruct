@@ -12,7 +12,7 @@
     "tag": "c:constantan_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/constantan"
+    "tag": "c:constantan_ingots"
   },
   "material": "tconstruct:constantan",
   "needed": 1,

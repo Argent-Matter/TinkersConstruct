@@ -12,7 +12,7 @@
     "tag": "c:platinum_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/platinum"
+    "tag": "c:platinum_ingots"
   },
   "material": "tconstruct:platinum",
   "needed": 1,

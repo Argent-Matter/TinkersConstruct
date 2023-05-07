@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/enderium"
+        "c:enderium_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_enderium"
   },
   "result": {
-    "tag": "c:nuggets/enderium"
+    "tag": "c:enderium_nuggets"
   }
 }

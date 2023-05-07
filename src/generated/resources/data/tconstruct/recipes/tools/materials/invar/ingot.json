@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/invar"
+        "c:invar_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/invar"
+    "tag": "c:invar_ingots"
   },
   "material": "tconstruct:invar",
   "needed": 1,

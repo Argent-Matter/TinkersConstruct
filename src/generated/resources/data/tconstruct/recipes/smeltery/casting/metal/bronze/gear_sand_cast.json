@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/bronze"
+        "c:bronze_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:gears/bronze"
+    "tag": "c:bronze_gears"
   }
 }

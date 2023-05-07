@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/osmium"
+        "c:osmium_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:nuggets/osmium"
+    "tag": "c:osmium_nuggets"
   }
 }

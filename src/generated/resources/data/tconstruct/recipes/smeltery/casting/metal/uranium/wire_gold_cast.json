@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/uranium"
+        "c:uranium_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_uranium"
   },
   "result": {
-    "tag": "c:wires/uranium"
+    "tag": "c:uranium_wires"
   }
 }

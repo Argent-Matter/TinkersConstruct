@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/hepatizon"
+        "c:hepatizon_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_hepatizon"
   },
   "result": {
-    "tag": "c:coins/hepatizon"
+    "tag": "c:hepatizon_coins"
   }
 }

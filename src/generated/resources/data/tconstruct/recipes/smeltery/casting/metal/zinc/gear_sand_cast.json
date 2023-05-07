@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/zinc"
+        "c:zinc_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_zinc"
   },
   "result": {
-    "tag": "c:gears/zinc"
+    "tag": "c:zinc_gears"
   }
 }

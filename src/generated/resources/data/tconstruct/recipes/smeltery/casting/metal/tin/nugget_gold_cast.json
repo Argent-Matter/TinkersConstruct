@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/tin"
+        "c:tin_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_tin"
   },
   "result": {
-    "tag": "c:nuggets/tin"
+    "tag": "c:tin_nuggets"
   }
 }

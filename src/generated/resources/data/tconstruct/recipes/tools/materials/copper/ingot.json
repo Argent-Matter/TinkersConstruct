@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:ingots/copper"
+    "tag": "c:copper_ingots"
   },
   "material": "tconstruct:copper",
   "needed": 1,

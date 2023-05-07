@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/constantan"
+        "c:constantan_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:coins/constantan"
+    "tag": "c:constantan_coins"
   }
 }

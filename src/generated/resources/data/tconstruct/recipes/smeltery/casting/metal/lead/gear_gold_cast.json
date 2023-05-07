@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/lead"
+        "c:lead_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lead"
   },
   "result": {
-    "tag": "c:gears/lead"
+    "tag": "c:lead_gears"
   }
 }

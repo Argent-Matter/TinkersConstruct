@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/osmium"
+        "c:osmium_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/osmium"
+    "tag": "c:osmium_ingots"
   },
   "material": "tconstruct:osmium",
   "needed": 1,

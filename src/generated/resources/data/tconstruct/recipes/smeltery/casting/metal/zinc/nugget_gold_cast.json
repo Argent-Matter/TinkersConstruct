@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/zinc"
+        "c:zinc_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_zinc"
   },
   "result": {
-    "tag": "c:nuggets/zinc"
+    "tag": "c:zinc_nuggets"
   }
 }

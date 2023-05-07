@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/rose_gold"
+        "c:rose_gold_rods"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_rose_gold"
   },
   "result": {
-    "tag": "c:rods/rose_gold"
+    "tag": "c:rose_gold_rods"
   }
 }

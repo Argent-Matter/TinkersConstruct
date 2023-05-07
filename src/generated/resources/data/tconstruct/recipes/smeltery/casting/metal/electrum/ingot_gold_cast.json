@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/electrum"
+        "c:electrum_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_electrum"
   },
   "result": {
-    "tag": "c:ingots/electrum"
+    "tag": "c:electrum_ingots"
   }
 }

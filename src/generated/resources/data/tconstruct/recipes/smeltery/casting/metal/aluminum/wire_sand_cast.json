@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/aluminum"
+        "c:aluminum_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_aluminum"
   },
   "result": {
-    "tag": "c:wires/aluminum"
+    "tag": "c:aluminum_wires"
   }
 }

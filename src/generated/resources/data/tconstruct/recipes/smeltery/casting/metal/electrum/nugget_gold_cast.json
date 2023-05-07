@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/electrum"
+        "c:electrum_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_electrum"
   },
   "result": {
-    "tag": "c:nuggets/electrum"
+    "tag": "c:electrum_nuggets"
   }
 }

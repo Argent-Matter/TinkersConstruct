@@ -12,7 +12,7 @@
     "tag": "c:tungsten_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/tungsten"
+    "tag": "c:tungsten_ingots"
   },
   "material": "tconstruct:tungsten",
   "needed": 1,

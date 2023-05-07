@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:nuggets/gold"
+    "tag": "c:gold_nuggets"
   },
   "material": "tconstruct:gold",
   "needed": 9,

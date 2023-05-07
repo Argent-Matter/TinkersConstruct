@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/lead"
+        "c:lead_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_lead"
   },
   "result": {
-    "tag": "c:wires/lead"
+    "tag": "c:lead_wires"
   }
 }

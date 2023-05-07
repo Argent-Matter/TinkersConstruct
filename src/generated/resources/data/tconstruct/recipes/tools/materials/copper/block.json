@@ -4,7 +4,7 @@
     "tag": "c:copper_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/copper"
+    "tag": "c:copper_ingots"
   },
   "material": "tconstruct:copper",
   "needed": 1,

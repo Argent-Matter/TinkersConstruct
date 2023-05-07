@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/refined_glowstone"
+        "c:refined_glowstone_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:coins/refined_glowstone"
+    "tag": "c:refined_glowstone_coins"
   }
 }

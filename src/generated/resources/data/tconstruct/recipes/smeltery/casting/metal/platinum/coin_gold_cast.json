@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/platinum"
+        "c:platinum_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_platinum"
   },
   "result": {
-    "tag": "c:coins/platinum"
+    "tag": "c:platinum_coins"
   }
 }

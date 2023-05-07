@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/steel"
+        "c:steel_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/steel"
+    "tag": "c:steel_nuggets"
   },
   "material": "tconstruct:steel",
   "needed": 9,

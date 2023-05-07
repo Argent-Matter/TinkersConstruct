@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/silver"
+        "c:silver_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:plates/silver"
+    "tag": "c:silver_plates"
   }
 }

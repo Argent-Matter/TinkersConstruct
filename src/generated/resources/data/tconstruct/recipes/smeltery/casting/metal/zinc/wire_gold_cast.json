@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/zinc"
+        "c:zinc_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_zinc"
   },
   "result": {
-    "tag": "c:wires/zinc"
+    "tag": "c:zinc_wires"
   }
 }

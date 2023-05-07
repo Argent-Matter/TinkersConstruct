@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/silver"
+        "c:silver_nuggets"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:nuggets/silver"
+    "tag": "c:silver_nuggets"
   },
   "material": "tconstruct:silver",
   "needed": 9,

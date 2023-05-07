@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/aluminum"
+        "c:aluminum_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_aluminum"
   },
   "result": {
-    "tag": "c:ingots/aluminum"
+    "tag": "c:aluminum_ingots"
   }
 }

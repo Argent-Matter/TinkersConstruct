@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/hepatizon"
+        "c:hepatizon_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_hepatizon"
   },
   "result": {
-    "tag": "c:wires/hepatizon"
+    "tag": "c:hepatizon_wires"
   }
 }

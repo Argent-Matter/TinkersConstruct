@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/rose_gold"
+        "c:rose_gold_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_rose_gold"
   },
   "result": {
-    "tag": "c:wires/rose_gold"
+    "tag": "c:rose_gold_wires"
   }
 }

@@ -3,7 +3,7 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:copper_ores"
+      "tag": "c:copper_ores"
     },
     {
       "condition": "tconstruct:has_modifier",
@@ -12,7 +12,7 @@
   ],
   "entry": {
     "type": "tconstruct:tag_preference",
-    "tag": "forge:nuggets/copper"
+    "tag": "c:copper_nuggets"
   },
   "functions": [
     {
@@ -40,7 +40,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:copper_ores"
+          "tag": "c:copper_ores"
         }
       }
     }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/bronze"
+        "c:bronze_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:rods/bronze"
+    "tag": "c:bronze_rods"
   }
 }

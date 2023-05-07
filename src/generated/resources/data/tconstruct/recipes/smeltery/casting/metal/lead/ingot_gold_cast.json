@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/lead"
+        "c:lead_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lead"
   },
   "result": {
-    "tag": "c:ingots/lead"
+    "tag": "c:lead_ingots"
   }
 }

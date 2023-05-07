@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/invar"
+        "c:invar_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:nuggets/invar"
+    "tag": "c:invar_nuggets"
   }
 }

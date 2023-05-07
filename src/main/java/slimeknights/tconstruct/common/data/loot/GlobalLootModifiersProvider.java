@@ -85,8 +85,8 @@ public class GlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
   /** Adds lustrous for an ore */
   private void addLustrous(String name, boolean optional) {
-    TagKey<Item> nuggets = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", name + "_nuggets"));
-    ResourceLocation ores = new ResourceLocation("forge", name + "_ores");
+    TagKey<Item> nuggets = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", name + "_nuggets"));
+    ResourceLocation ores = new ResourceLocation("c", name + "_ores");
     AddEntryLootModifier.Builder builder = AddEntryLootModifier.builder(TagPreferenceLootEntry.tagPreference(nuggets));
     builder.addCondition(new BlockTagLootCondition(TagKey.create(Registry.BLOCK_REGISTRY, ores)))
            .addCondition(new ContainsItemModifierLootCondition(Ingredient.of(TagKey.create(Registry.ITEM_REGISTRY, ores))).inverted());

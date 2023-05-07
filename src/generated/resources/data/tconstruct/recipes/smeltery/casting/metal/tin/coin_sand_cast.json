@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/tin"
+        "c:tin_coins"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_tin"
   },
   "result": {
-    "tag": "c:coins/tin"
+    "tag": "c:tin_coins"
   }
 }

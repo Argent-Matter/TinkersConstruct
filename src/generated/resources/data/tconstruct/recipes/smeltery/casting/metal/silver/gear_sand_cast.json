@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/silver"
+        "c:silver_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:gears/silver"
+    "tag": "c:silver_gears"
   }
 }

@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/lead"
+        "c:lead_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/lead"
+    "tag": "c:lead_ingots"
   },
   "material": "tconstruct:lead",
   "needed": 1,

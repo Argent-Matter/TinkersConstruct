@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/tin"
+        "c:tin_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_tin"
   },
   "result": {
-    "tag": "c:wires/tin"
+    "tag": "c:tin_wires"
   }
 }

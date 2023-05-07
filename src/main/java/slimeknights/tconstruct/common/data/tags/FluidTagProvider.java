@@ -2,8 +2,8 @@ package slimeknights.tconstruct.common.data.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.core.Registry;
-import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 import slimeknights.mantle.datagen.MantleTags;
 import slimeknights.mantle.registration.object.FluidObject;
@@ -21,77 +21,77 @@ public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
   public void generateTags() {
     // first, register common tags
     // slime
-    tagLocal(TinkerFluids.blood);
+    tagLocal(TinkerFluids.blood, FluidTags.WATER);
     tagAll(TinkerFluids.earthSlime);
     tagLocal(TinkerFluids.skySlime);
     tagLocal(TinkerFluids.enderSlime);
-    tagAll(TinkerFluids.magma);
-    tagLocal(TinkerFluids.venom);
+    tagAll(TinkerFluids.magma, FluidTags.LAVA);
+    tagLocal(TinkerFluids.venom, FluidTags.WATER);
     // basic molten
-    tagLocal(TinkerFluids.searedStone);
-    tagLocal(TinkerFluids.scorchedStone);
-    tagLocal(TinkerFluids.moltenClay);
-    tagLocal(TinkerFluids.moltenGlass);
-    tagLocal(TinkerFluids.liquidSoul);
-    tagLocal(TinkerFluids.moltenPorcelain);
+    tagLocal(TinkerFluids.searedStone, FluidTags.LAVA);
+    tagLocal(TinkerFluids.scorchedStone, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenClay, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenGlass, FluidTags.LAVA);
+    tagLocal(TinkerFluids.liquidSoul, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenPorcelain, FluidTags.LAVA);
     // fancy molten
-    tagLocal(TinkerFluids.moltenObsidian);
-    tagLocal(TinkerFluids.moltenEmerald);
-    tagLocal(TinkerFluids.moltenQuartz);
-    tagLocal(TinkerFluids.moltenDiamond);
-    tagLocal(TinkerFluids.moltenAmethyst);
-    tagAll(TinkerFluids.moltenEnder);
-    tagLocal(TinkerFluids.blazingBlood);
+    tagLocal(TinkerFluids.moltenObsidian, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenEmerald, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenQuartz, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenDiamond, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenAmethyst, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenEnder, FluidTags.LAVA);
+    tagLocal(TinkerFluids.blazingBlood, FluidTags.LAVA);
     // ores
-    tagAll(TinkerFluids.moltenIron);
-    tagAll(TinkerFluids.moltenGold);
-    tagAll(TinkerFluids.moltenCopper);
-    tagAll(TinkerFluids.moltenCobalt);
-    tagLocal(TinkerFluids.moltenDebris);
+    tagAll(TinkerFluids.moltenIron, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenGold, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenCopper, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenCobalt, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenDebris, FluidTags.LAVA);
     // alloys
-    tagLocal(TinkerFluids.moltenSlimesteel);
-    tagAll(TinkerFluids.moltenAmethystBronze);
-    tagAll(TinkerFluids.moltenRoseGold);
-    tagLocal(TinkerFluids.moltenPigIron);
+    tagLocal(TinkerFluids.moltenSlimesteel, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenAmethystBronze, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenRoseGold, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenPigIron, FluidTags.LAVA);
     // nether alloys
-    tagAll(TinkerFluids.moltenManyullyn);
-    tagAll(TinkerFluids.moltenHepatizon);
-    tagLocal(TinkerFluids.moltenQueensSlime);
-    tagLocal(TinkerFluids.moltenSoulsteel);
-    tagAll(TinkerFluids.moltenNetherite);
+    tagAll(TinkerFluids.moltenManyullyn, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenHepatizon, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenQueensSlime, FluidTags.LAVA);
+    tagLocal(TinkerFluids.moltenSoulsteel, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenNetherite, FluidTags.LAVA);
     // end alloys
-    tagLocal(TinkerFluids.moltenKnightslime);
+    tagLocal(TinkerFluids.moltenKnightslime, FluidTags.LAVA);
     // compat ores
-    tagAll(TinkerFluids.moltenTin);
-    tagAll(TinkerFluids.moltenAluminum);
-    tagAll(TinkerFluids.moltenLead);
-    tagAll(TinkerFluids.moltenSilver);
-    tagAll(TinkerFluids.moltenNickel);
-    tagAll(TinkerFluids.moltenZinc);
-    tagAll(TinkerFluids.moltenPlatinum);
-    tagAll(TinkerFluids.moltenTungsten);
-    tagAll(TinkerFluids.moltenOsmium);
-    tagAll(TinkerFluids.moltenUranium);
+    tagAll(TinkerFluids.moltenTin, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenAluminum, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenLead, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenSilver, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenNickel, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenZinc, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenPlatinum, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenTungsten, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenOsmium, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenUranium, FluidTags.LAVA);
     // compat alloys
-    tagAll(TinkerFluids.moltenBronze);
-    tagAll(TinkerFluids.moltenBrass);
-    tagAll(TinkerFluids.moltenElectrum);
-    tagAll(TinkerFluids.moltenInvar);
-    tagAll(TinkerFluids.moltenConstantan);
-    tagAll(TinkerFluids.moltenPewter);
-    tagAll(TinkerFluids.moltenSteel);
+    tagAll(TinkerFluids.moltenBronze, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenBrass, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenElectrum, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenInvar, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenConstantan, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenPewter, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenSteel, FluidTags.LAVA);
     // thermal compat alloys
-    tagAll(TinkerFluids.moltenEnderium);
-    tagAll(TinkerFluids.moltenLumium);
-    tagAll(TinkerFluids.moltenSignalum);
+    tagAll(TinkerFluids.moltenEnderium, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenLumium, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenSignalum, FluidTags.LAVA);
     // mekanism compat alloys
-    tagAll(TinkerFluids.moltenRefinedGlowstone);
-    tagAll(TinkerFluids.moltenRefinedObsidian);
+    tagAll(TinkerFluids.moltenRefinedGlowstone, FluidTags.LAVA);
+    tagAll(TinkerFluids.moltenRefinedObsidian, FluidTags.LAVA);
     // unplacable fluids
-    tagAll(TinkerFluids.honey);
-    tagAll(TinkerFluids.beetrootSoup);
-    tagAll(TinkerFluids.mushroomStew);
-    tagAll(TinkerFluids.rabbitStew);
+    tagAll(TinkerFluids.honey, FluidTags.WATER);
+    tagAll(TinkerFluids.beetrootSoup, FluidTags.WATER);
+    tagAll(TinkerFluids.mushroomStew, FluidTags.WATER);
+    tagAll(TinkerFluids.rabbitStew, FluidTags.WATER);
 
     /* Normal tags */
     this.tag(TinkerTags.Fluids.SLIME)
@@ -154,6 +154,8 @@ public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
         .addTag(TinkerFluids.moltenLumium.getForgeTag())
         .addTag(TinkerFluids.moltenSignalum.getForgeTag())
         .addTag(TinkerFluids.moltenRefinedObsidian.getForgeTag());
+
+    this.tag(FluidTags.WATER).addTag(TinkerTags.Fluids.SLIME);
   }
 
   /** Tags this fluid using local tags */
@@ -161,9 +163,19 @@ public class FluidTagProvider extends FabricTagProvider.FluidTagProvider {
     tag(fluid.getLocalTag()).add(fluid.getStill(), fluid.getFlowing());
   }
 
+  private void tagLocal(FluidObject<?> fluid, TagKey<Fluid> extraTag) {
+    tag(fluid.getLocalTag()).add(fluid.getStill(), fluid.getFlowing());
+    tag(extraTag).addTag(fluid.getLocalTag());
+  }
+
   /** Tags this fluid with local and forge tags */
   private void tagAll(FluidObject<?> fluid) {
     tagLocal(fluid);
+    tag(fluid.getForgeTag()).addTag(fluid.getLocalTag());
+  }
+
+  private void tagAll(FluidObject<?> fluid, TagKey<Fluid> extraTag) {
+    tagLocal(fluid, extraTag);
     tag(fluid.getForgeTag()).addTag(fluid.getLocalTag());
   }
 }

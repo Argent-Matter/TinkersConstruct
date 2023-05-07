@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/refined_glowstone"
+        "c:refined_glowstone_rods"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:rods/refined_glowstone"
+    "tag": "c:refined_glowstone_rods"
   }
 }

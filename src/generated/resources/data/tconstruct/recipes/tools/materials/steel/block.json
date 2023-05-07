@@ -12,7 +12,7 @@
     "tag": "c:steel_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/steel"
+    "tag": "c:steel_ingots"
   },
   "material": "tconstruct:steel",
   "needed": 1,

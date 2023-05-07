@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/constantan"
+        "c:constantan_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/constantan"
+    "tag": "c:constantan_ingots"
   },
   "material": "tconstruct:constantan",
   "needed": 1,

@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/electrum"
+        "c:electrum_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_electrum"
   },
   "result": {
-    "tag": "c:wires/electrum"
+    "tag": "c:electrum_wires"
   }
 }

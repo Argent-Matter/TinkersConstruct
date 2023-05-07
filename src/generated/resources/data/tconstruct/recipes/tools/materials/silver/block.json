@@ -12,7 +12,7 @@
     "tag": "c:silver_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/silver"
+    "tag": "c:silver_ingots"
   },
   "material": "tconstruct:silver",
   "needed": 1,

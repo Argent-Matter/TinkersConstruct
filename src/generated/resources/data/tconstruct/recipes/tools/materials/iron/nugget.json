@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:nuggets/iron"
+    "tag": "c:iron_nuggets"
   },
   "material": "tconstruct:iron",
   "needed": 9,

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/osmium"
+        "c:osmium_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:plates/osmium"
+    "tag": "c:osmium_plates"
   }
 }

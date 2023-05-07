@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/steel"
+        "c:steel_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_steel"
   },
   "result": {
-    "tag": "c:plates/steel"
+    "tag": "c:steel_plates"
   }
 }

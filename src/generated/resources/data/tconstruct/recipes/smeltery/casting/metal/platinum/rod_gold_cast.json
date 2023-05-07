@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/platinum"
+        "c:platinum_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_platinum"
   },
   "result": {
-    "tag": "c:rods/platinum"
+    "tag": "c:platinum_rods"
   }
 }

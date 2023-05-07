@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/refined_glowstone"
+        "c:refined_glowstone_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:plates/refined_glowstone"
+    "tag": "c:refined_glowstone_plates"
   }
 }

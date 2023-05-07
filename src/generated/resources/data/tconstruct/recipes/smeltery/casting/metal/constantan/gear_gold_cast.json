@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/constantan"
+        "c:constantan_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:gears/constantan"
+    "tag": "c:constantan_gears"
   }
 }

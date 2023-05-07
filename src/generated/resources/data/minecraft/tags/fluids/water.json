@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#tconstruct:blood",
+    "#tconstruct:venom",
+    "#tconstruct:honey",
+    "#tconstruct:beetroot_soup",
+    "#tconstruct:mushroom_stew",
+    "#tconstruct:rabbit_stew",
+    "#tconstruct:slime"
+  ]
+}

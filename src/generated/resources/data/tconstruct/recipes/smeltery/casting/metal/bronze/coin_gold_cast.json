@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/bronze"
+        "c:bronze_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:coins/bronze"
+    "tag": "c:bronze_coins"
   }
 }

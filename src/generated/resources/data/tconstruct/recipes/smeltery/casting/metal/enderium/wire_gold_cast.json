@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/enderium"
+        "c:enderium_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_enderium"
   },
   "result": {
-    "tag": "c:wires/enderium"
+    "tag": "c:enderium_wires"
   }
 }

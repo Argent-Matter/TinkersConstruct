@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/uranium"
+        "c:uranium_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_uranium"
   },
   "result": {
-    "tag": "c:nuggets/uranium"
+    "tag": "c:uranium_nuggets"
   }
 }

@@ -4,7 +4,7 @@
     "tag": "c:cobalt_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/cobalt"
+    "tag": "c:cobalt_ingots"
   },
   "material": "tconstruct:cobalt",
   "needed": 1,

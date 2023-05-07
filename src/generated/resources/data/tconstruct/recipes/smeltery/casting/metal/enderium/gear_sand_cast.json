@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/enderium"
+        "c:enderium_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_enderium"
   },
   "result": {
-    "tag": "c:gears/enderium"
+    "tag": "c:enderium_gears"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/lumium"
+        "c:lumium_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lumium"
   },
   "result": {
-    "tag": "c:rods/lumium"
+    "tag": "c:lumium_rods"
   }
 }

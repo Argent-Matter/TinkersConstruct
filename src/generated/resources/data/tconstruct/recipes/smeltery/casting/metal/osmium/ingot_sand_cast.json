@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/osmium"
+        "c:osmium_ingots"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:ingots/osmium"
+    "tag": "c:osmium_ingots"
   }
 }

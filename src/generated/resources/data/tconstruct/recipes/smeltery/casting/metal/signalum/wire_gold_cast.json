@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/signalum"
+        "c:signalum_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_signalum"
   },
   "result": {
-    "tag": "c:wires/signalum"
+    "tag": "c:signalum_wires"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/steel"
+        "c:steel_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_steel"
   },
   "result": {
-    "tag": "c:rods/steel"
+    "tag": "c:steel_rods"
   }
 }

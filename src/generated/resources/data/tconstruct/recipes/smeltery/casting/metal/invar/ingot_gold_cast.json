@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/invar"
+        "c:invar_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:ingots/invar"
+    "tag": "c:invar_ingots"
   }
 }

@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/osmium"
+        "c:osmium_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:wires/osmium"
+    "tag": "c:osmium_wires"
   }
 }

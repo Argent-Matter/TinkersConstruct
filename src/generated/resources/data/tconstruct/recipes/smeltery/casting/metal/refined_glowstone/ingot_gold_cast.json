@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/refined_glowstone"
+        "c:refined_glowstone_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:ingots/refined_glowstone"
+    "tag": "c:refined_glowstone_ingots"
   }
 }

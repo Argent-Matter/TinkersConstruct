@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/hepatizon"
+        "c:hepatizon_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_hepatizon"
   },
   "result": {
-    "tag": "c:gears/hepatizon"
+    "tag": "c:hepatizon_gears"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/brass"
+        "c:brass_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_brass"
   },
   "result": {
-    "tag": "c:coins/brass"
+    "tag": "c:brass_coins"
   }
 }

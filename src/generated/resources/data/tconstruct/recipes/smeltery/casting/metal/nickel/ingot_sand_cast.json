@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/nickel"
+        "c:nickel_ingots"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_nickel"
   },
   "result": {
-    "tag": "c:ingots/nickel"
+    "tag": "c:nickel_ingots"
   }
 }

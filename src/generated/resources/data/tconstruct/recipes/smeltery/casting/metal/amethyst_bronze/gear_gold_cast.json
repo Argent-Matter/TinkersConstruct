@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/amethyst_bronze"
+        "c:amethyst_bronze_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_amethyst_bronze"
   },
   "result": {
-    "tag": "c:gears/amethyst_bronze"
+    "tag": "c:amethyst_bronze_gears"
   }
 }

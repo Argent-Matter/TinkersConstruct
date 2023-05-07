@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/silver"
+        "c:silver_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:nuggets/silver"
+    "tag": "c:silver_nuggets"
   }
 }

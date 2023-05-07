@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/manyullyn"
+        "c:manyullyn_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_manyullyn"
   },
   "result": {
-    "tag": "c:rods/manyullyn"
+    "tag": "c:manyullyn_rods"
   }
 }

@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:tin_ores"
+      "tag": "c:tin_ores"
     },
     {
       "condition": "tconstruct:tag_not_empty",
       "registry": "minecraft:item",
-      "tag": "forge:nuggets/tin"
+      "tag": "c:tin_nuggets"
     },
     {
       "condition": "tconstruct:has_modifier",
@@ -17,7 +17,7 @@
   ],
   "entry": {
     "type": "tconstruct:tag_preference",
-    "tag": "forge:nuggets/tin"
+    "tag": "c:tin_nuggets"
   },
   "functions": [
     {
@@ -45,7 +45,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:tin_ores"
+          "tag": "c:tin_ores"
         }
       }
     }

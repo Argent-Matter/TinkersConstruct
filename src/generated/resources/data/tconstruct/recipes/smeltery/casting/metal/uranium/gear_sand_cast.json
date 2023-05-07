@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/uranium"
+        "c:uranium_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_uranium"
   },
   "result": {
-    "tag": "c:gears/uranium"
+    "tag": "c:uranium_gears"
   }
 }

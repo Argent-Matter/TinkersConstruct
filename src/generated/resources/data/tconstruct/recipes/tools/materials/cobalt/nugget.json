@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:nuggets/cobalt"
+    "tag": "c:cobalt_nuggets"
   },
   "material": "tconstruct:cobalt",
   "needed": 9,

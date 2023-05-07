@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/cobalt"
+        "c:cobalt_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_cobalt"
   },
   "result": {
-    "tag": "c:gears/cobalt"
+    "tag": "c:cobalt_gears"
   }
 }

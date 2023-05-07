@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/invar"
+        "c:invar_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:coins/invar"
+    "tag": "c:invar_coins"
   }
 }

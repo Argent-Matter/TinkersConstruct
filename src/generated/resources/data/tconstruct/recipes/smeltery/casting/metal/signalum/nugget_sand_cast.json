@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/signalum"
+        "c:signalum_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_signalum"
   },
   "result": {
-    "tag": "c:nuggets/signalum"
+    "tag": "c:signalum_nuggets"
   }
 }

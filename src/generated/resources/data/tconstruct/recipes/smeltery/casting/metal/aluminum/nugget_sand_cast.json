@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/aluminum"
+        "c:aluminum_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_aluminum"
   },
   "result": {
-    "tag": "c:nuggets/aluminum"
+    "tag": "c:aluminum_nuggets"
   }
 }

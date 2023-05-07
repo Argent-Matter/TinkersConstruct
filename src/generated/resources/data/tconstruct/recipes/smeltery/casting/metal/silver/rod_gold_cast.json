@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/silver"
+        "c:silver_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:rods/silver"
+    "tag": "c:silver_rods"
   }
 }

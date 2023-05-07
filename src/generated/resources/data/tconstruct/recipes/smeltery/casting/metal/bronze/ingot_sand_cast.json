@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/bronze"
+        "c:bronze_ingots"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:ingots/bronze"
+    "tag": "c:bronze_ingots"
   }
 }

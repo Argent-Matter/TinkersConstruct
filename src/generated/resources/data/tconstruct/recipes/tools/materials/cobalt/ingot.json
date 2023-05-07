@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:ingots/cobalt"
+    "tag": "c:cobalt_ingots"
   },
   "material": "tconstruct:cobalt",
   "needed": 1,

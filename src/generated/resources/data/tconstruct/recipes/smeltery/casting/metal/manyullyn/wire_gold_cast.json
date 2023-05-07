@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/manyullyn"
+        "c:manyullyn_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_manyullyn"
   },
   "result": {
-    "tag": "c:wires/manyullyn"
+    "tag": "c:manyullyn_wires"
   }
 }

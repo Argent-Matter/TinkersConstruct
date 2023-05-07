@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/hepatizon"
+        "c:hepatizon_rods"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_hepatizon"
   },
   "result": {
-    "tag": "c:rods/hepatizon"
+    "tag": "c:hepatizon_rods"
   }
 }

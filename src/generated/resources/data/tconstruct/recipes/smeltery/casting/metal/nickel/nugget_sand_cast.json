@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/nickel"
+        "c:nickel_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_nickel"
   },
   "result": {
-    "tag": "c:nuggets/nickel"
+    "tag": "c:nickel_nuggets"
   }
 }

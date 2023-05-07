@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/enderium"
+        "c:enderium_ingots"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_enderium"
   },
   "result": {
-    "tag": "c:ingots/enderium"
+    "tag": "c:enderium_ingots"
   }
 }

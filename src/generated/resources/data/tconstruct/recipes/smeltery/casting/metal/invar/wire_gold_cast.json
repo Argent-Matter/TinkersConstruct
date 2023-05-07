@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/invar"
+        "c:invar_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:wires/invar"
+    "tag": "c:invar_wires"
   }
 }

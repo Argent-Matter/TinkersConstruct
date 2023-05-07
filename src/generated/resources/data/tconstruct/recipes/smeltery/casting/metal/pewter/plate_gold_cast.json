@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/pewter"
+        "c:pewter_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_pewter"
   },
   "result": {
-    "tag": "c:plates/pewter"
+    "tag": "c:pewter_plates"
   }
 }

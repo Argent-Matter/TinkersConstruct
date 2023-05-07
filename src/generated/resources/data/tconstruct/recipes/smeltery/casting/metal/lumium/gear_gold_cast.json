@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/lumium"
+        "c:lumium_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lumium"
   },
   "result": {
-    "tag": "c:gears/lumium"
+    "tag": "c:lumium_gears"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/steel"
+        "c:steel_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_steel"
   },
   "result": {
-    "tag": "c:nuggets/steel"
+    "tag": "c:steel_nuggets"
   }
 }

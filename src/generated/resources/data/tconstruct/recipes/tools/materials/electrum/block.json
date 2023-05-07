@@ -12,7 +12,7 @@
     "tag": "c:electrum_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/electrum"
+    "tag": "c:electrum_ingots"
   },
   "material": "tconstruct:electrum",
   "needed": 1,

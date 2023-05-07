@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/refined_obsidian"
+        "c:refined_obsidian_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_refined_obsidian"
   },
   "result": {
-    "tag": "c:wires/refined_obsidian"
+    "tag": "c:refined_obsidian_wires"
   }
 }

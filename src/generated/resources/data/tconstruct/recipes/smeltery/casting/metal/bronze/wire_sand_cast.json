@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/bronze"
+        "c:bronze_wires"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:wires/bronze"
+    "tag": "c:bronze_wires"
   }
 }

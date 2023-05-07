@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/refined_glowstone"
+        "c:refined_glowstone_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_refined_glowstone"
   },
   "result": {
-    "tag": "c:gears/refined_glowstone"
+    "tag": "c:refined_glowstone_gears"
   }
 }

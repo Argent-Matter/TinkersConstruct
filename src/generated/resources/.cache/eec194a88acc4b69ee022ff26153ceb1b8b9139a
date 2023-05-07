@@ -1,4 +1,4 @@
-// 1.19.2	2023-05-06T14:52:03.7547344	Tags for minecraft:fluid
+// 1.19.2	2023-05-07T12:23:21.3140803	Tags for minecraft:fluid
 579704151f92dea80df404cbc5eb9827d81a4461 data\c\tags\fluids\molten_steel.json
 e77d9e70acb9b72d42a075d356449e1d898158f2 data\tconstruct\tags\fluids\molten_soulsteel.json
 1b51c4f23d7f2c50d4198a9b8b19c9a70ca3ee45 data\tconstruct\tags\fluids\rabbit_stew.json
@@ -9,6 +9,7 @@ e7c27b0ce1a92927b4175b76934f8a7d99b88652 data\tconstruct\tags\fluids\molten_knig
 992dc4fa3bdf9f9eb6ea8d2c4a4e18ffe592072b data\tconstruct\tags\fluids\tooltips\gem_small.json
 66b30d696b66f05a705edf91cda468f1a6ee94fb data\tconstruct\tags\fluids\tooltips\gem_large.json
 24f722a462837435c8f9dfff5d77716b0dac3950 data\tconstruct\tags\fluids\molten_cobalt.json
+b12eba4c35f27e27e1501df76b3ca6a229c453b4 data\minecraft\tags\fluids\lava.json
 a18e5c5acd8fba0973ad6cd7dac0a70dea1cf3b4 data\tconstruct\tags\fluids\molten_amethyst_bronze.json
 3d2a598547278c1574acfb3586384e448d0a4b18 data\c\tags\fluids\molten_platinum.json
 26f9f50669c94f543b3589c66d135030fa725456 data\c\tags\fluids\molten_pewter.json
@@ -109,6 +110,7 @@ b4282c8c9b96d8d240900e47c3e4e9b4f089aab5 data\c\tags\fluids\molten_refined_obsid
 991c0d180a138b0e46dd8ee916a9bb9b72c2e554 data\tconstruct\tags\fluids\molten_osmium.json
 7c1221af0a9abad9d50d8d716163057d9863ccbf data\tconstruct\tags\fluids\molten_uranium.json
 cad058331380aa1593f7b4782ef85fd23e2051c5 data\c\tags\fluids\ender.json
+e99c248ff90a9adbae6cd018908d152899f6a68a data\minecraft\tags\fluids\water.json
 6d53c3d319d868a7193569667c435c9f65535eff data\c\tags\fluids\molten_tungsten.json
 60835f7b05eff76b8c625ab3416da7233599aafb data\c\tags\fluids\molten_aluminum.json
 5f605ed9438964a1c6df71f16ea686c130c26d0b data\c\tags\fluids\molten_nickel.json

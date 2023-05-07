@@ -4,7 +4,7 @@
     "tag": "c:gold_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/gold"
+    "tag": "c:gold_ingots"
   },
   "material": "tconstruct:gold",
   "needed": 1,

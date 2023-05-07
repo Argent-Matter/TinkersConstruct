@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/silver"
+        "c:silver_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/silver"
+    "tag": "c:silver_ingots"
   },
   "material": "tconstruct:silver",
   "needed": 1,

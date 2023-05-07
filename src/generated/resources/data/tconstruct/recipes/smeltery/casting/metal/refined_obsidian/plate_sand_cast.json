@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/refined_obsidian"
+        "c:refined_obsidian_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_refined_obsidian"
   },
   "result": {
-    "tag": "c:plates/refined_obsidian"
+    "tag": "c:refined_obsidian_plates"
   }
 }

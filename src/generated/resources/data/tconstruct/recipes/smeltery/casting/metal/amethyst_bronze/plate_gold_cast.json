@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/amethyst_bronze"
+        "c:amethyst_bronze_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_amethyst_bronze"
   },
   "result": {
-    "tag": "c:plates/amethyst_bronze"
+    "tag": "c:amethyst_bronze_plates"
   }
 }

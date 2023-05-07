@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/signalum"
+        "c:signalum_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_signalum"
   },
   "result": {
-    "tag": "c:ingots/signalum"
+    "tag": "c:signalum_ingots"
   }
 }

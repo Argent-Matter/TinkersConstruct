@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/uranium"
+        "c:uranium_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_uranium"
   },
   "result": {
-    "tag": "c:rods/uranium"
+    "tag": "c:uranium_rods"
   }
 }

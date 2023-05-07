@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/electrum"
+        "c:electrum_gears"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_electrum"
   },
   "result": {
-    "tag": "c:gears/electrum"
+    "tag": "c:electrum_gears"
   }
 }

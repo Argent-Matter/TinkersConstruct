@@ -12,7 +12,7 @@
     "tag": "c:osmium_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/osmium"
+    "tag": "c:osmium_ingots"
   },
   "material": "tconstruct:osmium",
   "needed": 1,

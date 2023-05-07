@@ -3,7 +3,7 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:gold_ores"
+      "tag": "c:gold_ores"
     },
     {
       "condition": "tconstruct:has_modifier",
@@ -12,7 +12,7 @@
   ],
   "entry": {
     "type": "tconstruct:tag_preference",
-    "tag": "forge:nuggets/gold"
+    "tag": "c:gold_nuggets"
   },
   "functions": [
     {
@@ -40,7 +40,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:gold_ores"
+          "tag": "c:gold_ores"
         }
       }
     }

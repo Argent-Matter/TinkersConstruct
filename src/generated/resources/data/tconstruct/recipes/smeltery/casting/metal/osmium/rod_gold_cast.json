@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/osmium"
+        "c:osmium_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:rods/osmium"
+    "tag": "c:osmium_rods"
   }
 }

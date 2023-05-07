@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:gears/aluminum"
+        "c:aluminum_gears"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_aluminum"
   },
   "result": {
-    "tag": "c:gears/aluminum"
+    "tag": "c:aluminum_gears"
   }
 }

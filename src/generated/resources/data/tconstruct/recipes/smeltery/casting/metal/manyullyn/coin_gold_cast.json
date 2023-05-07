@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/manyullyn"
+        "c:manyullyn_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_manyullyn"
   },
   "result": {
-    "tag": "c:coins/manyullyn"
+    "tag": "c:manyullyn_coins"
   }
 }

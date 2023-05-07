@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/uranium"
+        "c:uranium_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_uranium"
   },
   "result": {
-    "tag": "c:coins/uranium"
+    "tag": "c:uranium_coins"
   }
 }

@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/brass"
+        "c:brass_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_brass"
   },
   "result": {
-    "tag": "c:plates/brass"
+    "tag": "c:brass_plates"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/tungsten"
+        "c:tungsten_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_tungsten"
   },
   "result": {
-    "tag": "c:wires/tungsten"
+    "tag": "c:tungsten_wires"
   }
 }

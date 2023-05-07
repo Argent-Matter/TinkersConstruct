@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/constantan"
+        "c:constantan_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:plates/constantan"
+    "tag": "c:constantan_plates"
   }
 }

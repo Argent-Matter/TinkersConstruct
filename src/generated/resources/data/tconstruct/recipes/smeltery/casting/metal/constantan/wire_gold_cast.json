@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/constantan"
+        "c:constantan_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:wires/constantan"
+    "tag": "c:constantan_wires"
   }
 }

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/nickel"
+        "c:nickel_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_nickel"
   },
   "result": {
-    "tag": "c:wires/nickel"
+    "tag": "c:nickel_wires"
   }
 }

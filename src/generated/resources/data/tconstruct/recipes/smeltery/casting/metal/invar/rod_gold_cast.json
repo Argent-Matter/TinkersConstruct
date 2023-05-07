@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/invar"
+        "c:invar_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:rods/invar"
+    "tag": "c:invar_rods"
   }
 }

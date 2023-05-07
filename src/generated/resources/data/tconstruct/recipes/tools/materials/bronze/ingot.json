@@ -4,12 +4,12 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/bronze"
+        "c:bronze_ingots"
       ]
     }
   ],
   "ingredient": {
-    "tag": "c:ingots/bronze"
+    "tag": "c:bronze_ingots"
   },
   "material": "tconstruct:bronze",
   "needed": 1,

@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:wires/platinum"
+        "c:platinum_wires"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_platinum"
   },
   "result": {
-    "tag": "c:wires/platinum"
+    "tag": "c:platinum_wires"
   }
 }

@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:nuggets/amethyst_bronze"
+    "tag": "c:amethyst_bronze_nuggets"
   },
   "material": "tconstruct:amethyst_bronze",
   "needed": 9,

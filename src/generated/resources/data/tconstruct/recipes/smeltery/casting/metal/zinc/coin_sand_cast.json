@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/zinc"
+        "c:zinc_coins"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_zinc"
   },
   "result": {
-    "tag": "c:coins/zinc"
+    "tag": "c:zinc_coins"
   }
 }

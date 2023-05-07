@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "c:ingots/rose_gold"
+    "tag": "c:rose_gold_ingots"
   },
   "material": "tconstruct:rose_gold",
   "needed": 1,

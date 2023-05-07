@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/lumium"
+        "c:lumium_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_lumium"
   },
   "result": {
-    "tag": "c:plates/lumium"
+    "tag": "c:lumium_plates"
   }
 }

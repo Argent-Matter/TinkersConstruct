@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/platinum"
+        "c:platinum_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_platinum"
   },
   "result": {
-    "tag": "c:nuggets/platinum"
+    "tag": "c:platinum_nuggets"
   }
 }

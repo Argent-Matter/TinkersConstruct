@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/lead"
+        "c:lead_rods"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_lead"
   },
   "result": {
-    "tag": "c:rods/lead"
+    "tag": "c:lead_rods"
   }
 }

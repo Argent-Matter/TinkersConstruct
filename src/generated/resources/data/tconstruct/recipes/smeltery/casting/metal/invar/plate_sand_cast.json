@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/invar"
+        "c:invar_plates"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_invar"
   },
   "result": {
-    "tag": "c:plates/invar"
+    "tag": "c:invar_plates"
   }
 }

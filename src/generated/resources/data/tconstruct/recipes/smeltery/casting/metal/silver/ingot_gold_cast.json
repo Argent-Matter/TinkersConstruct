@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/silver"
+        "c:silver_ingots"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_silver"
   },
   "result": {
-    "tag": "c:ingots/silver"
+    "tag": "c:silver_ingots"
   }
 }

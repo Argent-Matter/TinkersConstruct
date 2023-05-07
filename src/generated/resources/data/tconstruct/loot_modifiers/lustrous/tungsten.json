@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "mantle:block_tag",
-      "tag": "forge:tungsten_ores"
+      "tag": "c:tungsten_ores"
     },
     {
       "condition": "tconstruct:tag_not_empty",
       "registry": "minecraft:item",
-      "tag": "forge:nuggets/tungsten"
+      "tag": "c:tungsten_nuggets"
     },
     {
       "condition": "tconstruct:has_modifier",
@@ -17,7 +17,7 @@
   ],
   "entry": {
     "type": "tconstruct:tag_preference",
-    "tag": "forge:nuggets/tungsten"
+    "tag": "c:tungsten_nuggets"
   },
   "functions": [
     {
@@ -45,7 +45,7 @@
       "condition": {
         "type": "mantle:contains_item",
         "ingredient": {
-          "tag": "forge:tungsten_ores"
+          "tag": "c:tungsten_ores"
         }
       }
     }

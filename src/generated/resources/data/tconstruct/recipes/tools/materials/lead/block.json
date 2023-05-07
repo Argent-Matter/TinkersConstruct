@@ -12,7 +12,7 @@
     "tag": "c:lead_blocks"
   },
   "leftover": {
-    "tag": "c:ingots/lead"
+    "tag": "c:lead_ingots"
   },
   "material": "tconstruct:lead",
   "needed": 1,

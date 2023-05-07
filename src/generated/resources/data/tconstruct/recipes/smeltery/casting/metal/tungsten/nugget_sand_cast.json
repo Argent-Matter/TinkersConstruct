@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/tungsten"
+        "c:tungsten_nuggets"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_tungsten"
   },
   "result": {
-    "tag": "c:nuggets/tungsten"
+    "tag": "c:tungsten_nuggets"
   }
 }

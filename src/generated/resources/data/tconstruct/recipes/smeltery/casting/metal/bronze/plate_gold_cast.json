@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:plates/bronze"
+        "c:bronze_plates"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_bronze"
   },
   "result": {
-    "tag": "c:plates/bronze"
+    "tag": "c:bronze_plates"
   }
 }

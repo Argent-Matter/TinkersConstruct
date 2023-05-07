@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/aluminum"
+        "c:aluminum_rods"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_aluminum"
   },
   "result": {
-    "tag": "c:rods/aluminum"
+    "tag": "c:aluminum_rods"
   }
 }

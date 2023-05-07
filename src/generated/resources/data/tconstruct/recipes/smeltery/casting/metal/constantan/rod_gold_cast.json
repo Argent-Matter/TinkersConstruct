@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:rods/constantan"
+        "c:constantan_rods"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:rods/constantan"
+    "tag": "c:constantan_rods"
   }
 }

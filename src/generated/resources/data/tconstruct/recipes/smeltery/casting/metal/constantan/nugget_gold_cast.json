@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:nuggets/constantan"
+        "c:constantan_nuggets"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_constantan"
   },
   "result": {
-    "tag": "c:nuggets/constantan"
+    "tag": "c:constantan_nuggets"
   }
 }

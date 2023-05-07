@@ -8,7 +8,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:coins/osmium"
+        "c:osmium_coins"
       ]
     }
   ],
@@ -17,6 +17,6 @@
     "tag": "c:molten_osmium"
   },
   "result": {
-    "tag": "c:coins/osmium"
+    "tag": "c:osmium_coins"
   }
 }

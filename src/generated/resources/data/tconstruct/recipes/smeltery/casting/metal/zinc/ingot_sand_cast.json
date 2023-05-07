@@ -9,7 +9,7 @@
     {
       "condition": "fabric:item_tags_populated",
       "values": [
-        "c:ingots/zinc"
+        "c:zinc_ingots"
       ]
     }
   ],
@@ -18,6 +18,6 @@
     "tag": "c:molten_zinc"
   },
   "result": {
-    "tag": "c:ingots/zinc"
+    "tag": "c:zinc_ingots"
   }
 }
