@@ -125,6 +125,8 @@ dependencies {
 
     modRuntimeOnly("mcjty.theoneprobe:theoneprobe-fabric:${minecraft_base_version}-${probe_version}")
     modRuntimeOnly("maven.modrinth:lazydfu:0.1.2")
+    modRuntimeOnly("com.simibubi.create:create-fabric-${project.minecraft_version}:${project.create_version}+${project.minecraft_version}")
+
     // modRuntimeOnly("com.github.Andrew6rant:InventoryTabs:inventorytabs-${inventorytabs_version}")
 
     // Adds a dependency on the base cardinal components module (required by every other module)
@@ -148,13 +150,13 @@ dependencies {
     modImplementation(include("io.github.fabricators_of_create.Porting-Lib:Porting-Lib:${project.port_lib_version}+${project.minecraft_version}"))
     implementation(include('com.electronwill.night-config:core:3.6.0'))
     implementation(include('com.electronwill.night-config:toml:3.6.0'))
-    modImplementation(include("curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"))
-    modImplementation("com.github.AlphaMode:fakeconfig:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation("com.github.AlphaMode:fakeconfigtoml:fb8d12b") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation(include("slimeknights.mantle:Mantle:1.19.2-1.9.DEV.b9ad9eaa"))
+    modApi(include("curse.maven:forge-config-api-port-fabric-547434:${forge_config_version}"))
+    modApi("com.github.AlphaMode:fakeconfig:master-SNAPSHOT") { exclude(group: "net.fabricmc.fabric-api") }
+    modApi("com.github.AlphaMode:fakeconfigtoml:fb8d12b") { exclude(group: "net.fabricmc.fabric-api") }
+    modImplementation(include("slimeknights.mantle:Mantle:1.19.2-1.9.DEV.3ebf13eb"))
     include("io.github.tropheusj:serialization-hooks:0.3.26")
-    modImplementation(include("io.github.tropheusj:milk-lib:1.0.51"))
-    modImplementation(include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"))
+    modApi(include("io.github.tropheusj:milk-lib:1.0.51"))
+    modApi(include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}"))
 
     api(include("com.github.LlamaLad7:MixinExtras:0.0.6"))
     annotationProcessor(include("com.github.LlamaLad7:MixinExtras:0.0.6"))

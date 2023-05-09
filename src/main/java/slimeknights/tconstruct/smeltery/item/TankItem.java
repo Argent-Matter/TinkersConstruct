@@ -1,7 +1,9 @@
 package slimeknights.tconstruct.smeltery.item;
 
 import io.github.fabricators_of_create.porting_lib.item.CustomMaxCountItem;
+import io.github.fabricators_of_create.porting_lib.transfer.fluid.item.FluidHandlerItemStack;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
+import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -10,14 +12,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import slimeknights.mantle.client.SafeClientAccess;
+import slimeknights.mantle.client.TooltipKey;
+import slimeknights.mantle.fluid.tooltip.FluidTooltipHandler;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.transfer.fluid.FluidTank;
 import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.library.fluid.FluidTooltipHandler;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.utils.NBTTags;
-import slimeknights.tconstruct.library.utils.SafeClientAccess;
-import slimeknights.tconstruct.library.utils.TooltipKey;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.smeltery.block.component.SearedTankBlock;
 import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
@@ -32,9 +34,11 @@ public class TankItem extends BlockTooltipItem implements CustomMaxCountItem {
   private static final String KEY_MIXED = TConstruct.makeTranslationKey("block", "tank.mixed");
 
   private final boolean limitStackSize;
+  @SuppressWarnings("UnstableApiUsage")
   public TankItem(Block blockIn, Properties builder, boolean limitStackSize) {
     super(blockIn, builder);
     this.limitStackSize = limitStackSize;
+    FluidStorage.combinedItemApiProvider(this).register(ctx -> new FluidHandlerItemStack(ctx, TankBlockEntity.getCapacity(ctx.getItemVariant().getItem())));
   }
 
   /** Checks if the tank item is filled */
@@ -94,12 +98,8 @@ public class TankItem extends BlockTooltipItem implements CustomMaxCountItem {
 //    return new TankItemFluidHandler(stack);
 //  }
 
-  @SuppressWarnings("UnstableApiUsage")
   public static void initCapabilities() {
     for (SearedTankBlock block : TinkerSmeltery.searedTank.values()) {
-      FluidStorage.combinedItemApiProvider(block.asItem()).register(ctx -> {
-        return null; // TODO transfer
-      });
     }
   }
 
